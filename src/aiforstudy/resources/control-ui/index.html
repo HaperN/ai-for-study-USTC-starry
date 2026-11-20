@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>starry 本地工作台</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+  <p class="eyebrow">starry · 本地工作台</p>
+  <h1>从教材到可阅读的章节</h1>
+  <p class="hint">选择范围后一次提交。刷新或关闭页面不会取消任务。</p>
+  <p class="video-entry"><a href="/video">视频解析 →</a><span>上传教学视频，生成带原片引用的讲义、转写与关键帧。</span></p>
+</header>
+<main>
+<section id="books">
+  <h2>1. 教材</h2>
+  <div id="book-list" class="cards" aria-label="教材列表"></div>
+</section>
+<section id="chapters">
+  <h2>2. 选择范围</h2>
+  <p class="hint" id="prepare-hint"></p>
+  <label class="row">范围 <select id="scope-mode"><option value="chapters">单章 / 多章</option><option value="units">教学单元</option><option value="all">整本教材</option></select></label>
+  <div id="chapter-list" class="chips" aria-label="章节多选"></div>
+  <div id="unit-list" class="chips" aria-label="教学单元多选" hidden></div>
+  <label class="row" id="chapter-input-row"><span>或输入章号</span><input id="chapters-input" placeholder="CH03 或 CH02,CH04 或 CH02-CH04"></label>
+  <p id="selection-summary" class="hint"></p>
+</section>
+<section id="settings">
+  <h2>3. 运行设置</h2>
+  <div class="grid">
+    <label>目标 <select id="goal"><option value="deliver">生成章节 HTML</option><option value="prepare">仅准备教材</option></select></label>
+    <label>档位 <select id="profile"><option value="release">正式生成</option><option value="smoke">离线流程演练</option><option value="replay">缓存回放</option></select></label>
+    <label>准备策略 <select id="prepare"><option value="ensure">补齐必要准备</option><option value="reuse">复用现有准备</option><option value="refresh">刷新准备</option></select></label>
+    <label>并行度 <input type="number" id="parallel" value="2" min="1" max="8"></label>
+  </div>
+  <p class="hint">每个对象最多两轮内容返修；单次超时、取消和恢复均保留已派发次数。</p>
+  <p class="hint" id="capabilities"></p>
+</section>
+<section id="plan">
+  <h2>4. 计划与提交</h2>
+  <div class="row"><button id="plan-btn">查看计划</button><button id="run-btn" class="primary">提交运行</button></div>
+  <div id="plan-summary" class="summary" aria-live="polite"></div>
+  <details><summary>计划明细</summary><pre id="plan-out"></pre></details>
+</section>
+<section id="history">
+  <h2>运行历史</h2>
+  <p class="hint">历史记录保存在本机，选择后可继续观察、恢复或阅读产物。</p>
+  <div id="history-list" class="history-list"></div>
+</section>
+<section id="progress">
+  <h2>运行进度</h2>
+  <p id="run-summary" aria-live="polite">选择教材后查看历史，或提交新运行。</p>
+  <div class="grid progress-grid"><div><h3>全书准备</h3><div id="preparation-progress">尚未开始</div></div><div><h3>所选章节</h3><div id="selected-progress">尚未开始</div></div></div>
+  <div class="row"><button id="cancel-btn" disabled>取消当前运行</button><button id="resume-btn" disabled>继续本次运行</button></div>
+  <p class="hint" id="resume-hint" aria-live="polite"></p>
+  <details><summary>阶段事件（原始）</summary><ul id="events"></ul></details>
+</section>
+<section id="feedback">
+  <h2>审核与媒体反馈</h2>
+  <p class="hint">每张失败卡回答八件事：卡点、方法、标准、责任方、当前版本、前次失败、已耗轮次、停下原因。缺哪一格会在卡上标出来。</p>
+  <div id="failure-cards" class="cards failure-cards" aria-live="polite"></div>
+  <h3>当前内容版本与媒体需求</h3>
+  <div id="media-requirements" aria-live="polite"></div>
+  <h3>媒体与内容审核时间线</h3>
+  <p class="hint">按阶段查看：内容生成、内容审核、媒体需求、媒体生成、媒体验收、教学交互、组合与浏览器验收。</p>
+  <div id="media-timeline" aria-live="polite"></div>
+</section>
+<section id="result">
+  <h2>结果与阅读</h2>
+  <p id="quality-summary" class="summary" aria-live="polite">尚无质量结论。</p>
+  <div id="preview-links" class="row"></div>
+  <iframe id="preview-frame" title="章节 HTML 预览" sandbox="allow-scripts" referrerpolicy="no-referrer" hidden></iframe>
+  <details><summary>结果明细与失败原因</summary><pre id="result-out"></pre></details>
+</section>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>

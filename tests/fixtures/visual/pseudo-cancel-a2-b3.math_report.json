@@ -1,0 +1,71 @@
+{
+  "checks": [
+    {
+      "actual": 4.0,
+      "assertion_id": "uxx",
+      "check_id": "math-uxx",
+      "evidence_hash": "sha256:4b9ddb95755d3dbc282f631cc12b13e2b5b4dbf69e8615991aaa73e6f0033429",
+      "expected": 2.0,
+      "kind": "partial_derivative",
+      "method": "poly_diff:exact + fd5:sampled",
+      "reason": "x 的 2 阶偏导：独立多项式算出 4，五点差分 4，断言宣称 2（容差 1e-06）",
+      "status": "fail",
+      "tolerance": 1e-06
+    },
+    {
+      "actual": -6.0,
+      "assertion_id": "uyy",
+      "check_id": "math-uyy",
+      "evidence_hash": "sha256:406833559c735164c0e4a95643b794462f7e5642e5a1001faaba1db4fbca145f",
+      "expected": -2.0,
+      "kind": "partial_derivative",
+      "method": "poly_diff:exact + fd5:sampled",
+      "reason": "y 的 2 阶偏导：独立多项式算出 -6，五点差分 -6，断言宣称 -2（容差 1e-06）",
+      "status": "fail",
+      "tolerance": 1e-06
+    },
+    {
+      "actual": -2.0,
+      "assertion_id": "lap",
+      "check_id": "math-lap",
+      "evidence_hash": "sha256:7372e4da7481e9937e06a8a3166e9a7c1c92d214c84a0317336263fd43477237",
+      "expected": 0.0,
+      "kind": "derivative_sum",
+      "method": "poly_diff:exact + fd5:sampled",
+      "reason": "u_xx=4、u_yy=-6，和=-2 ≠ 宣称 0（a≠b 时不得宣称二阶变化抵消）",
+      "status": "fail",
+      "tolerance": 1e-06
+    },
+    {
+      "actual": {
+        "x^2": 2.0,
+        "y^2": -3.0
+      },
+      "assertion_id": "poly",
+      "check_id": "math-poly",
+      "evidence_hash": "sha256:245752fde33caaa805d58011ceb2d06363d4bd94aba3d49a8881aeecffbe90e7",
+      "expected": {
+        "x^2": 2.0,
+        "y^2": -3.0
+      },
+      "kind": "polynomial",
+      "method": "poly_expand:independent_coefficients",
+      "reason": "",
+      "status": "pass",
+      "tolerance": 1e-06
+    }
+  ],
+  "evidence_hashes": [
+    "sha256:4b9ddb95755d3dbc282f631cc12b13e2b5b4dbf69e8615991aaa73e6f0033429",
+    "sha256:406833559c735164c0e4a95643b794462f7e5642e5a1001faaba1db4fbca145f",
+    "sha256:7372e4da7481e9937e06a8a3166e9a7c1c92d214c84a0317336263fd43477237",
+    "sha256:245752fde33caaa805d58011ceb2d06363d4bd94aba3d49a8881aeecffbe90e7"
+  ],
+  "reasons": [
+    "x 的 2 阶偏导：独立多项式算出 4，五点差分 4，断言宣称 2（容差 1e-06）",
+    "y 的 2 阶偏导：独立多项式算出 -6，五点差分 -6，断言宣称 -2（容差 1e-06）",
+    "u_xx=4、u_yy=-6，和=-2 ≠ 宣称 0（a≠b 时不得宣称二阶变化抵消）"
+  ],
+  "schema_version": "1.0",
+  "status": "fail"
+}

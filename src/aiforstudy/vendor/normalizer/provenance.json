@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-06",
+  "origin": "Existing project runtime: undergraduate-fitted-exam-system 0.15.0 / courseforge 2.7.0",
+  "reason": "Freeze the actual deterministic normalizer; avoid importing unrelated upstream CLI modules or requiring the historical environment.",
+  "transformations": [
+    "Relative imports for two helpers",
+    "Keep only io_path and Markdown/HTML image-reference helpers; exclude unrelated publication features",
+    "2026-10-11 D10: remove unused source replay/load/coverage and remote image cache APIs; current normalization entrypoint retained"
+  ],
+  "files": [
+    {
+      "target": "source_normalization.py",
+      "source_module": "stem_runner/source_normalization.py",
+      "source_sha256": "47e0eb5dd50865d0a1bd16df9b6cf6f7afaa39e8ddb906414ae572c34582cf3b",
+      "vendored_sha256": "5e9e437608c71434f182d375bb15dae361f000304b63f23865fb50abe445e774"
+    },
+    {
+      "target": "paths.py",
+      "source_module": "courseforge_paths.py",
+      "source_sha256": "0cd6e5f8b85516d89801ce128783ca03dde866d648ca5f477cb5287ea3f29d2d",
+      "vendored_sha256": "e7733481743ad895ea037161ce6bfca2ec071742b2700e334bd8d8031331e057"
+    },
+    {
+      "target": "publication.py",
+      "source_module": "courseforge_publication.py",
+      "source_sha256": "b1c4a49ea39fccce71ba5d1f72d3784e44c632054dd8f3903e2d47d822164f49",
+      "vendored_sha256": "2ac7fc1a87ee5b42b433de59214e5c7a5fa7013c4afa23fb740aadf3deb365b4"
+    }
+  ],
+  "distribution_notice": "See THIRD_PARTY_NOTICES/Legacy-Python-Sources.md in the source distribution for the publisher authorization statement and historical license metadata limitations."
+}

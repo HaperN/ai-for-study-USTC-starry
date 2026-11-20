@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Please cite both equal-contribution authors: 黄浡桉 (50%) and 刘睿湘 (50%)."
+type: software
+title: "starry 星空: AI-assisted course learning"
+authors:
+  - family-names: "黄"
+    given-names: "浡桉"
+  - family-names: "刘"
+    given-names: "睿湘"
+version: "0.1.0-preview.1"
+date-released: "2026-11-20"
+repository-code: "https://github.com/HaperN/ai-for-study-USTC-starry"
+url: "https://github.com/HaperN/ai-for-study-USTC-starry"
+license-url: "https://github.com/HaperN/ai-for-study-USTC-starry/blob/main/LICENSE"
+abstract: "Source-linked textbook and lecture learning with interactive figures, narrated animations, practice and annotations. Current course: Complex Analysis A."
+keywords:
+  - education
+  - complex analysis
+  - interactive learning
+  - lecture analysis

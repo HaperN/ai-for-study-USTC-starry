@@ -1,0 +1,417 @@
+{
+  "_meta": {
+    "file_type": "retire_manifest",
+    "schema_version": "1.0",
+    "generator": "aiforstudy.tools.migrations.retire_status",
+    "created_at": "2026-10-05",
+    "source": "文档/01-方案与规格/代码结构清理加固与统一运行方案-20261005.md §13 文件级清理与迁移清单",
+    "field_notes": {
+      "old_path": "AIforStudy 为根的旧位置；目录表示整块",
+      "disposition": "keep=本轮保留（只固定来源）；migrate=能力迁走；delete=替代验收后删除",
+      "replacement": "替代能力在目标结构里的位置（方案 §3 目录）",
+      "gate": "删除/退役门槛：方案 §13 里写的替代与删除门槛，逐字保留",
+      "status": "todo=未动；in_progress=迁移中；blocked=等前置；done=已完成退役",
+      "为什么要有这份清单": "方案 §13 要求每个退役项记录旧路径/替代路径/原消费者/迁移结果/测试/文档更新/是否影响产物；M9 要求活动引用为 0。这份表就是那份记录的机器可读版本"
+    }
+  },
+  "policy": {
+    "delete_rule": "删除发生在替代能力、消费者和测试迁移完成之后；历史/付费数据不随代码删除",
+    "transition_rule": "保留新旧入口同时运行仅限迁移阶段；最终验收要求活动生产入口只剩统一引擎",
+    "final_rule": "M10 通过后完成删除，并复跑 A01/A04/A32"
+  },
+  "items": [
+    {
+      "id": "T-01",
+      "old_path": "tools/run_book.py",
+      "extra_paths": [
+        "tools/run_chapter.py",
+        "tools/ingest_book.py"
+      ],
+      "disposition": "migrate",
+      "replacement": "pipeline/{planner,graph,runner,state} + providers/mineru + cli",
+      "gate": "CLI/UI 九组合全链与恢复验收通过；过渡壳在最终切换阶段删除",
+      "status": "todo",
+      "consumers": "开发者手工调用；docs/README；tests/test_run_book.py",
+      "affects_products": false,
+      "note": "parse_pipeline 的删除单列 T-29；本条其他历史入口不据此声称完成。"
+    },
+    {
+      "id": "T-02",
+      "old_path": "tools/audit_loop.py",
+      "disposition": "migrate",
+      "replacement": "blocks/audit 内的可调用服务（发现→工单→返修→关闭核验→独立验收）",
+      "gate": "保留工单、返修、关闭和独立验收行为，状态改为结构化；入口不再重复解析参数",
+      "status": "todo",
+      "consumers": "tools/run_book.py；tests/test_feedback.py、tests/test_rubric.py",
+      "affects_products": false
+    },
+    {
+      "id": "T-03",
+      "old_path": "tools/doctor.py",
+      "extra_paths": [
+        "tools/reconcile.py",
+        "tools/quality_report.py",
+        "tools/parse_report.py",
+        "tools/check_lesson_readiness.py",
+        "tools/style_lint.py"
+      ],
+      "disposition": "migrate",
+      "replacement": "checks/（公共服务）+ cli 的 check/repair 子命令",
+      "gate": "无默认书、无只读副作用；每项旧判据有测试对应",
+      "status": "todo",
+      "consumers": "docs/README；tests/test_doctor.py、test_book_views.py、test_quality_report.py、test_style_lint.py、test_reconcile.py",
+      "affects_products": false
+    },
+    {
+      "id": "T-04",
+      "old_path": "tools/reconcile_tickets.py",
+      "disposition": "migrate",
+      "replacement": "cli 的 repair tickets 子命令",
+      "gate": "引文与规则证据完整，不能把失去引文等同于所有语义问题已修好",
+      "status": "todo",
+      "consumers": "docs/README",
+      "affects_products": false
+    },
+    {
+      "id": "T-05",
+      "old_path": "blocks/parse/extract/ocr_pdf.py",
+      "extra_paths": [
+        "blocks/parse/structure/cli.py"
+      ],
+      "disposition": "delete",
+      "replacement": "providers/mineru 三启动路径（已有本地结果 / API / 分块续传）",
+      "gate": "MinerU 三启动路径通过；OCR 专用测试退役登记，不误删共享文本工具",
+      "status": "todo",
+      "consumers": "tools/parse_pipeline.py 旧本地 OCR 分支；tools/ingest_book.py 无 --use-api 分支",
+      "affects_products": true,
+      "note": "本轮实跑已证明本地 OCR 会丢公式（$ 计数 5 vs MinerU 11276），生产必须只走 MinerU"
+    },
+    {
+      "id": "T-06",
+      "old_path": "blocks/parse/structure/review.py",
+      "extra_paths": [
+        "blocks/parse/toc/toc_review.py 的旧 review/apply-review 路径",
+        "旧编号推层级分支"
+      ],
+      "disposition": "delete",
+      "replacement": "blocks/parse/toc 的 review/recover + authority 结构",
+      "gate": "目录 review/recover + authority 覆盖对应需要；通用文本正则/清洗函数保留",
+      "status": "todo",
+      "consumers": "tools/parse_pipeline.py；tests/test_review_and_concepts.py",
+      "affects_products": false
+    },
+    {
+      "id": "T-07",
+      "old_path": "blocks/parse/normalize/",
+      "disposition": "delete",
+      "replacement": "providers/normalizer（实际适配 stem_runner 的 normalize-source）",
+      "gate": "固定真实安装依赖及输入输出校验",
+      "status": "todo",
+      "consumers": "blocks/parse/export/（经 stem_runner）",
+      "affects_products": false,
+      "note": "该目录当前为空占位（只有 __pycache__）"
+    },
+    {
+      "id": "T-08",
+      "old_path": "blocks/clean/",
+      "extra_paths": [
+        "旧 latex 隐式读取"
+      ],
+      "disposition": "migrate",
+      "replacement": "pipeline 的 source-repair 阶段（CanonicalSource 的唯一修复入口）",
+      "gate": "所有正文消费者读取 CanonicalSource；旧修复材料可显式导入",
+      "status": "todo",
+      "consumers": "tools/parse_pipeline.py、tools/clean_rebuild.py；tests/test_clean.py",
+      "affects_products": true
+    },
+    {
+      "id": "T-09",
+      "old_path": "blocks/model/",
+      "disposition": "migrate",
+      "replacement": "blocks/interaction/（教学交互规格；语义不变）",
+      "gate": "所有消费者、测试和资源指向新包，语义仍是教学交互",
+      "status": "todo",
+      "consumers": "tools/run_book.py；blocks/render/build.py；tests/test_wiring.py",
+      "affects_products": false
+    },
+    {
+      "id": "T-10",
+      "old_path": "blocks/problems/",
+      "disposition": "migrate",
+      "replacement": "checks/quality + 交付声明",
+      "gate": "自动汇总目标 scope，不再被误称习题生成",
+      "status": "todo",
+      "consumers": "tools/doctor.py、tools/make_delivery_package.py；tests/test_problems.py",
+      "affects_products": false
+    },
+    {
+      "id": "T-11",
+      "old_path": "blocks/figures/library.py",
+      "disposition": "delete",
+      "replacement": "blocks/figures/{spec,backends,registry}",
+      "gate": "CLI/测试直接使用 spec/backends/registry 后，活动引用为 0",
+      "status": "todo",
+      "consumers": "blocks/figures/cli.py、blocks/lesson/generate.py；tests/test_figures.py",
+      "affects_products": false
+    },
+    {
+      "id": "T-12",
+      "old_path": "blocks/figures/vector_parallelogram.py",
+      "disposition": "delete",
+      "replacement": "统一规格（spec/backends）里的等价实现",
+      "gate": "保持图 ID 与几何、标注、裁切回归结果",
+      "status": "todo",
+      "consumers": "blocks/figures/registry.py",
+      "affects_products": false
+    },
+    {
+      "id": "T-13",
+      "old_path": "tools/make_book_single_file.py",
+      "extra_paths": [
+        "tools/make_single_file.py",
+        "tools/make_delivery_package.py",
+        "tools/make_one_pager.py"
+      ],
+      "disposition": "migrate",
+      "replacement": "delivery/（章页面目录 / 范围单 HTML / ZIP / manifest / 验收摘要）",
+      "gate": "三种范围交付、动态资源及离线验收通过后删重复脚本",
+      "status": "todo",
+      "consumers": "docs/README；tests/test_delivery_scope.py",
+      "affects_products": true,
+      "note": "make_delivery_package.py 本轮打出过空包（布局假设与现产物不符），是必须替换而不是修补的实证"
+    },
+    {
+      "id": "T-14",
+      "old_path": "blocks/assemble/",
+      "disposition": "delete",
+      "replacement": "delivery/（唯一交付模块）",
+      "gate": "实际 delivery 已成为唯一交付模块",
+      "status": "todo",
+      "consumers": "无（空占位）",
+      "affects_products": false
+    },
+    {
+      "id": "T-15",
+      "old_path": "tools/clean_rebuild.py",
+      "disposition": "delete",
+      "replacement": "统一入口的 prepare（全书解析与概念索引）",
+      "gate": "不再存在第二套不完整解析顺序",
+      "status": "done",
+      "consumers": "docs；data/_clean_rebuild_manifest.json",
+      "affects_products": true,
+      "note": "2026-10-09 F03：无现行代码消费者，旧驱动及旁路提升实现删除；历史数据、备份和报告保留。详见接口收尾与旧工具清理-20261009/T1-旧入口清理.md。"
+    },
+    {
+      "id": "T-16",
+      "old_path": "tools/authority_chain.py",
+      "extra_paths": [
+        "tools/authority_promote.py"
+      ],
+      "disposition": "delete",
+      "replacement": "统一引擎的 prepare/run；一次性迁移报告和数据备份只读保留，不再提供覆盖提升工具",
+      "gate": "保留迁移说明和证据，不供正常生产调用",
+      "status": "done",
+      "consumers": "历史迁移记录",
+      "affects_products": false,
+      "note": "2026-10-09 F03：无现行代码消费者，旧驱动及旁路提升实现删除；历史数据、备份和报告保留。详见接口收尾与旧工具清理-20261009/T1-旧入口清理.md。"
+    },
+    {
+      "id": "T-17",
+      "old_path": "tools/toc_e2e.py",
+      "disposition": "migrate",
+      "replacement": "tests/integration（目录集成测试）",
+      "gate": "使用真实统一阶段顺序，移除独立不同步的编排",
+      "status": "todo",
+      "consumers": "docs/README",
+      "affects_products": false
+    },
+    {
+      "id": "T-18",
+      "old_path": "tools/make_preview.py",
+      "disposition": "migrate",
+      "replacement": "cli 的 inspect（原文/图审阅）；旧教案预览删除",
+      "gate": "正式渲染已覆盖教案预览；现行文档不再引用旧入口",
+      "status": "todo",
+      "consumers": "docs/README",
+      "affects_products": false
+    },
+    {
+      "id": "T-19",
+      "old_path": "tools/show_toc.py",
+      "extra_paths": [
+        "tools/show_concepts.py",
+        "tools/show_lesson.py"
+      ],
+      "disposition": "migrate",
+      "replacement": "cli 的 inspect 子命令",
+      "gate": "仍可导出人可读报告，使用当前契约",
+      "status": "todo",
+      "consumers": "开发者",
+      "affects_products": false
+    },
+    {
+      "id": "T-20",
+      "old_path": "tools/selfcheck.py",
+      "extra_paths": [
+        "tools/render_check.py",
+        "tools/shot.js",
+        "tools/compare_runs.py"
+      ],
+      "disposition": "keep",
+      "replacement": "tools/verify 或 tests/browser",
+      "gate": "调公共服务、检查真实目标；截图成功不直接代表验收通过",
+      "status": "todo",
+      "consumers": "开发者",
+      "affects_products": false
+    },
+    {
+      "id": "T-21",
+      "old_path": "tools/eval_external_hips.py",
+      "extra_paths": [
+        "lib/ted.py"
+      ],
+      "disposition": "migrate",
+      "replacement": "tools/research",
+      "gate": "不进入生产安装必需依赖",
+      "status": "todo",
+      "consumers": "研究脚本",
+      "affects_products": false
+    },
+    {
+      "id": "T-22",
+      "old_path": "tools/make_ui_demo.py",
+      "extra_paths": [
+        "tools/make_ui_demo2.py",
+        "tools/make_ui_demo3.py",
+        "tools/make_style_demos.py",
+        "tools/make_study_template.py",
+        "tools/pack_demo.py"
+      ],
+      "disposition": "migrate",
+      "replacement": "experiments/ui",
+      "gate": "保留设计样本，不把演示逻辑当生产实现；重复部分可经清单删除",
+      "status": "todo",
+      "consumers": "设计探索",
+      "affects_products": false
+    },
+    {
+      "id": "T-23",
+      "old_path": "account_run.py",
+      "disposition": "migrate",
+      "replacement": "cli 的 inspect usage",
+      "gate": "参数化 book/run 后删除写死书籍脚本",
+      "status": "todo",
+      "consumers": "开发者",
+      "affects_products": false
+    },
+    {
+      "id": "T-24",
+      "old_path": "explanation_markdown 等旧字段散落 fallback",
+      "disposition": "migrate",
+      "replacement": "一次性/只读版本迁移器（contracts 的新字段）",
+      "gate": "活跃数据迁移及来源核对后删除分散 fallback，不伪造旧数据缺少的 v2 内容",
+      "status": "todo",
+      "consumers": "blocks/render/build.py、blocks/lesson/*；lib/refs.py",
+      "affects_products": true
+    },
+    {
+      "id": "T-25",
+      "old_path": "CourseForgeV2/、audit vendor（undergraduate-fitted-exam-system）",
+      "disposition": "keep",
+      "replacement": "providers/normalizer + providers/auditor（固定来源与许可证）",
+      "gate": "禁止仅因没有主入口调用就整目录删除；安装来源、传递依赖和许可证核对齐全",
+      "status": "todo",
+      "consumers": "stem_runner（normalize-source）、审核器",
+      "affects_products": true
+    },
+    {
+      "id": "T-26",
+      "old_path": "src/aiforstudy/pipeline/transitional.py",
+      "disposition": "delete",
+      "replacement": "统一引擎内的真实阶段实现（blocks/parse、blocks/concepts、pipeline/snapshot 直接作为阶段实现；lesson/audit/render/delivery 由真实实现承担，不再经壳；`engine.py` 的 release 分支随之删掉）",
+      "gate": "方案 §14：过渡壳在最终切换阶段删除 —— release 档的**十个**阶段（mineru/toc/structure/export/body/concepts/lesson/audit/render/delivery）全部由真实实现直接承担、且 `default_stage_registry` 不再需要这一层之后，本文件整体删除。⚠️ 仍有 figures/interaction 两个阶段未接线，它们目前落在 `not_implemented`（明确 blocked），不属本项范围。",
+      "status": "in_progress",
+      "consumers": "pipeline/engine.py 的 default_stage_registry；tests/integration/test_m10_release_prefix.py、tests/integration/test_m10_lesson_audit_shells.py",
+      "affects_products": false,
+      "note": "过渡壳是**方案 §14 明确允许**的迁移器件，不是空壳：它调用的都是已迁入或已跑通的实现。M10 前半段只接了确定性前缀；后半段把 `lesson`/`audit` 也接上（模型访问全部经注入的 Gateway 传输），其余四个模型阶段（figures/interaction/render/delivery）仍明确 blocked。之所以先登记而不是等迁完再补，是因为'临时接线'最容易变成永久接线 —— 清单里没有它，最终切换时就没人会想起来删。"
+    },
+    {
+      "id": "T-27",
+      "old_path": "src/aiforstudy/pipeline/transitional.py 的 `lesson` 过渡壳（`lesson_stage` + `GatewayClient` 适配 + 旧块按需加载）",
+      "disposition": "delete",
+      "replacement": "已迁入的教案阶段实现直接作为 `lesson` 阶段（不再经壳、不再按路径加载仓库根的 `blocks/lesson/`）",
+      "gate": "方案 §14：过渡壳在最终切换阶段删除 —— `lesson` 由真实实现直接承担、且 `default_stage_registry` 不再需要这一层之后删除本段",
+      "status": "in_progress",
+      "consumers": "pipeline/transitional.release_registry；tests/integration/test_m10_lesson_audit_shells.py",
+      "affects_products": false,
+      "note": "这一段是**接线**不是实现：它只是把已跑通的 `blocks/lesson/generate.generate_lesson` 调起来，并把模型访问换成 M6 的 Gateway 客户端（旧实现里 `lib/model.py` 那条直连路径在这一层不可达）。登记它的理由与 T-26 相同：临时接线必须有人记得删。"
+    },
+    {
+      "id": "T-28",
+      "old_path": "src/aiforstudy/pipeline/transitional.py 的 `audit` 过渡壳（`audit_stage` + 有界返修循环接线）",
+      "disposition": "delete",
+      "replacement": "已迁入的审核阶段实现直接作为 `audit` 阶段（发现→工单→有界返修→关闭核验，不再经壳、不再按路径加载仓库根的 `blocks/audit/`）",
+      "gate": "方案 §14：过渡壳在最终切换阶段删除 —— `audit` 由真实实现直接承担、且 `default_stage_registry` 不再需要这一层之后删除本段",
+      "status": "in_progress",
+      "consumers": "pipeline/transitional.release_registry；tests/integration/test_m10_lesson_audit_shells.py",
+      "affects_products": false,
+      "note": "它把 `blocks/audit/model_review.{discover,verify_closure}` 与 `blocks/lesson/generate.rewrite_lesson` 通过 M5 的 `blocks/audit/loop.run_bounded_loop` 串成有界回路。已知边界（写在这里免得被当成已完成）：`tools/audit_loop.py` 的闸门 1（教案自报的免费规则硬问题 → 工单 → 整篇重写退路）本次**没有**接进循环，所以 `audit` 的 accepted 只覆盖独立模型复核这一路。"
+    },
+    {
+      "id": "T-29",
+      "old_path": "tools/parse_pipeline.py",
+      "extra_paths": [],
+      "disposition": "delete",
+      "replacement": "统一 aiforstudy prepare/run；graph7 从目录直接进入结构，习题原文随目录保留，禁止第二条可写解析链",
+      "gate": "无现行函数或命令消费者，生产通过统一引擎；历史证据不删除",
+      "status": "done",
+      "consumers": "历史手工迁移；现行代码消费者为 0",
+      "affects_products": false,
+      "note": "2026-10-09 F03 删除实现；测试及原始保护证据见接口收尾与旧工具清理-20261009/T1-旧入口清理.md。"
+    },
+    {
+      "id": "T-30",
+      "old_path": "tools/migrations/reconcepts.py",
+      "extra_paths": [
+        "tools/migrations/run_real_chapter.py"
+      ],
+      "disposition": "delete",
+      "replacement": "统一 aiforstudy prepare/run；废除旧预算 API 及账本依赖的手工驱动",
+      "gate": "无现行函数或命令消费者，生产通过统一引擎；历史证据不删除",
+      "status": "done",
+      "consumers": "历史手工迁移；现行代码消费者为 0",
+      "affects_products": false,
+      "note": "2026-10-09 F03 删除实现；测试及原始保护证据见接口收尾与旧工具清理-20261009/T1-旧入口清理.md。"
+    },
+    {
+      "id": "T-31",
+      "old_path": "src/aiforstudy/blocks/exercises",
+      "extra_paths": [
+        "blocks/parse/exercises",
+        "src/aiforstudy/blocks/parse/exercise_binding.py",
+        "src/aiforstudy/core/source_projection.py"
+      ],
+      "disposition": "delete",
+      "replacement": "source_materials 原书目录资料 + content.exercise_regions 作者同次标区",
+      "gate": "用户明确取消统一抽题；生产调用与对应历史协议测试已清理",
+      "status": "done",
+      "consumers": "现行生产消费者为 0",
+      "affects_products": false,
+      "note": "2026-10-10；旧教材数据与运行证据保留，见习题随目录保留-20261010执行与验收。"
+    },
+    {
+      "id": "T-32",
+      "old_path": "tools/migrations/migrate_identity.py",
+      "extra_paths": [
+        "tools/migrations/check_m3.py"
+      ],
+      "disposition": "delete",
+      "replacement": "当前 catalog 合同测试与 tools/parse_report.py 来源资料报告",
+      "gate": "无现行代码消费者；脚本依赖已移除的旧习题绑定与历史书题数",
+      "status": "done",
+      "consumers": "现行生产消费者为 0",
+      "affects_products": false,
+      "note": "2026-10-10；详见本轮 tools-cleanup.json。"
+    }
+  ]
+}

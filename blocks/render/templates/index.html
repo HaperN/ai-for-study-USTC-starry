@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--
+  模板：推导对照书页（用户确认，2026-10-14）
+  ────────────────────────────────────────────────────────────────
+  渲染策略  纯静态 SPA：数据在 data/data.js 里（window.__DATA__），
+            <script> 加载而不是 fetch()，所以从 file:// 双击打开也能用。
+  数据来源  blocks/parse（chapters/concepts/images）+ blocks/clean（latex/）
+            + blocks/lesson（lessons/），由 blocks/render/build.py 拼成一份。
+  交互模型  有 canvas 模型时才注入 MathBox（three.js 本地文件，1.1MB，不白给）；
+            symbolic 模型只用 KaTeX 排版 + 分步按钮。规格 → 图元由 assets/models.js 做。
+  启用特性  目录导航 + hash 路由（#/<单元id>、#concept=<概念id>）、
+            当前正文的概念、性质和解释以可拖动浮窗对照，关闭返回原句；兼容旧概念链接、
+            原文可折叠对照（还能切到扫描 OCR 原始版）、
+            插图按 bbox 裁好直接显示、公式用本地 KaTeX 排版。
+  离线      全部资源（含字体）都在本目录，零网络请求。
+  换皮      改 assets/styles.css 或本文件的骨架，重新 build 即可，数据不动。
+-->
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>__BOOK__ · 讲解</title>
+<!-- 全部资源都在本地（assets/ 和 data/ 里），断网也能打开，不上传任何数据 -->
+<link rel="stylesheet" href="assets/katex.min.css">
+<link rel="stylesheet" href="assets/styles.css">
+<!--__READER_DISPLAY_POLICY__-->
+<link rel="stylesheet" href="assets/media-surface.css">
+<link rel="stylesheet" href="assets/reader-book.css">
+<link rel="stylesheet" href="assets/notes.css">
+<link rel="stylesheet" href="assets/study-reader.css">
+<link rel="stylesheet" href="assets/study-light.css">
+<link rel="stylesheet" href="assets/study-text-led-figures.css">
+<link rel="stylesheet" href="assets/course-library.css">
+<link rel="stylesheet" href="assets/media-purpose.css">
+</head>
+<body class="book-page">
+<a class="reader-skip-link" href="#content">跳到正文</a>
+<!-- Interface icons: Phosphor Icons (MIT), https://github.com/phosphor-icons/core -->
+<header class="bookbar">
+  <div class="book-brand">
+    <button type="button" id="reader-toc-toggle" aria-controls="sidebar" aria-expanded="false" aria-label="展开目录"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg></button>
+    <a class="brand-link" href="#/">starry</a>
+  </div>
+  <div class="reader-breadcrumb">
+    <span class="book-title" id="book-title" title="__BOOK__">__BOOK__</span>
+    <span aria-hidden="true">/</span><span id="reader-current-unit"></span><span id="reader-current-topic"></span>
+  </div>
+  <div class="book-controls" aria-label="阅读设置">
+    <a id="video-evidence-open" href="#" hidden>视频证据</a>
+    <button type="button" id="course-library-open" aria-controls="course-library-dialog" aria-expanded="false" hidden>课程资料</button>
+    <button type="button" id="reader-search-toggle" aria-label="搜索概念、性质和例题" aria-controls="reader-search-layer" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg></button>
+    <button type="button" id="reader-compare-toggle" aria-pressed="true">退出对照</button>
+    <button type="button" id="reader-settings-toggle" aria-label="阅读设置" aria-controls="reader-settings-popover" aria-expanded="false"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm109.94-52.79a8,8,0,0,0-3.89-5.4l-29.83-17-.12-33.62a8,8,0,0,0-2.83-6.08,111.91,111.91,0,0,0-36.72-20.67,8,8,0,0,0-6.46.59L128,41.85,97.88,25a8,8,0,0,0-6.47-.6A112.1,112.1,0,0,0,54.73,45.15a8,8,0,0,0-2.83,6.07l-.15,33.65-29.83,17a8,8,0,0,0-3.89,5.4,106.47,106.47,0,0,0,0,41.56,8,8,0,0,0,3.89,5.4l29.83,17,.12,33.62a8,8,0,0,0,2.83,6.08,111.91,111.91,0,0,0,36.72,20.67,8,8,0,0,0,6.46-.59L128,214.15,158.12,231a7.91,7.91,0,0,0,3.9,1,8.09,8.09,0,0,0,2.57-.42,112.1,112.1,0,0,0,36.68-20.73,8,8,0,0,0,2.83-6.07l.15-33.65,29.83-17a8,8,0,0,0,3.89-5.4A106.47,106.47,0,0,0,237.94,107.21Zm-15,34.91-28.57,16.25a8,8,0,0,0-3,3c-.58,1-1.19,2.06-1.81,3.06a7.94,7.94,0,0,0-1.22,4.21l-.15,32.25a95.89,95.89,0,0,1-25.37,14.3L134,199.13a8,8,0,0,0-3.91-1h-.19c-1.21,0-2.43,0-3.64,0a8.08,8.08,0,0,0-4.1,1l-28.84,16.1A96,96,0,0,1,67.88,201l-.11-32.2a8,8,0,0,0-1.22-4.22c-.62-1-1.23-2-1.8-3.06a8.09,8.09,0,0,0-3-3.06l-28.6-16.29a90.49,90.49,0,0,1,0-28.26L61.67,97.63a8,8,0,0,0,3-3c.58-1,1.19-2.06,1.81-3.06a7.94,7.94,0,0,0,1.22-4.21l.15-32.25a95.89,95.89,0,0,1,25.37-14.3L122,56.87a8,8,0,0,0,4.1,1c1.21,0,2.43,0,3.64,0a8.08,8.08,0,0,0,4.1-1l28.84-16.1A96,96,0,0,1,188.12,55l.11,32.2a8,8,0,0,0,1.22,4.22c.62,1,1.23,2,1.8,3.06a8.09,8.09,0,0,0,3,3.06l28.6,16.29A90.49,90.49,0,0,1,222.9,142.12Z"></path></svg></button>
+  </div>
+  <div id="reader-settings-popover" class="reader-settings-popover" hidden>
+    <span>文字大小</span><div><button type="button" id="reader-font-minus" aria-label="缩小正文字号">A−</button>
+    <button type="button" id="reader-font-plus" aria-label="增大正文字号">A＋</button></div>
+    <p id="scope-note" class="scope-note">离线阅读</p>
+  </div>
+</header>
+<div class="layout">
+  <aside class="sidebar book-toc" id="sidebar" aria-label="教材目录">
+    <div class="reader-toc-heading"><a class="reader-toc-context-link" id="reader-chapter-title">__BOOK__</a></div>
+    <button type="button" class="reader-toc-search" id="reader-sidebar-search" aria-controls="reader-search-layer" aria-expanded="false">
+      <svg class="reader-toc-search-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg>
+      <span>查找概念、性质、例题</span>
+    </button>
+    <div id="reader-toc-content"><p class="empty">正在加载目录…</p></div>
+  </aside>
+  <main class="content" id="content" tabindex="-1">
+    <p class="empty">正在加载…</p>
+  </main>
+</div>
+<div class="reader-progress" id="reader-progress" aria-hidden="true"><span></span></div>
+<button type="button" class="reader-return" id="reader-return" hidden>↶ 回到刚才的位置</button>
+
+<div id="reader-search-layer" class="reader-search-layer" hidden>
+  <button type="button" class="reader-search-backdrop" data-reader-search-close aria-label="关闭查找"></button>
+  <section class="reader-search-panel" role="dialog" aria-modal="true" aria-labelledby="reader-search-heading">
+    <header><h2 id="reader-search-heading">查找与索引</h2><button type="button" data-reader-search-close aria-label="关闭查找"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></header>
+    <label class="reader-search-input"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256" aria-hidden="true"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg><input type="search" id="reader-search-input" placeholder="搜索概念、性质、例题…" aria-label="搜索教材内容" autocomplete="off"><kbd>ESC</kbd></label>
+    <div class="reader-search-filters" id="reader-search-filters" aria-label="内容分类"></div>
+    <p id="reader-search-count" role="status"></p>
+    <div class="reader-search-results" id="reader-search-results"></div>
+  </section>
+</div>
+
+<dialog id="course-library-dialog" aria-labelledby="course-library-title"></dialog>
+
+<div class="tooltip hidden" id="tooltip" role="tooltip"></div>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-backdrop"></div>
+  <div class="drawer-panel" role="dialog" aria-label="概念解释">
+    <button class="drawer-close" id="drawer-close" aria-label="关闭（Esc）">×</button>
+    <div id="drawer-body"></div>
+  </div>
+</div>
+
+<script src="assets/katex.min.js"></script>
+<script src="assets/marked.min.js"></script>
+<script src="assets/study-math.js"></script>
+<script src="assets/reader-markdown.js"></script>
+<script src="assets/render-core.js"></script>
+<script src="assets/three.min.js"></script>
+<script src="assets/models.js"></script>
+<script src="assets/audible-audio.js"></script>
+<script src="assets/animations.js"></script>
+<script src="data/data.js"></script>
+<script src="assets/reader-layout.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/notes.js"></script>
+<script src="assets/study-foundation-scenes.js"></script>
+<script src="assets/study-special-scenes.js"></script>
+<script src="assets/study-visuals.js"></script>
+<script src="assets/text-led-multiplication.js"></script>
+<script src="assets/study-text-led-figures.js"></script>
+<script src="assets/media-purpose.js"></script>
+<script src="assets/study-lesson.js"></script>
+<script src="assets/study-guides.js"></script>
+<script src="assets/course-library.js"></script>
+<script src="assets/video-evidence.js"></script>
+<!--__MATHBOX_CSS__-->
+</body>
+</html>

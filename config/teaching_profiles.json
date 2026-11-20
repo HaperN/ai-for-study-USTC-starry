@@ -1,0 +1,15 @@
+{
+  "schema_version": "TeachingProfilesV1",
+  "default_profile_id": "unspecified",
+  "profiles": [
+    {
+      "schema_version": "LearnerProfileV1",
+      "profile_id": "unspecified",
+      "description": "",
+      "assumed_prerequisite_ids": [],
+      "discipline": "",
+      "level": "",
+      "language": "zh-CN"
+    }
+  ]
+}

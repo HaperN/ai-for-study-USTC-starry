@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="316.8pt" height="223.2pt" viewBox="0 0 316.8 223.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-23T21:39:42.855984</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 223.2 
+L 316.8 223.2 
+L 316.8 0 
+L 0 0 
+L 0 223.2 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="vec-a">
+    <path d="M 114.331343 144.071642 
+Q 169.997015 144.071642 223.426619 144.071642 
+" clip-path="url(#pa6d82161a2)" style="fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 217.026619 140.871642 
+L 223.426619 144.071642 
+L 217.026619 147.271642 
+z
+" clip-path="url(#pa6d82161a2)" style="stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="vec-b">
+    <path d="M 114.331343 144.071642 
+Q 197.829851 144.071642 279.09229 144.071642 
+" clip-path="url(#pa6d82161a2)" style="fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 272.69229 140.871642 
+L 279.09229 144.071642 
+L 272.69229 147.271642 
+z
+" clip-path="url(#pa6d82161a2)" style="stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="vec-c">
+    <path d="M 114.331343 144.071642 
+Q 77.220896 144.071642 42.346516 144.071642 
+" clip-path="url(#pa6d82161a2)" style="fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 48.746516 147.271642 
+L 42.346516 144.071642 
+L 48.746516 140.871642 
+z
+" clip-path="url(#pa6d82161a2)" style="stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="vec-d">
+    <path d="M 114.331343 144.071642 
+Q 146.802985 97.683582 177.992326 53.127381 
+" clip-path="url(#pa6d82161a2)" style="fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 171.700625 56.535385 
+L 177.992326 53.127381 
+L 176.943709 60.205544 
+z
+" clip-path="url(#pa6d82161a2)" style="stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="label-0">
+    <!-- $\boldsymbol{a}$ -->
+    <g transform="translate(217.312836 137.577313)">
+     <text>
+      <tspan x="0" y="-0.71875" style="font-style: oblique; font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'">a</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="label-1">
+    <!-- $\boldsymbol{b}$ -->
+    <g transform="translate(272.978507 137.577313)">
+     <text>
+      <tspan x="0" y="-0.125" style="font-style: oblique; font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'">b</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="label-2">
+    <!-- $\boldsymbol{c}$ -->
+    <g transform="translate(31.760597 165.410149)">
+     <text>
+      <tspan x="0" y="-0.71875" style="font-style: oblique; font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'">c</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="label-3">
+    <!-- $\boldsymbol{d}$ -->
+    <g transform="translate(185.768955 46.656716)">
+     <text>
+      <tspan x="0" y="-0.125" style="font-style: oblique; font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'">d</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="label-4">
+    <text style="font-size: 13px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="108.764776" y="165.410149" transform="rotate(-0 108.764776 165.410149)">O</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pa6d82161a2">
+   <rect x="3" y="23.462687" width="310.8" height="176.274627"/>
+  </clipPath>
+ </defs>
+</svg>

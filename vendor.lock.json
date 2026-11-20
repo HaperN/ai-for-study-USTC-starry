@@ -1,0 +1,104 @@
+{
+  "_meta": {
+    "file_type": "vendor_lock",
+    "schema_version": "1.0",
+    "generator": "aiforstudy.providers.lock",
+    "field_notes": {
+      "artifacts[].payload": "实际会被 import 的那批文件的内容指纹（生产真正跑的）",
+      "artifacts[].source_hash": "来源制品（wheel/目录）本身的哈希",
+      "artifacts[].recorded_source_hash": "安装时记下的来源哈希（direct_url.json）",
+      "artifacts[].drift": "source_hash 与 recorded_source_hash 不一致 = 同版本不同字节",
+      "accepted_drift": "键=制品 key，值=为什么接受这处漂移。**不写就等于不接受**"
+    },
+    "public_release_note": "Historical origin record; original local paths are redacted and original wheels are not bundled. See THIRD_PARTY_NOTICES/Legacy-Python-Sources.md for the publisher authorization statement."
+  },
+  "artifacts": {
+    "normalizer": {
+      "kind": "python-dist",
+      "name": "undergraduate-fitted-exam-system",
+      "version": "0.15.0",
+      "path": "<HISTORICAL_HOME>/桌面/AI教学/.venv-linux/lib/python3.12/site-packages/stem_runner",
+      "payload": "sha256:2e3973db574d65045376ad59fa767e6a979d3f5fa77db08dcc5d5b7d5a5c97c8",
+      "payload_files": 69,
+      "source_hash": "sha256:33b1151bfce8e4e6115c124b57792c0e7286983db6892c8b97f701bc7398da28",
+      "recorded_source_hash": "ad34d4c64ee2ce87e9b4bac59495c7079ab13fabae9cdab4e190ed2db909a990",
+      "drift": true,
+      "license": "见 dist-info/METADATA（本次未取到独立许可证文件）",
+      "origin": "<HISTORICAL_HOME>/桌面/AI教学/CourseForgeV2/安装包/undergraduate_fitted_exam_system-0.15.0-py3-none-any.whl",
+      "notes": [
+        "上游依赖 courseforge==2.7.0",
+        "上游 courseforge 安装时来源哈希 8ae9d10c318d92238bfede81c9661bf54a7ea054ecbe1158cccfbbcfae0a3223"
+      ],
+      "declared_source_wheel": {
+        "declared": "<HISTORICAL_HOME>/桌面/AI教学/CourseForgeV2/安装包/undergraduate_fitted_exam_system-0.15.0-py3-none-any.whl",
+        "present": true,
+        "sha256": "sha256:33b1151bfce8e4e6115c124b57792c0e7286983db6892c8b97f701bc7398da28"
+      },
+      "source_verdict": {
+        "declared": "<HISTORICAL_HOME>/桌面/AI教学/CourseForgeV2/安装包/undergraduate_fitted_exam_system-0.15.0-py3-none-any.whl",
+        "files_in_wheel": 57,
+        "files_installed": 69,
+        "installed_only": [
+          "automatic_final_review.py",
+          "claim_dependency_audit.py",
+          "cognitive_audit.py",
+          "content_audit_cli.py",
+          "content_audit_handoff.py",
+          "derivation_quality.py",
+          "exam_quality.py",
+          "final_pdf_visual_evidence.py",
+          "fit_audit.py",
+          "learning_system_release.py",
+          "problem_quality.py",
+          "visual_layout_audit.py"
+        ],
+        "verdict": "rejected",
+        "note": "⚠️ 现盘 wheel 里**少了 12 个安装版有的模块**（automatic_final_review.py, claim_dependency_audit.py, cognitive_audit.py, content_audit_cli.py, content_audit_handoff.py, derivation_quality.py…）。对照源码可见 wheel 是被裁剪过的变体（注释写着「审核已移除」），安装版才是含审核的完整版。**不能用这只 wheel 重建**：那样会静默删掉整个审核能力。安装时记录的那只 wheel（ad34d4c6…）已不在盘上 —— A01 的缺口记在这里。"
+      },
+      "owner_module": "stem_runner",
+      "note": "payload = 实际被 import 的 stem_runner/ 目录内容；source_hash = 现盘上 wheel 的哈希；recorded_source_hash = 安装时 direct_url.json 记下的 wheel 哈希"
+    },
+    "normalizer_upstream": {
+      "kind": "python-dist",
+      "name": "courseforge",
+      "version": "2.7.0",
+      "payload": "sha256:df473b12c2533248a3e59ba04e293c4f8c593e48e996358da9addc56dfc23f08",
+      "payload_files": 33,
+      "declared_source_wheel": {
+        "declared": "<HISTORICAL_HOME>/桌面/AI教学/CourseForgeV2/安装包/courseforge-2.7.0-py3-none-any.whl",
+        "present": true,
+        "sha256": "sha256:549d65d53b6b4af576995b0f8740919384e7e92c7f7d1a31bf52511b47fad5a5"
+      }
+    },
+    "auditor_vendor": {
+      "kind": "vendor-dir",
+      "name": "hbep_controller_v2",
+      "version": "",
+      "path": "<HISTORICAL_HOME>/桌面/AI教学/AIforStudy/blocks/audit/vendor/hbep_controller_v2",
+      "payload": "sha256:8dc274e7fc8d75f3392fb6d12dfc08ae9a6ff38c22432c24bb6fe36609ab134a",
+      "payload_files": 18,
+      "source_hash": "",
+      "recorded_source_hash": "",
+      "drift": false,
+      "license": "（未记录）",
+      "origin": "<HISTORICAL_HOME>/桌面/AI教学/AIforStudy/blocks/audit/vendor/hbep_controller_v2",
+      "notes": [
+        "vendor 目录里没有找到 LICENSE/COPYING 文件 —— 方案 §3 要求带许可证信息，必须在 M9 前补齐来源与许可证记录"
+      ],
+      "source_wheel": {
+        "declared": "<HISTORICAL_HOME>/桌面/AI教学/归档/快照/_已移除_审核安装包/hbep_ug_stem_controller_v2-0.4.1-py3-none-any.whl",
+        "present": true,
+        "sha256": "sha256:4791e927ecdb1365c36fe87b8737e3d987885b1dafe6ca5076d15c1aae894601",
+        "dir_payload_normalized": "sha256:c8c09ee20a82235ebd7b4ee99a1e26728257ce8751242d6da7c7c702491f7757",
+        "wheel_payload_normalized": "sha256:c8c09ee20a82235ebd7b4ee99a1e26728257ce8751242d6da7c7c702491f7757",
+        "files_dir": 18,
+        "files_wheel": 18,
+        "verdict": "verified-identical",
+        "note": "vendor 目录与这只 wheel 的对应子树**内容一致**（换行符归一后）。方案 §13 要求'保留来源'：这只 wheel 就是那个来源。"
+      }
+    }
+  },
+  "accepted_drift": {
+    "normalizer": "已核实：现盘 wheel 是被裁剪过的变体（删掉 12 个审核模块），安装版才含审核；故以**安装 payload** 为锁定基准，现盘 wheel 不作为重建来源。真正来源 wheel(ad34d4c6…) 不在盘上，记为 A01 缺口。"
+  }
+}

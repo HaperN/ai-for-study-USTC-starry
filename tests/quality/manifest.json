@@ -1,0 +1,374 @@
+{
+  "schema_version": "QualityManifestV1",
+  "scope": "quality-kernel-20261008",
+  "real_units": [
+    {
+      "book_id": "linear-algebra-full",
+      "unit_id": "CH01-S01-SS02",
+      "title": "向量的线性运算",
+      "holdout": false,
+      "source_path": "data/parse/linear-algebra-full/original_text/ch01_s01_ss02.md",
+      "source_sha256": "63bc8804999e4e94248adabd7a24710e547ee78ff2be767718067d751fc03c42",
+      "status": "pending_new_graph_validation"
+    },
+    {
+      "book_id": "linear-algebra-full",
+      "unit_id": "CH05-S01",
+      "title": "数组空间",
+      "holdout": false,
+      "source_path": "data/parse/linear-algebra-full/original_text/ch05_s01.md",
+      "source_sha256": "15f3ba17883f12eec9c8cb7190167d4beb2e609666de24564c9889f82afc31bd",
+      "status": "pending_new_graph_validation"
+    },
+    {
+      "book_id": "linear-algebra-full",
+      "unit_id": "CH04-S02-SS03",
+      "title": "逆矩阵",
+      "holdout": true,
+      "source_path": "data/parse/linear-algebra-full/original_text/ch04_s02_ss03.md",
+      "source_sha256": "a47305d24ee190f1b8e7da899c3830350409472c88280ea22c3792b152230744",
+      "status": "pending_new_graph_validation"
+    },
+    {
+      "book_id": "complex-analysis-v2",
+      "unit_id": "CH01-S01-SS03",
+      "title": "复数的几何表示、模与辐角",
+      "holdout": false,
+      "source_path": "data/parse/complex-analysis-v2/original_text/ch01_s01_ss03.md",
+      "source_sha256": "7160b974330e5af9643a4b88582f4bd1cdef3ff6aa6a69fc75fd7694842a2bcc",
+      "status": "pending_new_graph_validation"
+    },
+    {
+      "book_id": "complex-analysis-v2",
+      "unit_id": "CH04-S01",
+      "title": "解析函数与调和函数的关系",
+      "holdout": false,
+      "source_path": "data/parse/complex-analysis-v2/original_text/ch04_s01.md",
+      "source_sha256": "06ab8bcf2ad6a772a81e56b1f3370dde673765c9da645f06565026c73d3da61a",
+      "status": "pending_new_graph_validation"
+    },
+    {
+      "book_id": "complex-analysis-v2",
+      "unit_id": "CH05-S01-SS01",
+      "title": "复数项级数",
+      "holdout": true,
+      "source_path": "data/parse/complex-analysis-v2/original_text/ch05_s01_ss01.md",
+      "source_sha256": "f6ed392fc4e02c9c7bfc169128184c76b36cad62d2628a11d5bab3605577d1a1",
+      "status": "pending_new_graph_validation"
+    }
+  ],
+  "adversarial_cases": [
+    {
+      "case_id": "concise_convention-accept",
+      "category": "concise_convention",
+      "expected": "accept",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "concise_convention",
+        "variant": "valid"
+      }
+    },
+    {
+      "case_id": "concise_convention-reject",
+      "category": "concise_convention",
+      "expected": "reject",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "concise_convention",
+        "variant": "damaged"
+      }
+    },
+    {
+      "case_id": "prerequisite_access-accept",
+      "category": "prerequisite_access",
+      "expected": "accept",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "prerequisite_access",
+        "variant": "valid"
+      }
+    },
+    {
+      "case_id": "prerequisite_access-reject",
+      "category": "prerequisite_access",
+      "expected": "reject",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "prerequisite_access",
+        "variant": "damaged"
+      }
+    },
+    {
+      "case_id": "division_conditions-accept",
+      "category": "division_conditions",
+      "expected": "accept",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "division_conditions",
+        "variant": "valid"
+      }
+    },
+    {
+      "case_id": "division_conditions-reject",
+      "category": "division_conditions",
+      "expected": "reject",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "division_conditions",
+        "variant": "damaged"
+      }
+    },
+    {
+      "case_id": "square_root_sign-accept",
+      "category": "square_root_sign",
+      "expected": "accept",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "square_root_sign",
+        "variant": "valid"
+      }
+    },
+    {
+      "case_id": "square_root_sign-reject",
+      "category": "square_root_sign",
+      "expected": "reject",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "square_root_sign",
+        "variant": "damaged"
+      }
+    },
+    {
+      "case_id": "matrix_rank_degeneracy-accept",
+      "category": "matrix_rank_degeneracy",
+      "expected": "accept",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "matrix_rank_degeneracy",
+        "variant": "valid"
+      }
+    },
+    {
+      "case_id": "matrix_rank_degeneracy-reject",
+      "category": "matrix_rank_degeneracy",
+      "expected": "reject",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "matrix_rank_degeneracy",
+        "variant": "damaged"
+      }
+    },
+    {
+      "case_id": "note_reference-accept",
+      "category": "note_reference",
+      "expected": "accept",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "note_reference",
+        "variant": "valid"
+      }
+    },
+    {
+      "case_id": "note_reference-reject",
+      "category": "note_reference",
+      "expected": "reject",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "note_reference",
+        "variant": "damaged"
+      }
+    },
+    {
+      "case_id": "reader_field_fidelity-accept",
+      "category": "reader_field_fidelity",
+      "expected": "accept",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "reader_field_fidelity",
+        "variant": "valid"
+      }
+    },
+    {
+      "case_id": "reader_field_fidelity-reject",
+      "category": "reader_field_fidelity",
+      "expected": "reject",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "reader_field_fidelity",
+        "variant": "damaged"
+      }
+    },
+    {
+      "case_id": "review_evidence-accept",
+      "category": "review_evidence",
+      "expected": "accept",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "review_evidence",
+        "variant": "valid"
+      }
+    },
+    {
+      "case_id": "review_evidence-quote_only_mismatch",
+      "category": "review_evidence",
+      "expected": "accept",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "review_evidence",
+        "variant": "damaged"
+      }
+    },
+    {
+      "case_id": "negated_media_decision-accept",
+      "category": "negated_media_decision",
+      "expected": "accept",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "negated_media_decision",
+        "variant": "valid"
+      }
+    },
+    {
+      "case_id": "negated_media_decision-reject",
+      "category": "negated_media_decision",
+      "expected": "reject",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "negated_media_decision",
+        "variant": "damaged"
+      }
+    },
+    {
+      "case_id": "plot_discontinuity-accept",
+      "category": "plot_discontinuity",
+      "expected": "accept",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "plot_discontinuity",
+        "variant": "valid"
+      }
+    },
+    {
+      "case_id": "plot_discontinuity-reject",
+      "category": "plot_discontinuity",
+      "expected": "reject",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "plot_discontinuity",
+        "variant": "damaged"
+      }
+    },
+    {
+      "case_id": "animation_action-accept",
+      "category": "animation_action",
+      "expected": "accept",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "animation_action",
+        "variant": "valid"
+      }
+    },
+    {
+      "case_id": "animation_action-reject",
+      "category": "animation_action",
+      "expected": "reject",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "animation_action",
+        "variant": "damaged"
+      }
+    },
+    {
+      "case_id": "version_binding-accept",
+      "category": "version_binding",
+      "expected": "accept",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "version_binding",
+        "variant": "valid"
+      }
+    },
+    {
+      "case_id": "version_binding-reject",
+      "category": "version_binding",
+      "expected": "reject",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "version_binding",
+        "variant": "damaged"
+      }
+    },
+    {
+      "case_id": "source_omission-accept",
+      "category": "source_omission",
+      "expected": "accept",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "source_omission",
+        "variant": "valid"
+      }
+    },
+    {
+      "case_id": "source_omission-reject",
+      "category": "source_omission",
+      "expected": "reject",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "source_omission",
+        "variant": "damaged"
+      }
+    },
+    {
+      "case_id": "unknown_resolution-accept",
+      "category": "unknown_resolution",
+      "expected": "accept",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "unknown_resolution",
+        "variant": "valid"
+      }
+    },
+    {
+      "case_id": "unknown_resolution-reject",
+      "category": "unknown_resolution",
+      "expected": "reject",
+      "fixture_state": "bound_to_executable_controlled_case",
+      "binding": {
+        "module": "tests/quality/controlled_cases.py",
+        "function": "unknown_resolution",
+        "variant": "damaged"
+      }
+    }
+  ],
+  "independent_teacher_review": "not_performed",
+  "learner_study": "not_performed",
+  "note": "Pinned source identities; real candidates must be generated on the new graph. Controlled cases execute production functions but fixed reviewer transport is not real-model or human pedagogical evaluation. Manifest presence never means passed.",
+  "controlled_runner": "tests/quality/run_benchmark.py"
+}

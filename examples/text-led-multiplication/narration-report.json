@@ -1,0 +1,78 @@
+{
+  "generated_at": "2026-10-28T19:17:29.106249+00:00",
+  "lesson": "lesson.json",
+  "lesson_sha256": "605116fe733604af0be97c8456eb3cf3d54988cbe5a188d7e68ccd75f8f0373c",
+  "source": {
+    "backend": "edge-tts",
+    "voice": "zh-CN-XiaoxiaoNeural",
+    "rate": "-5%",
+    "pitch": "+0Hz",
+    "language": "zh-CN",
+    "neural": true,
+    "client_version": "7.3.1",
+    "service": "Microsoft Edge online read-aloud",
+    "reference": "https://github.com/rany2/edge-tts"
+  },
+  "verify_only": true,
+  "spoken_text_policy": "Only authored narration[].text; never display_markdown or formula conversion",
+  "verification": "Complete decoded PCM duration plus RMS, peak and active sample fraction; no speech recognition",
+  "status": "complete",
+  "expected_count": 10,
+  "events": [
+    {
+      "id": "starting-point-intro",
+      "status": "reused",
+      "duration": 12.864
+    },
+    {
+      "id": "multiply-i-transform",
+      "status": "reused",
+      "duration": 13.248
+    },
+    {
+      "id": "multiply-i-explain",
+      "status": "reused",
+      "duration": 14.928
+    },
+    {
+      "id": "multiply-two-transform",
+      "status": "reused",
+      "duration": 14.88
+    },
+    {
+      "id": "multiply-two-explain",
+      "status": "reused",
+      "duration": 14.664
+    },
+    {
+      "id": "multiply-two-i-transform",
+      "status": "reused",
+      "duration": 14.448
+    },
+    {
+      "id": "multiply-two-i-explain",
+      "status": "reused",
+      "duration": 13.224
+    },
+    {
+      "id": "general-multiplier-transform",
+      "status": "reused",
+      "duration": 22.248
+    },
+    {
+      "id": "general-rule",
+      "status": "reused",
+      "duration": 14.88
+    },
+    {
+      "id": "argument-and-zero",
+      "status": "reused",
+      "duration": 14.688
+    }
+  ],
+  "verified_count": 10,
+  "generated_count": 0,
+  "reused_count": 10,
+  "total_duration": 150.072,
+  "missing_ids": []
+}

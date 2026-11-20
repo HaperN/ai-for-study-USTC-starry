@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="430" viewBox="0 0 1000 430" role="img" aria-label="两个内切圆之间的区域经倒数变换成为竖直带域，再经指数变换成为角域">
+<defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10" fill="#48749a"/></marker><mask id="region"><rect width="1000" height="430" fill="black"/><circle cx="140" cy="230" r="110" fill="white"/><circle cx="85" cy="230" r="55" fill="black"/></mask><clipPath id="wedgeClip"><rect x="700" y="105" width="285" height="250"/></clipPath></defs>
+<rect width="1000" height="430" rx="12" fill="#f6f9fc"/>
+<g font-family="PingFang SC,Microsoft YaHei,sans-serif" fill="#213b54" font-size="22">
+<text x="140" y="38" text-anchor="middle" font-weight="600">原域 z</text><text x="490" y="38" text-anchor="middle" font-weight="600">倒数平面 u</text><text x="840" y="38" text-anchor="middle" font-weight="600">像平面 w</text>
+<text x="140" y="76" text-anchor="middle" font-size="20">大圆内，小圆外</text><text x="490" y="76" text-anchor="middle" font-size="20">两条平行线之间</text><text x="840" y="76" text-anchor="middle" font-size="20">两条射线之间</text>
+</g>
+<rect x="20" y="100" width="270" height="260" fill="#a5d4df" mask="url(#region)"/>
+<g fill="none" stroke="#48749a" stroke-width="2.5"><path d="M20 230 H285" marker-end="url(#arr)"/><path d="M30 365 V100" marker-end="url(#arr)"/><circle cx="140" cy="230" r="110" stroke="#2b749b"/><circle cx="85" cy="230" r="55" stroke="#bd7951"/></g>
+<g font-family="serif" font-size="21" fill="#294b68"><text x="13" y="255">0</text><text x="80" y="255">1</text><text x="135" y="255">2</text><text x="246" y="255">4</text><text x="260" y="218">Re z</text><text x="39" y="110">Im z</text></g>
+<rect x="445" y="105" width="80" height="250" fill="#a5d4df"/>
+<g stroke="#48749a" stroke-width="2.5" fill="none"><path d="M355 230 H635" marker-end="url(#arr)"/><path d="M365 365 V100" marker-end="url(#arr)"/><path d="M445 105 V355 M525 105 V355" stroke-dasharray="7 5"/></g>
+<g font-family="serif" font-size="21" fill="#294b68"><text x="350" y="255">0</text><text x="427" y="259">1/4</text><text x="507" y="259">1/2</text><text x="578" y="218">Re u</text><text x="374" y="110">Im u</text></g>
+<path d="M720 330 L1000 330 L1000 -155 Z" fill="#a5d4df" clip-path="url(#wedgeClip)"/>
+<g fill="none" stroke="#48749a" stroke-width="2.5"><path d="M710 330 H975" marker-end="url(#arr)"/><path d="M720 365 V100" marker-end="url(#arr)"/><path d="M720 330 L842 119" marker-end="url(#arr)"/><path d="M773 330 A53 53 0 0 0 746.5 284.1"/><path d="M863 247 L939 203" stroke-dasharray="7 5" marker-end="url(#arr)"/></g>
+<g font-family="serif" font-size="21" fill="#294b68"><text x="702" y="355">0</text><text x="930" y="354">Re w</text><text x="730" y="113">Im w</text><text x="773" y="279">π/3</text></g>
+<g fill="#1a748d"><circle cx="195" cy="230" r="5"/><circle cx="471.667" cy="230" r="5"/><circle cx="804.572" cy="299.218" r="5"/></g>
+<g stroke="#48749a" stroke-width="3" fill="none"><path d="M305 205 H338" marker-end="url(#arr)"/><path d="M650 205 H683" marker-end="url(#arr)"/></g>
+<g font-family="PingFang SC,Microsoft YaHei,sans-serif" font-size="19" fill="#536d82"><text x="140" y="396" text-anchor="middle">边界不属于原域</text><text x="490" y="396" text-anchor="middle">竖直方向无限延伸</text><text x="840" y="396" text-anchor="middle">沿角域向外无限延伸</text></g>
+</svg>

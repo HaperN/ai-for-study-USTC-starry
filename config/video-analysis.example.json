@@ -1,0 +1,16 @@
+{
+  "_note": "Copy to video-analysis.json and configure your own ASR/OCR paths. No sample video, model weights or account credentials are included.",
+  "asr_python": "",
+  "asr_model": "",
+  "ocr_python": "",
+  "sample": "",
+  "sample_url": "",
+  "frame_interval": 20,
+  "max_frames": 96,
+  "scene_threshold": 0.12,
+  "vision_batch_size": 6,
+  "chapter_seconds": 240,
+  "review": true,
+  "max_upload_bytes": 2147483648,
+  "max_duration_seconds": 14400
+}

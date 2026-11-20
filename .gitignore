@@ -1,0 +1,39 @@
+# Local credentials and machine-specific settings
+.secrets/
+.env
+.env.*
+!.env.example
+config/integrated.local.json
+config/video-analysis.json
+config/models.local.json
+config/runtime.local.json
+
+# Environments and generated files
+.venv*/
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.cache/
+.models/
+*.egg-info/
+build/
+dist/
+.DS_Store
+
+# User input, private notes, execution state and downloadable packages
+/data/
+/work/
+/outputs/
+/downloads/
+/delivery/
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-wal
+*.db-shm
+
+# Local planning and verification
+.superpowers/
+.sdd/

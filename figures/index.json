@@ -1,0 +1,364 @@
+{
+  "_meta": {
+    "file_type": "figure_index",
+    "schema_version": "1.0",
+    "generator": "aiforstudy.figures",
+    "field_notes": {
+      "figures[].id": "渲染层引用名；讲解正文写 [[FIGURE:FIG-parallelogram]]",
+      "figures[].title": "图题（渲染层当 figcaption）",
+      "figures[].svg": "矢量图路径（相对项目根）；渲染层会内联它，不用 <img>",
+      "figures[].concepts": "这张图服务哪些概念（用于概念抽屉里配图），由画图的人声明",
+      "figures[].checks": "画完当场断言的校验结果；不合格的图不该登记",
+      "说明": "扫描裁图（IMG-xxxx）不在这里，它们在解析块的 images.json 里；两种图在渲染层共存"
+    }
+  },
+  "figures": [
+    {
+      "id": "FIG-equal-vectors",
+      "name": "equal-vectors",
+      "title": "相等向量",
+      "svg": "figures/equal-vectors.svg",
+      "geometry": "figures/equal-vectors.geometry.json",
+      "concept_names": [
+        "相等向量"
+      ],
+      "concepts": [],
+      "checks": {
+        "ok": true,
+        "problems": []
+      },
+      "canvas": [
+        704.0,
+        496.0
+      ],
+      "unresolved": [
+        "相等向量"
+      ]
+    },
+    {
+      "id": "FIG-linear-combination",
+      "name": "linear-combination",
+      "title": "线性组合 $1.5\\boldsymbol{a}_1+0.8\\boldsymbol{a}_2$",
+      "svg": "figures/linear-combination.svg",
+      "geometry": "figures/linear-combination.geometry.json",
+      "concept_names": [
+        "线性组合",
+        "线性运算"
+      ],
+      "concepts": [],
+      "checks": {
+        "ok": true,
+        "problems": []
+      },
+      "canvas": [
+        704.0,
+        496.0
+      ],
+      "unresolved": [
+        "线性组合",
+        "线性运算"
+      ]
+    },
+    {
+      "id": "FIG-opposite-vectors",
+      "name": "opposite-vectors",
+      "title": "反向量（负向量）",
+      "svg": "figures/opposite-vectors.svg",
+      "geometry": "figures/opposite-vectors.geometry.json",
+      "concept_names": [
+        "反向量"
+      ],
+      "concepts": [],
+      "checks": {
+        "ok": true,
+        "problems": []
+      },
+      "canvas": [
+        704.0,
+        496.0
+      ],
+      "unresolved": [
+        "反向量"
+      ]
+    },
+    {
+      "id": "FIG-parallel-collinear",
+      "name": "parallel-collinear",
+      "title": "平行（共线）",
+      "svg": "figures/parallel-collinear.svg",
+      "geometry": "figures/parallel-collinear.geometry.json",
+      "concept_names": [
+        "平行",
+        "两向量共线的充要条件"
+      ],
+      "concepts": [],
+      "checks": {
+        "ok": true,
+        "problems": []
+      },
+      "canvas": [
+        704.0,
+        496.0
+      ],
+      "unresolved": [
+        "平行",
+        "两向量共线的充要条件"
+      ]
+    },
+    {
+      "id": "FIG-perpendicular",
+      "name": "perpendicular",
+      "title": "垂直（正交）",
+      "svg": "figures/perpendicular.svg",
+      "geometry": "figures/perpendicular.geometry.json",
+      "concept_names": [
+        "垂直"
+      ],
+      "concepts": [],
+      "checks": {
+        "ok": true,
+        "problems": []
+      },
+      "canvas": [
+        704.0,
+        496.0
+      ],
+      "unresolved": [
+        "垂直"
+      ]
+    },
+    {
+      "id": "FIG-three-coplanar",
+      "name": "three-coplanar",
+      "title": "三向量共面条件",
+      "svg": "figures/three-coplanar.svg",
+      "geometry": "figures/three-coplanar.geometry.json",
+      "concept_names": [
+        "三向量共面的充要条件",
+        "线性相关"
+      ],
+      "concepts": [],
+      "checks": {
+        "ok": true,
+        "problems": []
+      },
+      "canvas": [
+        704.0,
+        496.0
+      ],
+      "unresolved": [
+        "三向量共面的充要条件",
+        "线性相关"
+      ]
+    },
+    {
+      "id": "FIG-triangle-rule",
+      "name": "triangle-rule",
+      "title": "三角形法则",
+      "svg": "figures/triangle-rule.svg",
+      "geometry": "figures/triangle-rule.geometry.json",
+      "concept_names": [
+        "三角形法则"
+      ],
+      "concepts": [],
+      "checks": {
+        "ok": true,
+        "problems": []
+      },
+      "canvas": [
+        704.0,
+        496.0
+      ],
+      "unresolved": [
+        "三角形法则"
+      ]
+    },
+    {
+      "id": "FIG-vector-angle",
+      "name": "vector-angle",
+      "title": "向量的夹角",
+      "svg": "figures/vector-angle.svg",
+      "geometry": "figures/vector-angle.geometry.json",
+      "concept_names": [
+        "向量夹角"
+      ],
+      "concepts": [],
+      "checks": {
+        "ok": true,
+        "problems": []
+      },
+      "canvas": [
+        704.0,
+        496.0
+      ],
+      "unresolved": [
+        "向量夹角"
+      ]
+    },
+    {
+      "id": "FIG-vector-parallelogram",
+      "name": "vector-parallelogram",
+      "title": "向量加法的平行四边形法则",
+      "svg": "figures/vector-parallelogram.svg",
+      "geometry": "figures/vector-parallelogram.geometry.json",
+      "concept_names": [
+        "向量加法"
+      ],
+      "concepts": [],
+      "checks": {
+        "ok": true,
+        "problems": []
+      },
+      "canvas": [
+        672.0,
+        480.0
+      ],
+      "unresolved": [
+        "向量加法"
+      ]
+    },
+    {
+      "id": "FIG-vector-scalar",
+      "name": "vector-scalar",
+      "title": "数乘的几何意义",
+      "svg": "figures/vector-scalar.svg",
+      "geometry": "figures/vector-scalar.geometry.json",
+      "concept_names": [
+        "向量的数乘"
+      ],
+      "concepts": [],
+      "checks": {
+        "ok": true,
+        "problems": []
+      },
+      "canvas": [
+        704.0,
+        496.0
+      ],
+      "unresolved": [
+        "向量的数乘"
+      ]
+    },
+    {
+      "id": "FIG-vector-segment",
+      "name": "vector-segment",
+      "title": "向量的表示（有向线段）",
+      "svg": "figures/vector-segment.svg",
+      "geometry": "figures/vector-segment.geometry.json",
+      "concept_names": [
+        "向量"
+      ],
+      "concepts": [],
+      "checks": {
+        "ok": true,
+        "problems": []
+      },
+      "canvas": [
+        704.0,
+        496.0
+      ],
+      "unresolved": [
+        "向量"
+      ]
+    },
+    {
+      "id": "FIG-vector-subtraction",
+      "name": "vector-subtraction",
+      "title": "向量减法 $\\boldsymbol{a}-\\boldsymbol{b}$",
+      "svg": "figures/vector-subtraction.svg",
+      "geometry": "figures/vector-subtraction.geometry.json",
+      "concept_names": [
+        "向量减法"
+      ],
+      "concepts": [],
+      "checks": {
+        "ok": true,
+        "problems": []
+      },
+      "canvas": [
+        704.0,
+        496.0
+      ],
+      "unresolved": [
+        "向量减法"
+      ]
+    },
+    {
+      "id": "FIG-mesh-2loop",
+      "name": "mesh-2loop",
+      "backend": "schemdraw",
+      "title": "两网孔电路（网孔电流）",
+      "svg": "figures/mesh-2loop.svg",
+      "geometry": "figures/mesh-2loop.geometry.json",
+      "concept_names": [
+        "网孔电流",
+        "网孔",
+        "网孔分析"
+      ],
+      "concepts": [],
+      "checks": {
+        "ok": true,
+        "problems": []
+      },
+      "canvas": null
+    },
+    {
+      "id": "FIG-ui-ohmic",
+      "name": "ui-ohmic",
+      "backend": "plot",
+      "title": "欧姆定律的伏安特性（$u=Ri$）",
+      "svg": "figures/ui-ohmic.svg",
+      "geometry": "figures/ui-ohmic.geometry.json",
+      "concept_names": [
+        "欧姆定律",
+        "线性电阻元件",
+        "伏安特性曲线"
+      ],
+      "concepts": [],
+      "checks": {
+        "ok": true,
+        "problems": []
+      },
+      "canvas": null
+    },
+    {
+      "id": "FIG-mesh-2loop-tex",
+      "name": "mesh-2loop-tex",
+      "backend": "circuitikz",
+      "title": "两网孔电路（CircuiTikZ 印刷版）",
+      "svg": "figures/mesh-2loop-tex.svg",
+      "geometry": "figures/mesh-2loop-tex.geometry.json",
+      "concept_names": [
+        "网孔电流",
+        "网孔分析",
+        "网孔方程"
+      ],
+      "concepts": [],
+      "checks": {
+        "ok": true,
+        "problems": []
+      },
+      "canvas": null
+    },
+    {
+      "id": "FIG-mesh-3d",
+      "name": "mesh-3d",
+      "backend": "three",
+      "title": "两个网孔的三维示意（glTF）",
+      "svg": "figures/mesh-3d.svg",
+      "geometry": "figures/mesh-3d.geometry.json",
+      "concept_names": [
+        "网孔电流",
+        "网孔分析"
+      ],
+      "concepts": [],
+      "checks": {
+        "ok": true,
+        "problems": []
+      },
+      "canvas": null,
+      "scene": "figures/mesh-3d.scene.json",
+      "gltf": "figures/mesh-3d.glb"
+    }
+  ]
+}

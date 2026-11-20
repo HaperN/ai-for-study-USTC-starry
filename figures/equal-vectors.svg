@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="316.8pt" height="223.2pt" viewBox="0 0 316.8 223.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-23T21:39:42.757768</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 223.2 
+L 316.8 223.2 
+L 316.8 0 
+L 0 0 
+L 0 223.2 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="vec-a1">
+    <path d="M 32.956627 79.771084 
+Q 70.40241 64.792771 105.772056 50.644913 
+" clip-path="url(#p80ab3b93a2)" style="fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 98.641355 50.050688 
+L 105.772056 50.644913 
+L 101.018255 55.992938 
+z
+" clip-path="url(#p80ab3b93a2)" style="stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="vec-a2">
+    <path d="M 32.956627 132.195181 
+Q 70.40241 117.216867 105.772056 103.069009 
+" clip-path="url(#p80ab3b93a2)" style="fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 98.641355 102.474784 
+L 105.772056 103.069009 
+L 101.018255 108.417035 
+z
+" clip-path="url(#p80ab3b93a2)" style="stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="vec-a3">
+    <path d="M 182.739759 76.026506 
+Q 235.163855 55.056867 285.511815 34.917684 
+" clip-path="url(#p80ab3b93a2)" style="fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 278.381114 34.323459 
+L 285.511815 34.917684 
+L 280.758014 40.265709 
+z
+" clip-path="url(#p80ab3b93a2)" style="stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="vec-a4">
+    <path d="M 182.739759 150.918072 
+Q 221.046795 163.518578 257.229725 175.420392 
+" clip-path="url(#p80ab3b93a2)" style="fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 252.150063 170.380845 
+L 257.229725 175.420392 
+L 250.15029 176.460393 
+z
+" clip-path="url(#p80ab3b93a2)" style="stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="label-0">
+    <!-- $\boldsymbol{a}_1$ -->
+    <g transform="translate(102.231325 43.074217)">
+     <text>
+      <tspan x="0" y="-0.71875" style="font-style: oblique; font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'">a</tspan>
+      <tspan x="8.896875" y="1.231244" style="font-size: 9.1px; font-family: 'DejaVu Sans'">1</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="label-1">
+    <!-- $\boldsymbol{a}_2$ -->
+    <g transform="translate(102.231325 117.965783)">
+     <text>
+      <tspan x="0" y="-0.71875" style="font-style: oblique; font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'">a</tspan>
+      <tspan x="8.896875" y="1.231244" style="font-size: 9.1px; font-family: 'DejaVu Sans'">2</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="label-2">
+    <!-- $\boldsymbol{a}_3$ -->
+    <g transform="translate(292.081446 37.831807)">
+     <text>
+      <tspan x="0" y="-0.71875" style="font-style: oblique; font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'">a</tspan>
+      <tspan x="8.896875" y="1.231244" style="font-size: 9.1px; font-family: 'DejaVu Sans'">3</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="label-3">
+    <!-- $\boldsymbol{a}_4$ -->
+    <g transform="translate(263.847325 180.612578)">
+     <text>
+      <tspan x="0" y="-0.71875" style="font-style: oblique; font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'">a</tspan>
+      <tspan x="8.896875" y="1.231244" style="font-size: 9.1px; font-family: 'DejaVu Sans'">4</tspan>
+     </text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p80ab3b93a2">
+   <rect x="3" y="19.857831" width="310.8" height="183.484337"/>
+  </clipPath>
+ </defs>
+</svg>

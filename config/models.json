@@ -1,0 +1,56 @@
+{
+  "_note": "Configuration template only. Set the endpoint and each role model/limits before generation. No account session is used by default.",
+  "provider": "deepseek",
+  "base_url": "https://api.example.invalid/v1",
+  "api_key_ref": "env:STARRY_MODEL_API_KEY",
+  "roles": {
+    "concepts": {
+      "model": "configure-your-model",
+      "effort": "high",
+      "max_tokens": 16000
+    },
+    "lesson": {
+      "model": "configure-your-model",
+      "effort": "high",
+      "max_tokens": 16000
+    },
+    "judge": {
+      "model": "configure-your-model",
+      "effort": "high",
+      "max_tokens": 16000
+    },
+    "text_judge": {
+      "model": "configure-your-model",
+      "effort": "high",
+      "max_tokens": 16000
+    },
+    "source_inventory": {
+      "model": "configure-your-model",
+      "effort": "low",
+      "max_tokens": 16000
+    },
+    "figures": {
+      "model": "configure-your-model",
+      "effort": "low",
+      "max_tokens": 16000
+    },
+    "interaction": {
+      "model": "configure-your-model",
+      "effort": "high",
+      "max_tokens": 16000
+    },
+    "toc_review": {
+      "model": "configure-your-model",
+      "effort": "high",
+      "max_tokens": 16000
+    },
+    "source_repair": {
+      "model": "configure-your-model",
+      "effort": "high",
+      "max_tokens": 16000
+    }
+  },
+  "retry": {
+    "network_and_format": 2
+  }
+}

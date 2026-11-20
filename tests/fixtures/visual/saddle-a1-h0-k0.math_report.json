@@ -1,0 +1,124 @@
+{
+  "checks": [
+    {
+      "actual": 2.0,
+      "assertion_id": "uxx",
+      "check_id": "math-uxx",
+      "evidence_hash": "sha256:f6696259b433c6e13d2b6a10d4aedff964a0c2cc57a39ed3581440b84bfa894c",
+      "expected": 2.0,
+      "kind": "partial_derivative",
+      "method": "poly_diff:exact + fd5:sampled",
+      "reason": "",
+      "status": "pass",
+      "tolerance": 1e-06
+    },
+    {
+      "actual": -2.0,
+      "assertion_id": "uyy",
+      "check_id": "math-uyy",
+      "evidence_hash": "sha256:847a6100f1fcac365b76bca5d68bc2ca880f86dd2dd03ed414227c8d84181fe8",
+      "expected": -2.0,
+      "kind": "partial_derivative",
+      "method": "poly_diff:exact + fd5:sampled",
+      "reason": "",
+      "status": "pass",
+      "tolerance": 1e-06
+    },
+    {
+      "actual": 0.0,
+      "assertion_id": "lap",
+      "check_id": "math-lap",
+      "evidence_hash": "sha256:86cf5fdc6937ffa5504636845ca5e331a422ab8cc58d758e58bbdad8630bd091",
+      "expected": 0.0,
+      "kind": "derivative_sum",
+      "method": "poly_diff:exact + fd5:sampled",
+      "reason": "",
+      "status": "pass",
+      "tolerance": 1e-06
+    },
+    {
+      "actual": 2.0,
+      "assertion_id": "notflat",
+      "check_id": "math-notflat",
+      "evidence_hash": "sha256:eb93753847bf7545bf38bd2841e090bd74161cac97605adccb69233197d560fa",
+      "expected": "not_planar",
+      "kind": "surface_not_planar",
+      "method": "poly_diff:curvature_scan",
+      "reason": "",
+      "status": "pass",
+      "tolerance": 1e-06
+    },
+    {
+      "actual": {
+        "1": 0.0,
+        "x": 0.0,
+        "x^2": 1.0,
+        "y": 0.0,
+        "y^2": -1.0
+      },
+      "assertion_id": "poly",
+      "check_id": "math-poly",
+      "evidence_hash": "sha256:81a439b2f28829e07f962515d7c1e533d6e71f164290d52fb9cced03fe8a5779",
+      "expected": {
+        "1": 0.0,
+        "x": 0.0,
+        "x^2": 1.0,
+        "y": 0.0,
+        "y^2": -1.0
+      },
+      "kind": "polynomial",
+      "method": "poly_expand:independent_coefficients",
+      "reason": "",
+      "status": "pass",
+      "tolerance": 1e-06
+    },
+    {
+      "actual": {
+        "free_variable": "x",
+        "numeric_second_derivative": 2.0,
+        "opening": "up",
+        "second_derivative": 2.0,
+        "trace_max_error": 0.0
+      },
+      "assertion_id": "tr_y",
+      "check_id": "math-tr_y",
+      "evidence_hash": "sha256:b7cfa8c5580b437a3d26adae7b201a67acb9630cd9a9dcafed897ab9ff1e26b4",
+      "expected": "up",
+      "kind": "section_is_trace",
+      "method": "poly_eval + fd5:section_trace",
+      "reason": "",
+      "status": "pass",
+      "tolerance": 1e-06
+    },
+    {
+      "actual": {
+        "free_variable": "y",
+        "numeric_second_derivative": -2.0,
+        "opening": "down",
+        "second_derivative": -2.0,
+        "trace_max_error": 0.0
+      },
+      "assertion_id": "tr_x",
+      "check_id": "math-tr_x",
+      "evidence_hash": "sha256:c66f900854c75c2a3244054050f5a7564d992267c9e8323f5b3eed20a0c894bb",
+      "expected": "down",
+      "kind": "section_is_trace",
+      "method": "poly_eval + fd5:section_trace",
+      "reason": "",
+      "status": "pass",
+      "tolerance": 1e-06
+    }
+  ],
+  "evidence_hashes": [
+    "sha256:f6696259b433c6e13d2b6a10d4aedff964a0c2cc57a39ed3581440b84bfa894c",
+    "sha256:847a6100f1fcac365b76bca5d68bc2ca880f86dd2dd03ed414227c8d84181fe8",
+    "sha256:86cf5fdc6937ffa5504636845ca5e331a422ab8cc58d758e58bbdad8630bd091",
+    "sha256:eb93753847bf7545bf38bd2841e090bd74161cac97605adccb69233197d560fa",
+    "sha256:81a439b2f28829e07f962515d7c1e533d6e71f164290d52fb9cced03fe8a5779",
+    "sha256:b7cfa8c5580b437a3d26adae7b201a67acb9630cd9a9dcafed897ab9ff1e26b4",
+    "sha256:c66f900854c75c2a3244054050f5a7564d992267c9e8323f5b3eed20a0c894bb"
+  ],
+  "reasons": [],
+  "schema_version": "1.0",
+  "status": "pass"
+}

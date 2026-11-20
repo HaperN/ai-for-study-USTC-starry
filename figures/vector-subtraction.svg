@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="316.8pt" height="223.2pt" viewBox="0 0 316.8 223.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-23T21:39:43.102192</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 223.2 
+L 316.8 223.2 
+L 316.8 0 
+L 0 0 
+L 0 223.2 
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="vec-a">
+    <path d="M 74.284514 171.35875 
+Q 155.686597 155.078333 234.896036 139.236446 
+" clip-path="url(#p03dd3c1368)" style="fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 227.992748 137.353731 
+L 234.896036 139.236446 
+L 229.247891 143.629447 
+z
+" clip-path="url(#p03dd3c1368)" style="stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="vec-b">
+    <path d="M 74.284514 171.35875 
+Q 101.418542 119.804097 127.511129 70.228182 
+" clip-path="url(#p03dd3c1368)" style="fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 121.698613 74.40127 
+L 127.511129 70.228182 
+L 127.36209 77.382047 
+z
+" clip-path="url(#p03dd3c1368)" style="stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="vec-diff">
+    <path d="M 128.552569 68.249444 
+Q 182.820625 103.523681 235.213864 137.579286 
+" clip-path="url(#p03dd3c1368)" style="fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 231.591787 131.408341 
+L 235.213864 137.579286 
+L 228.103862 136.77438 
+z
+" clip-path="url(#p03dd3c1368)" style="stroke: currentColor; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="helper-AB">
+    <path d="M 237.088681 138.797917 
+L 128.552569 68.249444 
+" clip-path="url(#p03dd3c1368)" style="fill: none; stroke-dasharray: 7,5.6; stroke-dashoffset: 0; stroke: currentColor; stroke-width: 1.4"/>
+   </g>
+   <g id="label-0">
+    <!-- $\boldsymbol{a}$ -->
+    <g transform="translate(220.808264 158.334417)">
+     <text>
+      <tspan x="0" y="-0.71875" style="font-style: oblique; font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'">a</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="label-1">
+    <!-- $\boldsymbol{b}$ -->
+    <g transform="translate(110.101431 58.481194)">
+     <text>
+      <tspan x="0" y="-0.125" style="font-style: oblique; font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'">b</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="label-2">
+    <!-- $\boldsymbol{a}-\boldsymbol{b}$ -->
+    <g transform="translate(147.546389 11.267986)">
+     <text>
+      <tspan x="0" y="-0.125" style="font-style: oblique; font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'">a</tspan>
+      <tspan x="24.730469" y="-0.125" style="font-style: oblique; font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'">b</tspan>
+      <tspan x="11.305176" y="-0.125" style="font-size: 13px; font-family: 'DejaVu Sans'">−</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="label-3">
+    <text style="font-size: 13px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="55.833375" y="188.724528" transform="rotate(-0 55.833375 188.724528)">O</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p03dd3c1368">
+   <rect x="25.443264" y="24.835" width="265.913472" height="195.365"/>
+  </clipPath>
+ </defs>
+</svg>

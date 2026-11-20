@@ -1,0 +1,11 @@
+{
+  "name": "AI教学 · 我的书架",
+  "short_name": "书架",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f6f1",
+  "theme_color": "#2f6b5a",
+  "lang": "zh-CN",
+  "icons": [{"src": "/shelf/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]
+}

@@ -1,0 +1,77 @@
+{
+  "_meta": {
+    "file_type": "budget_policy",
+    "schema_version": "1.0",
+    "generator": "aiforstudy.pipeline.budget",
+    "field_notes": {
+      "profiles": "运行档位 → 默认预算与并行度。**预算必须含正的 token/time 上限**（方案 §11）",
+      "default_*": "未显式传 --budget-tokens/--budget-minutes 时的取值；**必须能被命令行覆盖**",
+      "parallelism": "任务并行度；`default` 2、`max` 8（方案 §11：不使用无界线程池）",
+      "drain_seconds": "达到上限后的收尾记账窗口（方案 §11：最多 30 秒）",
+      "max_repair_rounds": "有界返修轮数（方案 §6：默认 2）。独立验收失败引起的修订也消耗轮次，不允许隐藏追加",
+      "为什么要有这个文件": "方案 §3：config/ 放'预算'；§11：预算配置必须包含正的 token/time 上限"
+    }
+  },
+  "default_max_tokens": 2000000,
+  "default_max_minutes": 120,
+  "parallelism": {
+    "default": 2,
+    "max": 8
+  },
+  "drain_seconds": 30,
+  "max_repair_rounds": 2,
+  "profiles": {
+    "release": {
+      "note": "正式生产：按已配置的真实服务和缓存执行",
+      "max_tokens": 2000000,
+      "max_minutes": 120,
+      "parallelism": 2,
+      "allow_real_services": true,
+      "release_ready_possible": true
+    },
+    "replay": {
+      "note": "固定响应回放：缓存缺失**立即阻断**，禁止回退真实服务",
+      "max_tokens": 0,
+      "max_minutes": 30,
+      "parallelism": 1,
+      "allow_real_services": false,
+      "release_ready_possible": false
+    },
+    "smoke": {
+      "note": "合成教材 + 替身外部服务：跑真实内部编排，不得当作真实教材质量验收",
+      "max_tokens": 0,
+      "max_minutes": 15,
+      "parallelism": 1,
+      "allow_real_services": false,
+      "release_ready_possible": false
+    }
+  },
+  "goals": {
+    "prepare": {
+      "note": "只做全书基础准备（解析 + 完整概念索引）；release_ready 恒为 false",
+      "max_tokens": 1200000,
+      "max_minutes": 120
+    },
+    "deliver": {
+      "note": "所选范围的完整交付",
+      "max_tokens": 2000000,
+      "max_minutes": 120
+    }
+  },
+  "accounting": {
+    "note": "分账口径（方案 §11）：全书基础准备与章生成分别汇总；恢复展示历史累计与本次增量；取消后的已消费用量不能丢失  `lesson`/`text_audit` 与 `core/usage.BUCKETS` 必须逐字一致：分账桶是记账口径，不是'另外一份可以过期的清单'。",
+    "buckets": [
+      "prepare",
+      "chapter",
+      "lesson",
+      "text_audit",
+      "media_plan",
+      "figures",
+      "audit",
+      "interaction",
+      "delivery",
+      "other"
+    ],
+    "unknown_usage": "网络超时导致用量不明 → 标 unknown 并保守保留预约，**不填零**"
+  }
+}

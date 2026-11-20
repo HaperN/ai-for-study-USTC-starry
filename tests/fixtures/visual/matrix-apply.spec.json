@@ -1,0 +1,204 @@
+{
+  "dependency_paths": [
+    "lesson/body.md",
+    "concepts/index.json"
+  ],
+  "lesson_anchor": "为什么二阶变化抵消不表示曲面是平面",
+  "math_assertions": [
+    {
+      "assertion_id": "apply",
+      "expected": [
+        5.0,
+        11.0
+      ],
+      "kind": "matrix_apply",
+      "matrix": "m",
+      "result_object": "mv",
+      "tolerance": 1e-06,
+      "vector": "v"
+    }
+  ],
+  "objective": "用同一套对象/动作表达 2x2 矩阵作用",
+  "objects": [
+    {
+      "kind": "axes2d",
+      "object_id": "axes2d",
+      "x_label": "x",
+      "x_range": [
+        -4,
+        8
+      ],
+      "y_label": "y",
+      "y_range": [
+        -4,
+        14
+      ]
+    },
+    {
+      "kind": "matrix2d",
+      "label": "2x2 矩阵 M",
+      "object_id": "m",
+      "rows": [
+        [
+          {
+            "op": "const",
+            "value": 1.0
+          },
+          {
+            "name": "k",
+            "op": "var"
+          }
+        ],
+        [
+          {
+            "op": "const",
+            "value": 3.0
+          },
+          {
+            "op": "const",
+            "value": 4.0
+          }
+        ]
+      ]
+    },
+    {
+      "color": "blue",
+      "end": [
+        {
+          "op": "const",
+          "value": 1.0
+        },
+        {
+          "op": "const",
+          "value": 2.0
+        }
+      ],
+      "kind": "vector",
+      "object_id": "v",
+      "space": "math2d",
+      "start": [
+        {
+          "op": "const",
+          "value": 0
+        },
+        {
+          "op": "const",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "color": "red",
+      "end": [
+        {
+          "op": "const",
+          "value": 5.0
+        },
+        {
+          "op": "const",
+          "value": 11.0
+        }
+      ],
+      "kind": "vector",
+      "object_id": "mv",
+      "space": "math2d",
+      "start": [
+        {
+          "op": "const",
+          "value": 0
+        },
+        {
+          "op": "const",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "at": [
+        {
+          "op": "const",
+          "value": 5.0
+        },
+        {
+          "op": "const",
+          "value": 11.0
+        }
+      ],
+      "kind": "point",
+      "object_id": "mv_tip",
+      "space": "math2d"
+    }
+  ],
+  "parameters": {
+    "k": 2.0
+  },
+  "render_profile": "draft",
+  "request_id": "vis-matrix-apply",
+  "schema_version": "1.0",
+  "source_claims": [
+    "u(x,y)=x^2-y^2",
+    "u_xx+u_yy=0"
+  ],
+  "source_refs": [
+    "CH04#p12",
+    "CH04#p13"
+  ],
+  "steps": [
+    {
+      "actions": [
+        {
+          "action": "reveal",
+          "object_id": "axes2d"
+        },
+        {
+          "action": "reveal",
+          "object_id": "m"
+        },
+        {
+          "action": "reveal",
+          "object_id": "v"
+        }
+      ],
+      "caption": "先看被作用的向量 v。",
+      "checkpoints": [
+        {
+          "at": 2.5,
+          "note": "读出 v 的两个分量"
+        }
+      ],
+      "end": 5.0,
+      "expected_change": "出现矩阵与向量",
+      "start": 0.0,
+      "step_id": "s1"
+    },
+    {
+      "actions": [
+        {
+          "action": "reveal",
+          "object_id": "mv"
+        },
+        {
+          "action": "reveal",
+          "object_id": "mv_tip"
+        },
+        {
+          "action": "camera",
+          "phi": 15.0,
+          "zoom": 1.4
+        }
+      ],
+      "caption": "矩阵作用的终点是 {value:apply}。",
+      "checkpoints": [
+        {
+          "at": 8.0,
+          "note": "核对终点坐标"
+        }
+      ],
+      "end": 11.0,
+      "expected_change": "出现矩阵作用后的终点",
+      "start": 5.0,
+      "step_id": "s2"
+    }
+  ],
+  "unit_id": "CH04"
+}

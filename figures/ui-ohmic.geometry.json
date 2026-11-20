@@ -1,0 +1,59 @@
+{
+  "kind": "structural",
+  "numeric": true,
+  "backend": "plot",
+  "name": "ui-ohmic",
+  "min_paths": 1,
+  "min_bytes": 1500,
+  "require_texts": [
+    "R = 1 Ω",
+    "R = 2 Ω",
+    "R = 0.5 Ω",
+    "i / A"
+  ],
+  "numeric_checks": [
+    {
+      "x": 1.0,
+      "y_expected": 1.0,
+      "y_drawn": 1.0,
+      "tolerance": 1e-06,
+      "ok": true
+    },
+    {
+      "x": -1.5,
+      "y_expected": -3.0,
+      "y_drawn": -3.0,
+      "tolerance": 3e-06,
+      "ok": true
+    },
+    {
+      "x": 2.0,
+      "y_expected": 1.0,
+      "y_drawn": 1.0,
+      "tolerance": 1e-06,
+      "ok": true
+    }
+  ],
+  "numeric_problems": [],
+  "curves": [
+    {
+      "expr": "R*i",
+      "params": {
+        "R": 1.0
+      }
+    },
+    {
+      "expr": "R*i",
+      "params": {
+        "R": 2.0
+      }
+    },
+    {
+      "expr": "R*i",
+      "params": {
+        "R": 0.5
+      }
+    }
+  ],
+  "svg_bytes": 15917
+}

@@ -1,0 +1,50 @@
+{
+  "kind": "structural",
+  "backend": "three",
+  "name": "mesh-3d",
+  "scene": "mesh-3d.scene.json",
+  "min_paths": 4,
+  "min_bytes": 200,
+  "require_texts": [
+    "mesh-1",
+    "mesh-2",
+    "i_M1",
+    "i_M2"
+  ],
+  "numeric": true,
+  "numeric_checks": [
+    {
+      "check": "节点数",
+      "expected": 4,
+      "drawn": 4,
+      "ok": true
+    },
+    {
+      "check": "网格数",
+      "expected": 4,
+      "drawn": 4,
+      "ok": true
+    }
+  ],
+  "numeric_problems": [],
+  "gltf": {
+    "file": "mesh-3d.glb",
+    "nodes": 4,
+    "meshes": 4,
+    "bbox_expected": [
+      -2.1,
+      -1.0,
+      -0.02,
+      2.1,
+      1.0,
+      0.39999999999999997
+    ]
+  },
+  "labels": [
+    "mesh-1",
+    "mesh-2",
+    "i_M1",
+    "i_M2"
+  ],
+  "svg_bytes": 961
+}

@@ -1,0 +1,1091 @@
+{
+  "schema_version": "1.0",
+  "created_date": "2026-11-14",
+  "purpose": "教材课后习题来源索引；不代表已布置作业清单，不解题，不用于直接推断考试频率。",
+  "pool_type": "textbook_exercise_pool",
+  "assignment_selected": "unknown",
+  "source": {
+    "sha256": "2028b7f926b9f65129f35daaaedf9df9aefe8ad5d336e4acd95846f00b7c5c23",
+    "user_pdf_sha256": "2028b7f926b9f65129f35daaaedf9df9aefe8ad5d336e4acd95846f00b7c5c23",
+    "files_byte_identical": true,
+    "pdf_page_count": 239,
+    "pdf_page_numbering": "1-based physical PDF page index",
+    "printed_body_page_numbering": "印刷阿拉伯页码",
+    "printed_to_pdf_offset": 9,
+    "offset_scope": "已视觉核验的目录所列正文、各章末习题及书末答案；封面与罗马页码前置部分不适用。",
+    "last_numbered_printed_page": 229,
+    "last_numbered_pdf_page": 238,
+    "pdf_last_page_role": "back_cover",
+    "scanned_image_pdf": true,
+    "local_copy_relative_path": "textbook.pdf",
+    "local_copy_sha256": "2028b7f926b9f65129f35daaaedf9df9aefe8ad5d336e4acd95846f00b7c5c23",
+    "local_copy_byte_identical": true
+  },
+  "bibliography": {
+    "title": "复变函数",
+    "compiler": "严镇军",
+    "edition": "第2版",
+    "publisher": "中国科学技术大学出版社",
+    "edition_date": "2001-09",
+    "revision_reprint": "2010-04",
+    "printing": "2010年4月第5次印刷",
+    "isbn": "978-7-312-00039-3",
+    "stated_audience": "高等院校理科各系（除数学系）及工科对复变函数要求较高的各系各专业。",
+    "evidence_png": "pdf-003.png"
+  },
+  "toc": {
+    "pdf_pages": [
+      8,
+      9
+    ],
+    "printed_labels": [
+      "v",
+      "vi"
+    ],
+    "evidence_pngs": [
+      "pdf-008.png",
+      "pdf-009.png"
+    ],
+    "note": "印刷目录只列章节，未列各章习题起页；习题起止由原页核验。"
+  },
+  "summary": {
+    "chapters": 9,
+    "top_level_exercise_questions": 129,
+    "exercise_pdf_page_count": 27,
+    "reference_answer_printed_pages": [
+      218,
+      229
+    ],
+    "reference_answer_pdf_pages": [
+      227,
+      238
+    ],
+    "chapters_with_some_reference_answers": 9,
+    "printed_parent_question_numbers_with_some_reference_response": 75,
+    "count_unit": "章内顶层题号；不包含括号子题、例题、定理、附表条目或题旁提示。",
+    "assigned_question_count": "unknown",
+    "full_solution_count": "unknown"
+  },
+  "chapters": [
+    {
+      "chapter": 1,
+      "title": "复数和平面点集",
+      "chapter_start": {
+        "printed_page": 1,
+        "pdf_page": 10,
+        "evidence": "pdf-008.png"
+      },
+      "pool_type": "textbook_exercise_pool",
+      "assignment_selected": "unknown",
+      "placement": "chapter_end",
+      "exercise_printed_pages": [
+        17,
+        19
+      ],
+      "exercise_pdf_pages": [
+        26,
+        28
+      ],
+      "top_level_question_range": [
+        1,
+        20
+      ],
+      "top_level_question_count": 20,
+      "subquestion_count": null,
+      "subquestion_count_status": "not_counted",
+      "pages": [
+        {
+          "printed_page": 17,
+          "pdf_page": 26,
+          "new_question_numbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-026.png"
+        },
+        {
+          "printed_page": 18,
+          "pdf_page": 27,
+          "new_question_numbers": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "continued_question_numbers": [
+            9
+          ],
+          "evidence_png": "pdf-027.png"
+        },
+        {
+          "printed_page": 19,
+          "pdf_page": 28,
+          "new_question_numbers": [
+            18,
+            19,
+            20
+          ],
+          "continued_question_numbers": [
+            17
+          ],
+          "evidence_png": "pdf-028.png"
+        }
+      ],
+      "reference_answers": {
+        "present": true,
+        "printed_pages": [
+          218,
+          219
+        ],
+        "pdf_pages": [
+          227,
+          228
+        ],
+        "printed_parent_question_numbers": [
+          1,
+          2,
+          4,
+          13,
+          14,
+          16,
+          19,
+          20
+        ],
+        "parent_number_match_only": true,
+        "full_solutions": false,
+        "all_subquestions_covered": "unknown",
+        "correctness_verified": false,
+        "note": "印出的题号说明书末对该顶层题至少有一项参考结果或提示；不保证子题齐全、过程完整或答案正确。未印题号仍可能在题干旁有提示。",
+        "evidence_pngs": [
+          "pdf-227.png",
+          "pdf-228.png"
+        ],
+        "local_link": "textbook.pdf#page=227",
+        "full_solutions_field_scope": "false表示不是本章全部习题的完整过程解答集；不排除个别题带说明。"
+      },
+      "evidence_pngs": [
+        "pdf-026.png",
+        "pdf-027.png",
+        "pdf-028.png"
+      ],
+      "verification": "all_exercise_pages_visually_reviewed",
+      "exercise_local_link": "textbook.pdf#page=26"
+    },
+    {
+      "chapter": 2,
+      "title": "复变数函数",
+      "chapter_start": {
+        "printed_page": 20,
+        "pdf_page": 29,
+        "evidence": "pdf-008.png"
+      },
+      "pool_type": "textbook_exercise_pool",
+      "assignment_selected": "unknown",
+      "placement": "chapter_end",
+      "exercise_printed_pages": [
+        47,
+        49
+      ],
+      "exercise_pdf_pages": [
+        56,
+        58
+      ],
+      "top_level_question_range": [
+        1,
+        24
+      ],
+      "top_level_question_count": 24,
+      "subquestion_count": null,
+      "subquestion_count_status": "not_counted",
+      "pages": [
+        {
+          "printed_page": 47,
+          "pdf_page": 56,
+          "new_question_numbers": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-056.png"
+        },
+        {
+          "printed_page": 48,
+          "pdf_page": 57,
+          "new_question_numbers": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ],
+          "continued_question_numbers": [
+            9
+          ],
+          "evidence_png": "pdf-057.png"
+        },
+        {
+          "printed_page": 49,
+          "pdf_page": 58,
+          "new_question_numbers": [
+            22,
+            23,
+            24
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-058.png"
+        }
+      ],
+      "reference_answers": {
+        "present": true,
+        "printed_pages": [
+          219,
+          221
+        ],
+        "pdf_pages": [
+          228,
+          230
+        ],
+        "printed_parent_question_numbers": [
+          1,
+          5,
+          6,
+          11,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          21,
+          22,
+          23,
+          24
+        ],
+        "parent_number_match_only": true,
+        "full_solutions": false,
+        "all_subquestions_covered": "unknown",
+        "correctness_verified": false,
+        "note": "印出的题号说明书末对该顶层题至少有一项参考结果或提示；不保证子题齐全、过程完整或答案正确。未印题号仍可能在题干旁有提示。",
+        "evidence_pngs": [
+          "pdf-228.png",
+          "pdf-229.png",
+          "pdf-230.png"
+        ],
+        "local_link": "textbook.pdf#page=228",
+        "full_solutions_field_scope": "false表示不是本章全部习题的完整过程解答集；不排除个别题带说明。"
+      },
+      "evidence_pngs": [
+        "pdf-056.png",
+        "pdf-057.png",
+        "pdf-058.png"
+      ],
+      "verification": "all_exercise_pages_visually_reviewed",
+      "exercise_local_link": "textbook.pdf#page=56"
+    },
+    {
+      "chapter": 3,
+      "title": "解析函数的积分表示",
+      "chapter_start": {
+        "printed_page": 50,
+        "pdf_page": 59,
+        "evidence": "pdf-008.png"
+      },
+      "pool_type": "textbook_exercise_pool",
+      "assignment_selected": "unknown",
+      "placement": "chapter_end",
+      "exercise_printed_pages": [
+        66,
+        68
+      ],
+      "exercise_pdf_pages": [
+        75,
+        77
+      ],
+      "top_level_question_range": [
+        1,
+        20
+      ],
+      "top_level_question_count": 20,
+      "subquestion_count": null,
+      "subquestion_count_status": "not_counted",
+      "pages": [
+        {
+          "printed_page": 66,
+          "pdf_page": 75,
+          "new_question_numbers": [
+            1,
+            2
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-075.png"
+        },
+        {
+          "printed_page": 67,
+          "pdf_page": 76,
+          "new_question_numbers": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-076.png"
+        },
+        {
+          "printed_page": 68,
+          "pdf_page": 77,
+          "new_question_numbers": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-077.png"
+        }
+      ],
+      "reference_answers": {
+        "present": true,
+        "printed_pages": [
+          221,
+          221
+        ],
+        "pdf_pages": [
+          230,
+          230
+        ],
+        "printed_parent_question_numbers": [
+          1,
+          2,
+          6,
+          9,
+          10,
+          11,
+          12,
+          14
+        ],
+        "parent_number_match_only": true,
+        "full_solutions": false,
+        "all_subquestions_covered": "unknown",
+        "correctness_verified": false,
+        "note": "印出的题号说明书末对该顶层题至少有一项参考结果或提示；不保证子题齐全、过程完整或答案正确。未印题号仍可能在题干旁有提示。",
+        "evidence_pngs": [
+          "pdf-230.png"
+        ],
+        "local_link": "textbook.pdf#page=230",
+        "full_solutions_field_scope": "false表示不是本章全部习题的完整过程解答集；不排除个别题带说明。"
+      },
+      "evidence_pngs": [
+        "pdf-075.png",
+        "pdf-076.png",
+        "pdf-077.png"
+      ],
+      "verification": "all_exercise_pages_visually_reviewed",
+      "exercise_local_link": "textbook.pdf#page=75"
+    },
+    {
+      "chapter": 4,
+      "title": "调和函数",
+      "chapter_start": {
+        "printed_page": 69,
+        "pdf_page": 78,
+        "evidence": "pdf-008.png"
+      },
+      "pool_type": "textbook_exercise_pool",
+      "assignment_selected": "unknown",
+      "placement": "chapter_end",
+      "exercise_printed_pages": [
+        75,
+        76
+      ],
+      "exercise_pdf_pages": [
+        84,
+        85
+      ],
+      "top_level_question_range": [
+        1,
+        5
+      ],
+      "top_level_question_count": 5,
+      "subquestion_count": null,
+      "subquestion_count_status": "not_counted",
+      "pages": [
+        {
+          "printed_page": 75,
+          "pdf_page": 84,
+          "new_question_numbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-084.png"
+        },
+        {
+          "printed_page": 76,
+          "pdf_page": 85,
+          "new_question_numbers": [
+            5
+          ],
+          "continued_question_numbers": [
+            4
+          ],
+          "evidence_png": "pdf-085.png"
+        }
+      ],
+      "reference_answers": {
+        "present": true,
+        "printed_pages": [
+          221,
+          221
+        ],
+        "pdf_pages": [
+          230,
+          230
+        ],
+        "printed_parent_question_numbers": [
+          1,
+          3,
+          4
+        ],
+        "parent_number_match_only": true,
+        "full_solutions": false,
+        "all_subquestions_covered": "unknown",
+        "correctness_verified": false,
+        "note": "印出的题号说明书末对该顶层题至少有一项参考结果或提示；不保证子题齐全、过程完整或答案正确。未印题号仍可能在题干旁有提示。",
+        "evidence_pngs": [
+          "pdf-230.png"
+        ],
+        "local_link": "textbook.pdf#page=230",
+        "full_solutions_field_scope": "false表示不是本章全部习题的完整过程解答集；不排除个别题带说明。"
+      },
+      "evidence_pngs": [
+        "pdf-084.png",
+        "pdf-085.png"
+      ],
+      "verification": "all_exercise_pages_visually_reviewed",
+      "exercise_local_link": "textbook.pdf#page=84"
+    },
+    {
+      "chapter": 5,
+      "title": "解析函数的级数展开",
+      "chapter_start": {
+        "printed_page": 77,
+        "pdf_page": 86,
+        "evidence": "pdf-008.png"
+      },
+      "pool_type": "textbook_exercise_pool",
+      "assignment_selected": "unknown",
+      "placement": "chapter_end",
+      "exercise_printed_pages": [
+        103,
+        106
+      ],
+      "exercise_pdf_pages": [
+        112,
+        115
+      ],
+      "top_level_question_range": [
+        1,
+        16
+      ],
+      "top_level_question_count": 16,
+      "subquestion_count": null,
+      "subquestion_count_status": "not_counted",
+      "pages": [
+        {
+          "printed_page": 103,
+          "pdf_page": 112,
+          "new_question_numbers": [
+            1,
+            2,
+            3
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-112.png"
+        },
+        {
+          "printed_page": 104,
+          "pdf_page": 113,
+          "new_question_numbers": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "continued_question_numbers": [
+            3
+          ],
+          "evidence_png": "pdf-113.png"
+        },
+        {
+          "printed_page": 105,
+          "pdf_page": 114,
+          "new_question_numbers": [
+            11,
+            12,
+            13,
+            14
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-114.png"
+        },
+        {
+          "printed_page": 106,
+          "pdf_page": 115,
+          "new_question_numbers": [
+            15,
+            16
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-115.png"
+        }
+      ],
+      "reference_answers": {
+        "present": true,
+        "printed_pages": [
+          221,
+          223
+        ],
+        "pdf_pages": [
+          230,
+          232
+        ],
+        "printed_parent_question_numbers": [
+          3,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "parent_number_match_only": true,
+        "full_solutions": false,
+        "all_subquestions_covered": "unknown",
+        "correctness_verified": false,
+        "note": "印出的题号说明书末对该顶层题至少有一项参考结果或提示；不保证子题齐全、过程完整或答案正确。未印题号仍可能在题干旁有提示。",
+        "evidence_pngs": [
+          "pdf-230.png",
+          "pdf-231.png",
+          "pdf-232.png"
+        ],
+        "local_link": "textbook.pdf#page=230",
+        "full_solutions_field_scope": "false表示不是本章全部习题的完整过程解答集；不排除个别题带说明。"
+      },
+      "evidence_pngs": [
+        "pdf-112.png",
+        "pdf-113.png",
+        "pdf-114.png",
+        "pdf-115.png"
+      ],
+      "verification": "all_exercise_pages_visually_reviewed",
+      "marked_items": [
+        {
+          "question": "2(2)",
+          "mark": "*"
+        },
+        {
+          "question": "5",
+          "mark": "*"
+        }
+      ],
+      "marked_items_note": "原页星号已看到；本次不推定其考试要求或赋分。",
+      "exercise_local_link": "textbook.pdf#page=112"
+    },
+    {
+      "chapter": 6,
+      "title": "留数及其应用",
+      "chapter_start": {
+        "printed_page": 107,
+        "pdf_page": 116,
+        "evidence": "pdf-009.png"
+      },
+      "pool_type": "textbook_exercise_pool",
+      "assignment_selected": "unknown",
+      "placement": "chapter_end",
+      "exercise_printed_pages": [
+        131,
+        133
+      ],
+      "exercise_pdf_pages": [
+        140,
+        142
+      ],
+      "top_level_question_range": [
+        1,
+        10
+      ],
+      "top_level_question_count": 10,
+      "subquestion_count": null,
+      "subquestion_count_status": "not_counted",
+      "pages": [
+        {
+          "printed_page": 131,
+          "pdf_page": 140,
+          "new_question_numbers": [
+            1,
+            2
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-140.png"
+        },
+        {
+          "printed_page": 132,
+          "pdf_page": 141,
+          "new_question_numbers": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "continued_question_numbers": [
+            2
+          ],
+          "evidence_png": "pdf-141.png"
+        },
+        {
+          "printed_page": 133,
+          "pdf_page": 142,
+          "new_question_numbers": [
+            7,
+            8,
+            9,
+            10
+          ],
+          "continued_question_numbers": [
+            6
+          ],
+          "evidence_png": "pdf-142.png"
+        }
+      ],
+      "reference_answers": {
+        "present": true,
+        "printed_pages": [
+          223,
+          224
+        ],
+        "pdf_pages": [
+          232,
+          233
+        ],
+        "printed_parent_question_numbers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10
+        ],
+        "parent_number_match_only": true,
+        "full_solutions": false,
+        "all_subquestions_covered": "unknown",
+        "correctness_verified": false,
+        "note": "印出的题号说明书末对该顶层题至少有一项参考结果或提示；不保证子题齐全、过程完整或答案正确。未印题号仍可能在题干旁有提示。",
+        "evidence_pngs": [
+          "pdf-232.png",
+          "pdf-233.png"
+        ],
+        "local_link": "textbook.pdf#page=232",
+        "full_solutions_field_scope": "false表示不是本章全部习题的完整过程解答集；不排除个别题带说明。"
+      },
+      "evidence_pngs": [
+        "pdf-140.png",
+        "pdf-141.png",
+        "pdf-142.png"
+      ],
+      "verification": "all_exercise_pages_visually_reviewed",
+      "exercise_local_link": "textbook.pdf#page=140"
+    },
+    {
+      "chapter": 7,
+      "title": "解析开拓",
+      "chapter_start": {
+        "printed_page": 134,
+        "pdf_page": 143,
+        "evidence": "pdf-009.png"
+      },
+      "pool_type": "textbook_exercise_pool",
+      "assignment_selected": "unknown",
+      "placement": "chapter_end",
+      "exercise_printed_pages": [
+        143,
+        144
+      ],
+      "exercise_pdf_pages": [
+        152,
+        153
+      ],
+      "top_level_question_range": [
+        1,
+        6
+      ],
+      "top_level_question_count": 6,
+      "subquestion_count": null,
+      "subquestion_count_status": "not_counted",
+      "pages": [
+        {
+          "printed_page": 143,
+          "pdf_page": 152,
+          "new_question_numbers": [
+            1,
+            2
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-152.png"
+        },
+        {
+          "printed_page": 144,
+          "pdf_page": 153,
+          "new_question_numbers": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "continued_question_numbers": [
+            2
+          ],
+          "evidence_png": "pdf-153.png"
+        }
+      ],
+      "reference_answers": {
+        "present": true,
+        "printed_pages": [
+          224,
+          224
+        ],
+        "pdf_pages": [
+          233,
+          233
+        ],
+        "printed_parent_question_numbers": [
+          2,
+          5
+        ],
+        "parent_number_match_only": true,
+        "full_solutions": false,
+        "all_subquestions_covered": "unknown",
+        "correctness_verified": false,
+        "note": "印出的题号说明书末对该顶层题至少有一项参考结果或提示；不保证子题齐全、过程完整或答案正确。未印题号仍可能在题干旁有提示。",
+        "evidence_pngs": [
+          "pdf-233.png"
+        ],
+        "local_link": "textbook.pdf#page=233",
+        "full_solutions_field_scope": "false表示不是本章全部习题的完整过程解答集；不排除个别题带说明。"
+      },
+      "evidence_pngs": [
+        "pdf-152.png",
+        "pdf-153.png"
+      ],
+      "verification": "all_exercise_pages_visually_reviewed",
+      "exercise_local_link": "textbook.pdf#page=152"
+    },
+    {
+      "chapter": 8,
+      "title": "保形变换及其应用",
+      "chapter_start": {
+        "printed_page": 145,
+        "pdf_page": 154,
+        "evidence": "pdf-009.png"
+      },
+      "pool_type": "textbook_exercise_pool",
+      "assignment_selected": "unknown",
+      "placement": "chapter_end",
+      "exercise_printed_pages": [
+        183,
+        185
+      ],
+      "exercise_pdf_pages": [
+        192,
+        194
+      ],
+      "top_level_question_range": [
+        1,
+        18
+      ],
+      "top_level_question_count": 18,
+      "subquestion_count": null,
+      "subquestion_count_status": "not_counted",
+      "pages": [
+        {
+          "printed_page": 183,
+          "pdf_page": 192,
+          "new_question_numbers": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-192.png"
+        },
+        {
+          "printed_page": 184,
+          "pdf_page": 193,
+          "new_question_numbers": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-193.png"
+        },
+        {
+          "printed_page": 185,
+          "pdf_page": 194,
+          "new_question_numbers": [
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-194.png"
+        }
+      ],
+      "reference_answers": {
+        "present": true,
+        "printed_pages": [
+          224,
+          226
+        ],
+        "pdf_pages": [
+          233,
+          235
+        ],
+        "printed_parent_question_numbers": [
+          1,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          14,
+          15,
+          16,
+          17,
+          18
+        ],
+        "parent_number_match_only": true,
+        "full_solutions": false,
+        "all_subquestions_covered": "unknown",
+        "correctness_verified": false,
+        "note": "印出的题号说明书末对该顶层题至少有一项参考结果或提示；不保证子题齐全、过程完整或答案正确。未印题号仍可能在题干旁有提示。",
+        "evidence_pngs": [
+          "pdf-233.png",
+          "pdf-234.png",
+          "pdf-235.png"
+        ],
+        "local_link": "textbook.pdf#page=233",
+        "full_solutions_field_scope": "false表示不是本章全部习题的完整过程解答集；不排除个别题带说明。"
+      },
+      "evidence_pngs": [
+        "pdf-192.png",
+        "pdf-193.png",
+        "pdf-194.png"
+      ],
+      "verification": "all_exercise_pages_visually_reviewed",
+      "exercise_local_link": "textbook.pdf#page=192"
+    },
+    {
+      "chapter": 9,
+      "title": "拉氏变换",
+      "chapter_start": {
+        "printed_page": 186,
+        "pdf_page": 195,
+        "evidence": "pdf-009.png"
+      },
+      "pool_type": "textbook_exercise_pool",
+      "assignment_selected": "unknown",
+      "placement": "chapter_end",
+      "exercise_printed_pages": [
+        214,
+        217
+      ],
+      "exercise_pdf_pages": [
+        223,
+        226
+      ],
+      "top_level_question_range": [
+        1,
+        10
+      ],
+      "top_level_question_count": 10,
+      "subquestion_count": null,
+      "subquestion_count_status": "not_counted",
+      "pages": [
+        {
+          "printed_page": 214,
+          "pdf_page": 223,
+          "new_question_numbers": [
+            1,
+            2,
+            3
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-223.png"
+        },
+        {
+          "printed_page": 215,
+          "pdf_page": 224,
+          "new_question_numbers": [
+            4,
+            5
+          ],
+          "continued_question_numbers": [
+            3
+          ],
+          "evidence_png": "pdf-224.png"
+        },
+        {
+          "printed_page": 216,
+          "pdf_page": 225,
+          "new_question_numbers": [
+            6,
+            7,
+            8
+          ],
+          "continued_question_numbers": [],
+          "evidence_png": "pdf-225.png"
+        },
+        {
+          "printed_page": 217,
+          "pdf_page": 226,
+          "new_question_numbers": [
+            9,
+            10
+          ],
+          "continued_question_numbers": [
+            8
+          ],
+          "evidence_png": "pdf-226.png"
+        }
+      ],
+      "reference_answers": {
+        "present": true,
+        "printed_pages": [
+          226,
+          229
+        ],
+        "pdf_pages": [
+          235,
+          238
+        ],
+        "printed_parent_question_numbers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          10
+        ],
+        "parent_number_match_only": true,
+        "full_solutions": false,
+        "all_subquestions_covered": "unknown",
+        "correctness_verified": false,
+        "note": "印出的题号说明书末对该顶层题至少有一项参考结果或提示；不保证子题齐全、过程完整或答案正确。未印题号仍可能在题干旁有提示。",
+        "evidence_pngs": [
+          "pdf-235.png",
+          "pdf-236.png",
+          "pdf-237.png",
+          "pdf-238.png"
+        ],
+        "local_link": "textbook.pdf#page=235",
+        "full_solutions_field_scope": "false表示不是本章全部习题的完整过程解答集；不排除个别题带说明。"
+      },
+      "evidence_pngs": [
+        "pdf-223.png",
+        "pdf-224.png",
+        "pdf-225.png",
+        "pdf-226.png"
+      ],
+      "verification": "all_exercise_pages_visually_reviewed",
+      "placement_note": "习题在本章两张附表之后开始；PDF224上的图9.8属于第3题，不能计为独立新题。",
+      "exercise_local_link": "textbook.pdf#page=223"
+    }
+  ],
+  "course_scope": {
+    "verified_from_book": [
+      "本书明示面向非数学系理科及要求较高的工科，而非以数学专业为默认受众。",
+      "第4章单独讨论调和函数及狄利克雷问题。",
+      "第7章包括解析开拓、含复参变量积分和Γ函数。",
+      "第8章包括分式线性变换、初等函数映照、带星号的许瓦兹-克利斯托菲变换及平面场。",
+      "第9章完整讨论拉氏变换，练习包括讯号的像函数、反变换、微分方程和积分方程。"
+    ],
+    "comparison_inference": [
+      "整理外校试卷时应保留至少两个独立类别：与本书范围匹配的非数学专业复变函数/应用卷，以及数学专业复分析理论卷。",
+      "两类可共享解析性、积分、级数、奇点、留数等概念标签，但不同课程的试题数量与难度不能直接合并成同一考试分布。",
+      "本书的拉氏变换、平面场及数学物理应用应作为匹配标签；不能因某数学专业卷未含这些内容，就推断本课程也不考。",
+      "理论卷是否额外涉及拓扑论证、正规族、黎曼映射等内容须以相应官方大纲或原卷核实；本教材目录本身不能证明任何一所学校的考试范围。"
+    ],
+    "actual_course_syllabus": "unknown",
+    "actual_assigned_items": "unknown",
+    "exam_frequency": "unknown",
+    "evidence_pngs": [
+      "pdf-003.png",
+      "pdf-008.png",
+      "pdf-009.png",
+      "pdf-194.png",
+      "pdf-223.png",
+      "pdf-225.png"
+    ]
+  }
+}

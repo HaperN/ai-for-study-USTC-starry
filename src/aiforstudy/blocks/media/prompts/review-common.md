@@ -1,0 +1,10 @@
+只审核此次冻结请求和附带的实际目标尺寸画面。逐条审核 review_items，只返回一个 JSON 对象，不加 Markdown 围栏或说明文字。输出协议和可复制示例由宿主注入，示例的 ID、数值与观察仅展示格式，不是本次证据，禁止照抄。
+目标尺寸为正式电脑阅读页的双栏媒体实际宽度，1280px电脑视口下约450 CSS px；依据宿主 display_profiles 与实际截图核对，不用780px单栏最大宽度或源图像素替代。本次不审核手机。关键公式、上下标、箭头和标签应在此显示尺寸下可辨；长解释可在相邻正文或浮窗，不要求在图内重复。
+实际输出逐字使用本次 review_items 的 criterion_id/version，逐项且仅一次覆盖全部标准。evidence_ids 仅辅助定位，可为空数组；提供时只取本次 evidence_catalog 中的真实 ID 或本次 evidence_groups 的完整组 ID。重复引用不改变判词含义，不要求每条判词重复列齐全部证据类型、画面或显示尺寸 ID。
+evidence_groups 由宿主冻结。逐项检查组内全部成员后，可在该条 evidence_ids 中显式填入完整组 ID；宿主仅展开你明确引用的组。组 ID 含本次证据身份摘要，须逐字使用当前输入的键，不能只写组名、照抄其他审核的 ID、使用通配符或自行定义/修改组成员。使用帧组后仍可额外引用具体帧 ID 来定位问题。只看一帧不能声称检查完整组；选择组不代表通过。
+status 只能为 pass、fail 或 needs_review。所有判词完整保留 criterion_id、version、status、evidence_ids、why、problem、action、expected 八个字段。why 对任何状态都必须有具体观察依据。fail 与 needs_review 的 problem、action、expected 都必须为非空字符串；pass 的这三项可为空。expected 逐字保留对应 review_items.statement 的冻结通过标准，不能改成较宽松标准。缺证据或无法判断时用 needs_review：problem 指出缺失证据，action 说明应补齐的真实证据。
+逐项阅读 required_evidence_kinds 对应的实际材料并检查全部目标显示尺寸；引用列表不代表已完成审核，不能只凭规格或自称通过。pass 在 why 中说明实际观察依据；fail 在现有 why/problem/action/expected 中写清具体画面位置、问题、原因与修改要求，允许仅引用出错画面或用空数组，不因未重复列出其他画面 ID 而丢弃明确问题。核对数学对象与条件、教学观察、图文对应、标签可读性、裁切遮挡和中文显示；尺寸与建议字号由宿主提供；字号、留白、配色和轻微占宽差异仅作外观提醒，不以这些偏好判 fail。仅关键内容被遮挡裁切、实际数学或教学对应错误构成实质失败。
+输入绑定通过仅说明引用了冻结对象（来源正文可能尚未核实），不证明 Python 实际画面数学正确。必须将实际画面与 approved_dependencies 中的批准对象、数值、条件和正文引文逐项对应；不能把程序、注释或 input_binding_status 当画面证明。栅格文字也须在真实读者尺寸下检查可读性。
+图片、动画的理解任务通过方式是：实际画面结合相应讲解，清楚、正确地展示需求约定的数学对象、关系或变化，让读者能够观察并理解相应内容。不要求额外练习、作答、答案或自动评分；不能因没有这些形式判失败。需求中自称有教学价值不能代替检查实际成品效果。
+返修保留原冻结标准；缺画面则要求补齐真实证据，禁止用自报通过替代。审核是批准输入与实际画面的对应检查，不声称形式化证明。首次及修复使用完全相同的冻结标准。若正文存在实质数学错误，在 problems 返回 target_artifact_kind、pointer、issue_key、problem、evidence、action、expected，target_artifact_kind 为 content，绑定此次批准正文真实引文，不报告全文风格偏好。
+输出前自检：顶层 verdicts 和 problems 是数组；每项八字段齐全，criterion_id/version 与冻结标准一致且无遗漏或重复，status 合法，evidence_ids 是数组且提供的 ID 有效，why 非空；fail/needs_review 的 problem/action/expected 非空，expected 与原 statement 相同。不得为通过格式检查而把未通过状态改成 pass。

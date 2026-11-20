@@ -1,0 +1,44 @@
+{
+  "unit": "CH04-S02",
+  "phenomenon": "verdict 判 closed，quote 与正文只有 LaTeX 空白差异（如 `\\int _ {0}` vs `\\int_{0}`）",
+  "current_text_len": 9808,
+  "window": {
+    "start": 1682,
+    "end": 6643,
+    "len": 4961
+  },
+  "window_exact_span_coverage": [
+    {
+      "start": 3229,
+      "end": 3350
+    },
+    {
+      "start": 1862,
+      "end": 2008
+    },
+    {
+      "start": 4977,
+      "end": 5417
+    },
+    {
+      "start": 1901,
+      "end": 2008
+    },
+    {
+      "start": 5631,
+      "end": 5900
+    },
+    {
+      "start": 6226,
+      "end": 6333
+    },
+    {
+      "start": 4977,
+      "end": 5417
+    },
+    {
+      "start": 5619,
+      "end": 6455
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "unit": "CH04-S01",
+  "phenomenon": "verdict 判 closed，quote 用『……』拼接多处正文；逐字 `quote in current_text` 失败",
+  "current_text_len": 7065,
+  "window": {
+    "start": 5153,
+    "end": 7065,
+    "len": 1912
+  },
+  "window_exact_span_coverage": [
+    {
+      "start": 6347,
+      "end": 6409
+    },
+    {
+      "start": 6449,
+      "end": 6862
+    },
+    {
+      "start": 6775,
+      "end": 6958
+    },
+    {
+      "start": 5332,
+      "end": 5577
+    },
+    {
+      "start": 6347,
+      "end": 6409
+    },
+    {
+      "start": 6449,
+      "end": 6862
+    },
+    {
+      "start": 6775,
+      "end": 6958
+    }
+  ]
+}

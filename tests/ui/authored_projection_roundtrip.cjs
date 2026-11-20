@@ -1,0 +1,11 @@
+const fs=require('fs'),assert=require('assert/strict'),{JSDOM}=require('jsdom');
+const renderer=require('../../blocks/render/assets/render-core.js').createRenderer({marked:require('../../blocks/render/vendor/marked.min.js')});
+const unit=JSON.parse(fs.readFileSync(0,'utf8'));
+const html=renderer.readerDocumentHtml(unit.reader_document,'body',[],unit.reader_layout,unit.teaching_presentation);
+const dom=new JSDOM('<main>'+html+'</main>'),root=dom.window.document.querySelector('main');
+assert.match(html,/展开证明/);
+assert.ok([...root.querySelectorAll('details:not([open])')].some(el=>el.textContent.includes('这个观察帮助我们进入下一步。')));
+assert.ok([...root.querySelectorAll('p')].some(el=>el.textContent==='先看原来的问题。'&&!el.closest('details')));
+const stale=JSON.parse(JSON.stringify(unit));stale.reader_document.blocks[0].raw_text+='更改';
+assert.throws(()=>renderer.readerDocumentHtml(stale.reader_document,'body',[],stale.reader_layout,stale.teaching_presentation),/presentation|binding|document/i);
+dom.window.close();

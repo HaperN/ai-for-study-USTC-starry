@@ -1,0 +1,251 @@
+[
+  {
+    "unit": "CH04-S02",
+    "verdicts": [
+      {
+        "no": 1,
+        "status": "closed",
+        "quote": "对圆周 $C: |z - z_0| = R$ 内部任一点 $z = z_0 + r \\mathrm{e}^{\\mathrm{i}\\varphi}, r < R$（其中 $\\varphi$ 是该点相对于圆心 $z_0$ 的辐角），由柯西积分公式",
+        "why": "原稿的 $r e^{j\\pi}$ 已改成 $r\\mathrm{e}^{\\mathrm{i}\\varphi}$，并明确交代 $\\varphi$ 是辐角。"
+      },
+      {
+        "no": 2,
+        "status": "closed",
+        "quote": "在 $G$ 内的解析函数 $e^{f(z)}$ 的模在 $z_0$ 达最大值 $\\mathrm{e}^{u(z_0)}$（由 $\\left|\\mathrm{e}^{f(z)}\\right|=\\mathrm{e}^{u(z)}$ 便知，这正是“$u$ 在 $z_0$ 取到最大值”的另一种写法）",
+        "why": "$e^{w^2z_0}$ 已换成 $\\mathrm{e}^{u(z_0)}$，并给出 $|e^{f(z)}|=e^{u(z)}$ 的依据。"
+      },
+      {
+        "no": 3,
+        "status": "closed",
+        "quote": "$$f (z) = \\frac {1}{2 \\pi} \\int _ {0} ^ {2 \\pi} f (z _ {0} + R e ^ {i \\theta}) \\left(\\frac {R e ^ {i \\theta}}{R e ^ {i \\theta} - r e ^ {i \\varphi}} - \\frac {r e ^ {i \\theta}}{r e ^ {i \\theta} - R e ^ {i \\varphi}}\\right) d \\theta .$$",
+        "why": "两处分母都已是 $r e^{i\\varphi}$、$R e^{i\\varphi}$，截断的错误式子已被完整正确的核替代。"
+      },
+      {
+        "no": 4,
+        "status": "closed",
+        "quote": "$\\mathrm{e}^{u(z_0)}$（由 $\\left|\\mathrm{e}^{f(z)}\\right|=\\mathrm{e}^{u(z)}$ 便知，这正是“$u$ 在 $z_0$ 取到最大值”的另一种写法）",
+        "why": "同第2条，已改正并说明它正是“$u$ 在 $z_0$ 取最大值”的改写。"
+      },
+      {
+        "no": 5,
+        "status": "closed",
+        "quote": "通分后的分子为 $R r \\mathrm{e}^{\\mathrm{i}2\\theta}-R^{2}\\mathrm{e}^{\\mathrm{i}(\\theta+\\varphi)}-R r \\mathrm{e}^{\\mathrm{i}2\\theta}+r^{2}\\mathrm{e}^{\\mathrm{i}(\\theta+\\varphi)}=(r^{2}-R^{2})\\mathrm{e}^{\\mathrm{i}(\\theta+\\varphi)}$，其中两项 $R r \\mathrm{e}^{\\mathrm{i}2\\theta}$ 正好抵消……再用 $\\mathrm{e}^{\\mathrm{i}(\\theta-\\varphi)}+\\mathrm{e}^{-\\mathrm{i}(\\theta-\\varphi)}=2\\cos(\\theta-\\varphi)$",
+        "why": "第二个分式（及第一项分母）已改为 $e^{i\\varphi}$，并补出通分、约去 $\\mathrm{e}^{\\mathrm{i}2\\theta}$/公因子、用和角余弦收尾的完整一步。"
+      }
+    ],
+    "new_p0": [
+      {
+        "quote": "$$f (z) = \\frac {1}{2 \\pi} \\int _ {0} ^ {2 \\pi} f (z _ {0} + R c ^ {i \\theta}) \\frac {R ^ {2} - r ^ {2}}{R ^ {2} - 2 R r \\cos (\\theta - \\varphi) + r ^ {2}} d \\theta .$$",
+        "problem": "被积函数里写成 $R c^{i\\theta}$，底数 $c$ 是没有定义的记号（应为 $R\\mathrm{e}^{\\mathrm{i}\\theta}$，即圆周上的点 $\\zeta=z_0+R\\mathrm{e}^{\\mathrm{i}\\theta}$）。这是泊松公式推导的最后一步，学生抄下来后公式在数学上根本讲不通，还会误以为这里出现了新的常数或函数 $c$。"
+      }
+    ],
+    "_dropped_fields": [
+      "usage",
+      "at",
+      "fingerprint"
+    ],
+    "_upstream_cache": "work/model-cache/sha256:46e9529d1ae4db4822c57d97619a57a1ab1c589c29fd3ac2d009e7ea8e41541b.json",
+    "_upstream_cache_sha256": "46e9529d1ae4db4822c57d97619a57a1ab1c589c29fd3ac2d009e7ea8e41541b",
+    "_verdict_analysis": [
+      {
+        "no": 1,
+        "status": "closed",
+        "why": "原稿的 $r e^{j\\pi}$ 已改成 $r\\mathrm{e}^{\\mathrm{i}\\varphi}$，并明确交代 $\\varphi$ 是辐角。",
+        "quote_len": 121,
+        "quote_sha256": "e0542f6c67daadf5ebde4e5efbe3d1bd6fb5a6374881f101e48c3896bbdde50b",
+        "quote_has_ellipsis": false,
+        "ellipsis_part_count": 1,
+        "strict_containment": true,
+        "legacy_verdict_closed": true,
+        "rejection_reason": "",
+        "parts": [
+          {
+            "exact": true,
+            "start": 3229,
+            "end": 3350,
+            "matches": 1
+          }
+        ]
+      },
+      {
+        "no": 2,
+        "status": "closed",
+        "why": "$e^{w^2z_0}$ 已换成 $\\mathrm{e}^{u(z_0)}$，并给出 $|e^{f(z)}|=e^{u(z)}$ 的依据。",
+        "quote_len": 146,
+        "quote_sha256": "6a0bdb3b19ab666ee3e9e3db10e7a24852f363719b75a7ed384e3e905f454e86",
+        "quote_has_ellipsis": false,
+        "ellipsis_part_count": 1,
+        "strict_containment": true,
+        "legacy_verdict_closed": true,
+        "rejection_reason": "",
+        "parts": [
+          {
+            "exact": true,
+            "start": 1862,
+            "end": 2008,
+            "matches": 1
+          }
+        ]
+      },
+      {
+        "no": 3,
+        "status": "closed",
+        "why": "两处分母都已是 $r e^{i\\varphi}$、$R e^{i\\varphi}$，截断的错误式子已被完整正确的核替代。",
+        "quote_len": 232,
+        "quote_sha256": "e98f70f374e6d7efbba7685f905fe750b24c13401742e547510e825c128013dd",
+        "quote_has_ellipsis": false,
+        "ellipsis_part_count": 1,
+        "strict_containment": false,
+        "legacy_verdict_closed": false,
+        "rejection_reason": "quote.strip() 不是 current_text 的子串；旧 `_verdict_closed` 返回 False，verdict.why 与拒绝原因都没有传给生成器",
+        "parts": [
+          {
+            "exact": false,
+            "start": -1,
+            "end": -1,
+            "matches": 0,
+            "stripped_exact_start": -1,
+            "stripped_exact_len": 232,
+            "longest_common_len": 200,
+            "longest_common_in_quote": [
+              32,
+              232
+            ],
+            "longest_common_in_body": [
+              5097,
+              5297
+            ],
+            "whitespace_normalized_in_body": true,
+            "whitespace_normalized_matches": 1
+          }
+        ]
+      },
+      {
+        "no": 4,
+        "status": "closed",
+        "why": "同第2条，已改正并说明它正是“$u$ 在 $z_0$ 取最大值”的改写。",
+        "quote_len": 107,
+        "quote_sha256": "3debd02f8d00066e87762dd55f79437d0533d8a5ed24912cfccfd331b948237d",
+        "quote_has_ellipsis": false,
+        "ellipsis_part_count": 1,
+        "strict_containment": true,
+        "legacy_verdict_closed": true,
+        "rejection_reason": "",
+        "parts": [
+          {
+            "exact": true,
+            "start": 1901,
+            "end": 2008,
+            "matches": 1
+          }
+        ]
+      },
+      {
+        "no": 5,
+        "status": "closed",
+        "why": "第二个分式（及第一项分母）已改为 $e^{i\\varphi}$，并补出通分、约去 $\\mathrm{e}^{\\mathrm{i}2\\theta}$/公因子、用和角余弦收尾的完整一步。",
+        "quote_len": 378,
+        "quote_sha256": "3c5dd6a0e6db494e4865003315b896c07a50715cc578c3b76765bfd397885f27",
+        "quote_has_ellipsis": true,
+        "ellipsis_part_count": 2,
+        "strict_containment": false,
+        "legacy_verdict_closed": false,
+        "rejection_reason": "quote.strip() 不是 current_text 的子串；旧 `_verdict_closed` 返回 False，verdict.why 与拒绝原因都没有传给生成器",
+        "parts": [
+          {
+            "exact": true,
+            "start": 5631,
+            "end": 5900,
+            "matches": 1
+          },
+          {
+            "exact": true,
+            "start": 6226,
+            "end": 6333,
+            "matches": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "unit": "CH04-S02",
+    "verdicts": [
+      {
+        "no": 1,
+        "status": "closed",
+        "quote": "$$f (z) = \\frac {1} {2 \\pi} \\int _ {0} ^ {2 \\pi} f (z _ {0} + R e ^ {i \\theta}) \\left(\\frac {R e ^ {i \\theta}}{R e ^ {i \\theta} - r e ^ {i \\varphi}} - \\frac {r e ^ {i \\theta}}{r e ^ {i \\theta} - R e ^ {i \\varphi}}\\right) d \\theta .$$",
+        "why": "原句里两处分母的 $re^{i\\theta}$、$Re^{i\\varphi}$ 已按工单改成 $re^{i\\varphi}$、$Re^{i\\varphi}$，且与 (4.9) 末行的被积核一致。"
+      },
+      {
+        "no": 2,
+        "status": "closed",
+        "quote": "括号里的两个分式先通分。通分后的分子为 $R r \\mathrm{e}^{\\mathrm{i}2\\theta}-R^{2}\\mathrm{e}^{\\mathrm{i}(\\theta+\\varphi)}-R r \\mathrm{e}^{\\mathrm{i}2\\theta}+r^{2}\\mathrm{e}^{\\mathrm{i}(\\theta+\\varphi)}=(r^{2}-R^{2})\\mathrm{e}^{\\mathrm{i}(\\theta+\\varphi)}$，其中两项 $R r \\mathrm{e}^{\\mathrm{i}2\\theta}$ 正好抵消，剩下的确实与 $R^{2}-r^{2}$ 成比例。分母 $(R \\mathrm{e}^{\\mathrm{i}\\theta}-r \\mathrm{e}^{\\mathrm{i}\\varphi})(r \\mathrm{e}^{\\mathrm{i}\\theta}-R \\mathrm{e}^{\\mathrm{i}\\varphi})$ 展开后也含公因子 $\\mathrm{e}^{\\mathrm{i}(\\theta+\\varphi)}$，把它提出来，括号里是 $R r(\\mathrm{e}^{\\mathrm{i}(\\theta-\\varphi)}+\\mathrm{e}^{-\\mathrm{i}(\\theta-\\varphi)})-R^{2}-r^{2}$；再用 $\\mathrm{e}^{\\mathrm{i}(\\theta-\\varphi)}+\\mathrm{e}^{-\\mathrm{i}(\\theta-\\varphi)}=2\\cos(\\theta-\\varphi)$，括号里就等于 $2Rr\\cos(\\theta-\\varphi)-R^{2}-r^{2}$。上下把公因子 $\\mathrm{e}^{\\mathrm{i}(\\theta+\\varphi)}$ 约掉，再上下同时变号，复值分式就化成右边那个实值分式。",
+        "why": "分母已改为 $re^{i\\varphi}$/$Re^{i\\varphi}$，通分后 $e^{i2\\theta}$ 项抵消、提取 $e^{i(\\theta+\\varphi)}$、用倍角余弦化简、约去公因子并变号得实值核，工单要求的各步齐全且算式正确。"
+      }
+    ],
+    "new_p0": [],
+    "_dropped_fields": [
+      "usage",
+      "at",
+      "fingerprint"
+    ],
+    "_upstream_cache": "work/model-cache/sha256:1a3d4d22ba4432590b17183a032cd0cc3c3383164c8fc3608a1103f7524aaeb9.json",
+    "_upstream_cache_sha256": "1a3d4d22ba4432590b17183a032cd0cc3c3383164c8fc3608a1103f7524aaeb9",
+    "_verdict_analysis": [
+      {
+        "no": 1,
+        "status": "closed",
+        "why": "原句里两处分母的 $re^{i\\theta}$、$Re^{i\\varphi}$ 已按工单改成 $re^{i\\varphi}$、$Re^{i\\varphi}$，且与 (4.9) 末行的被积核一致。",
+        "quote_len": 233,
+        "quote_sha256": "41b1774a8f1dc30eeca0a745001dcd5e10d65a01c5ab82fec6dd4ae6045d969c",
+        "quote_has_ellipsis": false,
+        "ellipsis_part_count": 1,
+        "strict_containment": false,
+        "legacy_verdict_closed": false,
+        "rejection_reason": "quote.strip() 不是 current_text 的子串；旧 `_verdict_closed` 返回 False，verdict.why 与拒绝原因都没有传给生成器",
+        "parts": [
+          {
+            "exact": false,
+            "start": -1,
+            "end": -1,
+            "matches": 0,
+            "stripped_exact_start": -1,
+            "stripped_exact_len": 233,
+            "longest_common_len": 200,
+            "longest_common_in_quote": [
+              33,
+              233
+            ],
+            "longest_common_in_body": [
+              5097,
+              5297
+            ],
+            "whitespace_normalized_in_body": false,
+            "whitespace_normalized_matches": 0
+          }
+        ]
+      },
+      {
+        "no": 2,
+        "status": "closed",
+        "why": "分母已改为 $re^{i\\varphi}$/$Re^{i\\varphi}$，通分后 $e^{i2\\theta}$ 项抵消、提取 $e^{i(\\theta+\\varphi)}$、用倍角余弦化简、约去公因子并变号得实值核，工单要求的各步齐全且算式正确。",
+        "quote_len": 836,
+        "quote_sha256": "2f7184bad395cd4a0df99005fb63a50748dbc36f74e75fdd1f68b634ffc77f87",
+        "quote_has_ellipsis": false,
+        "ellipsis_part_count": 1,
+        "strict_containment": true,
+        "legacy_verdict_closed": true,
+        "rejection_reason": "",
+        "parts": [
+          {
+            "exact": true,
+            "start": 5619,
+            "end": 6455,
+            "matches": 1
+          }
+        ]
+      }
+    ]
+  }
+]

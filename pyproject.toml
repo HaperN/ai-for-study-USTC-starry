@@ -1,0 +1,51 @@
+[build-system]
+# 明确构建后端与版本范围；离线安装需预先准备这些构建依赖。
+requires = ["setuptools>=68,<85", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aiforstudy"
+version = "0.1.0"
+description = "教材 PDF → 解析 → 教案 → 审核 → 交互 → 可离线阅读的 HTML 交付（统一引擎）"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { file = "LICENSE" }
+authors = [{ name = "黄浡桉" }, { name = "刘睿湘" }]
+
+# ⚠️ 依赖**故意留空**：本项目的运行时依赖是"已有的科学计算栈 + 上游 normalizer/审核器"
+# （见 requirements.lock）。往这里再抄一份依赖列表，就又多了一处会过期的副本——
+# 正是方案 §13 要治的"同一份信息写两处"。安装顺序写在 README 与 requirements.lock 里。
+dependencies = []
+
+[project.optional-dependencies]
+community-images = ["Pillow>=12,<14"]
+
+[project.scripts]
+# 方案 §4：安装后提供 `aifs`，等价模块入口为 `python -m aiforstudy`
+aifs = "aiforstudy.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/HaperN/ai-for-study-USTC-starry"
+Issues = "https://github.com/HaperN/ai-for-study-USTC-starry/issues"
+
+[tool.setuptools]
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES/*"]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+aiforstudy = ["resources/control-ui/*.html", "resources/control-ui/*.css", "resources/control-ui/*.js", "resources/video-analysis/*", "resources/practice/*", "resources/shelf/*", "resources/community/*", "resources/integrated/*", "checks/*.cjs", "providers/*.cjs", "vendor/normalizer/provenance.json", "resources/*.json", "blocks/media/*.cjs", "blocks/render/*.cjs", "blocks/content/prompts/*.md", "blocks/media/prompts/*.md"]
+
+[tool.pytest.ini_options]
+# ⚠️ 只加"不递归进哪些目录"，**不动 testpaths / addopts**：
+# 测试存在共享夹具和基于 sys.path 的导入，
+# 收紧收集范围或换 import-mode 都会让它们静默少跑。
+# ⚠️ 一旦显式写 norecursedirs，pytest 的**默认值会被整体替换**，所以默认那几项
+# （`.*`、`build`、`dist`、`venv`…）必须自己抄回来，否则会开始递归进 `.pytest_cache`。
+norecursedirs = [
+    ".*", "build", "dist", "venv", "*.egg",
+    "_archive", "data", "delivery", "figures", "node_modules",
+    "experiments", "vendor",
+]

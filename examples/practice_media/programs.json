@@ -1,0 +1,488 @@
+[
+  {
+    "id": "mapping",
+    "question_id": "PARA23-15",
+    "question_content_sha256": "9af9f1f33241728c68822f2208fb693585f6cfc8300d414616bcbadbe39eb79c",
+    "title": "两个圆域怎样变成角域",
+    "purpose_markdown": "让同一点在三个平面中同步运动，理解边界对应、倒数变换与指数变换的连接。",
+    "steps": [
+      {
+        "step_id": "S1",
+        "author_step_index": 0,
+        "caption": "原域是 $|z-2|<2$ 且 $|z-1|>1$。边界不在域内，切点 $z=0$ 被排除。",
+        "display_markdown": "原域是 $|z-2|<2$ 且 $|z-1|>1$。边界不在域内，切点 $z=0$ 被排除。",
+        "display_title": "识别原域",
+        "observation": "原域是 $|z-2|<2$ 且 $|z-1|>1$。边界不在域内，切点 $z=0$ 被排除。",
+        "expected_change": "识别原域",
+        "narration_text": "先看左边。我们取大圆内部、小圆外部的点，两条圆周都不属于原域。蓝点在这个区域内移动，切点零不作为输入。",
+        "canonical_spoken_text": "先看左边。我们取大圆内部、小圆外部的点，两条圆周都不属于原域。蓝点在这个区域内移动，切点零不作为输入。"
+      },
+      {
+        "step_id": "S2",
+        "author_step_index": 1,
+        "caption": "$u=1/z$ 把两圆边界分别对应到 $\\operatorname{Re}u=1/4$ 和 $1/2$；像域沿竖直方向无限延伸。",
+        "display_markdown": "$u=1/z$ 把两圆边界分别对应到 $\\operatorname{Re}u=1/4$ 和 $1/2$；像域沿竖直方向无限延伸。",
+        "display_title": "倒数变成竖带",
+        "observation": "$u=1/z$ 把两圆边界分别对应到 $\\operatorname{Re}u=1/4$ 和 $1/2$；像域沿竖直方向无限延伸。",
+        "expected_change": "倒数变成竖带",
+        "narration_text": "再看中间。每一帧都用输入点的倒数计算像点，两条圆边界对应两条平行直线。蓝点始终落在它们之间，带域沿上下方向无限延伸。",
+        "canonical_spoken_text": "再看中间。每一帧都用输入点的倒数计算像点，两条圆边界对应两条平行直线。蓝点始终落在它们之间，带域沿上下方向无限延伸。"
+      },
+      {
+        "step_id": "S3",
+        "author_step_index": 2,
+        "caption": "$w=\\exp[\\frac{4\\pi i}{3}(u-\\frac14)]$，所以 $0<\\arg w<\\pi/3$。",
+        "display_markdown": "$w=\\exp[\\frac{4\\pi i}{3}(u-\\frac14)]$，所以 $0<\\arg w<\\pi/3$。",
+        "display_title": "指数变成角域",
+        "observation": "$w=\\exp[\\frac{4\\pi i}{3}(u-\\frac14)]$，所以 $0<\\arg w<\\pi/3$。",
+        "expected_change": "指数变成角域",
+        "narration_text": "右边再做指数变换。中间点的横坐标决定像点的辐角，纵坐标决定模长。蓝点始终落在两条射线之间，角域没有外圆半径限制。",
+        "canonical_spoken_text": "右边再做指数变换。中间点的横坐标决定像点的辐角，纵坐标决定模长。蓝点始终落在两条射线之间，角域没有外圆半径限制。"
+      },
+      {
+        "step_id": "S4",
+        "author_step_index": 3,
+        "caption": "$z=3\\mapsto u=1/3\\mapsto w=e^{i\\pi/9}$。三个蓝点属于同一次映射，不是三个独立运动。",
+        "display_markdown": "$z=3\\mapsto u=1/3\\mapsto w=e^{i\\pi/9}$。三个蓝点属于同一次映射，不是三个独立运动。",
+        "display_title": "核对同一个点",
+        "observation": "$z=3\\mapsto u=1/3\\mapsto w=e^{i\\pi/9}$。三个蓝点属于同一次映射，不是三个独立运动。",
+        "expected_change": "核对同一个点",
+        "narration_text": "最后把输入点停在实数三的位置。中间像点是三分之一，右边像点的模长是一、辐角是圆周率的九分之一。三处位置用同一组公式核对。",
+        "canonical_spoken_text": "最后把输入点停在实数三的位置。中间像点是三分之一，右边像点的模长是一、辐角是圆周率的九分之一。三处位置用同一组公式核对。"
+      }
+    ],
+    "request": {
+      "request_id": "practice-mapping-v1",
+      "kind": "animation",
+      "object_refs": [],
+      "animation": {
+        "steps": [
+          "识别原域",
+          "倒数变成竖带",
+          "指数变成角域",
+          "核对同一个点"
+        ]
+      }
+    },
+    "program": {
+      "schema_version": "GeneratedMediaCodeV1",
+      "request_id": "practice-mapping-v1",
+      "backend": "manim",
+      "code": "from manim import *\nfrom aifs_media_runtime import media_step\nimport numpy as np\nimport math\n\nINK='#20364d';BLUE='#267b9d';ORANGE='#c9804b';WASH='#cde8ef';LINE='#748a9e'\nclass GeneratedScene(Scene):\n    def construct(self):\n        title=Text('一个点怎样经过两次复合映射',font_size=38).to_edge(UP,buff=.28)\n        note=Text('先确定边界，再跟踪同一点的像',font_size=26,color=LINE).next_to(title,DOWN,buff=.12)\n        zax=Axes(x_range=[0,4.5,1],y_range=[-2.2,2.2,1],x_length=3.8,y_length=3.8*4.4/4.5,tips=False,axis_config={'color':LINE,'stroke_width':2}).move_to(LEFT*4.65+DOWN*.1)\n        uax=Axes(x_range=[0,.75,.25],y_range=[-.36,.36,.18],x_length=3.8,y_length=3.648,tips=False,axis_config={'color':LINE,'stroke_width':2}).move_to(DOWN*.1)\n        wax=Axes(x_range=[0,2.6,1],y_range=[0,2.6,1],x_length=3.6,y_length=3.6,tips=False,axis_config={'color':LINE,'stroke_width':2}).move_to(RIGHT*4.65+DOWN*.1)\n        zscale=np.linalg.norm(zax.c2p(1,0)-zax.c2p(0,0))\n        outer=Circle(radius=2*zscale,color=BLUE,stroke_width=3).move_to(zax.c2p(2,0))\n        inner=Circle(radius=zscale,color=ORANGE,stroke_width=3).move_to(zax.c2p(1,0))\n        region=Difference(outer,inner,color=WASH,fill_opacity=.85,stroke_width=0)\n        zl=VGroup(Text('原域 z',font_size=30).move_to([-4.65,2.25,0]),MathTex('0',font_size=26).next_to(zax.c2p(0,0),DOWN+LEFT,buff=.08),MathTex('2',font_size=26).next_to(zax.c2p(2,0),DOWN,buff=.08),MathTex('4',font_size=26).next_to(zax.c2p(4,0),DOWN,buff=.08))\n        strip=Polygon(uax.c2p(.25,-.36),uax.c2p(.5,-.36),uax.c2p(.5,.36),uax.c2p(.25,.36),fill_color=WASH,fill_opacity=.85,stroke_width=0)\n        limits=VGroup(DashedLine(uax.c2p(.25,-.36),uax.c2p(.25,.36),color=BLUE),DashedLine(uax.c2p(.5,-.36),uax.c2p(.5,.36),color=ORANGE))\n        ul=VGroup(Text('倒数平面 u',font_size=30).move_to([0,2.25,0]),MathTex(r'\\frac14',font_size=28).next_to(uax.c2p(.25,0),DOWN,buff=.12),MathTex(r'\\frac12',font_size=28).next_to(uax.c2p(.5,0),DOWN,buff=.12))\n        wedge=Polygon(wax.c2p(0,0),wax.c2p(2.6,0),wax.c2p(2.6,2.6),wax.c2p(2.6/math.sqrt(3),2.6),fill_color=WASH,fill_opacity=.85,stroke_width=0)\n        rays=VGroup(Arrow(wax.c2p(0,0),wax.c2p(2.52,0),buff=0,color=BLUE,stroke_width=3),Arrow(wax.c2p(0,0),wax.c2p(1.44,1.44*math.sqrt(3)),buff=0,color=ORANGE,stroke_width=3))\n        wl=VGroup(Text('像平面 w',font_size=30).move_to([4.65,2.25,0]),MathTex(r'\\pi/3',font_size=28).move_to(wax.c2p(.72,.75)),Text('向外无限延伸',font_size=24,color=LINE).move_to([4.65,-2.4,0]))\n        zgroup=VGroup(region,zax,outer,inner,zl);ugroup=VGroup(strip,uax,limits,ul,Text('上下无限延伸',font_size=24,color=LINE).move_to([0,-2.4,0]));wgroup=VGroup(wedge,wax,rays,wl)\n        phi=ValueTracker(0);mix=ValueTracker(0)\n        def uv():\n            v=3/8+.1*math.cos(phi.get_value())+.18j*math.sin(phi.get_value())\n            return (1-mix.get_value())*v+mix.get_value()/3\n        def zv():return 1/uv()\n        def wv():return np.exp((4j*math.pi/3)*(uv()-.25))\n        zd=always_redraw(lambda:Dot(zax.c2p(zv().real,zv().imag),radius=.065,color='#126b8b'))\n        ud=always_redraw(lambda:Dot(uax.c2p(uv().real,uv().imag),radius=.065,color='#126b8b'))\n        wd=always_redraw(lambda:Dot(wax.c2p(wv().real,wv().imag),radius=.065,color='#126b8b'))\n        formulas=[MathTex(x,font_size=34).move_to([0,-3.18,0]) for x in [r'|z-2|<2,\\quad |z-1|>1',r'u=\\frac1z,\\qquad \\frac14<\\operatorname{Re}u<\\frac12',r'w=\\exp\\!\\left[\\frac{4\\pi i}{3}\\left(u-\\frac14\\right)\\right],\\quad 0<\\arg w<\\frac\\pi3',r'z=3\\ \\longmapsto\\ u=\\frac13\\ \\longmapsto\\ w=e^{i\\pi/9}']]\n        for f in formulas:\n            if f.width>12.6:f.scale_to_fit_width(12.6)\n        self.add(title,note,zgroup,zd,formulas[0])\n        with media_step(self,'S1'):\n            self.play(phi.animate.set_value(TAU),run_time=7,rate_func=linear)\n            self.wait(.6)\n        with media_step(self,'S2'):\n            self.play(FadeIn(ugroup),FadeIn(ud),ReplacementTransform(formulas[0],formulas[1]),run_time=1)\n            self.play(phi.animate.set_value(2*TAU),run_time=7,rate_func=linear)\n        with media_step(self,'S3'):\n            self.play(FadeIn(wgroup),FadeIn(wd),ReplacementTransform(formulas[1],formulas[2]),run_time=1)\n            self.play(phi.animate.set_value(3*TAU),run_time=7,rate_func=linear)\n        with media_step(self,'S4'):\n            self.play(mix.animate.set_value(1),ReplacementTransform(formulas[2],formulas[3]),run_time=4)\n            self.wait(2)\n",
+      "object_bindings": [],
+      "steps": [
+        {
+          "step_id": "S1",
+          "author_step_index": 0,
+          "caption": "原域是 $|z-2|<2$ 且 $|z-1|>1$。边界不在域内，切点 $z=0$ 被排除。",
+          "display_markdown": "原域是 $|z-2|<2$ 且 $|z-1|>1$。边界不在域内，切点 $z=0$ 被排除。",
+          "observation": "原域是 $|z-2|<2$ 且 $|z-1|>1$。边界不在域内，切点 $z=0$ 被排除。",
+          "expected_change": "识别原域",
+          "narration_text": "先看左边。我们取大圆内部、小圆外部的点，两条圆周都不属于原域。蓝点在这个区域内移动，切点零不作为输入。",
+          "canonical_spoken_text": "先看左边。我们取大圆内部、小圆外部的点，两条圆周都不属于原域。蓝点在这个区域内移动，切点零不作为输入。",
+          "spoken_review": {
+            "status": "approved",
+            "scope": "script mathematics and language, not human listening",
+            "evidence_sha256": "c41b6eee8d99359f48216a2ce1cd56431d9dc8c77b4c2872b6d1b4cae856ab78",
+            "text_sha256": "3cbae57ca297cd0f341a95989dac1c8af55731b676ddf25a2e9d907232681510"
+          }
+        },
+        {
+          "step_id": "S2",
+          "author_step_index": 1,
+          "caption": "$u=1/z$ 把两圆边界分别对应到 $\\operatorname{Re}u=1/4$ 和 $1/2$；像域沿竖直方向无限延伸。",
+          "display_markdown": "$u=1/z$ 把两圆边界分别对应到 $\\operatorname{Re}u=1/4$ 和 $1/2$；像域沿竖直方向无限延伸。",
+          "observation": "$u=1/z$ 把两圆边界分别对应到 $\\operatorname{Re}u=1/4$ 和 $1/2$；像域沿竖直方向无限延伸。",
+          "expected_change": "倒数变成竖带",
+          "narration_text": "再看中间。每一帧都用输入点的倒数计算像点，两条圆边界对应两条平行直线。蓝点始终落在它们之间，带域沿上下方向无限延伸。",
+          "canonical_spoken_text": "再看中间。每一帧都用输入点的倒数计算像点，两条圆边界对应两条平行直线。蓝点始终落在它们之间，带域沿上下方向无限延伸。",
+          "spoken_review": {
+            "status": "approved",
+            "scope": "script mathematics and language, not human listening",
+            "evidence_sha256": "c41b6eee8d99359f48216a2ce1cd56431d9dc8c77b4c2872b6d1b4cae856ab78",
+            "text_sha256": "dc1f7d35bb485161802dab802eba5db42df37c8a56ce76555496564a24535066"
+          }
+        },
+        {
+          "step_id": "S3",
+          "author_step_index": 2,
+          "caption": "$w=\\exp[\\frac{4\\pi i}{3}(u-\\frac14)]$，所以 $0<\\arg w<\\pi/3$。",
+          "display_markdown": "$w=\\exp[\\frac{4\\pi i}{3}(u-\\frac14)]$，所以 $0<\\arg w<\\pi/3$。",
+          "observation": "$w=\\exp[\\frac{4\\pi i}{3}(u-\\frac14)]$，所以 $0<\\arg w<\\pi/3$。",
+          "expected_change": "指数变成角域",
+          "narration_text": "右边再做指数变换。中间点的横坐标决定像点的辐角，纵坐标决定模长。蓝点始终落在两条射线之间，角域没有外圆半径限制。",
+          "canonical_spoken_text": "右边再做指数变换。中间点的横坐标决定像点的辐角，纵坐标决定模长。蓝点始终落在两条射线之间，角域没有外圆半径限制。",
+          "spoken_review": {
+            "status": "approved",
+            "scope": "script mathematics and language, not human listening",
+            "evidence_sha256": "c41b6eee8d99359f48216a2ce1cd56431d9dc8c77b4c2872b6d1b4cae856ab78",
+            "text_sha256": "6dd95a521fb465f1e41ad022d0825a4a6e5af5ef0ee4c6efdd91618f360e3879"
+          }
+        },
+        {
+          "step_id": "S4",
+          "author_step_index": 3,
+          "caption": "$z=3\\mapsto u=1/3\\mapsto w=e^{i\\pi/9}$。三个蓝点属于同一次映射，不是三个独立运动。",
+          "display_markdown": "$z=3\\mapsto u=1/3\\mapsto w=e^{i\\pi/9}$。三个蓝点属于同一次映射，不是三个独立运动。",
+          "observation": "$z=3\\mapsto u=1/3\\mapsto w=e^{i\\pi/9}$。三个蓝点属于同一次映射，不是三个独立运动。",
+          "expected_change": "核对同一个点",
+          "narration_text": "最后把输入点停在实数三的位置。中间像点是三分之一，右边像点的模长是一、辐角是圆周率的九分之一。三处位置用同一组公式核对。",
+          "canonical_spoken_text": "最后把输入点停在实数三的位置。中间像点是三分之一，右边像点的模长是一、辐角是圆周率的九分之一。三处位置用同一组公式核对。",
+          "spoken_review": {
+            "status": "approved",
+            "scope": "script mathematics and language, not human listening",
+            "evidence_sha256": "c41b6eee8d99359f48216a2ce1cd56431d9dc8c77b4c2872b6d1b4cae856ab78",
+            "text_sha256": "fe29d249f8a4742316869d1f024ebfa328559eaa8025545c7f9f7053f9923134"
+          }
+        }
+      ]
+    },
+    "context": {
+      "request": {
+        "request_id": "practice-mapping-v1",
+        "kind": "animation",
+        "object_refs": [],
+        "animation": {
+          "steps": [
+            "识别原域",
+            "倒数变成竖带",
+            "指数变成角域",
+            "核对同一个点"
+          ]
+        }
+      },
+      "approved_content": {
+        "question_id": "PARA23-15",
+        "content_sha256": "9af9f1f33241728c68822f2208fb693585f6cfc8300d414616bcbadbe39eb79c",
+        "stem": "求保形变换 $w=w(z)$，将区域\n$$D=\\{z\\in\\mathbb C:|z-1|>1,\\ |z-2|<2\\}$$\n一一映为区域\n$$G=\\{w\\in\\mathbb C:0<\\arg w<\\pi/3\\}.$$",
+        "answer": "一个所求变换是\n$$w(z)=\\exp\\left[\\frac{4\\pi i}{3}\\left(\\frac1z-\\frac14\\right)\\right].$$",
+        "solution": "两条边界圆都经过 $0$ 且在此相切，所以先取反演 $\\zeta=1/z$，把它们变为平行直线。再把条带的宽度转换为目标张角，最后使用指数映射。需要用不等式检查内部，不能只给边界图形。\n\n![双圆域、竖直带域与角域](assets/practice-para23-15.svg)\n\n图用于跟踪边界和同一点的位置：蓝点从 $z=3$ 到中间坐标 $u=1/3$（图中的 $u$ 即正文的 $\\zeta=1/z$），再到 $w=e^{i\\pi/9}$。两条圆边界都不属于原开域；条带沿虚方向无限延伸，角域沿两射线之间无限延伸，图的画布边缘不是区域边界。图只辅助理解，以下不等式与单叶性论证给出精确依据。\n\n设 $z=x+iy$。区域中的点不可能为 $0$，因为 $0$ 在两圆边界上。小圆外的条件等价于\n$$|z-1|^2>1\\ \\Longleftrightarrow\\ |z|^2-2x>0\n\\ \\Longleftrightarrow\\ \\frac{x}{|z|^2}<\\frac12.$$\n大圆内的条件等价于\n$$|z-2|^2<4\\ \\Longleftrightarrow\\ |z|^2-4x<0\n\\ \\Longleftrightarrow\\ \\frac{x}{|z|^2}>\\frac14.$$\n而 $\\operatorname{Re}(1/z)=x/|z|^2$。因此反演将原区域一一映成竖直条带\n$$\\frac14<\\operatorname{Re}\\zeta<\\frac12.$$\n反过来，条带内 $\\zeta\\ne0$，取 $z=1/\\zeta$ 即满足两条原不等式，所以没有遗漏区域。\n\n条带宽为 $1/4$，目标张角为 $\\pi/3$。为把横向位置变成这个范围的辐角，取\n$$w=\\exp\\left[\\frac{4\\pi i}{3}(\\zeta-1/4)\\right].$$\n若 $\\zeta=s+it$，则\n$$w=e^{-4\\pi t/3}\\exp\\left[i\\frac{4\\pi}{3}(s-1/4)\\right].$$\n于是 $1/4<s<1/2$ 对应 $0<\\arg w<\\pi/3$。直线 $s=1/4$ 对应辐角 $0$ 的边界射线，$s=1/2$ 对应辐角 $\\pi/3$ 的射线；$t$ 取遍实数使模 $e^{-4\\pi t/3}$ 取遍所有正数。\n\n【满射】任给 $w=\\rho e^{i\\varphi}\\in G$，其中 $\\rho>0$、$0<\\varphi<\\pi/3$，取\n$$s=\\frac14+\\frac{3\\varphi}{4\\pi},\\qquad t=-\\frac3{4\\pi}\\ln\\rho.$$\n则 $1/4<s<1/2$，$\\zeta=s+it$ 位于条带内，令 $z=1/\\zeta$，所得像恰为给定 $w$。\n\n【单叶性】若两条带点有相同像，指数的周期性给出\n$$\\frac{4\\pi i}{3}(\\zeta_1-\\zeta_2)=2k\\pi i,\n\\qquad\\zeta_1-\\zeta_2=\\frac32k.$$\n但两点实部之差的绝对值小于条带宽 $1/4$，不可能等于非零的 $3k/2$，故 $k=0$、$\\zeta_1=\\zeta_2$，再由反演得 $z_1=z_2$。\n\n组合后\n$$w(z)=\\exp\\left[\\frac{4\\pi i}{3}\\left(\\frac1z-\\frac14\\right)\\right],\\qquad\nw'(z)=-\\frac{4\\pi i}{3z^2}w(z)\\ne0.$$\n它在 $D$ 内解析、单叶、导数非零，并且映满 $G$，所以是所求保形变换。"
+      },
+      "approved_models": {}
+    }
+  },
+  {
+    "id": "poles",
+    "question_id": "GEN-PR1",
+    "question_content_sha256": "189453a285394521c5ffc1d0e6e3ec5e34f07773ba3e362391c24dbb89b0070b",
+    "title": "极点穿越路径时，积分为什么改变",
+    "purpose_markdown": "跟踪参数a改变时两个极点的位置，区分两个极点、路径过极点和只包围一个极点。",
+    "steps": [
+      {
+        "step_id": "S1",
+        "author_step_index": 0,
+        "caption": "$\\alpha=a-\\sqrt{a^2-1}$，$\\beta=a+\\sqrt{a^2-1}$，且 $\\alpha\\beta=1$。",
+        "display_markdown": "$\\alpha=a-\\sqrt{a^2-1}$，$\\beta=a+\\sqrt{a^2-1}$，且 $\\alpha\\beta=1$。",
+        "display_title": "先找两个极点",
+        "observation": "$\\alpha=a-\\sqrt{a^2-1}$，$\\beta=a+\\sqrt{a^2-1}$，且 $\\alpha\\beta=1$。",
+        "expected_change": "先找两个极点",
+        "narration_text": "先把分母分解，两个极点都在实轴上。左边的阿尔法始终在零和一之间；右边的贝塔随着参数增大，逐渐向外移动。",
+        "canonical_spoken_text": "先把分母分解，两个极点都在实轴上。左边的阿尔法始终在零和一之间；右边的贝塔随着参数增大，逐渐向外移动。"
+      },
+      {
+        "step_id": "S2",
+        "author_step_index": 1,
+        "caption": "$1<a<5/4$ 时两个极点都在 $|z|=2$ 内，留数相消，积分为 $0$。",
+        "display_markdown": "$1<a<5/4$ 时两个极点都在 $|z|=2$ 内，留数相消，积分为 $0$。",
+        "display_title": "两个留数相消",
+        "observation": "$1<a<5/4$ 时两个极点都在 $|z|=2$ 内，留数相消，积分为 $0$。",
+        "expected_change": "两个留数相消",
+        "narration_text": "当参数在一和四分之五之间时，两点都在半径二的圆内。它们的留数互为相反数，所以积分是零；不能只看其中一个点。",
+        "canonical_spoken_text": "当参数在一和四分之五之间时，两点都在半径二的圆内。它们的留数互为相反数，所以积分是零；不能只看其中一个点。"
+      },
+      {
+        "step_id": "S3",
+        "author_step_index": 2,
+        "caption": "$a=5/4$ 时 $\\beta=2$ 落在积分路径上，普通围道积分未定义。",
+        "display_markdown": "$a=5/4$ 时 $\\beta=2$ 落在积分路径上，普通围道积分未定义。",
+        "display_title": "临界值被排除",
+        "observation": "$a=5/4$ 时 $\\beta=2$ 落在积分路径上，普通围道积分未定义。",
+        "expected_change": "临界值被排除",
+        "narration_text": "到四分之五时，右边的极点恰好落在积分路径上。这里必须停下来：普通围道积分没有定义，所以题目明确排除了这个参数值。",
+        "canonical_spoken_text": "到四分之五时，右边的极点恰好落在积分路径上。这里必须停下来：普通围道积分没有定义，所以题目明确排除了这个参数值。"
+      },
+      {
+        "step_id": "S4",
+        "author_step_index": 3,
+        "caption": "$a>5/4$ 时只剩 $\\alpha$ 在圆内，$I=-\\pi i/\\sqrt{a^2-1}$。",
+        "display_markdown": "$a>5/4$ 时只剩 $\\alpha$ 在圆内，$I=-\\pi i/\\sqrt{a^2-1}$。",
+        "display_title": "只剩一个内极点",
+        "observation": "$a>5/4$ 时只剩 $\\alpha$ 在圆内，$I=-\\pi i/\\sqrt{a^2-1}$。",
+        "expected_change": "只剩一个内极点",
+        "narration_text": "越过临界值后，贝塔已经在圆外，只计算阿尔法的留数。现在没有另一项抵消，积分变成屏幕上的负号公式。边界值不能套用这两个区间的结果。",
+        "canonical_spoken_text": "越过临界值后，贝塔已经在圆外，只计算阿尔法的留数。现在没有另一项抵消，积分变成屏幕上的负号公式。边界值不能套用这两个区间的结果。"
+      }
+    ],
+    "request": {
+      "request_id": "practice-poles-v1",
+      "kind": "animation",
+      "object_refs": [],
+      "animation": {
+        "steps": [
+          "先找两个极点",
+          "两个留数相消",
+          "临界值被排除",
+          "只剩一个内极点"
+        ]
+      }
+    },
+    "program": {
+      "schema_version": "GeneratedMediaCodeV1",
+      "request_id": "practice-poles-v1",
+      "backend": "manim",
+      "code": "from manim import *\nfrom aifs_media_runtime import media_step\nimport math\nimport numpy as np\nINK='#20364d';BLUE='#267b9d';ORANGE='#c9804b';RED='#b74445';LINE='#748a9e'\nclass GeneratedScene(Scene):\n    def construct(self):\n        title=Text('参数改变时，先看极点有没有越过路径',font_size=36).to_edge(UP,buff=.25)\n        a=ValueTracker(1.06)\n        ax=Axes(x_range=[-2.4,4.6,1],y_range=[-2.5,2.5,1],x_length=6.1,y_length=6.1*5/7,tips=False,axis_config={'color':LINE,'stroke_width':2}).move_to(LEFT*3.55+DOWN*.15)\n        scale=np.linalg.norm(ax.c2p(1,0)-ax.c2p(0,0))\n        contour=Circle(radius=2*scale,color=BLUE,stroke_width=3).move_to(ax.c2p(0,0))\n        arrow=Arrow(ax.c2p(.35,1.97),ax.c2p(-.35,1.97),buff=0,color=BLUE,stroke_width=3)\n        labs=VGroup(MathTex('0',font_size=26).next_to(ax.c2p(0,0),DOWN,buff=.1),MathTex('2',font_size=26).next_to(ax.c2p(2,0),DOWN,buff=.1),MathTex(r'|z|=2',font_size=30).next_to(contour,UP,buff=.12))\n        def alpha():return a.get_value()-math.sqrt(a.get_value()**2-1)\n        def beta():return a.get_value()+math.sqrt(a.get_value()**2-1)\n        ad=always_redraw(lambda:Dot(ax.c2p(alpha(),0),radius=.075,color=BLUE))\n        bd=always_redraw(lambda:Dot(ax.c2p(beta(),0),radius=.075,color=RED if abs(a.get_value()-1.25)<1e-7 else ORANGE))\n        al=MathTex(r'\\alpha',font_size=31,color=BLUE);bl=MathTex(r'\\beta',font_size=31,color=ORANGE)\n        al.add_updater(lambda m:m.next_to(ad,UP,buff=.12));bl.add_updater(lambda m:m.next_to(bd,DOWN,buff=.6))\n        defs=VGroup(MathTex(r'\\alpha=a-\\sqrt{a^2-1}',font_size=32,color=BLUE),MathTex(r'\\beta=a+\\sqrt{a^2-1}',font_size=32,color=ORANGE),MathTex(r'\\alpha\\beta=1,\\quad 0<\\alpha<1',font_size=30)).arrange(DOWN,buff=.23).move_to([3.65,1.6,0])\n        av=DecimalNumber(a.get_value(),num_decimal_places=3,font_size=31,color=INK).move_to([4,2.7,0]);av.add_updater(lambda m:m.set_value(a.get_value()))\n        ap=MathTex(r'a\\approx',font_size=31).next_to(av,LEFT,buff=.15)\n        cases=[VGroup(Text('两极点都在圆内',font_size=27),MathTex(r'1<a<\\frac54,\\quad I=0',font_size=34)).arrange(DOWN,buff=.17),VGroup(Text('路径经过极点：题目排除此值',font_size=24,color=RED),MathTex(r'a=\\frac54,\\quad\\beta=2',font_size=34,color=RED),Text('普通围道积分未定义',font_size=27,color=RED)).arrange(DOWN,buff=.16),VGroup(Text('只有左侧极点留在圆内',font_size=27),MathTex(r'a>\\frac54,\\quad I=-\\frac{\\pi i}{\\sqrt{a^2-1}}',font_size=34)).arrange(DOWN,buff=.17)]\n        for c in cases:c.move_to([3.6,-.8,0])\n        def update_cases(_):\n            v=a.get_value();index=1 if abs(v-1.25)<1e-7 else 0 if v<1.25 else 2\n            for i,c in enumerate(cases):c.set_opacity(1 if i==index else 0)\n        case_group=VGroup(*cases);case_group.add_updater(update_cases);update_cases(None)\n        formula=MathTex(r'I(a)=\\oint_{|z|=2}\\frac{dz}{(z-\\alpha)(z-\\beta)}',font_size=35).move_to([0,-3.15,0])\n        self.add(title,ax,contour,arrow,labs,ad,bd,al,bl,defs,av,ap,case_group,formula)\n        with media_step(self,'S1'):\n            self.play(a.animate.set_value(1.12),run_time=5,rate_func=linear)\n            self.wait(1)\n        with media_step(self,'S2'):\n            self.play(a.animate.set_value(1.23),run_time=8,rate_func=linear)\n            self.wait(1)\n        with media_step(self,'S3'):\n            self.play(a.animate.set_value(1.25),run_time=4,rate_func=linear)\n            self.wait(3)\n        with media_step(self,'S4'):\n            self.play(a.animate.set_value(1.8),run_time=9,rate_func=linear)\n            self.wait(1)\n",
+      "object_bindings": [],
+      "steps": [
+        {
+          "step_id": "S1",
+          "author_step_index": 0,
+          "caption": "$\\alpha=a-\\sqrt{a^2-1}$，$\\beta=a+\\sqrt{a^2-1}$，且 $\\alpha\\beta=1$。",
+          "display_markdown": "$\\alpha=a-\\sqrt{a^2-1}$，$\\beta=a+\\sqrt{a^2-1}$，且 $\\alpha\\beta=1$。",
+          "observation": "$\\alpha=a-\\sqrt{a^2-1}$，$\\beta=a+\\sqrt{a^2-1}$，且 $\\alpha\\beta=1$。",
+          "expected_change": "先找两个极点",
+          "narration_text": "先把分母分解，两个极点都在实轴上。左边的阿尔法始终在零和一之间；右边的贝塔随着参数增大，逐渐向外移动。",
+          "canonical_spoken_text": "先把分母分解，两个极点都在实轴上。左边的阿尔法始终在零和一之间；右边的贝塔随着参数增大，逐渐向外移动。",
+          "spoken_review": {
+            "status": "approved",
+            "scope": "script mathematics and language, not human listening",
+            "evidence_sha256": "c41b6eee8d99359f48216a2ce1cd56431d9dc8c77b4c2872b6d1b4cae856ab78",
+            "text_sha256": "dd9e0b5c9ffbd3b136cd896a2edcd322757e43bf4fdcdff00c502820c921b57e"
+          }
+        },
+        {
+          "step_id": "S2",
+          "author_step_index": 1,
+          "caption": "$1<a<5/4$ 时两个极点都在 $|z|=2$ 内，留数相消，积分为 $0$。",
+          "display_markdown": "$1<a<5/4$ 时两个极点都在 $|z|=2$ 内，留数相消，积分为 $0$。",
+          "observation": "$1<a<5/4$ 时两个极点都在 $|z|=2$ 内，留数相消，积分为 $0$。",
+          "expected_change": "两个留数相消",
+          "narration_text": "当参数在一和四分之五之间时，两点都在半径二的圆内。它们的留数互为相反数，所以积分是零；不能只看其中一个点。",
+          "canonical_spoken_text": "当参数在一和四分之五之间时，两点都在半径二的圆内。它们的留数互为相反数，所以积分是零；不能只看其中一个点。",
+          "spoken_review": {
+            "status": "approved",
+            "scope": "script mathematics and language, not human listening",
+            "evidence_sha256": "c41b6eee8d99359f48216a2ce1cd56431d9dc8c77b4c2872b6d1b4cae856ab78",
+            "text_sha256": "72666d840c891cddab66b2e4c61e5469808e52c474ee00a59e2a3314a9fc5d79"
+          }
+        },
+        {
+          "step_id": "S3",
+          "author_step_index": 2,
+          "caption": "$a=5/4$ 时 $\\beta=2$ 落在积分路径上，普通围道积分未定义。",
+          "display_markdown": "$a=5/4$ 时 $\\beta=2$ 落在积分路径上，普通围道积分未定义。",
+          "observation": "$a=5/4$ 时 $\\beta=2$ 落在积分路径上，普通围道积分未定义。",
+          "expected_change": "临界值被排除",
+          "narration_text": "到四分之五时，右边的极点恰好落在积分路径上。这里必须停下来：普通围道积分没有定义，所以题目明确排除了这个参数值。",
+          "canonical_spoken_text": "到四分之五时，右边的极点恰好落在积分路径上。这里必须停下来：普通围道积分没有定义，所以题目明确排除了这个参数值。",
+          "spoken_review": {
+            "status": "approved",
+            "scope": "script mathematics and language, not human listening",
+            "evidence_sha256": "c41b6eee8d99359f48216a2ce1cd56431d9dc8c77b4c2872b6d1b4cae856ab78",
+            "text_sha256": "049253014b5e0e8aabe8636e69b0d16170fa541315304dbd7cf96ec67f5f8aac"
+          }
+        },
+        {
+          "step_id": "S4",
+          "author_step_index": 3,
+          "caption": "$a>5/4$ 时只剩 $\\alpha$ 在圆内，$I=-\\pi i/\\sqrt{a^2-1}$。",
+          "display_markdown": "$a>5/4$ 时只剩 $\\alpha$ 在圆内，$I=-\\pi i/\\sqrt{a^2-1}$。",
+          "observation": "$a>5/4$ 时只剩 $\\alpha$ 在圆内，$I=-\\pi i/\\sqrt{a^2-1}$。",
+          "expected_change": "只剩一个内极点",
+          "narration_text": "越过临界值后，贝塔已经在圆外，只计算阿尔法的留数。现在没有另一项抵消，积分变成屏幕上的负号公式。边界值不能套用这两个区间的结果。",
+          "canonical_spoken_text": "越过临界值后，贝塔已经在圆外，只计算阿尔法的留数。现在没有另一项抵消，积分变成屏幕上的负号公式。边界值不能套用这两个区间的结果。",
+          "spoken_review": {
+            "status": "approved",
+            "scope": "script mathematics and language, not human listening",
+            "evidence_sha256": "c41b6eee8d99359f48216a2ce1cd56431d9dc8c77b4c2872b6d1b4cae856ab78",
+            "text_sha256": "6a58316c89a558c95ebe535ad81a9756ab4a4b122c3ddffeeb4c7a249faddf5c"
+          }
+        }
+      ]
+    },
+    "context": {
+      "request": {
+        "request_id": "practice-poles-v1",
+        "kind": "animation",
+        "object_refs": [],
+        "animation": {
+          "steps": [
+            "先找两个极点",
+            "两个留数相消",
+            "临界值被排除",
+            "只剩一个内极点"
+          ]
+        }
+      },
+      "approved_content": {
+        "question_id": "GEN-PR1",
+        "content_sha256": "189453a285394521c5ffc1d0e6e3ec5e34f07773ba3e362391c24dbb89b0070b",
+        "stem": "设 \\(a>1\\) 且 \\(a\\ne\\frac54\\)，沿正向圆周 \\(|z|=2\\) 计算 \\(\\int_{|z|=2}\\frac{dz}{z^2-2az+1}\\)。",
+        "answer": "\\(\\displaystyle \\int_{|z|=2}\\frac{dz}{z^2-2az+1}=\\begin{cases}0,&1<a<\\frac54,\\\\ -\\frac{\\pi i}{\\sqrt{a^2-1}},&a>\\frac54.\\end{cases}\\)",
+        "solution": "分母因式分解为\n\\[ z^2-2az+1=(z-\\alpha)(z-\\beta), \\]\n其中\n\\[ \\alpha=a-\\sqrt{a^2-1},\\qquad \\beta=a+\\sqrt{a^2-1}. \\]\n因 \\(a>1\\)，两互异实根，且 \\(0<\\alpha<1\\)，\\(\\beta>1\\)。解 \\(\\beta=2\\) 得\n\\[ a+\\sqrt{a^2-1}=2 \\iff a=\\frac54. \\]\n又 \\(\\beta\\) 随 \\(a>1\\) 严格递增，所以\n\\[ 1<a<\\frac54\\Rightarrow \\beta<2,\\qquad a>\\frac54\\Rightarrow \\beta>2. \\]\n题设 \\(a\\ne\\frac54\\) 正好排除 \\(\\beta=2\\) 落在积分围道上的奇异情形。\n1. 当 \\(1<a<\\frac54\\) 时，\\(\\alpha,\\beta\\) 均在 \\(|z|<2\\) 内。两个简单极点留数之和为\n\\[ \\frac1{\\alpha-\\beta}+\\frac1{\\beta-\\alpha}=0, \\]\n故由留数定理，积分为 \\(0\\)。\n2. 当 \\(a>\\frac54\\) 时，仅 \\(\\alpha\\) 在 \\(|z|<2\\) 内，\\(\\beta\\) 在外部。于是\n\\[ \\int_{|z|=2}\\frac{dz}{(z-\\alpha)(z-\\beta)}\n=2\\pi i\\,\\operatorname{Res}_{z=\\alpha}\\frac1{(z-\\alpha)(z-\\beta)}\n=2\\pi i\\cdot\\frac1{\\alpha-\\beta}. \\]\n而\n\\[ \\alpha-\\beta=-2\\sqrt{a^2-1}, \\]\n所以\n\\[ \\int_{|z|=2}\\frac{dz}{z^2-2az+1}\n=-\\frac{\\pi i}{\\sqrt{a^2-1}}. \\]\n综上即得题中分段结果。"
+      },
+      "approved_models": {}
+    }
+  },
+  {
+    "id": "pv",
+    "question_id": "PARA23-12",
+    "question_content_sha256": "6c1975d04bd5670a7c554068fadc83201768feda283f393360f18981d0babf7d",
+    "title": "主值积分为什么必须保留小凹口",
+    "purpose_markdown": "看清实轴两段对称避开极点与小半圆的顺时针方向，理解小弧缩小但贡献不为零。",
+    "steps": [
+      {
+        "step_id": "S1",
+        "author_step_index": 0,
+        "caption": "取 $R>3$、$0<\\varepsilon<1$。$I_{R,\\varepsilon}$ 指辅助复函数 $g$ 沿两段实轴的积分；完整闭路满足 $I_{R,\\varepsilon}+\\int_{C_\\varepsilon}g+\\int_{C_R}g=2\\pi i\\,\\mathrm{Res}_{2i}g$。",
+        "display_markdown": "取 $R>3$、$0<\\varepsilon<1$。$I_{R,\\varepsilon}$ 指辅助复函数 $g$ 沿两段实轴的积分；完整闭路满足 $I_{R,\\varepsilon}+\\int_{C_\\varepsilon}g+\\int_{C_R}g=2\\pi i\\,\\mathrm{Res}_{2i}g$。",
+        "display_title": "先闭合完整路径",
+        "observation": "取 $R>3$、$0<\\varepsilon<1$。$I_{R,\\varepsilon}$ 指辅助复函数 $g$ 沿两段实轴的积分；完整闭路满足 $I_{R,\\varepsilon}+\\int_{C_\\varepsilon}g+\\int_{C_R}g=2\\pi i\\,\\mathrm{Res}_{2i}g$。",
+        "expected_change": "先闭合完整路径",
+        "narration_text": "先用复指数构造辅助函数，把两段实轴上的复积分记为截断积分。再加小凹口与外大弧，才是完整闭路；原来的正弦积分最后取虚部。",
+        "canonical_spoken_text": "先用复指数构造辅助函数，把两段实轴上的复积分记为截断积分。再加小凹口与外大弧，才是完整闭路；原来的正弦积分最后取虚部。"
+      },
+      {
+        "step_id": "S2",
+        "author_step_index": 1,
+        "caption": "$z=1+\\varepsilon e^{i\\theta}$，小弧从左到右走，$\\theta$ 从 $\\pi$ 减到 $0$，方向为顺时针。",
+        "display_markdown": "$z=1+\\varepsilon e^{i\\theta}$，小弧从左到右走，$\\theta$ 从 $\\pi$ 减到 $0$，方向为顺时针。",
+        "display_title": "认清小弧方向",
+        "observation": "$z=1+\\varepsilon e^{i\\theta}$，小弧从左到右走，$\\theta$ 从 $\\pi$ 减到 $0$，方向为顺时针。",
+        "expected_change": "认清小弧方向",
+        "narration_text": "橙色点沿着小凹口从左边走到右边。它经过上方时朝右移动，因此是顺时针。这个方向决定了小弧积分前面的负号。",
+        "canonical_spoken_text": "橙色点沿着小凹口从左边走到右边。它经过上方时朝右移动，因此是顺时针。这个方向决定了小弧积分前面的负号。"
+      },
+      {
+        "step_id": "S3",
+        "author_step_index": 2,
+        "caption": "$\\int_{C_\\varepsilon}g(z)\\,dz\\to-i\\pi\\,e^{2i}/5\\ne0$；弧长变小，同时被积函数的模按 $1/\\varepsilon$ 增大。",
+        "display_markdown": "$\\int_{C_\\varepsilon}g(z)\\,dz\\to-i\\pi\\,e^{2i}/5\\ne0$；弧长变小，同时被积函数的模按 $1/\\varepsilon$ 增大。",
+        "display_title": "缩小不等于零",
+        "observation": "$\\int_{C_\\varepsilon}g(z)\\,dz\\to-i\\pi\\,e^{2i}/5\\ne0$；弧长变小，同时被积函数的模按 $1/\\varepsilon$ 增大。",
+        "expected_change": "缩小不等于零",
+        "narration_text": "现在对称缩小缺口。弧长在缩小，被积函数的模却按半径的倒数增大。代入参数方程后，半径因子相消，小弧积分留下非零的极限，不能删掉。",
+        "canonical_spoken_text": "现在对称缩小缺口。弧长在缩小，被积函数的模却按半径的倒数增大。代入参数方程后，半径因子相消，小弧积分留下非零的极限，不能删掉。"
+      },
+      {
+        "step_id": "S4",
+        "author_step_index": 3,
+        "caption": "令 $R\\to\\infty$、$\\varepsilon\\to0$，再取虚部，得到 $I=\\frac\\pi5(\\cos2-e^{-4})$。",
+        "display_markdown": "令 $R\\to\\infty$、$\\varepsilon\\to0$，再取虚部，得到 $I=\\frac\\pi5(\\cos2-e^{-4})$。",
+        "display_title": "移项后取虚部",
+        "observation": "令 $R\\to\\infty$、$\\varepsilon\\to0$，再取虚部，得到 $I=\\frac\\pi5(\\cos2-e^{-4})$。",
+        "expected_change": "移项后取虚部",
+        "narration_text": "最后让大圆半径趋于无穷，再让缺口趋于零。把小弧的贡献移到右边，负号变成加号，再取虚部，才得到题目所求的主值积分。",
+        "canonical_spoken_text": "最后让大圆半径趋于无穷，再让缺口趋于零。把小弧的贡献移到右边，负号变成加号，再取虚部，才得到题目所求的主值积分。"
+      }
+    ],
+    "request": {
+      "request_id": "practice-pv-v1",
+      "kind": "animation",
+      "object_refs": [],
+      "animation": {
+        "steps": [
+          "先闭合完整路径",
+          "认清小弧方向",
+          "缩小不等于零",
+          "移项后取虚部"
+        ]
+      }
+    },
+    "program": {
+      "schema_version": "GeneratedMediaCodeV1",
+      "request_id": "practice-pv-v1",
+      "backend": "manim",
+      "code": "from manim import *\nfrom aifs_media_runtime import media_step\nimport math\nimport numpy as np\nINK='#20364d';BLUE='#267b9d';ORANGE='#c9804b';RED='#b74445';LINE='#748a9e'\nclass GeneratedScene(Scene):\n    def construct(self):\n        title=Text('小半圆缩小，为什么贡献不趋于零',font_size=37).to_edge(UP,buff=.25)\n        eps=ValueTracker(.7);R=4\n        ax=Axes(x_range=[-4.5,4.5,1],y_range=[-.6,4.5,1],x_length=6.4,y_length=6.4*5.1/9,tips=False,axis_config={'color':LINE,'stroke_width':2}).move_to(LEFT*3.55+DOWN*.12)\n        big=ParametricFunction(lambda t:ax.c2p(R*math.cos(t),R*math.sin(t)),t_range=[0,PI],color=BLUE,stroke_width=3)\n        outside_arrow=Arrow(ax.c2p(.45,3.97),ax.c2p(-.45,3.97),buff=0,color=BLUE,stroke_width=3)\n        left=always_redraw(lambda:Line(ax.c2p(-R,0),ax.c2p(1-eps.get_value(),0),color=BLUE,stroke_width=3))\n        right=always_redraw(lambda:Line(ax.c2p(1+eps.get_value(),0),ax.c2p(R,0),color=BLUE,stroke_width=3))\n        cut=always_redraw(lambda:ParametricFunction(lambda t:ax.c2p(1+eps.get_value()*math.cos(t),eps.get_value()*math.sin(t)),t_range=[0,PI],color=ORANGE,stroke_width=4))\n        cutarrow=always_redraw(lambda:Arrow(ax.c2p(1-.28*eps.get_value(),.97*eps.get_value()),ax.c2p(1+.28*eps.get_value(),.97*eps.get_value()),buff=0,color=ORANGE,stroke_width=3,max_tip_length_to_length_ratio=.3))\n        arrows=VGroup(Arrow(ax.c2p(-2.8,0),ax.c2p(-2,0),buff=0,color=BLUE),Arrow(ax.c2p(2.4,0),ax.c2p(3.2,0),buff=0,color=BLUE))\n        pole=Dot(ax.c2p(1,0),color=RED,radius=.065);up=Dot(ax.c2p(0,2),color=BLUE,radius=.065)\n        labels=VGroup(MathTex('1',font_size=28,color=RED).next_to(pole,DOWN,buff=.12),MathTex('2i',font_size=29,color=BLUE).next_to(up,LEFT,buff=.13),MathTex('-R',font_size=26).next_to(ax.c2p(-R,0),DOWN,buff=.1),MathTex('R',font_size=26).next_to(ax.c2p(R,0),DOWN,buff=.1))\n        expr=MathTex(r'g(z)=\\frac{e^{2iz}}{(z^2+4)(z-1)}',font_size=34).move_to([3.5,2.1,0])\n        ev=DecimalNumber(eps.get_value(),num_decimal_places=2,font_size=30,color=INK).move_to([4.1,2.85,0]);ev.add_updater(lambda m:m.set_value(eps.get_value()))\n        el=MathTex(r'\\varepsilon=',font_size=31).next_to(ev,LEFT,buff=.12)\n        notes=[VGroup(Text('先写完整闭路积分',font_size=28),MathTex(r'I_{R,\\varepsilon}+\\int_{C_\\varepsilon}g+\\int_{C_R}g',font_size=28),MathTex(r'=2\\pi i\\,\\mathrm{Res}_{2i}g',font_size=32)).arrange(DOWN,buff=.2),VGroup(Text('小凹口沿顺时针走',font_size=28,color=ORANGE),MathTex(r'z=1+\\varepsilon e^{i\\theta}',font_size=32),MathTex(r'\\theta:\\ \\pi\\longrightarrow0',font_size=32)).arrange(DOWN,buff=.2),VGroup(Text('长度变小，函数的模变大',font_size=26),MathTex(r'g(z)\\,dz\\sim\\frac{c}{\\varepsilon e^{i\\theta}}i\\varepsilon e^{i\\theta}d\\theta',font_size=29),MathTex(r'c=\\frac{e^{2i}}5,\\quad\\int_\\pi^0 ic\\,d\\theta=-i\\pi c',font_size=29,color=ORANGE),MathTex(r'\\lim_{\\varepsilon\\to0}\\left|\\int_{C_\\varepsilon}g\\right|=\\frac\\pi5',font_size=29)).arrange(DOWN,buff=.2),VGroup(Text('取极限、移项，再取虚部',font_size=26),MathTex(r'\\mathrm{PV}\\!\\int g=2\\pi i\\,\\mathrm{Res}_{2i}g',font_size=29),MathTex(r'+\\ i\\pi\\,\\mathrm{Res}_{1}g',font_size=31),MathTex(r'I=\\frac\\pi5(\\cos2-e^{-4})',font_size=34,color=BLUE)).arrange(DOWN,buff=.18)]\n        for n in notes:n.move_to([3.5,-.45,0])\n        footer=Text('图示 R=4；结论取 R 趋于无穷、ε 趋于零',font_size=26,color=LINE).move_to([0,-3.15,0])\n        if footer.width>12.8:footer.scale_to_fit_width(12.8)\n        for n in notes:\n            if n.width>5.8:n.scale_to_fit_width(5.8)\n        self.add(title,ax,big,outside_arrow,left,right,cut,cutarrow,arrows,pole,up,labels,expr,ev,el,notes[0],footer)\n        tracer=Dot(radius=.055,color=ORANGE)\n        with media_step(self,'S1'):\n            self.play(Create(big),run_time=2)\n            self.wait(3)\n        with media_step(self,'S2'):\n            self.play(ReplacementTransform(notes[0],notes[1]),run_time=.6)\n            self.add(tracer)\n            self.play(UpdateFromAlphaFunc(tracer,lambda m,t:m.move_to(ax.c2p(1+.7*math.cos(PI*(1-t)),.7*math.sin(PI*(1-t))))),run_time=5,rate_func=linear)\n            self.remove(tracer)\n            self.wait(.8)\n        with media_step(self,'S3'):\n            self.play(ReplacementTransform(notes[1],notes[2]),run_time=.6)\n            self.play(eps.animate.set_value(.08),run_time=7,rate_func=linear)\n            self.wait(1)\n        with media_step(self,'S4'):\n            self.play(ReplacementTransform(notes[2],notes[3]),run_time=.8)\n            self.wait(2)\n            self.wait(3)\n",
+      "object_bindings": [],
+      "steps": [
+        {
+          "step_id": "S1",
+          "author_step_index": 0,
+          "caption": "取 $R>3$、$0<\\varepsilon<1$。$I_{R,\\varepsilon}$ 指辅助复函数 $g$ 沿两段实轴的积分；完整闭路满足 $I_{R,\\varepsilon}+\\int_{C_\\varepsilon}g+\\int_{C_R}g=2\\pi i\\,\\mathrm{Res}_{2i}g$。",
+          "display_markdown": "取 $R>3$、$0<\\varepsilon<1$。$I_{R,\\varepsilon}$ 指辅助复函数 $g$ 沿两段实轴的积分；完整闭路满足 $I_{R,\\varepsilon}+\\int_{C_\\varepsilon}g+\\int_{C_R}g=2\\pi i\\,\\mathrm{Res}_{2i}g$。",
+          "observation": "取 $R>3$、$0<\\varepsilon<1$。$I_{R,\\varepsilon}$ 指辅助复函数 $g$ 沿两段实轴的积分；完整闭路满足 $I_{R,\\varepsilon}+\\int_{C_\\varepsilon}g+\\int_{C_R}g=2\\pi i\\,\\mathrm{Res}_{2i}g$。",
+          "expected_change": "先闭合完整路径",
+          "narration_text": "先用复指数构造辅助函数，把两段实轴上的复积分记为截断积分。再加小凹口与外大弧，才是完整闭路；原来的正弦积分最后取虚部。",
+          "canonical_spoken_text": "先用复指数构造辅助函数，把两段实轴上的复积分记为截断积分。再加小凹口与外大弧，才是完整闭路；原来的正弦积分最后取虚部。",
+          "spoken_review": {
+            "status": "approved",
+            "scope": "script mathematics and language, not human listening",
+            "evidence_sha256": "c41b6eee8d99359f48216a2ce1cd56431d9dc8c77b4c2872b6d1b4cae856ab78",
+            "text_sha256": "7b1a380b0fd8a25ba0b86a58419350d0b4479588887bd8686768f86a96d5fd98"
+          }
+        },
+        {
+          "step_id": "S2",
+          "author_step_index": 1,
+          "caption": "$z=1+\\varepsilon e^{i\\theta}$，小弧从左到右走，$\\theta$ 从 $\\pi$ 减到 $0$，方向为顺时针。",
+          "display_markdown": "$z=1+\\varepsilon e^{i\\theta}$，小弧从左到右走，$\\theta$ 从 $\\pi$ 减到 $0$，方向为顺时针。",
+          "observation": "$z=1+\\varepsilon e^{i\\theta}$，小弧从左到右走，$\\theta$ 从 $\\pi$ 减到 $0$，方向为顺时针。",
+          "expected_change": "认清小弧方向",
+          "narration_text": "橙色点沿着小凹口从左边走到右边。它经过上方时朝右移动，因此是顺时针。这个方向决定了小弧积分前面的负号。",
+          "canonical_spoken_text": "橙色点沿着小凹口从左边走到右边。它经过上方时朝右移动，因此是顺时针。这个方向决定了小弧积分前面的负号。",
+          "spoken_review": {
+            "status": "approved",
+            "scope": "script mathematics and language, not human listening",
+            "evidence_sha256": "c41b6eee8d99359f48216a2ce1cd56431d9dc8c77b4c2872b6d1b4cae856ab78",
+            "text_sha256": "5704b5ce4290cd715f53794a2730f88c93a0358473599c670b08b8892de9838f"
+          }
+        },
+        {
+          "step_id": "S3",
+          "author_step_index": 2,
+          "caption": "$\\int_{C_\\varepsilon}g(z)\\,dz\\to-i\\pi\\,e^{2i}/5\\ne0$；弧长变小，同时被积函数的模按 $1/\\varepsilon$ 增大。",
+          "display_markdown": "$\\int_{C_\\varepsilon}g(z)\\,dz\\to-i\\pi\\,e^{2i}/5\\ne0$；弧长变小，同时被积函数的模按 $1/\\varepsilon$ 增大。",
+          "observation": "$\\int_{C_\\varepsilon}g(z)\\,dz\\to-i\\pi\\,e^{2i}/5\\ne0$；弧长变小，同时被积函数的模按 $1/\\varepsilon$ 增大。",
+          "expected_change": "缩小不等于零",
+          "narration_text": "现在对称缩小缺口。弧长在缩小，被积函数的模却按半径的倒数增大。代入参数方程后，半径因子相消，小弧积分留下非零的极限，不能删掉。",
+          "canonical_spoken_text": "现在对称缩小缺口。弧长在缩小，被积函数的模却按半径的倒数增大。代入参数方程后，半径因子相消，小弧积分留下非零的极限，不能删掉。",
+          "spoken_review": {
+            "status": "approved",
+            "scope": "script mathematics and language, not human listening",
+            "evidence_sha256": "c41b6eee8d99359f48216a2ce1cd56431d9dc8c77b4c2872b6d1b4cae856ab78",
+            "text_sha256": "d90e4d360ecc3688ccaf43fd8acce4d63ef37ae4a5840311df6fdd6e1d844ece"
+          }
+        },
+        {
+          "step_id": "S4",
+          "author_step_index": 3,
+          "caption": "令 $R\\to\\infty$、$\\varepsilon\\to0$，再取虚部，得到 $I=\\frac\\pi5(\\cos2-e^{-4})$。",
+          "display_markdown": "令 $R\\to\\infty$、$\\varepsilon\\to0$，再取虚部，得到 $I=\\frac\\pi5(\\cos2-e^{-4})$。",
+          "observation": "令 $R\\to\\infty$、$\\varepsilon\\to0$，再取虚部，得到 $I=\\frac\\pi5(\\cos2-e^{-4})$。",
+          "expected_change": "移项后取虚部",
+          "narration_text": "最后让大圆半径趋于无穷，再让缺口趋于零。把小弧的贡献移到右边，负号变成加号，再取虚部，才得到题目所求的主值积分。",
+          "canonical_spoken_text": "最后让大圆半径趋于无穷，再让缺口趋于零。把小弧的贡献移到右边，负号变成加号，再取虚部，才得到题目所求的主值积分。",
+          "spoken_review": {
+            "status": "approved",
+            "scope": "script mathematics and language, not human listening",
+            "evidence_sha256": "c41b6eee8d99359f48216a2ce1cd56431d9dc8c77b4c2872b6d1b4cae856ab78",
+            "text_sha256": "68de144d89f5093143530f7d7479148c835b66ef22970092efe930be364e9238"
+          }
+        }
+      ]
+    },
+    "context": {
+      "request": {
+        "request_id": "practice-pv-v1",
+        "kind": "animation",
+        "object_refs": [],
+        "animation": {
+          "steps": [
+            "先闭合完整路径",
+            "认清小弧方向",
+            "缩小不等于零",
+            "移项后取虚部"
+          ]
+        }
+      },
+      "approved_content": {
+        "question_id": "PARA23-12",
+        "content_sha256": "6c1975d04bd5670a7c554068fadc83201768feda283f393360f18981d0babf7d",
+        "stem": "利用留数计算\n$$\\operatorname{V.P.}\\int_{-\\infty}^{+\\infty}\\frac{\\sin(2x)}{(x^2+4)(x-1)}\\,dx.$$\n这里 $\\operatorname{V.P.}$ 指在 $x=1$ 处对称删除邻域后取极限的柯西主值。",
+        "answer": "$\\displaystyle\\frac\\pi5\\left(\\cos2-e^{-4}\\right)$。",
+        "solution": "原被积函数在 $x=1$ 附近的主项为 $\\sin2/[5(x-1)]$。因为 $0<2<\\pi$，有 $\\sin2\\ne0$，这里是真正的实轴简单极点，不能当作可去点。两端无穷远处衰减为 $O(|x|^{-3})$，困难只在 $x=1$，题目给出的柯西主值正用于对称抵消该点两侧的对数发散。\n\n取复函数\n$$F(z)=\\frac{e^{2iz}}{(z^2+4)(z-1)}.$$\n其在实轴上的虚部是原被积函数。正频率 $2$ 使 $|e^{2iz}|=e^{-2\\operatorname{Im}z}\\le1$ 在上半平面成立，因此选择上半平面闭合围道。\n\n围道由实轴的 $[-R,1-\\varepsilon]$、$[1+\\varepsilon,R]$，绕开 $1$ 的上方小半圆，以及从 $R$ 返回 $-R$ 的上方大半圆组成。小半圆从 $1-\\varepsilon$ 到 $1+\\varepsilon$ 顺时针走；它把实轴极点排除在围道内部，内部只剩 $z=2i$。\n\n大圆弧上，对 $R>3$ 有\n$$|F(z)|\\le\\frac1{(R^2-4)(R-1)}.$$\n弧长为 $\\pi R$，因此大圆弧积分趋于零。在 $1$ 附近写成 $F(z)=A/(z-1)+H(z)$，其中 $H$ 解析，$A=\\operatorname{Res}(F,1)$。小半圆参数为 $z=1+\\varepsilon e^{i\\theta}$，$\\theta$ 从 $\\pi$ 降至 $0$，于是主项积分为\n$$\\int_\\pi^0 \\frac{A}{\\varepsilon e^{i\\theta}}i\\varepsilon e^{i\\theta}d\\theta=-i\\pi A.$$\n解析余项的弧长估值趋于零。留数定理取两重极限后得到\n$$\\operatorname{V.P.}\\int_{-\\infty}^{\\infty}F(x)dx-i\\pi\\operatorname{Res}(F,1)\n=2\\pi i\\operatorname{Res}(F,2i).$$\n\n两个留数分别为\n$$\\operatorname{Res}(F,1)=\\frac{e^{2i}}5,\\qquad\n\\operatorname{Res}(F,2i)=\\frac{e^{-4}}{4i(2i-1)}.$$\n因此\n$$\\operatorname{V.P.}\\int_{-\\infty}^{\\infty}F(x)dx\n=\\frac{\\pi e^{-4}}{2(2i-1)}+\\frac{i\\pi e^{2i}}5.$$\n将第一项有理化，$1/(2i-1)=(-1-2i)/5$，其虚部为 $-\\pi e^{-4}/5$；第二项用 $e^{2i}=\\cos2+i\\sin2$ 展开，虚部为 $\\pi\\cos2/5$。取虚部即得所求主值\n$$\\frac\\pi5(\\cos2-e^{-4}).$$\n凹口产生的半留数项不可省略，否则会丢掉答案中的 $\\cos2$。"
+      },
+      "approved_models": {}
+    }
+  }
+]

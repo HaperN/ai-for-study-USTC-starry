@@ -1,0 +1,1112 @@
+/* 渲染层样式。目标：中文长文好读、公式不乱、手机上能用（375px）。
+ *
+ * ══ 这一版的两件事（用户 2026-09-24 点名的两个问题）══════════════════════
+ *
+ * **P-002 边注要"能指向"** —— 用户原话：「边注不行，我想要的是可以指向的」。
+ *   旧做法：正文里一个「注」上标 → 右侧一栏按顺序堆着的批注，**只有跳转、没有绑定**，
+ *   读第 3 条时不知道它在说哪句话。现在改成**三处同号、互相高亮**：
+ *     ① 正文里一个带编号的小圆点（`.mk`）
+ *     ② 点它**就地展开**那条批注（`.pop`，紧跟在它要解释的那句话后面 —— 零歧义）
+ *     ③ 右侧常驻**详解栏**（`.rail`）里的同号卡片（`.rcard`，点卡片能"回到那句话"）
+ *   风格是用户 2026-09-24 挑定的「**小清新 D · 柔光侧栏详解**」：极浅渐变底、
+ *   柔阴影圆角卡、暖橙强调色、衬线标题。
+ *
+ * **P-004 正文不能只有一种字号/字体** —— 用户原话：「正文格式字体太单一了，
+ *   长期阅读容易疲劳」。好网文的做法是给眼睛"换气点"：**衬线标题 + 无衬线正文**、
+ *   字号三档（32/22/17.5）、字重三档（700/600/400）、色阶三档（墨/次/淡）、
+ *   卡片色块、marker 式关键句高亮、编号徽标、引文块、留白节奏 —— 下面按这套分级。
+ */
+:root {
+  /* ── 配色（小清新 D：极浅蓝白底 + 暖橙强调 + 冷蓝骨架）── */
+  --ink: #26303a;              /* 正文墨色 */
+  --ink-soft: #6f7c88;         /* 次要文字 */
+  --ink-faint: #93a2ae;        /* 最淡：说明、页码 */
+  --line: #e4edf4;
+  --bg: #fbfdff;
+  --bg-soft: #f4f9fd;
+  --paper: #ffffff;
+  --acc: #e0834f;              /* 强调（暖橙） */
+  --acc-ink: #a85f2c;
+  --acc-soft: #eef7ff;         /* 浅蓝底：一句话小结、卡片底 */
+  --chip: #fbe6d6;
+  --chip-ink: #9b5526;
+  --blue: #2b5f8a;             /* 结构色：定义、小标题 */
+  --title: #1c4a6e;            /* 标题深蓝 */
+  --violet: #7a5af8;           /* 推导 */
+  --green: #2f9e6f;            /* 直觉 / 结论 */
+  --red: #d9534f;              /* 易错 */
+  --teal: #0d9488;
+  --figbg: #f4f9fd;
+  --figline: #d5e6f3;
+  --warn: #b7791f;
+
+  /* 老变量名保留（其他代码/文档还在用，别断） */
+  --accent: #e0834f;
+  --accent-soft: #eef7ff;
+  --max-width: 780px;
+
+  --shadow-soft: 0 10px 26px rgba(80, 110, 140, .07);
+  --shadow-card: 0 1px 2px rgba(20, 40, 80, .04), 0 8px 22px rgba(80, 110, 140, .06);
+  --serif: "Noto Serif CJK SC", "Source Han Serif SC", "Songti SC", Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Noto Sans CJK SC", "Source Han Sans SC",
+          "PingFang SC", "Microsoft YaHei", sans-serif;
+  --mono: "Noto Sans Mono CJK SC", Consolas, "Courier New", monospace;
+}
+
+* { box-sizing: border-box; }
+
+/* 说明：**不做深色模式**（用户 2026-09-23 要求去掉）。
+   图里的描边仍然写成 currentColor —— 这样图会跟着正文颜色走，
+   以后要换配色只要改这里的变量，图会自动跟上。 */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17.5px;                    /* P-004：正文一档比默认大一点，长文更松快 */
+  line-height: 1.95;
+  /* 柔光底：从上到下由冷到暖，极浅，只为"不是一张死白纸" */
+  background: linear-gradient(180deg, #f7fcff 0%, #fdfaf7 45%, #f7fbf9 100%);
+  background-attachment: fixed;
+}
+
+.layout { display: flex; align-items: flex-start; }
+
+/* ── 左边目录 ─────────────────────────────────────────────────── */
+.sidebar {
+  width: 288px;
+  flex: 0 0 288px;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid var(--line);
+  background: rgba(255, 255, 255, .72);
+  backdrop-filter: blur(3px);
+  position: sticky;
+  top: 0;
+  padding: 22px 14px 40px;
+}
+.book-title { font-family: var(--serif); font-size: 19px; color: var(--title); margin: 0 8px 4px; }
+.scope-note { font-size: 12.5px; color: var(--ink-faint); margin: 0 8px 18px; }
+.toc { display: flex; flex-direction: column; gap: 2px; }
+.toc-group {
+  display: flex; gap: 8px; align-items: baseline;
+  font-size: 13px; color: var(--ink-soft); padding: 10px 8px 4px; font-weight: 600;
+  text-decoration: none; border-radius: 7px;
+}
+a.toc-group { cursor: pointer; }
+a.toc-group:hover { background: #f0f6fb; color: var(--ink); }
+.toc-group.ancestor { color: var(--acc-ink); }
+.toc-group.depth-1 { padding-left: 18px; }
+.toc-group.empty-group { cursor: default; }
+.toc-item {
+  display: flex; gap: 8px; align-items: baseline;
+  padding: 7px 9px; border-radius: 8px;
+  color: var(--ink); text-decoration: none; font-size: 14.5px; line-height: 1.5;
+}
+.toc-item.depth-1 { padding-left: 24px; font-size: 14px; }
+.toc-item.depth-2 { padding-left: 38px; font-size: 13.5px; color: var(--ink-soft); }
+.toc-item:hover { background: #f0f6fb; }
+.toc-item.active {
+  background: #fff;
+  color: var(--acc-ink);
+  font-weight: 600;
+  box-shadow: inset 3px 0 0 var(--acc), var(--shadow-soft);
+}
+.toc-anchor { flex: 0 0 auto; font-variant-numeric: tabular-nums; opacity: .72; }
+
+/* ── 正文骨架 ─────────────────────────────────────────────────── */
+.content { flex: 1 1 auto; min-width: 0; padding: 34px 40px 120px; }
+.unit { max-width: var(--max-width); }
+.crumb { font-size: 12.5px; letter-spacing: .16em; color: #7aa0bd; margin-bottom: 10px; }
+.unit-head h1 {
+  font-family: var(--serif);
+  font-size: 32px; line-height: 1.34; color: var(--title); margin: 0 0 14px;
+}
+.unit-head h1 .anchor { color: var(--acc); margin-right: 8px; font-size: .72em; }
+.one-line {
+  margin: 0 0 30px; padding: 14px 18px;
+  background: var(--acc-soft);
+  border-radius: 16px;
+  color: #2c4a63;
+  font-size: 19px; line-height: 1.8; font-weight: 600;
+}
+
+/* P-004 标题分级：h2 衬线 + 左侧色条（"换气点"），h3 无衬线 + 小方块 */
+.content h2 {
+  font-family: var(--serif);
+  font-size: 22px; line-height: 1.5; color: var(--title);
+  margin: 40px 0 14px; padding: 0 0 0 14px; border: 0;
+  border-left: 5px solid var(--acc);
+}
+.content h3 {
+  font-size: 17.5px; font-weight: 700; color: var(--blue); margin: 26px 0 10px;
+}
+.content h3::before {
+  content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 8px;
+  border-radius: 2px; background: var(--acc); vertical-align: 2px;
+}
+
+.markdown p { margin: 0 0 1.15em; }
+/* 首段稍大：给"从哪读起"一个提示（P-004 的节奏之一） */
+.markdown.body > p:first-of-type { font-size: 18.5px; line-height: 1.9; }
+/* 关键句高亮：marker 式（半截荧光笔），比整句加粗更透气 */
+.markdown strong {
+  font-weight: 700; color: #1d4e6b;
+  background: linear-gradient(transparent 62%, #ffe9c9 62%);
+  padding: 0 1px;
+}
+.markdown em { font-style: normal; color: var(--acc-ink); }
+.markdown ul, .markdown ol { padding-left: 24px; margin: 0 0 1.15em; }
+.markdown li { margin: 5px 0; }
+.markdown li::marker { color: var(--acc); }
+.markdown code {
+  font-family: var(--mono); font-size: .9em;
+  background: var(--bg-soft); border: 1px solid var(--line);
+  padding: 1px 6px; border-radius: 6px;
+}
+.markdown blockquote {
+  margin: 0 0 1.2em; padding: 12px 18px;
+  border-left: 4px solid #f0c09a; background: #fffaf5;
+  border-radius: 0 14px 14px 0; color: #4a4038;
+}
+.markdown table { border-collapse: collapse; width: 100%; margin: 0 0 1.2em; font-size: 15.5px; }
+.markdown th, .markdown td { border: 1px solid var(--line); padding: 7px 10px; text-align: left; }
+.markdown th { background: var(--bg-soft); color: var(--blue); font-weight: 600; }
+.markdown tbody tr:nth-child(even) { background: #fcfdfe; }
+
+/* 概念链接 */
+.concept {
+  color: var(--acc-ink); text-decoration: none;
+  border-bottom: 1px dashed rgba(224, 131, 79, .6);
+  cursor: pointer;
+}
+a.concept, a { color: var(--acc-ink); text-decoration: none; }
+.concept:hover { background: #fff3e9; }
+.missing-ref { color: var(--warn); border-bottom: 1px dotted var(--warn); }
+.math-error { color: var(--warn); }
+/* 原书资料里无法解析的公式：按原文保留、不做渲染，但必须让人看出来"这里没渲染"。
+   用 ::after 出标注，而不是往正文里插字——正文必须与原文逐字一致。 */
+.source-formula-unrendered {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  border-bottom: 1px dotted var(--warn);
+}
+.source-formula-unrendered::after {
+  content: "（原书公式未渲染）";
+  font-size: .82em;
+  color: var(--warn);
+  white-space: nowrap;
+}
+.katex { font-size: 1.03em; }
+.katex-display { margin: 18px 0; overflow-x: auto; overflow-y: hidden; }
+
+/* 插图 */
+.figure { margin: 24px 0; text-align: center; }
+.figure img {
+  max-width: 100%; height: auto; border: 1px solid var(--line);
+  border-radius: 16px; background: #fff; padding: 6px;
+}
+.figure figcaption { font-size: 13.5px; color: var(--ink-soft); margin-top: 8px; }
+
+/* 本节概念小标签 */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font: inherit; font-size: 14px; cursor: pointer;
+  background: #fff; border: 1px solid var(--line); border-radius: 999px;
+  padding: 5px 14px; color: var(--ink);
+}
+.chip:hover { border-color: var(--acc); color: var(--acc-ink); transform: translateY(-1px); }
+.chip.new { background: var(--acc-soft); border-color: #cfe4f5; }
+.chip .tag { font-size: 11.5px; color: var(--acc-ink); margin-left: 6px; }
+.concept-list { margin-top: 34px; }
+
+/* 原文对照 / 校验提醒 / 修正表 */
+.original { margin-top: 40px; }
+.original .hint { font-size: 14px; color: var(--ink-soft); margin: 0 0 12px; }
+.toggle { display: inline-block; font-size: 14px; color: var(--ink-soft); cursor: pointer; }
+.cleaned {
+  background: #fff; border: 1px solid var(--line); border-radius: 16px;
+  padding: 18px 20px 4px; box-shadow: var(--shadow-soft);
+}
+.hidden { display: none !important; }
+.raw { font-family: var(--mono); }
+.warn {
+  margin: 0 0 22px; padding: 10px 14px; border-radius: 12px; font-size: 14.5px;
+  background: #fdf6e6; border: 1px solid #f0dcb0; color: #6b4e12;
+}
+.warn summary { cursor: pointer; }
+.warn ul { margin: 8px 0 0; padding-left: 20px; }
+.corrections { margin-top: 30px; font-size: 14.5px; }
+.corrections summary { cursor: pointer; color: var(--ink-soft); }
+.corrections table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+.corrections th, .corrections td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; }
+.corrections code { font-size: 13px; word-break: break-all; }
+.empty { color: var(--ink-soft); }
+
+/* 上一节 / 下一节 */
+.pager {
+  display: flex; justify-content: space-between; gap: 12px;
+  margin: 48px 0 0; padding-top: 18px; border-top: 1px solid var(--line);
+  font-size: 14.5px;
+}
+.pager a:hover { text-decoration: underline; }
+.pager .disabled { color: #9aa4ae; }
+
+/* 生成的矢量图：内联 SVG，颜色用 currentColor 跟随主题 */
+.figure.generated {
+  border: 1px dashed var(--figline); border-radius: 18px;
+  background: var(--figbg); padding: 16px 18px;
+}
+.figure.generated svg { display: block; margin: 0 auto; width: 100%; height: auto; max-width: 520px; }
+.drawer .figure.generated { padding: 10px; }
+.drawer .figure.generated svg { max-width: 100%; }
+
+/* ── 悬停提示 ─────────────────────────────────────────────────── */
+.tooltip {
+  position: absolute; z-index: 40; max-width: 330px;
+  background: #232a31; color: #f4f6f8; font-size: 13.5px; line-height: 1.65;
+  padding: 9px 12px; border-radius: 10px; box-shadow: 0 6px 22px rgba(0, 0, 0, .2);
+  pointer-events: none;
+}
+
+/* ── 右侧抽屉（概念详解）─────────────────────────────────────── */
+.drawer { position: fixed; inset: 0; z-index: 50; pointer-events: none; }
+.drawer-backdrop {
+  position: absolute; inset: 0; background: rgba(20, 24, 28, .34); opacity: 0;
+  transition: opacity .18s ease;
+}
+.drawer-panel {
+  position: absolute; top: 0; right: 0; height: 100%; width: min(460px, 92vw);
+  background: #fff; box-shadow: -8px 0 28px rgba(0, 0, 0, .14);
+  transform: translateX(102%); transition: transform .2s ease;
+  overflow-y: auto; padding: 26px 26px 60px;
+}
+.drawer.open { pointer-events: auto; }
+.drawer.open .drawer-backdrop { opacity: 1; }
+.drawer.open .drawer-panel { transform: translateX(0); }
+.drawer h2 { font-family: var(--serif); margin: 0 0 4px; font-size: 22px; color: var(--title); }
+.drawer h2 .type {
+  font-size: 12px; font-weight: 400; color: var(--acc-ink); background: var(--chip);
+  border-radius: 999px; padding: 2px 9px; margin-left: 9px; vertical-align: 3px;
+}
+.drawer h3 { font-size: 15px; color: var(--ink-soft); margin: 22px 0 8px; }
+.drawer .occ { padding-left: 20px; font-size: 14.5px; }
+.drawer-close {
+  position: absolute; top: 14px; right: 16px; border: 0; background: transparent;
+  font-size: 24px; line-height: 1; cursor: pointer; color: var(--ink-soft);
+}
+.drawer-close:hover { color: var(--ink); }
+
+/* ══════════════════════════════════════════════════════════════════════
+   教案 v2：正文两栏（左正文 / 右详解栏）
+   ══════════════════════════════════════════════════════════════════════ */
+.explain { margin-top: 8px; }
+.explain-grid { display: block; }
+.explain-main { min-width: 0; }
+
+/* ── 详解栏（P-002 的"指向"之一：常驻、可回跳、同号高亮）───────────── */
+.rail { min-width: 0; }
+.rail-inner { display: flex; flex-direction: column; gap: 12px; }
+.rhead {
+  font-size: 12.5px; letter-spacing: .16em; color: #8a9aa8; margin: 6px 0 2px;
+}
+.rcard {
+  background: rgba(255, 255, 255, .88);
+  border: 1px solid var(--line); border-radius: 16px;
+  padding: 14px 16px; font-size: 15px; line-height: 1.85; color: #3c4a57;
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow .18s ease, border-color .18s ease, transform .18s ease;
+  cursor: pointer;
+}
+.rcard:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(80, 110, 140, .12); }
+.rcard.is-on {
+  border-color: #f0c09a; box-shadow: 0 0 0 3px rgba(224, 131, 79, .14), var(--shadow-soft);
+}
+.rcard .rline { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+.rcard .rline b { font-size: 15.5px; color: var(--blue); }
+.rcard .rbody { margin-top: 6px; }
+.rcard .rbody.why {
+  background: #fff7ef; border-radius: 10px; padding: 8px 12px; color: #8a4f22; margin-top: 8px;
+}
+.rcard .markdown p { margin: 0 0 .6em; }
+.rcard .markdown p:last-child { margin-bottom: 0; }
+.rcard-note.k-pitfall { border-left: 4px solid var(--red); }
+.rcard-note.k-derive { border-left: 4px solid var(--violet); }
+.rcard-note.k-intuition { border-left: 4px solid var(--green); }
+.rcard-note.k-note { border-left: 4px solid var(--blue); }
+.rcard-explain { border-left: 4px solid var(--acc); }
+.rn {
+  flex: 0 0 auto; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--acc); color: #fff; font-size: 12.5px; line-height: 22px; text-align: center;
+}
+.rback {
+  font: inherit; font-size: 12.5px; color: var(--ink-faint);
+  background: transparent; border: 0; border-radius: 6px; padding: 2px 0; cursor: pointer;
+}
+.rback:hover { color: var(--acc-ink); text-decoration: underline; }
+
+/* ── 正文里那个"带编号的小圆点" + 就地展开的批注（P-002 的另两处）── */
+.mk {
+  font: inherit; font-size: .68em; line-height: 1; font-weight: 700;
+  border: 0; border-radius: 999px; padding: 3px 7px; margin: 0 3px;
+  background: var(--chip); color: var(--chip-ink);
+  cursor: pointer; vertical-align: super;
+}
+.mk:hover { transform: translateY(-1px); }
+.mk.is-on { box-shadow: 0 0 0 3px rgba(224, 131, 79, .2); }
+.mk-pitfall { background: #fbe0dc; color: #a33c34; }
+.mk-derive { background: #e9e3ff; color: #5b3fd0; }
+.mk-intuition { background: #dcf5e9; color: #1f7a54; }
+.mk-inline { color: var(--acc-ink); font-weight: 700; }
+
+.pop {
+  display: block;
+  background: #f2f8fc; border: 1px solid #e0ecf5; border-radius: 14px;
+  padding: 12px 16px; margin: 6px 0 14px;
+  font-size: 15.5px; line-height: 1.85; color: #3c4a57;
+}
+.pop[hidden] { display: none; }
+.pop .pp { display: block; }
+.pop .pp-sep { display: block; height: .6em; }
+.pop .ptitle { color: var(--blue); margin-left: 8px; font-size: 15.5px; }
+.pop .nb { display: block; margin-top: 4px; }
+.pop .nb .pp.why { background: #fff7ef; border-radius: 10px; padding: 8px 12px; color: #8a4f22; }
+.pop.k-pitfall, .pop-pitfall { background: #fdf2f0; border-color: #f4dcd6; }
+.pop.k-derive, .pop-derive { background: #f7f5ff; border-color: #e2dbfb; }
+.pop.k-intuition, .pop-intuition { background: #f2fbf6; border-color: #d8f0e4; }
+.pop-explain { background: #fff9f4; border-color: #f6e0cc; }
+.pop-basis { background: #f7f9fc; border-color: #e3e9f2; }
+.pop .chip {
+  display: inline-block; font-size: 11.5px; background: #cfe4f5; color: #2b5f8a;
+  border-radius: 99px; padding: 1px 9px; margin-right: 7px; cursor: default;
+}
+.pop-pitfall .chip { background: #f3cdc4; color: #8a3c28; }
+.pop-derive .chip { background: #ded5fb; color: #4b32b8; }
+.pop-intuition .chip { background: #d3f0e1; color: #1f7a54; }
+.pop-explain .chip { background: #f7ddc4; color: #8a4f22; }
+
+/* 公式 / 定理的"点开详解"胶囊（P-006 第二条铁律） */
+.fchip {
+  font: inherit; font-size: 15px; line-height: 1.6;
+  background: #fff; border: 1.5px solid #f0c09a; color: var(--acc-ink);
+  border-radius: 999px; padding: 1px 9px; margin: 0 3px; cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.fchip:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(224, 131, 79, .18); }
+.fchip.is-on { background: #fff3e9; }
+.fchip .fq { font-size: 11px; margin-left: 3px; opacity: .75; }
+/* 例题每一步的"依据"（P-006 第四条） */
+.basis {
+  font: inherit; font-size: 12.5px; color: var(--acc-ink);
+  background: #fffaf5; border: 1px dashed #f0c09a; border-radius: 99px;
+  padding: 1px 10px; margin: 2px 0 6px; cursor: pointer;
+}
+.basis:hover { background: #fff3e9; }
+
+/* 骨架卡片：定义 / 定理 / 命题 / 推论 / 结论 / 易错 —— 不看字也能看出"这里有几个" */
+.markdown.body > .card {
+  position: relative;
+  margin: 26px 0;
+  padding: 20px 22px 8px 24px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--acc);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--shadow-card);
+}
+.markdown.body > .card > .card-tag {
+  position: absolute; top: -12px; left: 18px;
+  background: var(--acc); color: #fff;
+  font-size: 12px; letter-spacing: .1em;
+  padding: 3px 12px; border-radius: 99px;
+  box-shadow: 0 4px 10px rgba(224, 131, 79, .25);
+}
+.markdown.body > .card p:last-child { margin-bottom: 12px; }
+.markdown.body > .card-def   { border-left-color: var(--blue); background: #fafdff; }
+.markdown.body > .card-def   > .card-tag { background: var(--blue); box-shadow: 0 4px 10px rgba(43, 95, 138, .22); }
+.markdown.body > .card-thm   { border-left-color: var(--violet); background: #fbfaff; }
+.markdown.body > .card-thm   > .card-tag { background: var(--violet); box-shadow: 0 4px 10px rgba(122, 90, 248, .22); }
+.markdown.body > .card-prop  { border-left-color: var(--teal); background: #f7fefd; }
+.markdown.body > .card-prop  > .card-tag { background: var(--teal); box-shadow: 0 4px 10px rgba(13, 148, 136, .22); }
+.markdown.body > .card-cor   { border-left-color: #0891b2; background: #f8fdff; }
+.markdown.body > .card-cor   > .card-tag { background: #0891b2; box-shadow: 0 4px 10px rgba(8, 145, 178, .22); }
+.markdown.body > .card-concl { border-left-color: var(--green); background: #f8fdfa; }
+.markdown.body > .card-concl > .card-tag { background: var(--green); box-shadow: 0 4px 10px rgba(47, 158, 111, .22); }
+.markdown.body > .card-warn  { border-left-color: var(--red); background: #fffafa; }
+.markdown.body > .card-warn  > .card-tag { background: var(--red); box-shadow: 0 4px 10px rgba(217, 83, 79, .22); }
+
+/* 公式块：从段落里"浮"出来（居中、浅底、圆角、上下留白） */
+.markdown .katex-display {
+  margin: 1.2em 0;
+  padding: 12px 14px;
+  background: var(--figbg);
+  border: 1px solid var(--figline);
+  border-radius: 14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.markdown .katex-display > .katex { font-size: 1.08em; }
+
+/* ── 例题：一步步解（默认展开，每步一个序号圆点 + 依据）────────────── */
+.examples { margin-top: 44px; }
+.examples .example {
+  margin: 26px 0; padding: 20px 22px 14px;
+  border: 1px solid var(--line); border-left: 5px solid #f0c09a;
+  border-radius: 16px; background: #fff; box-shadow: var(--shadow-card);
+}
+.examples .example h3 { margin: 0 0 10px; color: var(--acc-ink); }
+.examples .example h3::before { background: #f0c09a; }
+.examples .statement {
+  background: #fffaf5; border-radius: 12px; padding: 12px 16px; margin-bottom: 12px;
+}
+.examples .statement p:last-child { margin-bottom: 0; }
+.examples .thought { color: #4a4038; font-size: 16px; }
+.examples .thought b { color: var(--acc-ink); }
+.examples .steps { margin: 14px 0 6px; }
+.examples .steps .steps-head {
+  font-size: 12.5px; letter-spacing: .12em; color: var(--ink-faint);
+  margin: 0 0 10px;
+}
+.examples .steps ol { list-style: none; margin: 0; padding-left: 0; counter-reset: step; }
+.examples .steps ol > li {
+  position: relative;
+  counter-increment: step;
+  padding: 0 0 16px 42px;
+  margin: 0;
+  border-left: 2px solid #f0f4f8;
+  margin-left: 13px;
+}
+.examples .steps ol > li:last-child { border-left-color: transparent; padding-bottom: 2px; }
+.examples .steps ol > li::before {
+  content: counter(step);
+  position: absolute; left: -14px; top: 2px;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: #fff; color: var(--acc-ink);
+  border: 1.5px solid #f0c09a;
+  font-size: 13px; line-height: 23px; text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.examples .conclusion {
+  margin-top: 10px; background: #f2fbf6; border-radius: 12px; padding: 10px 16px;
+  color: #1f5c43;
+}
+.examples .key-points { margin: 10px 0 0 0; padding-left: 18px; }
+.examples .pitfall { margin-top: 12px; font-size: 15px; }
+.examples .pitfall summary { cursor: pointer; color: var(--red); }
+.original-wrap > summary { cursor: pointer; margin-top: 1.5rem; color: var(--ink-soft); }
+.figure-requests { margin-top: 26px; font-size: 15px; color: var(--ink-soft); }
+.figure-requests summary { cursor: pointer; }
+.figure-requests .why { color: var(--acc-ink); }
+
+/* ── 过程图（把一步步的过程画出来）───────────────────────────────────── */
+.diagram {
+  margin: 1.2rem 0; padding: 12px 14px; border: 1px dashed var(--figline);
+  border-radius: 16px; background: var(--figbg); overflow-x: auto;
+}
+.diagram figcaption { text-align: center; color: var(--ink-soft); font-size: 0.9em; }
+/* 一串矩阵并排时**允许换行**：四个增广矩阵在 756px 的正文栏里排不下（实测内容 1498px），
+   不换行就只能横向滚动 —— 读者根本看不到后面两步。换行以后阅读顺序不变，
+   箭头跟着它的那一步走。 */
+.diagram.matrix-flow { display: flex; align-items: center; gap: 0.35rem 0.2rem; flex-wrap: wrap; }
+.diagram.matrix-flow .diagram-step { flex: 0 0 auto; }
+.diagram.matrix-flow .diagram-step .katex-display { margin: 0.2rem 0; }
+.diagram.matrix-flow .diagram-step .katex { font-size: .95em; }
+.diagram.matrix-flow .step-note {
+  font-size: 0.8em; color: var(--ink-soft); text-align: center; max-width: 16rem;
+}
+.diagram .diagram-arrow {
+  flex: 0 0 auto; display: flex; flex-direction: column; align-items: center;
+  color: var(--acc); padding: 0 0.3rem;
+}
+.diagram .diagram-arrow .op { font-size: 0.78em; white-space: nowrap; }
+.diagram .diagram-arrow .head { font-size: 1.3em; line-height: 1; }
+.diagram.process { display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap; }
+.diagram.process .node {
+  border: 1px solid var(--line); border-radius: 10px; padding: 0.3rem 0.7rem; background: #fff;
+}
+.diagram.process .arrow { color: var(--acc); }
+
+/* ── 交互模型卡片：标题 + 画布 + 控件条 + 图注（"可玩的东西"，不是插画）── */
+.model {
+  margin: 26px 0;
+  padding: 16px 18px 12px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: var(--shadow-card);
+}
+.model-title { font-family: var(--serif); margin: 0 0 10px; font-size: 17px; color: var(--title); }
+.model-head {
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 0 0 10px;
+}
+.model-head .model-title { margin: 0; }
+.model-bind {
+  font-size: 12.5px; color: var(--acc-ink); background: #fffaf5;
+  border: 1px dashed #f0c09a; border-radius: 99px; padding: 1px 10px;
+}
+.model-stage {
+  width: 100%; border: 1px solid var(--line); border-radius: 14px;
+  background: #fff; overflow: hidden; position: relative;
+}
+.model-stage canvas { display: block; }
+.harmonic-plot { display: block; width: 100%; height: auto; aspect-ratio: 1; touch-action: none; cursor: crosshair; }
+.harmonic-plot:focus-visible { outline: 3px solid #2563eb; outline-offset: -3px; }
+.harmonic-axis-label { font: 13px sans-serif; fill: #64748b; }
+.harmonic-point-label { font: 600 13px sans-serif; fill: #172554; paint-order: stroke; stroke: white; stroke-width: 4px; }
+.harmonic-point { cursor: grab; }
+.harmonic-ui { min-width: 0; }
+.harmonic-intro, .harmonic-status { flex-basis: 100%; margin: 4px 0; font-size: 14px; line-height: 1.7; }
+.harmonic-options { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; font-size: 14px; }
+.harmonic-options label { display: inline-flex; gap: 6px; align-items: center; }
+.harmonic-readout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px 18px; width: 100%; padding: 12px; background: #f1f5f9; border-radius: 10px; font-size: 14px; font-variant-numeric: tabular-nums; }
+.harmonic-readout output { font-weight: 600; color: #172554; }
+.harmonic-status { padding: 10px 12px; border-left: 3px solid #2563eb; background: #eff6ff; }
+.harmonic-status.is-singular { border-color: #b45309; background: #fff7ed; }
+@media (max-width: 520px) {
+  html:not([data-fixed-layout]) .harmonic-axis-label, html:not([data-fixed-layout]) .harmonic-point-label { font-size: 20px; }
+  html:not([data-fixed-layout]) .harmonic-ui .mdl-slider { width: 100%; min-width: 0; }
+  html:not([data-fixed-layout]) .harmonic-ui .mdl-slider input[type=range] { width: auto; min-width: 0; flex: 1; }
+  html:not([data-fixed-layout]) .harmonic-readout { grid-template-columns: minmax(0, 1fr); }
+}
+.model-ui { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; margin: 12px 0 4px; }
+.model-caption { margin: 8px 0 2px; font-size: 14px; color: var(--ink-soft); }
+.model-viewhint {
+  margin: 8px 0 0; font-size: 13.5px; color: #4a4038;
+  background: #f7f9fc; border-radius: 10px; padding: 7px 12px;
+}
+.model-fallback { padding: 18px 20px; margin: 0; font-size: 14.5px; color: var(--ink-soft); background: var(--figbg); }
+.model.missing-ref { border-style: dashed; color: var(--red); padding: 14px 16px; }
+
+.mdl-slider { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.mdl-slider-name { min-width: 52px; color: var(--ink-soft); }
+.mdl-slider input[type=range] { width: 190px; accent-color: var(--acc); }
+.mdl-slider-value { width: 46px; text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-soft); }
+.mdl-btn {
+  font: inherit; font-size: 14px; padding: 6px 14px; cursor: pointer;
+  border: 1px solid #e6d3c2; border-radius: 99px; background: #fff; color: var(--acc-ink);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.mdl-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(224, 131, 79, .16); }
+.mdl-btn.primary { background: var(--acc); border-color: var(--acc); color: #fff; }
+.mdl-btn:active { transform: translateY(1px); }
+.mdl-steps { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.mdl-step-label { font-size: 13.5px; color: var(--ink-soft); }
+.mdl-readout {
+  font-size: 14px; color: #123a6b; background: var(--acc-soft);
+  padding: 5px 12px; border-radius: 10px;
+}
+/* 行变换模型里把矩阵按行写出来（第1行/第2行）。它要**按行显示**：
+   `textContent` 里的换行靠 white-space 保住，不然两行会挤成一行（实测踩过）。 */
+.mdl-matrix-rows {
+  white-space: pre-line;
+  font-family: var(--mono); font-size: 14px; line-height: 1.9;
+  color: #3c4a57; background: #f7f9fc; border: 1px solid var(--line);
+  border-radius: 10px; padding: 8px 12px; margin: 8px 0 4px;
+}
+
+/* ── 符号型模型（消元分步）：矩阵是排版，不进画布 ─────────────────── */
+.model-symbolic .model-stage { border: 0; background: transparent; overflow: visible; }
+.sym-steps { padding: 4px 2px 8px; }
+.sym-progress { font-size: 13px; letter-spacing: .05em; color: var(--ink-soft); margin-bottom: 6px; }
+.sym-op { background: #eef2ff; color: #3730a3; border-radius: 6px; padding: 1px 8px; font-size: 12.5px; }
+.sym-matrix { padding: 6px 0 2px; overflow-x: auto; }
+.sym-note { font-size: 14.5px; color: var(--ink-soft); margin-top: 2px; }
+.sym-dots { list-style: none; display: flex; gap: 8px; padding: 0; margin: 12px 0 0; }
+.sym-dots li {
+  width: 24px; height: 24px; border-radius: 50%; cursor: pointer;
+  border: 1px solid var(--line); background: #fff; color: var(--ink-soft);
+  font-size: 12.5px; line-height: 23px; text-align: center;
+}
+.sym-dots li.on { background: var(--acc); border-color: var(--acc); color: #fff; }
+
+/* 校验提醒（作者可见）：等宽直出，别把截断的 LaTeX 片段当公式渲染（实测会冒红块） */
+.warn li code {
+  display: block; white-space: pre-wrap; word-break: break-all;
+  font: 13px/1.7 var(--mono);
+  background: #f7f8fa; border: 1px solid var(--line); border-radius: 8px; padding: 6px 9px;
+}
+
+/* ══ 宽屏：正文 + 详解栏两栏（P-002 的小清新 D）════════════════════════ */
+@media (min-width: 1180px) {
+  /* .unit 原来被限在 780px（那是"单栏长文"的行宽）；两栏时得放宽，
+     否则正文那栏只剩 440px（实测：模型画布被挤成 410px 宽）。 */
+  .unit:has(.explain-grid) { max-width: 1220px; }
+  .explain-grid {
+    display: grid; grid-template-columns: minmax(0, 1fr) 336px; gap: 40px; align-items: start;
+  }
+  .explain-main .markdown.body, .explain-main > .hint, .explain-main > h2 { max-width: 780px; }
+  .rail { position: sticky; top: 20px; max-height: calc(100vh - 44px); overflow-y: auto; padding-bottom: 20px; }
+}
+/* ── 中屏：详解栏落到正文下面，卡片两列 ───────────────────────────── */
+@media (max-width: 1179px) {
+  html:not([data-fixed-layout]) .rail { margin-top: 30px; border-top: 1px dashed var(--line); padding-top: 16px; }
+  html:not([data-fixed-layout]) .rail-inner { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  html:not([data-fixed-layout]) .rail-inner .rhead { grid-column: 1 / -1; }
+}
+
+/* ── 手机（375px） ────────────────────────────────────────────── */
+@media (max-width: 820px) {
+  body { font-size: 16.5px; }
+  .layout { display: block; }
+  .sidebar {
+    width: auto; flex: none; height: auto; position: static;
+    border-right: 0; border-bottom: 1px solid var(--line); padding: 16px 12px 12px;
+  }
+  html:not([data-fixed-layout]) .content { padding: 20px var(--media-viewport-gutter, 16px) 90px; }
+  html:not([data-fixed-layout]) .unit-head h1 { font-size: 24px; }
+  html:not([data-fixed-layout]) .one-line { font-size: 17px; padding: 12px 14px; }
+  html:not([data-fixed-layout]) .content h2 { font-size: 20px; margin-top: 32px; }
+  .drawer-panel { width: 100%; padding: 22px 18px 60px; }
+  .tooltip { max-width: 78vw; }
+  html:not([data-fixed-layout]) .rail-inner { display: block; }
+  .rcard + .rcard { margin-top: 12px; }
+  .pop { font-size: 15px; padding: 10px 13px; }
+  html:not([data-fixed-layout]) .examples .example { padding: 16px 14px 10px; }
+  html:not([data-fixed-layout]) .examples .steps ol > li { padding-left: 36px; }
+}
+
+/* ── P-035：正文里的公式编号（(2.1)）做成可点链接，跳到原文对照里的那一处 ──────────
+   样式上刻意**低调**：它是"能点"的提示，不该抢正文的注意力（用户要的是"能跳"，不是"很显眼"）。
+   点了之后目标会闪一下（`is-flash`），否则读者不知道跳到哪儿了。 */
+.numref { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--line, #b9c0cc);
+          cursor: pointer; }
+.numref:hover { border-bottom-style: solid; background: rgba(255, 214, 102, .35); }
+.numref::after { content: "↗"; font-size: .72em; vertical-align: super; opacity: .45;
+                 margin-left: 1px; }
+.num-target { border-radius: 3px; }
+.num-target.is-flash { animation: num-flash 1.8s ease-out 1; }
+@keyframes num-flash {
+  0%   { background: rgba(255, 214, 102, .9); box-shadow: 0 0 0 3px rgba(255, 214, 102, .5); }
+  100% { background: transparent; box-shadow: none; }
+}
+
+/* P-042：模型读数——公式部分是 KaTeX（行内），后面那句人话用 .mdl-note 轻轻隔开。
+   原来整行是字符串拼的，符号和数字挤在一起，和正文的公式两种样子。 */
+.mdl-readout .katex { font-size: 1.02em; }
+.mdl-readout .mdl-note { margin-left: .7em; opacity: .78; font-size: .94em; }
+
+/* ── 显示树：骨架（书的目录）∪ 目录未列但正文有的 ─────────────────────────
+   2026-09-29：网页这一侧原来完全不知道书的目录长什么样，多出来的节和缺的节都看不出来。 */
+.toc-badge {
+  margin-left: 6px; padding: 0 5px; border-radius: 8px;
+  font-size: 11px; line-height: 16px; white-space: nowrap;
+  background: #fff3d6; color: #8a6100; border: 1px solid #f0dcae;
+}
+.toc-item.undeclared .toc-title, .toc-group.undeclared { color: var(--ink-soft); }
+.toc-gaps { margin-top: 14px; padding-top: 10px; border-top: 1px dashed #e2e6ea; }
+.toc-gaps h4 { margin: 0 0 6px; font-size: 12px; color: #8a6100; font-weight: 600; }
+.toc-gap {
+  display: flex; gap: 6px; align-items: baseline; flex-wrap: wrap;
+  padding: 4px 6px; border-radius: 6px; color: var(--ink-soft);
+  background: #fbfbfc; cursor: help;
+}
+.toc-gap .toc-anchor { color: #b9a06a; }
+.toc-gap-why { flex-basis: 100%; font-size: 11.5px; color: #9aa3ab; }
+.toc-footnote { margin: 10px 4px 0; font-size: 11.5px; color: #9aa3ab; line-height: 1.5; }
+
+/* 概念名里剥下来的括注（原样显示，不丢信息） */
+.concept-note { margin: 2px 0 10px; font-size: 12.5px; color: #8b949e; }
+
+/* 逐步推导（walkthrough）与"先简后繁"（warmup）—— 2026-09-30 P2/P3 */
+.rcard-explain .rwalk { margin: .4rem 0 0; padding-left: 1.1rem; }
+.rcard-explain .rwalk li { margin: .25rem 0; line-height: 1.55; }
+.rcard-explain .rwalk .basis {
+  display: inline-block; margin-left: .35rem; padding: 0 .35rem;
+  border-radius: .7rem; background: rgba(64, 132, 224, .12);
+  color: #2c5f9e; font-size: .86em;
+}
+.rcard-explain .rwarm {
+  border-left: 3px solid #d9a441; padding-left: .5rem; background: rgba(217, 164, 65, .08);
+}
+
+/* 新图模板：数轴 / 依赖图 / 电路拓扑（2026-09-30 P4） */
+.diagram.number-line .nl-track {
+  display: flex; align-items: center; gap: 0; flex-wrap: wrap;
+  border-bottom: 2px solid #444; padding: .2rem 0; width: 100%;
+}
+.diagram.number-line .nl-point { position: relative; padding: 0 .5rem; font-weight: 600; }
+.diagram.number-line .nl-seg { flex: 1 1 1.5rem; }
+.diagram.number-line .nl-note { display: block; font-weight: 400; font-size: .82em; color: #666; }
+.diagram.dependency .dep-row, .diagram.circuit .dep-row {
+  display: flex; align-items: center; gap: .3rem; flex-wrap: wrap;
+}
+.diagram.dependency .node, .diagram.circuit .node {
+  border: 1px solid #9bb; border-radius: .35rem; padding: .12rem .45rem; background: #f4f8fb;
+}
+.diagram.circuit .node.comp { border-color: #c99; background: #fdf6f4; }
+.example .warmup {
+  border-left: 3px solid #d9a441; background: rgba(217, 164, 65, .08);
+  padding: .35rem .55rem; margin: .4rem 0;
+}
+
+/* 例题**随正文**就地展开（2026-10-01）：全部用行内 span + display:block，
+   避免块级元素把外层 <p> 提前闭合（那样例题会跑到段落外面） */
+.example-inline { display:block; border-left:3px solid var(--accent, #2f6fd0);
+  background:#f7faff; border-radius:0 8px 8px 0; padding:10px 14px; margin:.7rem 0; }
+.example-inline .exlabel { font-weight:700; margin-right:.4rem; }
+.example-inline .exstatement { display:block; color:#374151; margin:.2rem 0 .4rem; }
+.example-inline .exthought, .example-inline .exconcl { display:block; margin:.3rem 0; }
+.example-inline .exwarm { display:block; border-left:3px solid #e0a33e;
+  background:rgba(224,163,62,.10); padding:5px 9px; border-radius:0 6px 6px 0; margin:.4rem 0; }
+.example-inline .exsteps { display:block; margin-top:.35rem; }
+.example-inline .exstep { display:block; margin:.22rem 0 .22rem .2rem; }
+.example-inline .basis { display:inline-block; margin-left:6px; padding:0 6px;
+  border-radius:9px; background:rgba(47,111,208,.12); color:#2f6fd0; font-size:.85em; }
+
+/* 右栏跟随阅读位置：当前段落引用的那条详解高亮（2026-10-01） */
+.rcard-explain.on { border-color: var(--accent, #2f6fd0);
+  box-shadow: 0 0 0 3px rgba(47,111,208,.12); }
+.rcard-explain { transition: box-shadow .25s, border-color .25s; }
+
+/* 右栏＝索引一行 + 详情面板（2026-10-01）：点公式 → 侧栏出现「解析 / 推导 / 配图」 */
+.rindex { display: flex; flex-wrap: wrap; gap: .3rem; margin-bottom: .5rem; }
+.rindex .ritem { display: inline-flex; align-items: center; gap: .25rem; cursor: pointer;
+  border: 1px solid var(--line, #e6e8ec); border-radius: 999px; padding: .1rem .5rem;
+  font-size: .86em; background: #fff; }
+.rindex .ritem:hover { border-color: var(--accent, #2f6fd0); }
+.rindex .ritem.on { border-color: var(--accent, #2f6fd0); background: rgba(47,111,208,.08); }
+.rindex .ritem .chip { padding: 0 .3rem; font-size: .92em; }
+.rdetail .rsec { margin: .6rem 0 .25rem; font-size: .95em; color: #374151;
+  border-left: 3px solid var(--accent, #2f6fd0); padding-left: .4rem; }
+.rdetail table.rwalk { width: 100%; border-collapse: collapse; font-size: .9em; }
+.rdetail table.rwalk th, .rdetail table.rwalk td {
+  border-bottom: 1px solid var(--line, #e6e8ec); padding: .22rem .3rem; text-align: left;
+  vertical-align: top; }
+.rdetail table.rwalk th { color: #6b7280; font-weight: 600; }
+.rdetail table.rwalk td:first-child { width: 1.4rem; color: #6b7280; }
+.chip.on, [data-explain].on { background: rgba(47,111,208,.16); border-color: var(--accent, #2f6fd0); }
+
+/* Peek 面板里的「展开为大抽屉」 */
+.rexpand { display: inline-block; margin: .6rem 0 .2rem; padding: .18rem .6rem;
+  border: 1px solid var(--line, #e6e8ec); border-radius: 999px; background: #fff;
+  color: var(--accent, #2f6fd0); font-size: .85em; cursor: pointer; }
+.rexpand:hover { border-color: var(--accent, #2f6fd0); background: rgba(47,111,208,.06); }
+
+/* **就地展开**的详解块（2026-10-01 v4）：点正文里的公式 → 解析/推导就出现在这句话下面。
+   右栏不参与（用户实测根本不看右栏）。 */
+.explain-inline { margin: .7rem 0 1rem; padding: .7rem .9rem; background: #f7faff;
+  border-left: 3px solid var(--accent, #2f6fd0); border-radius: 0 10px 10px 0; }
+.explain-inline .rsec { margin: .5rem 0 .25rem; font-size: .95em; color: #374151; }
+.explain-inline table.rwalk { width: 100%; border-collapse: collapse; font-size: .92em; }
+.explain-inline table.rwalk th, .explain-inline table.rwalk td {
+  border-bottom: 1px solid #e6e8ec; padding: .22rem .3rem; text-align: left; vertical-align: top; }
+.explain-inline table.rwalk th { color: #6b7280; font-weight: 600; }
+.explain-inline .basis { display: inline-block; padding: 0 .4rem; border-radius: 999px;
+  background: rgba(47,111,208,.12); color: #2f6fd0; font-size: .86em; }
+
+/* 3D 图：画布 + 静态贴片兜底（初始化失败时才显示贴片，不留白） */
+.fig3d { display: block; }
+.fig3d-canvas { max-width: 100%; border: 1px solid var(--line, #e6e8ec);
+  border-radius: 8px; background: #fff; cursor: grab; touch-action: none; }
+.fig3d-canvas:active { cursor: grabbing; }
+.fig3d-fallback { display: none; }
+.fig3d-failed .fig3d-canvas, .fig3d-failed .fig3d-hint { display: none; }
+.fig3d-failed .fig3d-fallback { display: block; }
+
+/* 例题的"待补图"提示（全局，任何书都生效）：读者得知道这里本该有张图 */
+.figreq { border-left: 3px solid var(--c-derive, #c07a1d); background: rgba(192,122,29,.07);
+  padding: 8px 12px; border-radius: 0 8px 8px 0; margin: 10px 0; font-size: .95em; }
+.figreq ul { margin: 6px 0 0; padding-left: 1.1em; }
+.figreq li { margin: 4px 0; }
+.figreq .why, .figreq .where { color: var(--muted, #6b7280); font-size: .92em; }
+
+/* 批注入口＝正文里的**小字链接**（2026-10-02 定案：右栏删掉，入口留在原文处） */
+.mk { font: 500 .82em/1.5 var(--sans); color: var(--accent); background: var(--accent-tint);
+  border: 1px solid var(--accent-line); border-radius: 999px; padding: 0 6px; margin: 0 2px;
+  cursor: pointer; vertical-align: .08em; }
+.mk:hover { background: rgba(59,91,219,.16); }
+.mk.is-on { background: var(--accent); color: #fff; border-color: var(--accent); }
+.mk-note { color: #0b7285; border-color: rgba(11,114,133,.35); background: rgba(11,114,133,.08); }
+.mk-pitfall { color: #d92d20; border-color: rgba(217,45,32,.35); background: rgba(217,45,32,.08); }
+.mk-derive { color: #a35a09; border-color: rgba(163,90,9,.35); background: rgba(163,90,9,.08); }
+.mk-intuition { color: #0e7c6b; border-color: rgba(14,124,107,.35); background: rgba(14,124,107,.08); }
+/* 右栏空了就别占位 */
+aside.rail:empty, .rail-inner:empty { display: none; }
+
+/* 批注弹层：拖动手柄 + 关闭按钮（2026-10-02） */
+.pop { position: relative; box-shadow: 0 6px 24px -12px rgba(16,24,40,.28); }
+.pop-head { position: absolute; top: 2px; right: 4px; display: flex; gap: 2px; align-items: center; }
+.pop-grip { cursor: grab; color: var(--muted, #6b7280); font-size: 14px; line-height: 1;
+  padding: 2px 4px; border-radius: 6px; user-select: none; }
+.pop-grip:hover { background: rgba(0,0,0,.06); }
+.pop-grip:active { cursor: grabbing; }
+.pop-x { border: 0; background: transparent; color: var(--muted, #6b7280); font-size: 16px;
+  line-height: 1; padding: 0 6px; border-radius: 6px; cursor: pointer; }
+.pop-x:hover { background: rgba(217,45,32,.12); color: #d92d20; }
+.pop { max-width: 52ch; }
+
+/* 双击标题栏折成小条（2026-10-02）：只留一行，方便同时摊开好几条对照 */
+.pop.pop-folded { max-height: 2.4em; overflow: hidden; }
+.pop.pop-folded .pp, .pop.pop-folded .pp-sep { display: none; }
+.pop.pop-folded::after { content: "（已折叠，双击标题栏展开）"; color: var(--muted, #6b7280); font-size: .86em; }
+.pop .pop-head { cursor: pointer; }
+
+/* ── 教学动画播放器（§T09）────────────────────────────────────────────────
+   两个视口（390px 阅读器 / 1280px 桌面）都要能用：控件换行、**不锁固定宽度**、
+   文字稿始终可读。字号与按钮高度按 390px 下可点（≥32px）定。 */
+.animation-player { margin: 18px 0 22px; padding: 12px 14px; border: 1px solid var(--line, #e6e3dd);
+  border-radius: 12px; background: var(--figbg, #fbfaf7); }
+.animation-stage { position: relative; background: #0b1020; border-radius: 10px; overflow: hidden; }
+.animation-caption-layer { position: absolute; left: 50%; bottom: 6%; transform: translateX(-50%);
+  max-width: 92%; padding: .2em .6em; border-radius: 4px; background: rgba(11,16,32,.82); color: #fff;
+  font-size: 15px; line-height: 1.5; text-align: center; pointer-events: none; overflow-wrap: anywhere; }
+.animation-caption-layer[hidden] { display: none; }
+.animation-caption-layer .katex { color: inherit; font-size: 1.05em; }
+.animation-player:fullscreen .animation-caption-layer { font-size: 22px; bottom: 4%; }
+.animation-video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 16 / 9;
+  background: #0b1020; }
+.animation-placeholder { padding: 28px 16px; text-align: center; color: #cbd5e1; font-size: 14.5px; }
+.animation-error { margin: 10px 0 0; padding: 9px 12px; border-radius: 8px; font-size: 14px;
+  color: #7a1d12; background: #fdecea; border: 1px solid rgba(217,45,32,.32); }
+.animation-status { margin: 8px 0 0; font-size: 13.5px; color: var(--ink-soft, #5b5347); }
+.animation-controls { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; margin: 10px 0 0; }
+.animation-button, .animation-step { min-height: 34px; min-width: 40px; padding: 5px 12px;
+  font: 500 14px/1.2 var(--sans, system-ui, sans-serif); color: var(--ink, #22201c);
+  background: #fff; border: 1px solid var(--line, #e0dcd4); border-radius: 8px; cursor: pointer; }
+.animation-button:hover, .animation-step:hover { background: var(--accent-tint, #eef2ff); }
+.animation-button[disabled], .animation-step[disabled] { opacity: .5; cursor: not-allowed; }
+.animation-step[aria-current="true"] { background: var(--accent, #3b5bdb); color: #fff;
+  border-color: var(--accent, #3b5bdb); }
+.animation-field { font-size: 13.5px; color: var(--ink-soft, #5b5347); }
+.animation-speed { min-height: 34px; padding: 4px 8px; font-size: 14px; border-radius: 8px;
+  border: 1px solid var(--line, #e0dcd4); background: #fff; }
+.animation-steps { display: flex; flex-wrap: wrap; gap: 6px; }
+.animation-transcript { margin: 12px 0 0; border-top: 1px dashed var(--line, #e6e3dd); padding-top: 10px; }
+.animation-transcript-title { margin: 0 0 6px; font-size: 14.5px; color: var(--ink, #22201c); }
+.animation-transcript-list { margin: 0; padding-left: 0; list-style: none; }
+.animation-transcript-row { display: flex; gap: 10px; align-items: flex-start; padding: 5px 0;
+  font-size: 14.5px; line-height: 1.65; color: var(--ink, #22201c); }
+.animation-transcript-time { flex: 0 0 auto; min-height: 30px; padding: 3px 8px; font: 500 13px/1.2 var(--mono, monospace);
+  color: var(--accent, #3b5bdb); background: var(--accent-tint, #eef2ff); border: 1px solid transparent;
+  border-radius: 6px; cursor: pointer; }
+.animation-transcript-text { min-width: 0; word-break: break-word; }
+
+@media (max-width: 520px) {
+  html:not([data-fixed-layout]) .animation-player { padding: 10px; margin: 14px 0 18px; }
+  html:not([data-fixed-layout]) .animation-controls { gap: 6px; }
+  html:not([data-fixed-layout]) /* 390px：按钮不许被裁掉 —— 让它们换行并允许缩到内容宽度 */
+  .animation-steps { width: 100%; }
+  html:not([data-fixed-layout]) .animation-button, html:not([data-fixed-layout]) .animation-step { padding: 5px 10px; font-size: 13.5px; }
+  html:not([data-fixed-layout]) .animation-transcript-row { font-size: 14px; }
+}
+
+.animation-player video::cue { font-size: 24px; line-height: 1.4; }
+
+/* V4 media geometry is owned by media-surface.css and injected host policy. */
+/* Original exercises are read-only source records, outside teaching review. */
+.source-material .source-image { max-width: 100%; height: auto; }
+.source-location { color: #64748b; font-size: .85rem; overflow-wrap: anywhere; }
+
+/* D1: one persistent summary covers unresolved and absent units. */
+.reader-problem-summary, .reader-run-status { margin: 12px 16px; padding: 12px 16px; border: 1px solid #d4b071; border-radius: 8px; background: #fff8eb; color: #49391f; }
+.reader-problem-summary ul { margin: 8px 0 0; padding-left: 22px; }
+.reader-problem-summary li { margin: 6px 0; overflow-wrap: anywhere; }
+
+/* 清爽书页：正式阅读器采用已确认的 A 版。旧媒体/自测组件仍用原样式。 */
+.book-page {
+  --ink: #253b38;
+  --ink-soft: #73817d;
+  --ink-faint: #849189;
+  --line: #dde5de;
+  --bg: #f6f7f2;
+  --bg-soft: #edf4ef;
+  --paper: #fffefa;
+  --acc: #286e60;
+  --acc-ink: #286e60;
+  --acc-soft: #edf4ef;
+  --accent: #286e60;
+  --accent-soft: #edf4ef;
+  --accent-tint: #edf4ef;
+  --accent-line: #bdceba;
+  --title: #253b38;
+  --blue: #286e60;
+  --figbg: #fafbf6;
+  --reader-font-size: 17px;
+  --bookbar-height: 76px;
+  --shadow-soft: none;
+  --shadow-card: none;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: var(--reader-font-size);
+  line-height: 1.95;
+}
+.book-page [hidden] { display: none !important; }
+.book-page :where(button, a, summary, input, textarea):focus-visible {
+  outline: 3px solid #c1944b;
+  outline-offset: 4px;
+}
+.book-page button { cursor: pointer; }
+.book-page button:disabled { cursor: default; opacity: .45; }
+.bookbar {
+  min-height: var(--bookbar-height); position: sticky; top: 0; z-index: 30;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  padding: 12px 36px; background: var(--paper); border-bottom: 1px solid var(--line);
+}
+.book-brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.book-brand > div { min-width: 0; }
+.book-mark {
+  display: grid; place-items: center; flex: 0 0 35px; height: 38px;
+  background: var(--accent); color: white; border-radius: 8px;
+  font: 22px/1 var(--serif);
+}
+.book-page .book-title {
+  margin: 0; color: var(--ink); font: 600 16px/1.5 var(--sans);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.book-page .scope-note { margin: 2px 0 0; color: var(--ink-soft); font-size: 11px; line-height: 1.5; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.book-controls { display: flex; flex: 0 0 auto; gap: 5px; }
+.book-controls button {
+  background: transparent; color: var(--ink); border: 1px solid var(--line);
+  border-radius: 7px; min-height: 34px; padding: 4px 10px; font: 12px/1.6 var(--sans);
+}
+.book-controls button:hover { background: var(--accent-soft); }
+#reader-toc-toggle { display: none; }
+.book-page .layout { max-width: 1460px; margin: 0 auto; display: grid; grid-template-columns: 262px minmax(0, 1fr); }
+.book-page .sidebar {
+  width: auto; min-width: 0; height: calc(100vh - var(--bookbar-height));
+  top: var(--bookbar-height); position: sticky; overflow-y: auto;
+  padding: 36px 24px 40px 34px; background: var(--bg); backdrop-filter: none;
+  border-right: 1px solid var(--line);
+}
+.book-page .toc { gap: 4px; }
+.book-page .toc-group { padding: 9px 0; font: 600 14px/1.7 var(--serif); color: var(--ink); }
+.book-page .toc-group.depth-1 { padding-left: 8px; }
+.book-page .toc-item { padding: 9px 10px; font-size: 12px; line-height: 1.8; border-radius: 7px; }
+.book-page .toc-item.depth-1 { padding-left: 14px; }
+.book-page .toc-item.depth-2 { padding-left: 22px; }
+.book-page .toc-item.active { background: #e8efe7; color: var(--accent); box-shadow: none; }
+.book-page .toc-item:hover, .book-page a.toc-group:hover { background: var(--accent-soft); }
+.book-page .toc-anchor { font-size: .85em; color: var(--ink-soft); }
+#reader-section-toc { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--line); }
+#reader-section-toc h2, #reader-section-toc h3 { margin: 0 0 10px; font-size: 12px; font-weight: 600; }
+#reader-section-toc a { display: block; padding: 5px 0; color: var(--ink-soft); font-size: 12px; line-height: 1.8; text-decoration: none; }
+#reader-section-toc a:hover { color: var(--accent); }
+.book-page .content { padding: 30px 54px 90px; background: var(--paper); min-height: calc(100vh - var(--bookbar-height)); }
+.book-page .unit, .book-page .unit:has(.explain-grid) { max-width: 780px; margin: 0 auto; }
+.book-page .explain-grid { display: block; }
+.book-page .unit-head { margin-bottom: 28px; }
+.book-page .unit-head h1 { margin: 0 0 20px; color: var(--ink); font: 600 31px/1.5 var(--serif); }
+.book-page .crumb { color: #af8050; letter-spacing: .1em; font-size: 11px; }
+.book-page .one-line { background: transparent; border: 0; padding: 0; font-size: 1em; font-weight: 400; color: var(--ink-soft); }
+.book-page .content h2 { border: 0; padding: 0; margin: 42px 0 18px; color: var(--ink); font: 600 23px/1.6 var(--serif); }
+.book-page .content h3 { margin: 32px 0 16px; color: var(--ink); font: 600 19px/1.6 var(--serif); }
+.book-page .content h3::before { display: none; }
+.book-page .markdown { overflow-wrap: anywhere; }
+.book-page .markdown p { margin: 0 0 1em; }
+.book-page .markdown strong { color: var(--ink); font-weight: 600; background: none; }
+.book-page .markdown a { color: var(--accent); text-decoration: none; border-bottom: 1px dotted #88aa9b; padding-bottom: 2px; }
+.book-page .markdown a:hover { background: var(--accent-soft); }
+.book-page .markdown blockquote { background: #f6f8f0; border-color: #9eb5a4; padding: 13px 20px; }
+.book-page .katex { font-size: 1.07em; }
+.book-page .katex-display { overflow-x: auto; overflow-y: hidden; padding: 10px 0; margin: 20px 0; }
+.book-page .reader-group { margin: 0 0 24px; min-width: 0; scroll-margin-top: calc(var(--bookbar-height) + 24px); }
+.book-page .reader-block { min-width: 0; }
+.book-page .reader-field-label { display: block; margin: 10px 0 5px; font-size: 11px; color: var(--ink-soft); letter-spacing: .05em; }
+.book-page [data-reader-group="body_markdown"] > .reader-block > .reader-field-label,
+.book-page [data-reader-group="one_line"] > .reader-block > .reader-field-label { display: none; }
+.book-page :where(details).reader-group {
+  border: 1px solid var(--line); border-radius: 10px; padding: 15px 19px; background: #fafbf6;
+}
+.book-page details.reader-group > summary { cursor: pointer; color: var(--accent); font-size: 14px; font-weight: 600; line-height: 1.8; list-style: none; }
+.book-page details.reader-group > summary::before { content: '＋'; margin-right: 10px; color: #af8050; font-weight: 400; }
+.book-page details.reader-group > summary::-webkit-details-marker { display: none; }
+.book-page details.reader-group[open] > summary { border-bottom: 1px solid var(--line); padding-bottom: 13px; margin-bottom: 16px; }
+.book-page details.reader-group[open] > summary::before { content: '−'; }
+.book-page .reader-annotation-kind { font-size: 12px; font-weight: 500; color: var(--ink-soft); }
+.book-page .reader-teaching-review { margin-top: 20px; padding-top: 13px; border-top: 1px solid var(--line); }
+.book-page .reader-teaching-review > h3 { margin: 0 0 10px; font: 600 14px/1.8 var(--sans); color: var(--accent); }
+.book-page .reader-teaching-review[data-reader-review="pitfalls"] > h3 { color: #8b634a; }
+.book-page .reader-teaching-review > .reader-block > .reader-field-label { display: none; }
+.book-page .reader-teaching-review > .reader-block { font-size: .94em; }
+.book-page [data-reader-group="examples"] { padding: 27px 28px; margin: 40px 0; background: #fbfaf5; border: 1px solid #e5e1d5; border-radius: 12px; }
+.book-page [data-reader-group="examples"] [data-reader-pointer$="/label"] { font: 600 21px/1.6 var(--serif); color: #6d614d; }
+.book-page [data-reader-group="examples"] [data-reader-pointer$="/label"] > .reader-field-label { display: none; }
+.book-page [data-reader-group="examples"] [data-reader-pointer$="/statement"] { font-weight: 500; }
+.book-page [data-reader-group="examples"] [data-reader-step][data-reader-pointer$="/markdown"] { border-top: 1px solid #ebe6db; padding-top: 12px; }
+.book-page [data-reader-group="examples"] [data-reader-pointer$="/basis"] { background: #f0f3eb; color: #65766c; border-radius: 7px; padding: 7px 12px; font-size: .85em; }
+.book-page .learning-check { background: #f8f9fb; border-color: #dce3e6; }
+.book-page .learning-check fieldset { min-width: 0; border: 0; padding: 0; margin: 12px 0; }
+.book-page .learning-check label { display: block; margin: 8px 0; }
+.book-page .learning-check textarea { width: 100%; min-height: 100px; padding: 12px; border: 1px solid var(--line); border-radius: 7px; font: inherit; resize: vertical; }
+.book-page .learning-check button {
+  background: white; color: var(--ink); border: 1px solid var(--line);
+  padding: 6px 12px; border-radius: 7px; font: 12px/1.6 var(--sans);
+}
+/* Referenced content stays above the page without changing the reading flow. */
+.reader-popup {
+  position: fixed; display: flex; flex-direction: column; box-sizing: border-box;
+  width: min(480px, calc(100vw - 16px)); max-height: min(640px, calc(100vh - 16px));
+  max-height: min(640px, calc(100dvh - 16px)); min-width: 0;
+  background: var(--paper, #fffefa); color: var(--ink, #253b38);
+  border: 1px solid var(--accent-line, #bdceba); border-radius: 12px;
+  box-shadow: 0 10px 36px #1e3c3426; overflow: hidden; text-align: left;
+  font-size: var(--reader-font-size, 17px); line-height: 1.85;
+}
+.reader-popup-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  flex-shrink: 0; padding: 10px 12px 10px 18px; background: var(--accent-soft, #edf4ef);
+  border-bottom: 1px solid var(--line, #dde5de); cursor: grab; touch-action: none; user-select: none;
+  color: var(--accent, #286e60); font: 600 14px/1.6 var(--sans, sans-serif);
+}
+.reader-popup-head > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.reader-popup-head button {
+  flex-shrink: 0; display: grid; place-items: center; width: 32px; height: 32px; padding: 0;
+  border: 0; border-radius: 6px; background: transparent; color: inherit; cursor: pointer; font-size: 24px;
+}
+.reader-popup-head button:hover { background: #dce9df; }
+.reader-popup.is-dragging .reader-popup-head { cursor: grabbing; }
+.reader-popup-body { padding: 20px; min-height: 0; overflow: auto; overscroll-behavior: contain; overflow-wrap: anywhere; }
+.reader-popup-body > .reader-group { margin: 0; padding: 0; border: 0; background: transparent; }
+.reader-popup-body > details.reader-group > summary { display: none; }
+.reader-popup-body :where(h2, h3, h4) { margin: 20px 0 12px; font-size: 1.1em; }
+.reader-popup-body img { max-width: 100%; height: auto; }
+.reader-popup-body :where(video, canvas, table) { max-width: 100%; }
+.reader-popup :focus-visible { outline: 3px solid #c1944b; outline-offset: -3px; }
+.reader-popup:focus { outline: none; }
+.book-page .reader-source-highlight { background: #e7f0db; border-radius: 2px; box-shadow: 0 0 0 5px #e7f0db; }
+.reader-return {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 45;
+  border: 0; border-radius: 100px; padding: 10px 18px; color: white; background: #264b40;
+  box-shadow: 0 5px 20px #102d3220; font: 12px/1.6 var(--sans);
+}
+.reader-progress { position: fixed; top: calc(var(--bookbar-height) - 1px); left: 0; right: 0; height: 2px; z-index: 35; pointer-events: none; }
+.reader-progress span { display: block; width: 0; height: 100%; background: #86a98c; }
+.book-page .pager { margin-top: 50px; padding-top: 25px; border-color: var(--line); font-size: 13px; }
+.book-page .pager a { color: var(--accent); background: transparent; border: 0; box-shadow: none; }
+.book-page .reader-media { margin: 24px 0; }
+.book-page .reader-media-diagnostic { font-size: 12px; }
+.book-page :where(h2, h3, [data-reader-block]) { scroll-margin-top: calc(var(--bookbar-height) + 24px); }
+@media (max-width: 1150px) {
+  .book-page .layout { grid-template-columns: 225px minmax(0, 1fr); }
+  .book-page .sidebar { padding-left: 24px; padding-right: 20px; }
+  html:not([data-fixed-layout]) .book-page .content { padding-left: 35px; padding-right: 35px; }
+}
+@media (max-width: 820px) {
+  .book-page { --bookbar-height: 64px; }
+  html:not([data-fixed-layout]) .book-page { --reader-font-size: 16px; }
+  .bookbar { padding: 10px 18px; gap: 10px; }
+  .book-mark { flex-basis: 28px; height: 32px; font-size: 18px; }
+  .book-page .book-title { font-size: 13px; }
+  .book-page .scope-note { font-size: 10px; }
+  .book-controls button { padding: 4px 7px; font-size: 11px; }
+  #reader-toc-toggle { display: block; }
+  .book-page .layout { display: block; }
+  .book-page .sidebar {
+    display: none; position: fixed; top: var(--bookbar-height); left: 0; z-index: 28;
+    width: min(280px, 90vw); height: calc(100dvh - var(--bookbar-height));
+    background: var(--paper); box-shadow: 10px 0 35px #122f291a;
+    border-right: 1px solid var(--line); border-bottom: 0;
+  }
+  .book-page .sidebar.is-open { display: block; }
+  html:not([data-fixed-layout]) .book-page .content { padding: 22px var(--media-viewport-gutter, 16px) 80px; }
+  html:not([data-fixed-layout]) .book-page .unit-head h1 { font-size: 26px; }
+  html:not([data-fixed-layout]) .book-page .content h2 { font-size: 21px; }
+  html:not([data-fixed-layout]) .book-page .content h3 { font-size: 18px; }
+  html:not([data-fixed-layout]) .book-page [data-reader-group="examples"] { padding: 20px 16px; margin: 30px 0; }
+  .reader-popup-body { padding: 16px; }
+  html:not([data-fixed-layout]) .book-page .katex { font-size: 1.02em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .book-page *, .book-page *::before, .book-page *::after { animation: none !important; scroll-behavior: auto !important; }
+}

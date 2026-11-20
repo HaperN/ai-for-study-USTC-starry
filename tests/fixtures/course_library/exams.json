@@ -1,0 +1,81 @@
+{
+  "manifest_version": "1.0",
+  "source_kind": "学生/毕业生维护，非学校官方",
+  "files": [
+    {
+      "course": "复分析",
+      "course_track": "数学专业复分析",
+      "year_as_listed": "2011",
+      "exam_type": "期末",
+      "link_label": "期末",
+      "teacher_specific": null,
+      "teachers_row_as_listed": "任广斌、陈秀雄/李皓昭",
+      "source_page": "https://ustcmathexam.github.io/GeoTopo/#%E5%A4%8D%E5%88%86%E6%9E%90",
+      "source_url": "https://ustcmathexam.github.io/USTC/2011complexfinal.pdf",
+      "original_filename": "2011complexfinal.pdf",
+      "role_from_page": "exam",
+      "answer_status": "no_solutions_found",
+      "http_status": 200,
+      "resolved_url": "https://ustcmathexam.github.io/USTC/2011complexfinal.pdf",
+      "content_type": "application/pdf",
+      "bytes": 247657,
+      "sha256": "09061f0917dba4c43fec3ca2179845477488c033d0175afbd959a637e0c598f9",
+      "pdf_header_valid": true,
+      "retrieved_at_utc": "2026-11-14T13:25:14.082432+00:00",
+      "pages": 2,
+      "download_status": "downloaded_verified_pdf",
+      "local_path": "math-complex-analysis/2011complexfinal.pdf",
+      "page_text_lengths": [
+        837,
+        371
+      ],
+      "answer_keyword_pages": [],
+      "class_label": "网页未注明班型",
+      "class_evidence": "不从文件名或其他年度推定",
+      "role_verified": "exam_questions_only",
+      "question_pages": [
+        1,
+        2
+      ],
+      "answer_pages": [],
+      "has_answer": false,
+      "exam_session_count": 1,
+      "answer_note": "全文提取复核；文字缺失或异常页另经渲染目视检查，未见成套解答。",
+      "content_quality_notes": [
+        "文本层中文编码异常；原页可目视阅读。PDF题名写“复变函数”，按网页归类保留在数学专业复分析，不能仅凭题名归为通修A/B。"
+      ],
+      "complete_question_paper_present": true
+    }
+  ],
+  "exam_sessions": [
+    {
+      "id": "2011complexfinal",
+      "course": "复分析",
+      "course_track": "数学专业复分析",
+      "year_as_listed": "2011",
+      "exam_type": "期末",
+      "class_label": "网页未注明班型",
+      "teacher_specific": null,
+      "teachers_row_as_listed": "任广斌、陈秀雄/李皓昭",
+      "file": "math-complex-analysis/2011complexfinal.pdf",
+      "original_filename": "2011complexfinal.pdf",
+      "source_page": "https://ustcmathexam.github.io/GeoTopo/#%E5%A4%8D%E5%88%86%E6%9E%90",
+      "source_url": "https://ustcmathexam.github.io/USTC/2011complexfinal.pdf",
+      "pdf_pages": [
+        1,
+        2
+      ],
+      "question_pages": [
+        1,
+        2
+      ],
+      "answer_pages": [],
+      "has_answer": false,
+      "answer_status": "no_solutions_found",
+      "complete_question_paper_present": true,
+      "content_quality_notes": [
+        "文本层中文编码异常；原页可目视阅读。PDF题名写“复变函数”，按网页归类保留在数学专业复分析，不能仅凭题名归为通修A/B。"
+      ]
+    }
+  ]
+}

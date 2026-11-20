@@ -1,0 +1,156 @@
+{
+  "title": "复数乘法的几何意义",
+  "source": {
+    "unit_id": "CH01-S01-SS03",
+    "path": "data/parse/complex-analysis-v2/original_text/ch01_s01_ss03.md",
+    "start_line": 49,
+    "end_line": 58,
+    "supporting_ranges": [
+      {
+        "start_line": 3,
+        "end_line": 24,
+        "topic": "复平面、模、辐角及指数形式；零无辐角"
+      },
+      {
+        "start_line": 53,
+        "end_line": 56,
+        "topic": "乘法规则及多值辐角的含义"
+      }
+    ]
+  },
+  "intro": "",
+  "sections": [
+    {
+      "id": "starting-point",
+      "title": "先认准一支箭头",
+      "scene": "point",
+      "preset": null,
+      "task": {
+        "question": "后面用哪支箭头比较乘法前后？",
+        "action": "查看起点",
+        "watch": "蓝色箭头从原点 O 指向 A=(1,1)，始终保留。"
+      },
+      "narration": [
+        {
+          "id": "starting-point-intro",
+          "phase": "intro",
+          "text": "先看复数一加艾。蓝色箭头从原点指向坐标一、一，长度是根号二，方向是四十五度。后面都保留它，比较乘法前后。",
+          "display_markdown": "先看 $z=1+i$：蓝色箭头从原点 $O$ 指向 $A=(1,1)$，长度是 $\\sqrt2$，与实轴正向的夹角是 $\\pi/4$。后面都保留它，用来比较乘法前后。"
+        }
+      ]
+    },
+    {
+      "id": "multiply-i",
+      "title": "乘 i：末端去了哪里？",
+      "scene": "rotate",
+      "preset": "i",
+      "task": {
+        "question": "乘 i 后，长度是否改变？向哪边转？",
+        "action": "播放：乘 i",
+        "watch": "橙色末端由 A 到 A′，蓝色原箭头不动；暂停后比较两支箭头。"
+      },
+      "narration": [
+        {
+          "id": "multiply-i-transform",
+          "phase": "transform",
+          "text": "点按乘以艾的示范按钮。橙色箭头的末端会从原来的点移到哪里？到终点暂停，比较它和蓝色原箭头：长度变了吗，向哪边转？",
+          "display_markdown": "接下来点“播放：乘 $i$”。看橙色箭头的末端会从 $A$ 移到哪里。到终点暂停，与蓝色原箭头比较：长度变了吗，向哪边转？"
+        },
+        {
+          "id": "multiply-i-explain",
+          "phase": "explain",
+          "text": "用艾乘上一加艾这个整体，得到负一加艾，末端停在负一、一。两支箭头都长根号二，橙色相对蓝色逆时针转了九十度。这次只改变了方向。",
+          "display_markdown": "$i(1+i)=-1+i$，所以末端停在 $A′=(-1,1)$。两支箭头都长 $\\sqrt2$；从蓝色箭头到橙色箭头，逆时针转了 $\\pi/2$。这次只改变了方向。"
+        }
+      ]
+    },
+    {
+      "id": "multiply-two",
+      "title": "乘 2：方向会跟着变吗？",
+      "scene": "scale",
+      "preset": "two",
+      "task": {
+        "question": "橙色末端会转弯，还是沿原来的方向移动？",
+        "action": "播放：乘 2",
+        "watch": "每次都从 A 出发；终点 A′ 与 A 在同一条从原点出发的射线上。"
+      },
+      "narration": [
+        {
+          "id": "multiply-two-transform",
+          "phase": "transform",
+          "text": "仍从原来的一加艾出发，点按乘以二的示范按钮。橙色末端会转弯，还是沿蓝色箭头的方向移动？到终点暂停，比较两支箭头从原点量起的长度。",
+          "display_markdown": "仍从原来的 $1+i$ 出发，点“播放：乘 $2$”。橙色末端会转弯，还是沿蓝色箭头的方向移动？到终点暂停，比较两支箭头从原点量起的长度。"
+        },
+        {
+          "id": "multiply-two-explain",
+          "phase": "explain",
+          "text": "用二乘上一加艾这个整体，得到二加二艾，末端到了二、二。橙色和蓝色箭头方向相同，长度却变成二倍根号二。这次只把长度翻了一倍。",
+          "display_markdown": "$2(1+i)=2+2i$，末端到了 $A′=(2,2)$。橙色箭头与蓝色箭头方向相同，长度却变成 $2\\sqrt2$。这次只把长度变成了原来的两倍。"
+        }
+      ]
+    },
+    {
+      "id": "multiply-two-i",
+      "title": "乘 2i：把两种变化合起来",
+      "scene": "rotate",
+      "preset": "two_i",
+      "task": {
+        "question": "旋转和伸长合在一次乘法中，会得到什么？",
+        "action": "播放：乘 2i",
+        "watch": "橙色箭头同时转动并伸长；保留蓝色原箭头，到终点暂停，比较方向与长度。"
+      },
+      "narration": [
+        {
+          "id": "multiply-two-i-transform",
+          "phase": "transform",
+          "text": "点按乘以二艾的示范按钮，仍从一加艾出发。看橙色箭头同时转动并伸长。到终点暂停，与蓝色箭头比较：方向和长度各变了多少？",
+          "display_markdown": "点“播放：乘 $2i$”，仍从 $1+i$ 出发。看橙色箭头同时转动并伸长。到终点暂停，与蓝色原箭头比较：方向和长度各变了多少？"
+        },
+        {
+          "id": "multiply-two-i-explain",
+          "phase": "explain",
+          "text": "用二艾乘上一加艾这个整体，得到负二加二艾，末端停在负二、二。它相对蓝色箭头逆时针转了九十度，长度变成原来的两倍。",
+          "display_markdown": "$2i(1+i)=-2+2i$，所以末端停在 $A′=(-2,2)$。橙色箭头相对蓝色箭头逆时针转了 $\\pi/2$，长度变成原来的两倍，两种变化合在了一起。"
+        }
+      ]
+    },
+    {
+      "id": "general-multiplier",
+      "title": "换一个乘数，比较什么？",
+      "scene": "general",
+      "preset": null,
+      "task": {
+        "question": "乘数的模和辐角，分别控制哪种变化？",
+        "action": "比较一般乘数",
+        "watch": "保留蓝色原箭头；先只改变乘数的模，再只改变辐角，每次暂停比较。"
+      },
+      "narration": [
+        {
+          "id": "general-multiplier-transform",
+          "phase": "transform",
+          "text": "前面的示范不只是在搬动一个点，方格也跟着同样地转动和伸缩。我们把变化放慢展开，是为了看清它，不是说乘法必须走这条路线。现在比较一般乘数，先看非零的乘数，只改模，再只改辐角，看长度和方向各跟着谁变。",
+          "display_markdown": "前面的示范不只是在搬动 $A$：方格和填色的正方形也一起转动、一起缩放。同一个乘数，对每个输入点都规定同一套变化。为了看清，我们把转动和伸缩慢慢展开；这不表示乘法必须沿这条路线计算。\n\n最后点“比较一般乘数”，先取非零乘数 $a=\\rho e^{i\\phi}$，其中 $\\rho$ 是模，$\\phi$ 是辐角。先只改 $\\rho$，再只改 $\\phi$；每次暂停，与蓝色原箭头比较：长度和方向分别跟着谁变？"
+        }
+      ]
+    }
+  ],
+  "conclusion_markdown": "教材把两个复数写成 $z_1,z_2$。这里记作 $a=z_1$、$z=z_2$，是为了固定一个乘数，观察它对其他点做什么；仍是同一个乘法 $az=z_1z_2$。\n\n当 $a=\\rho e^{i\\phi}\\ne0$（$\\rho>0$）、$z\\ne0$ 时，把原数写成 $z=re^{i\\theta}$，其中 $r=|z|$，$\\theta$ 是原来的辐角。于是原来的乘法写成\n\n$$az=(\\rho e^{i\\phi})(re^{i\\theta})=\\rho r e^{i(\\phi+\\theta)}.$$\n\n从结果中直接读出：\n\n$$|az|=\\rho|z|=|a||z|, $$\n\n$$\\arg(az)\\equiv\\arg z+\\phi\\pmod{2\\pi}.$$\n\n这就是**模相乘，辐角相加**：向量绕原点转过 $\\phi$，长度乘以 $\\rho$；$\\phi>0$ 表示逆时针转，$\\phi<0$ 表示顺时针转，$0<\\rho<1$ 时长度缩短。\n\n辐角并不唯一，相差整数个整周表示同一方向；若用主值，角度和须化回 $(-\\pi,\\pi]$。当 $a=0$ 时，所有点都映到原点；当 $z=0$ 时，仍留在原点。零没有辐角，这些情形不能谈乘积的方向，但模的乘法等式仍成立。",
+  "conclusion_narration": [
+    {
+      "id": "general-rule",
+      "phase": "explain",
+      "text": "两数都非零时，箭头绕原点转过乘数的辐角，长度乘以乘数的模。正角逆时针，负角顺时针，模小于一会缩短。这就是模相乘，辐角相加。"
+    },
+    {
+      "id": "argument-and-zero",
+      "phase": "explain",
+      "text": "辐角差整圈不改变方向，主值须化回负派到派、左开右闭的范围。乘数为零时全到原点，原数为零则不动。零没有辐角，模的等式仍成立。"
+    }
+  ],
+  "example": {
+    "title": "试一试：不展开括号，能找到结果吗？",
+    "collapsed": true,
+    "problem_markdown": "不展开括号，判断 $\\left(-\\frac{i}{2}\\right)(1+i)$ 所在的象限与模，再写出结果。",
+    "answer_markdown": "乘数 $-\\frac{i}{2}$ 的模为 $\\frac12$，可取辐角 $-\\frac{\\pi}{2}$。把表示 $1+i$ 的箭头顺时针转 $\\pi/2$，再把长度缩为原来的一半，末端在第四象限，模为 $\\frac{\\sqrt2}{2}$，结果是 $\\frac12-\\frac12i$。"
+  }
+}

@@ -1,0 +1,22 @@
+/* Shared geometry for the real reader and host visual evidence. Policy injects values. */
+.reader-media { display: block; width: 100%; min-width: 0; max-width: var(--media-max-width); }
+.reader-media .figure.generated, .reader-media .animation-player {
+  padding: 0; border: 0; overflow: visible; border-radius: var(--media-radius);
+}
+.reader-media .media-viewport, .media-probe .media-viewport {
+  display: block; width: 100%; min-width: 0; border-radius: var(--media-radius); overflow: hidden;
+}
+.reader-media .media-viewport > svg, .reader-media .media-viewport > img,
+.reader-media .media-viewport > video, .media-probe .media-viewport > svg, .media-probe .media-viewport > img {
+  display: block; width: 100%; max-width: 100%; height: auto; padding: 0; border: 0; margin: 0;
+}
+.reader-media .media-details {
+  padding: var(--media-inset-y) var(--media-inset-x); margin: 0;
+  min-width: 0; overflow-wrap: anywhere; box-sizing: border-box;
+}
+.reader-media .animation-controls { min-width: 0; flex-wrap: wrap; }
+.reader-media .animation-transcript-row, .reader-media .animation-transcript-text { min-width: 0; }
+.reader-media .animation-stage { border-radius: var(--media-radius); }
+.diagnostic-banner { position:sticky; top:0; z-index:20; padding:12px 16px; background:#fff2cf; color:#573d05; border-bottom:1px solid #d4b66f; font:14px/1.6 sans-serif; }
+.reader-media-diagnostic { color:#725414; background:#fff8e7; }
+.reader-media-missing { min-height:90px; display:flex; align-items:center; justify-content:center; background:#f1f3f5; color:#5e6470; }

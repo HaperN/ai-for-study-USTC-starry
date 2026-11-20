@@ -1,0 +1,33 @@
+{
+  "kind": "structural",
+  "backend": "schemdraw",
+  "name": "mesh-2loop",
+  "min_paths": 6,
+  "min_bytes": 1200,
+  "labels": [
+    "u_S1",
+    "R_1",
+    "R_3",
+    "R_2",
+    "u_S4"
+  ],
+  "element_count": 7,
+  "element_count_expected": 7,
+  "bbox": [
+    -8.881784197001252e-16,
+    -2.1999999999999997,
+    2.2,
+    2.2
+  ],
+  "bbox_area_min": 1.0,
+  "elements": [
+    "source_v",
+    "resistor",
+    "resistor",
+    "line",
+    "resistor",
+    "source_v",
+    "line"
+  ],
+  "svg_bytes": 10492
+}

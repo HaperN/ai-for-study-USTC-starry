@@ -1,0 +1,7 @@
+{
+  "backend": "local-cache",
+  "cache_dir": "./var/narration-pcm",
+  "identity": {
+    "note": "Replace this file with --output-config from tools/local_speech_worker.py; never invent model hashes or voice identity."
+  }
+}

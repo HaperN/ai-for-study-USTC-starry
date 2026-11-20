@@ -1,0 +1,80 @@
+{
+  "_meta": {
+    "file_type": "model_roles",
+    "schema_version": "1.0",
+    "generator": "aiforstudy.providers.llm",
+    "field_notes": {
+      "roles": "角色名 → 实际调用参数。代码里按**角色**取参数，不散落写死模型名（否则换模型要改 N 处）",
+      "api_key_ref": "**只是引用**，不是密钥。`env:NAME` 表示从环境变量或 .secrets/ 读；密钥不回传浏览器、不写日志、不进本文件",
+      "effort": "思考强度由传输器映射为 DeepSeek 顶层 reasoning_effort；none/off 表示关闭思考",
+      "max_tokens": "单次请求的输出额度上限。**思考与输出共用这一份额度**（实测：CH08-S03/S06 曾因'思考占满额度'失败）",
+      "length_retry_max_tokens": "可选的明确截断重试容量上界；仅 finish_reason=length 时使用，保持同一逻辑请求与持久尝试次数，不代表服务模型的总能力上限",
+      "为什么要有这个文件": "方案 §3：config/ 放'模型角色'；§6：服务能力必须显式，不能靠环境里恰好装了什么"
+    }
+  },
+  "provider": "deepseek",
+  "base_url": "https://api.deepseek.com",
+  "api_key_ref": "env:DEEPSEEK_API_KEY",
+  "secrets_file": ".secrets/deepseek.env",
+  "roles": {
+    "concepts": {
+      "model": "deepseek-flash",
+      "effort": "high",
+      "max_tokens": 64000,
+      "note": "全书概念抽取；单写方合并"
+    },
+    "lesson": {
+      "model": "deepseek-flash",
+      "effort": "high",
+      "max_tokens": 200000,
+      "note": "逐节讲解；2026-10-03 从 64000 提到 200000 以容纳长节"
+    },
+    "judge": {
+      "model": "deepseek-flash",
+      "effort": "high",
+      "max_tokens": 393216,
+      "note": "媒体审核（需看渲染画面，deepseek-v4-pro 不接受图片输入，故保留 flash）及作者媒体需求审核。审核类调用上限 393,216；2026-10-11 真实服务拒绝 5,000,000 后经用户确认改为当前服务允许上界。无自动降额；参数拒绝归配置故障。"
+    },
+    "text_judge": {
+      "model": "deepseek-v4-pro",
+      "effort": "high",
+      "max_tokens": 393216,
+      "note": "正文审核（text_audit）。2026-10-16 用户确认：写作与审核用同一模型盲区相同（C-0013 错式、“多值性”用词均被判通过），正文审核改用 Pro；/models 查询确认该 ID 在线、仅文本输入、max_output_tokens 393216。"
+    },
+    "source_inventory": {
+      "model": "deepseek-flash",
+      "effort": "low",
+      "max_tokens": 64000,
+      "length_retry_max_tokens": 128000,
+      "note": "忠实清点单元原文与来源引用；独立于数学审核角色。明确截断仅按本角色容量上界扩容，仍共用两次持久运输尝试。"
+    },
+    "figures": {
+      "model": "deepseek-flash",
+      "effort": "low",
+      "max_tokens": 200000,
+      "note": "依据批准内容生成隔离执行的绘图/Manim代码；2026-10-16 按用户要求由64000提高至200000，本轮多次思考耗尽64000而未输出代码。图片和动画共用此角色，保持low思考强度；实际产物仍由独立high judge复核，生成成功不等于最终验收通过"
+    },
+    "interaction": {
+      "model": "deepseek-flash",
+      "effort": "high",
+      "max_tokens": 393216,
+      "note": "审核类调用上限 393,216；2026-10-11 真实服务拒绝 5,000,000 后经用户确认改为当前服务允许上界。无自动降额；参数拒绝归配置故障。"
+    },
+    "toc_review": {
+      "model": "deepseek-flash",
+      "effort": "high",
+      "max_tokens": 393216,
+      "note": "审核类调用上限 393,216；2026-10-11 真实服务拒绝 5,000,000 后经用户确认改为当前服务允许上界。无自动降额；参数拒绝归配置故障。"
+    },
+    "source_repair": {
+      "model": "deepseek-flash",
+      "effort": "high",
+      "max_tokens": 64000,
+      "note": "原文修复（原 blocks/clean）；默认不全书自动清洗"
+    }
+  },
+  "retry": {
+    "network_and_format": 2,
+    "note": "兼容模型配置读取的默认值。生产 Gateway 的网络失败与响应格式失败共用同一逻辑请求的尝试次数（含首次），实际限制来自 config/execution.json 的 attempt_limits.transport，恢复不重置。内容返修独立使用 content_repair_rounds_per_object。"
+  }
+}

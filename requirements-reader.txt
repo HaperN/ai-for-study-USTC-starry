@@ -1,0 +1,3 @@
+# Minimal local reader / workbench support; no OCR, ASR, TTS or Manim weights.
+jsonschema>=4.23,<5
+Pillow>=12,<14

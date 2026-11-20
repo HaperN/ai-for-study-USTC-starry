@@ -1,0 +1,707 @@
+{
+  "unit_id": "CH01-S01-SS02",
+  "title": "共轭复数",
+  "reader_intro": "理解共轭的定义与运算性质，并能用共轭判断实数、纯虚数，化简分式，证明实系数多项式的共轭根。",
+  "prerequisite_recaps": [],
+  "body_markdown": "上一小节已经把复数写成 $z=x+\\mathrm{i}y$，其中 $x,y$ 是实数，$x=\\operatorname{Re}z$，$y=\\operatorname{Im}z$。本节研究的共轭不改变实部，只把虚部变号；它把复数的实部、虚部和模联系起来，也是判断实数、纯虚数以及化简分式的常用工具。\n\n> **概念·共轭复数**\n> 设 $z=x+\\mathrm{i}y$，其中 $x,y$ 为实数。把虚部变号得到的复数 $\\bar z=x-\\mathrm{i}y$ 称为 $z$ 的共轭复数。这里 $\\operatorname{Re}z=x$，$\\operatorname{Im}z=y$。\n\n几何上，$z=x+\\mathrm{i}y$ 对应点 $(x,y)$，$\\bar z=x-\\mathrm{i}y$ 对应点 $(x,-y)$，两点关于实轴对称。把共轭看成关于实轴的反射，有助于记住[[NOTE:CONJ-INTUITION|实部不变、虚部变号]]；同时也能看出 $z+\\bar z$ 落在实轴上，而 $z-\\bar z$ 沿虚轴方向。\n\n共轭与四则运算的关系可以集中写成下面五条性质。以下 $z,z_1,z_2$ 均为复数；涉及除法时要求分母不为零。\n\n1. $\\overline{\\bar z}=z$。\n2. $z+\\bar z=2\\operatorname{Re}z$，$z-\\bar z=2\\mathrm{i}\\operatorname{Im}z$。\n3. $\\overline{z_1\\pm z_2}=\\bar z_1\\pm\\bar z_2$。\n4. $\\overline{z_1z_2}=\\bar z_1\\cdot\\bar z_2$，$\\overline{\\left(\\dfrac{z_1}{z_2}\\right)}=\\dfrac{\\bar z_1}{\\bar z_2}$（$z_2\\ne0$）。\n5. $z\\bar z=(\\operatorname{Re}z)^2+(\\operatorname{Im}z)^2=|z|^2$。\n\n这些性质不是新的规定，而是把 $z=x+\\mathrm{i}y$ 代入后的恒等式。性质2)直接来自实部、虚部的定义；性质3)只是把两个复数的实部、虚部分别相加后再变号。以乘积为例：\n$$\n(x_1+\\mathrm{i}y_1)(x_2+\\mathrm{i}y_2)=(x_1x_2-y_1y_2)+\\mathrm{i}(x_1y_2+x_2y_1),\n$$\n把右边虚部变号，正好等于 $(x_1-\\mathrm{i}y_1)(x_2-\\mathrm{i}y_2)$。商的情形要先要求 $z_2\\ne0$，此时 $\\bar z_2\\ne0$；由乘积的共轭性质和 $z_2\\cdot\\dfrac1{z_2}=1$ 可得到 $\\overline{\\left(\\dfrac{z_1}{z_2}\\right)}=\\dfrac{\\bar z_1}{\\bar z_2}$，所以分母非零的条件不能省略，见[[NOTE:QUOTIENT-CONDITION|商的共轭为什么要求分母非零]]。性质5)由 $(x+\\mathrm{i}y)(x-\\mathrm{i}y)=x^2+y^2$ 得到。更完整的验证见[[EXPLAIN:CONJ-PROPERTIES|共轭运算性质的来源]]。\n\n由性质2)可以得到两个常用判别。因为 $z-\\bar z=2\\mathrm{i}\\operatorname{Im}z$，所以 $z=\\bar z$ 当且仅当 $\\operatorname{Im}z=0$，即 $z$ 是实数。又因为 $z+\\bar z=2\\operatorname{Re}z$，所以 $z=-\\bar z$ 当且仅当 $\\operatorname{Re}z=0$；但零也满足这个等式，按本书约定纯虚数不包括零，因此 $z$ 是纯虚数当且仅当 $z=-\\bar z$ 且 $z\\ne0$。零这一边界见[[NOTE:PURE-ZERO|为什么纯虚数条件要加 $z\\ne0$]]。\n\n于是，判断一个表达式 $w$ 是否为实数，可以不必先拆实部虚部，而用 $w\\in\\mathbb R\\iff w=\\bar w$；判断纯虚数则用 $w\\ne0$ 且 $w=-\\bar w$。这个方法在分式中尤其方便：只要分母非零，就可以把等式两边交叉相乘。其依据和适用边界见[[EXPLAIN:REALITY-CRITERION|用共轭判定实数与纯虚数]]。\n\n下面四个例题分别处理四类问题。先看它们各自要用的方法，完整题干、步骤和依据在例题卡中展开。\n\n- [[EXAMPLE:E-01|例2：用共轭判定分式为实数]]。核心是把“$w$ 为实数”转成 $w=\\bar w$，交叉相乘后因式分解；题设中的 $y\\ne0$ 与 $z\\ne\\pm\\mathrm{i}$ 分别保证可以约去 $z-\\bar z$ 和分母非零，见[[NOTE:EXAMPLE2-CONDITION|两个条件各自管什么]]。\n- [[EXAMPLE:E-02|例3：求分式函数的实部、虚部与模]]。核心是把分母乘上自己的共轭，使分母变成正实数 $|1-z|^2$；展开后分开实部、虚部。分母和虚部的写法见[[NOTE:EXAMPLE3-DENOM|例3中容易抄错的分母]]。\n- [[EXAMPLE:E-03|例4：实系数多项式的共轭根]]。结论是：若实系数多项式 $p$ 满足 $p(z_0)=0$，则 $p(\\bar z_0)=0$。方法是对 $p(\\bar z_0)$ 使用共轭性质，并利用系数为实数把 $\\bar a_k$ 换回 $a_k$。更细的对应见[[EXPLAIN:EXAMPLE4-METHOD|实系数多项式的共轭根方法]]；系数为实数这一步不可少，见[[NOTE:EXAMPLE4-REAL|实系数在共轭下的作用]]。\n- [[EXAMPLE:E-04|例5：两复数和的模平方]]。结论是恒等式\n$$\n|z_1+z_2|^2=|z_1|^2+|z_2|^2+2\\operatorname{Re}(z_1\\bar z_2).\n$$\n这一恒等式的展开过程见[[EXPLAIN:SUM-MOD-SQUARE|和的模平方展开]]。方法是用 $|w|^2=w\\bar w$ 展开，再把两个交叉项配成 $u$ 与 $\\bar u$。其中关键一步是两个交叉项 $z_1\\bar z_2$ 与 $z_2\\bar z_1$ 互为共轭；它们相加得到 $2\\operatorname{Re}(z_1\\bar z_2)$，而不是 $2z_1\\bar z_2$，见[[NOTE:EXAMPLE5-CROSS|交叉项为什么合并成两倍实部]]。\n\n这些例子共同使用一个转换：把关于实部、虚部或模的判断，改写成共轭等式。分式问题先保证分母非零；遇到实系数多项式，先把共轭移进多项式；遇到模平方，先写成自身乘共轭。每一步都要保留使变形合法的条件，并在需要时说明反方向也成立。",
+  "summary": "共轭把虚部变号，保持实部不变；它与四则运算相容。用 $z=\\bar z$ 判实数，用 $z=-\\bar z$ 且 $z\\ne0$ 判纯虚数；分式问题先乘分母共轭，实系数多项式问题把共轭移进多项式，模平方问题先写成自身乘共轭。",
+  "explainables": [
+    {
+      "id": "CONJ-PROPERTIES",
+      "name": "共轭运算性质的来源",
+      "what": "设 $z=x+\\mathrm{i}y$，$z_1,z_2$ 为复数。共轭满足 $\\overline{\\bar z}=z$、$z+\\bar z=2\\operatorname{Re}z$、$z-\\bar z=2\\mathrm{i}\\operatorname{Im}z$、$\\overline{z_1\\pm z_2}=\\bar z_1\\pm\\bar z_2$、$\\overline{z_1z_2}=\\bar z_1\\bar z_2$，以及 $z\\bar z=|z|^2$；商的情形 $\\overline{(z_1/z_2)}=\\bar z_1/\\bar z_2$ 要求 $z_2\\ne0$。",
+      "why": "这些恒等式把共轭与实部、虚部、模和四则运算连接起来，是后面化简分式和判别实数、纯虚数的依据。",
+      "markdown": "以乘积为例：$(x_1+\\mathrm{i}y_1)(x_2+\\mathrm{i}y_2)=(x_1x_2-y_1y_2)+\\mathrm{i}(x_1y_2+x_2y_1)$，把虚部变号后正好是 $(x_1-\\mathrm{i}y_1)(x_2-\\mathrm{i}y_2)=\\bar z_1\\bar z_2$。商的情形先由 $z_2\\ne0$ 得 $\\bar z_2\\ne0$。由 $z_2\\cdot\\frac1{z_2}=1$ 取共轭，得到 $\\bar z_2\\cdot\\overline{\\frac1{z_2}}=1$，所以 $\\overline{\\frac1{z_2}}=\\frac1{\\bar z_2}$；再与乘积性质相乘，就得到 $\\overline{\\frac{z_1}{z_2}}=\\frac{\\bar z_1}{\\bar z_2}$。其余几条把 $z=x+\\mathrm{i}y$ 代入即可验证。",
+      "title": "",
+      "label": "",
+      "steps": [],
+      "key_points": [],
+      "pitfalls": [],
+      "source_refs": [],
+      "basis_refs": [],
+      "warmup": "",
+      "approach": "",
+      "statement": "",
+      "basis": "",
+      "conclusion": "",
+      "book_solution": ""
+    },
+    {
+      "id": "REALITY-CRITERION",
+      "name": "用共轭判定实数与纯虚数",
+      "what": "对任意复数 $w=a+\\mathrm{i}b$（$a,b$ 为实数），$w\\in\\mathbb R\\iff w=\\bar w$；按本书约定，$w$ 为纯虚数 $\\iff w\\ne0$ 且 $w=-\\bar w$。",
+      "why": "把实部、虚部条件转成共轭等式，分式问题可以交叉相乘；纯虚数条件中的 $w\\ne0$ 用来排除零。",
+      "markdown": "写 $w=a+\\mathrm{i}b$。$w=\\bar w$ 等价于 $a+\\mathrm{i}b=a-\\mathrm{i}b$，即 $2\\mathrm{i}b=0$，所以 $b=0$，$w$ 为实数。另一方面，$w=-\\bar w$ 等价于 $a+\\mathrm{i}b=-a+\\mathrm{i}b$，即 $2a=0$，所以 $a=0$。但 $a=0$ 时 $w$ 可能是零；按本书约定纯虚数排除零，因此还要加 $w\\ne0$。",
+      "title": "",
+      "label": "",
+      "steps": [],
+      "key_points": [],
+      "pitfalls": [],
+      "source_refs": [],
+      "basis_refs": [],
+      "warmup": "",
+      "approach": "",
+      "statement": "",
+      "basis": "",
+      "conclusion": "",
+      "book_solution": ""
+    },
+    {
+      "id": "EXAMPLE4-METHOD",
+      "name": "实系数多项式的共轭根方法",
+      "what": "若 $p(z)=z^n+a_1z^{n-1}+\\cdots+a_{n-1}z+a_n$ 的系数 $a_1,\\dots,a_n$ 全为实数，则对任意复数 $z$，$p(\\bar z)=\\overline{p(z)}$。因此 $p(z_0)=0$ 时 $p(\\bar z_0)=0$。",
+      "why": "把“根”的条件直接共轭，就得到共轭根；关键条件是系数为实数。",
+      "markdown": "展开 $p(\\bar z)=(\\bar z)^n+a_1(\\bar z)^{n-1}+\\cdots+a_n$，利用 $\\overline{z^k}=(\\bar z)^k$ 和共轭保持乘法，可写成 $\\overline{z^n}+\\bar a_1\\overline{z^{n-1}}+\\cdots+\\bar a_n$。因为 $a_k$ 是实数，$\\bar a_k=a_k$，所以这等于 $\\overline{z^n+a_1z^{n-1}+\\cdots+a_n}=\\overline{p(z)}$。若 $p(z_0)=0$，取共轭得 $\\overline{p(z_0)}=0$，于是 $p(\\bar z_0)=0$。",
+      "title": "",
+      "label": "",
+      "steps": [],
+      "key_points": [],
+      "pitfalls": [],
+      "source_refs": [],
+      "basis_refs": [],
+      "warmup": "",
+      "approach": "",
+      "statement": "",
+      "basis": "",
+      "conclusion": "",
+      "book_solution": ""
+    },
+    {
+      "id": "SUM-MOD-SQUARE",
+      "name": "和的模平方展开",
+      "what": "对任意复数 $z_1,z_2$，$|z_1+z_2|^2=|z_1|^2+|z_2|^2+2\\operatorname{Re}(z_1\\bar z_2)$。",
+      "why": "把模平方转成自身乘共轭，展开后可以清楚看到两个交叉项如何合并。",
+      "markdown": "由 $|w|^2=w\\bar w$，$(z_1+z_2)(\\bar z_1+\\bar z_2)=|z_1|^2+|z_2|^2+z_1\\bar z_2+z_2\\bar z_1$。令 $u=z_1\\bar z_2$，则 $\\bar u=\\bar z_1z_2=z_2\\bar z_1$，所以两个交叉项是 $u+\\bar u=2\\operatorname{Re}u$。注意一般不是 $2z_1\\bar z_2$，只有 $z_1\\bar z_2$ 为实数时才相同。",
+      "title": "",
+      "label": "",
+      "steps": [],
+      "key_points": [],
+      "pitfalls": [],
+      "source_refs": [],
+      "basis_refs": [],
+      "warmup": "",
+      "approach": "",
+      "statement": "",
+      "basis": "",
+      "conclusion": "",
+      "book_solution": ""
+    }
+  ],
+  "annotations": [
+    {
+      "id": "CONJ-INTUITION",
+      "kind": "intuition",
+      "title": "共轭是关于实轴的反射",
+      "markdown": "把 $z=x+\\mathrm{i}y$ 看成点 $(x,y)$，$\\bar z=x-\\mathrm{i}y$ 看成点 $(x,-y)$。两点横坐标相同，纵坐标相反，所以关于实轴对称。因此 $z+\\bar z=2x$ 落在实轴，$z-\\bar z=2\\mathrm{i}y$ 沿虚轴方向。这个直观帮助记忆共轭改变虚部符号，但不替代代数性质。",
+      "name": "",
+      "label": ""
+    },
+    {
+      "id": "PURE-ZERO",
+      "kind": "pitfall",
+      "title": "纯虚数条件中的 $z\\ne0$",
+      "markdown": "由 $z=-\\bar z$ 只能推出 $\\operatorname{Re}z=0$。零也满足 $0=-\\bar0$，但按本书约定零不算纯虚数。因此必须同时要求 $z\\ne0$。例如 $z=0$ 满足等式，却不是纯虚数；$z=2\\mathrm{i}$ 满足且非零，才是纯虚数。",
+      "name": "",
+      "label": ""
+    },
+    {
+      "id": "QUOTIENT-CONDITION",
+      "kind": "pitfall",
+      "title": "商的共轭要求分母非零",
+      "markdown": "性质 $\\overline{\\left(\\dfrac{z_1}{z_2}\\right)}=\\dfrac{\\bar z_1}{\\bar z_2}$ 的前提是 $z_2\\ne0$。此时 $\\bar z_2\\ne0$，右边也有意义。若忽略这个条件，写出的等式可能两边都无定义。",
+      "name": "",
+      "label": ""
+    },
+    {
+      "id": "EXAMPLE2-CONDITION",
+      "kind": "pitfall",
+      "title": "例2的两个条件各管什么",
+      "markdown": "题设 $y\\ne0$ 使 $z-\\bar z=2\\mathrm{i}y\\ne0$，所以因式 $(z-\\bar z)(1-z\\bar z)=0$ 中第一个因子不能为零。题设 $z\\ne\\pm\\mathrm{i}$ 使 $1+z^2\\ne0$，保证 $\\dfrac{z}{1+z^2}$ 有定义，也保证反向乘回分母合法。两个条件不能互相替代。",
+      "name": "",
+      "label": ""
+    },
+    {
+      "id": "EXAMPLE3-DENOM",
+      "kind": "pitfall",
+      "title": "例3中虚部的分母",
+      "markdown": "通分后分母是 $(1-z)(1-\\bar z)=|1-z|^2=(1-x)^2+y^2$。因此虚部是 $\\dfrac{2y}{(1-x)^2+y^2}$，不是 $\\dfrac{2y}{(1-x^2)+y^2}$。同时原式要求 $z\\ne1$。",
+      "name": "",
+      "label": ""
+    },
+    {
+      "id": "EXAMPLE4-REAL",
+      "kind": "note",
+      "title": "实系数在共轭下的作用",
+      "markdown": "对实系数多项式 $p$，有 $p(\\bar z)=\\overline{p(z)}$。原因是共轭保持加法、乘法和幂，而实系数满足 $\\bar a_k=a_k$。如果系数不是实数，这一步不成立，例如 $p(z)=z-\\mathrm{i}$ 的根 $\\mathrm{i}$ 的共轭 $-\\mathrm{i}$ 不是根。",
+      "name": "",
+      "label": ""
+    },
+    {
+      "id": "EXAMPLE5-CROSS",
+      "kind": "pitfall",
+      "title": "交叉项合并为两倍实部",
+      "markdown": "展开 $(z_1+z_2)(\\bar z_1+\\bar z_2)$ 得到两个交叉项 $z_1\\bar z_2$ 与 $z_2\\bar z_1$，它们互为共轭。只有当 $u=z_1\\bar z_2$ 为实数时，$u+\\bar u=2u$；一般情形是 $u+\\bar u=2\\operatorname{Re}u$。例如 $z_1=1,z_2=\\mathrm{i}$ 时，$z_1\\bar z_2=-\\mathrm{i}$，交叉项之和为 $0$，而不是 $2(-\\mathrm{i})$。",
+      "name": "",
+      "label": ""
+    }
+  ],
+  "examples": [
+    {
+      "id": "E-01",
+      "label": "例2",
+      "kind": "source_example",
+      "statement": "设 $z=x+\\mathrm{i}y$，其中 $x,y$ 为实数，且 $y\\ne0$、$z\\ne\\pm\\mathrm{i}$。证明：$\\dfrac{z}{1+z^2}$ 是实数当且仅当 $x^2+y^2=1$。",
+      "approach": "把“分式为实数”改写成“分式等于它的共轭”，再交叉相乘。题设中的两个条件分别用于保证可以约去 $z-\\bar z$ 和保证分母非零；最后检查每一步可逆。",
+      "steps": [
+        {
+          "id": "E01-SOL",
+          "markdown": "记 $w=\\dfrac{z}{1+z^2}$。由 $z\\ne\\pm\\mathrm{i}$，有 $1+z^2\\ne0$，所以 $w$ 有定义。\n\n$w$ 为实数当且仅当 $w=\\bar w$，即\n$$\n\\frac{z}{1+z^2}=\\frac{\\bar z}{1+\\bar z^2}.\n$$\n交叉相乘得\n$$\nz(1+\\bar z^2)=\\bar z(1+z^2),\n$$\n即\n$$\nz+z\\bar z^2=\\bar z+\\bar z z^2.\n$$\n移项并因式分解：\n$$\n(z-\\bar z)(1-z\\bar z)=0.\n$$\n因为 $z=x+\\mathrm{i}y$，所以 $z-\\bar z=2\\mathrm{i}y$。题设 $y\\ne0$，故 $z-\\bar z\\ne0$，于是必须有\n$$\n1-z\\bar z=0,\\quad |z|^2=z\\bar z=1,\n$$\n即 $x^2+y^2=1$。\n\n反过来，若 $x^2+y^2=1$，则 $z\\bar z=1$，从而 $1-z\\bar z=0$，上面的因式等式成立。沿原路乘回分母（分母 $1+z^2$ 与 $1+\\bar z^2$ 均非零，因为 $z\\ne\\pm\\mathrm{i}$），便得到 $w=\\bar w$，所以 $w$ 为实数。因此命题成立。",
+          "basis": "使用 $w\\in\\mathbb R\\iff w=\\bar w$、共轭保持四则运算、$z-\\bar z=2\\mathrm{i}\\operatorname{Im}z$、$z\\bar z=|z|^2$；交叉相乘和乘回分母都依赖分母非零。",
+          "no": 1,
+          "basis_refs": []
+        }
+      ],
+      "conclusion": "在 $y\\ne0$ 且 $z\\ne\\pm\\mathrm{i}$ 的条件下，$\\dfrac{z}{1+z^2}$ 为实数当且仅当 $x^2+y^2=1$。",
+      "key_points": [
+        "遇到“分式为实数”，先写 $w=\\bar w$，再交叉相乘。",
+        "因式分解后要检查哪些因子一定非零；题设的 $y\\ne0$ 用来排除 $z-\\bar z$。",
+        "分母条件 $z\\ne\\pm\\mathrm{i}$ 保证原式有意义，也保证反向变形可乘回分母。"
+      ],
+      "pitfalls": [
+        "不能忽略 $z\\ne\\pm\\mathrm{i}$：当 $z=\\mathrm{i}$ 或 $z=-\\mathrm{i}$ 时分母 $1+z^2$ 为零。",
+        "只证“若为实数则 $|z|=1$”不够，还要说明反向推导；反向依赖每一步可逆。"
+      ],
+      "title": "",
+      "name": "",
+      "markdown": "",
+      "source_refs": [],
+      "basis_refs": [],
+      "what": "",
+      "why": "",
+      "warmup": "",
+      "basis": "",
+      "book_solution": ""
+    },
+    {
+      "id": "E-02",
+      "label": "例3",
+      "kind": "source_example",
+      "statement": "设 $z=x+\\mathrm{i}y$（$x,y$ 为实数，$z\\ne1$），求 $f(z)=\\dfrac{1+z}{1-z}$ 的实部、虚部及模。",
+      "approach": "把分子分母同乘分母的共轭 $1-\\bar z$，使分母成为 $|1-z|^2=(1-x)^2+y^2>0$；然后把分子整理成“实部 $+\\mathrm{i}$ 虚部”的形式。求模时用 $|f|^2=f\\bar f$。",
+      "steps": [
+        {
+          "id": "E02-SOL",
+          "markdown": "由 $z\\ne1$，$1-z\\ne0$。将分子分母同乘 $1-\\bar z$：\n$$\n\\begin{aligned}\nf(z)&=\\frac{1+z}{1-z}=\\frac{(1+z)(1-\\bar z)}{(1-z)(1-\\bar z)}\\\\\n&=\\frac{1+z-\\bar z-z\\bar z}{1-z-\\bar z+z\\bar z}\\\\\n&=\\frac{1-x^2-y^2+\\mathrm{i}2y}{(1-x)^2+y^2}.\n\\end{aligned}\n$$\n这里用到 $z-\\bar z=2\\mathrm{i}y$ 和 $z\\bar z=x^2+y^2$。因此\n$$\n\\operatorname{Re}f(z)=\\frac{1-x^2-y^2}{(1-x)^2+y^2},\n\\qquad\n\\operatorname{Im}f(z)=\\frac{2y}{(1-x)^2+y^2}.\n$$\n再求模。因为 $|f(z)|^2=f(z)\\overline{f(z)}$，且 $\\overline{f(z)}=\\dfrac{1+\\bar z}{1-\\bar z}$，所以\n$$\n\\begin{aligned}\n|f(z)|^2\n&=\\frac{(1+z)(1+\\bar z)}{(1-z)(1-\\bar z)}\\\\\n&=\\frac{1+z+\\bar z+z\\bar z}{1-z-\\bar z+z\\bar z}\\\\\n&=\\frac{(1+x)^2+y^2}{(1-x)^2+y^2}.\n\\end{aligned}\n$$\n于是\n$$\n|f(z)|=\\sqrt{\\frac{(1+x)^2+y^2}{(1-x)^2+y^2}}.\n$$",
+          "basis": "分母同乘 $1-\\bar z$ 不改变值，因为 $1-z\\ne0$ 且 $1-\\bar z$ 是它的共轭；$(1-z)(1-\\bar z)=|1-z|^2$。展开时用共轭性质 $z+\\bar z=2x$、$z-\\bar z=2\\mathrm{i}y$、$z\\bar z=x^2+y^2$。",
+          "no": 1,
+          "basis_refs": []
+        }
+      ],
+      "conclusion": "实部、虚部和模分别为 $\\operatorname{Re}f(z)=\\dfrac{1-x^2-y^2}{(1-x)^2+y^2}$，$\\operatorname{Im}f(z)=\\dfrac{2y}{(1-x)^2+y^2}$，$|f(z)|=\\sqrt{\\dfrac{(1+x)^2+y^2}{(1-x)^2+y^2}}$。",
+      "key_points": [
+        "分式求实部虚部，常用“分母乘共轭”把分母化为正实数。",
+        "整理分子时要同时使用 $z+\\bar z$、$z-\\bar z$ 和 $z\\bar z$ 三个恒等式。",
+        "求模可先求 $|f|^2=f\\bar f$，不必先求辐角。"
+      ],
+      "pitfalls": [
+        "虚部分母是 $(1-x)^2+y^2$，不是 $(1-x^2)+y^2$。",
+        "定义域要求 $z\\ne1$；否则原式分母为零。"
+      ],
+      "title": "",
+      "name": "",
+      "markdown": "",
+      "source_refs": [],
+      "basis_refs": [],
+      "what": "",
+      "why": "",
+      "warmup": "",
+      "basis": "",
+      "book_solution": ""
+    },
+    {
+      "id": "E-03",
+      "label": "例4",
+      "kind": "source_example",
+      "statement": "证明：若实系数多项式 $p(z)=z^n+a_1z^{n-1}+\\cdots+a_{n-1}z+a_n$（$a_1,\\dots,a_n$ 为实数，$n\\ge1$）满足 $p(z_0)=0$，则 $p(\\bar z_0)=0$。也就是说，实系数多项式的非实根共轭成对出现。",
+      "approach": "直接计算 $p(\\bar z_0)$，利用共轭保持加法、乘法和幂，以及实系数的共轭等于自身，把它写成 $\\overline{p(z_0)}$。",
+      "steps": [
+        {
+          "id": "E03-SOL",
+          "markdown": "由 $p(z_0)=0$，要证 $p(\\bar z_0)=0$。计算\n$$\n\\begin{aligned}\np(\\bar z_0)\n&=(\\bar z_0)^n+a_1(\\bar z_0)^{n-1}+\\cdots+a_{n-1}\\bar z_0+a_n\\\\\n&=\\overline{z_0^n}+\\bar a_1\\overline{z_0^{n-1}}+\\cdots+\\overline{a_{n-1}}\\bar z_0+\\bar a_n.\n\\end{aligned}\n$$\n因为 $a_1,\\dots,a_n$ 都是实数，所以 $\\bar a_k=a_k$。又由共轭保持加法与乘法，上式等于\n$$\n\\overline{z_0^n+a_1z_0^{n-1}+\\cdots+a_{n-1}z_0+a_n}\n=\\overline{p(z_0)}=0.\n$$\n故 $p(\\bar z_0)=0$。",
+          "basis": "共轭保持加法和乘法，因此 $\\overline{z^k}=(\\bar z)^k$、$\\overline{a_kz^{n-k}}=\\bar a_k\\overline{z^{n-k}}$；实系数给出 $\\bar a_k=a_k$。",
+          "no": 1,
+          "basis_refs": []
+        }
+      ],
+      "conclusion": "实系数多项式若以 $z_0$ 为根，则以 $\\bar z_0$ 为根；非实根共轭成对出现。",
+      "key_points": [
+        "实系数多项式的共轭根结论，本质是 $p(\\bar z)=\\overline{p(z)}$。",
+        "系数为实数这一步不可少，它把 $\\bar a_k$ 换成 $a_k$。",
+        "证明只需计算 $p(\\bar z_0)$ 并化为 $\\overline{p(z_0)}$。"
+      ],
+      "pitfalls": [
+        "若系数不是实数，结论一般不成立。例如 $p(z)=z-\\mathrm{i}$ 的根为 $\\mathrm{i}$，但 $\\bar{\\mathrm{i}}=-\\mathrm{i}$ 不是根。",
+        "不要把 $p(\\bar z_0)$ 直接写成 $\\overline{p(z_0)}$ 而不说明系数的共轭；这一步依赖实系数。"
+      ],
+      "title": "",
+      "name": "",
+      "markdown": "",
+      "source_refs": [],
+      "basis_refs": [],
+      "what": "",
+      "why": "",
+      "warmup": "",
+      "basis": "",
+      "book_solution": ""
+    },
+    {
+      "id": "E-04",
+      "label": "例5",
+      "kind": "source_example",
+      "statement": "设 $z_1,z_2$ 为任意复数，证明\n$$\n|z_1+z_2|^2=|z_1|^2+|z_2|^2+2\\operatorname{Re}(z_1\\bar z_2).\n$$",
+      "approach": "把模平方写成 $w\\bar w$，其中 $w=z_1+z_2$；展开后把两个交叉项配成 $u$ 与 $\\bar u$，再用 $u+\\bar u=2\\operatorname{Re}u$。",
+      "steps": [
+        {
+          "id": "E04-SOL",
+          "markdown": "由 $|w|^2=w\\bar w$ 和共轭保持加法，\n$$\n\\begin{aligned}\n|z_1+z_2|^2\n&=(z_1+z_2)\\overline{(z_1+z_2)}\\\\\n&=(z_1+z_2)(\\bar z_1+\\bar z_2)\\\\\n&=z_1\\bar z_1+z_1\\bar z_2+z_2\\bar z_1+z_2\\bar z_2\\\\\n&=|z_1|^2+|z_2|^2+z_1\\bar z_2+z_2\\bar z_1.\n\\end{aligned}\n$$\n令 $u=z_1\\bar z_2$，则\n$$\n\\bar u=\\overline{z_1\\bar z_2}=\\bar z_1z_2=z_2\\bar z_1.\n$$\n所以两个交叉项互为共轭。\n$$\nz_1\\bar z_2+z_2\\bar z_1=u+\\bar u=2\\operatorname{Re}u=2\\operatorname{Re}(z_1\\bar z_2).\n$$\n代回即得\n$$\n|z_1+z_2|^2=|z_1|^2+|z_2|^2+2\\operatorname{Re}(z_1\\bar z_2).\n$$",
+          "basis": "使用 $|w|^2=w\\bar w$、共轭保持加法与乘法、双重共轭还原、乘法交换律，以及 $u+\\bar u=2\\operatorname{Re}u$。",
+          "no": 1,
+          "basis_refs": []
+        }
+      ],
+      "conclusion": "对任意复数 $z_1,z_2$，恒等式成立。",
+      "key_points": [
+        "模平方先转成 $w\\bar w$，可把几何量化为代数展开。",
+        "展开后出现两个交叉项，它们互为共轭，合并为两倍实部。",
+        "一般不能把 $z_1\\bar z_2+z_2\\bar z_1$ 写成 $2z_1\\bar z_2$，除非 $z_1\\bar z_2$ 是实数。"
+      ],
+      "pitfalls": [
+        "交叉项合并成 $2\\operatorname{Re}(z_1\\bar z_2)$，不是 $2z_1\\bar z_2$。",
+        "把模平方展开前，先确认使用的是 $|w|^2=w\\bar w$，不要漏掉共轭。"
+      ],
+      "title": "",
+      "name": "",
+      "markdown": "",
+      "source_refs": [],
+      "basis_refs": [],
+      "what": "",
+      "why": "",
+      "warmup": "",
+      "basis": "",
+      "book_solution": ""
+    }
+  ],
+  "learning_checks": [
+    {
+      "id": "CHECK-REAL",
+      "kind": "boolean",
+      "source_kind": "derived",
+      "goal_refs": [
+        "G-REAL-PURE"
+      ],
+      "source_refs": [],
+      "statement": "若复数 $z$ 满足 $z=\\bar z$，则 $z$ 是实数。",
+      "input_spec": {
+        "options": [],
+        "placeholder": ""
+      },
+      "scoring": {
+        "accepted_inputs": [
+          true
+        ],
+        "absolute_tolerance": 0.0,
+        "relative_tolerance": 0.0,
+        "normalization": "trim"
+      },
+      "hints": [
+        "把 $z$ 写成 $x+\\mathrm{i}y$，比较虚部。"
+      ],
+      "answer": "正确。$z=\\bar z$ 推出 $2\\mathrm{i}\\operatorname{Im}z=0$，所以 $\\operatorname{Im}z=0$。",
+      "misconception_feedback": [
+        {
+          "id": "M-REAL",
+          "inputs": [
+            false
+          ],
+          "feedback": "$z=\\bar z$ 正是实数的共轭判别；虚部必须为零。"
+        }
+      ],
+      "test_cases": [
+        {
+          "id": "T-REAL-T",
+          "input": true,
+          "expected": "correct",
+          "feedback": "",
+          "coverage": "correct"
+        },
+        {
+          "id": "T-REAL-F",
+          "input": false,
+          "expected": "incorrect",
+          "feedback": "",
+          "coverage": "wrong"
+        },
+        {
+          "id": "T-REAL-B",
+          "input": "true",
+          "expected": "invalid",
+          "feedback": "",
+          "coverage": "boundary"
+        }
+      ]
+    },
+    {
+      "id": "CHECK-PURE",
+      "kind": "choice",
+      "source_kind": "derived",
+      "goal_refs": [
+        "G-REAL-PURE"
+      ],
+      "source_refs": [],
+      "statement": "按本书约定，下列哪一项等价于“复数 $z$ 是纯虚数”？",
+      "input_spec": {
+        "options": [
+          {
+            "id": "A",
+            "label": "$z=-\\bar z$ 且 $z\\ne0$"
+          },
+          {
+            "id": "B",
+            "label": "$z=\\bar z$"
+          },
+          {
+            "id": "C",
+            "label": "$z\\bar z=0$"
+          },
+          {
+            "id": "D",
+            "label": "$z+\\bar z=0$"
+          }
+        ],
+        "placeholder": ""
+      },
+      "scoring": {
+        "accepted_inputs": [
+          "A"
+        ],
+        "absolute_tolerance": 0.0,
+        "relative_tolerance": 0.0,
+        "normalization": "trim"
+      },
+      "hints": [
+        "先保证实部为零，再排除零。"
+      ],
+      "answer": "A。$z=-\\bar z$ 给出实部为零，$z\\ne0$ 排除零；B 判实数，C 只说明 $z=0$，D 还包含零。",
+      "misconception_feedback": [
+        {
+          "id": "M-PURE-B",
+          "inputs": [
+            "B"
+          ],
+          "feedback": "$z=\\bar z$ 是实数条件。"
+        },
+        {
+          "id": "M-PURE-D",
+          "inputs": [
+            "D"
+          ],
+          "feedback": "$z+\\bar z=0$ 只给出实部为零，零也满足；还需 $z\\ne0$。"
+        }
+      ],
+      "test_cases": [
+        {
+          "id": "T-PURE-A",
+          "input": "A",
+          "expected": "correct",
+          "feedback": "",
+          "coverage": "correct"
+        },
+        {
+          "id": "T-PURE-B",
+          "input": "B",
+          "expected": "incorrect",
+          "feedback": "",
+          "coverage": "wrong"
+        },
+        {
+          "id": "T-PURE-D",
+          "input": "D",
+          "expected": "incorrect",
+          "feedback": "",
+          "coverage": "wrong"
+        },
+        {
+          "id": "T-PURE-EMPTY",
+          "input": "",
+          "expected": "invalid",
+          "feedback": "",
+          "coverage": "boundary"
+        }
+      ]
+    }
+  ],
+  "concepts": [],
+  "teaching_plan": {
+    "goals": [
+      {
+        "id": "G-CONJ-DEF",
+        "observable_task": "能写出给定复数的共轭，并说明实部、虚部与模的关系",
+        "claim_refs": [
+          "K-CONJ-DEF"
+        ],
+        "level": "core"
+      },
+      {
+        "id": "G-CONJ-PROP",
+        "observable_task": "能正确使用共轭的运算性质，特别是商的分母非零条件",
+        "claim_refs": [
+          "K-CONJ-PROP"
+        ],
+        "level": "core"
+      },
+      {
+        "id": "G-REAL-PURE",
+        "observable_task": "能用共轭判定实数和纯虚数",
+        "claim_refs": [
+          "K-REAL",
+          "K-PURE"
+        ],
+        "level": "core"
+      },
+      {
+        "id": "G-EXAMPLES",
+        "observable_task": "能把共轭用于分式、实系数多项式和模平方展开",
+        "claim_refs": [
+          "K-EX2",
+          "K-EX3",
+          "K-EX4",
+          "K-EX5"
+        ],
+        "level": "core"
+      }
+    ],
+    "prerequisites": [],
+    "claims": [
+      {
+        "id": "K-CONJ-DEF",
+        "kind": "definition",
+        "source_refs": [],
+        "conditions": [
+          "$z=x+\\mathrm{i}y$，$x,y$ 为实数"
+        ],
+        "conclusion": "$\\bar z=x-\\mathrm{i}y$",
+        "symbols": [
+          "z",
+          "\\bar z",
+          "x",
+          "y"
+        ]
+      },
+      {
+        "id": "K-CONJ-PROP",
+        "kind": "property",
+        "source_refs": [],
+        "conditions": [
+          "$z,z_1,z_2$ 为复数",
+          "商的情形 $z_2\\ne0$"
+        ],
+        "conclusion": "共轭满足性质1)-5)",
+        "symbols": [
+          "z",
+          "z_1",
+          "z_2",
+          "\\bar z",
+          "|z|"
+        ]
+      },
+      {
+        "id": "K-REAL",
+        "kind": "criterion",
+        "source_refs": [],
+        "conditions": [
+          "$z$ 为复数"
+        ],
+        "conclusion": "$z\\in\\mathbb R\\iff z=\\bar z$",
+        "symbols": [
+          "z",
+          "\\bar z"
+        ]
+      },
+      {
+        "id": "K-PURE",
+        "kind": "criterion",
+        "source_refs": [],
+        "conditions": [
+          "$z$ 为复数",
+          "本书约定零不算纯虚数"
+        ],
+        "conclusion": "$z$ 为纯虚数 $\\iff z=-\\bar z$ 且 $z\\ne0$",
+        "symbols": [
+          "z",
+          "\\bar z"
+        ]
+      },
+      {
+        "id": "K-EX2",
+        "kind": "example_result",
+        "source_refs": [],
+        "conditions": [
+          "$z=x+\\mathrm{i}y$，$x,y$ 为实数",
+          "$y\\ne0$",
+          "$z\\ne\\pm\\mathrm{i}$"
+        ],
+        "conclusion": "$\\dfrac{z}{1+z^2}\\in\\mathbb R\\iff x^2+y^2=1$",
+        "symbols": [
+          "z",
+          "x",
+          "y"
+        ]
+      },
+      {
+        "id": "K-EX3",
+        "kind": "example_result",
+        "source_refs": [],
+        "conditions": [
+          "$z=x+\\mathrm{i}y$，$x,y$ 为实数",
+          "$z\\ne1$"
+        ],
+        "conclusion": "给出 $f(z)=\\dfrac{1+z}{1-z}$ 的实部、虚部与模的公式",
+        "symbols": [
+          "z",
+          "x",
+          "y",
+          "f(z)"
+        ]
+      },
+      {
+        "id": "K-EX4",
+        "kind": "example_result",
+        "source_refs": [],
+        "conditions": [
+          "$p(z)=z^n+a_1z^{n-1}+\\cdots+a_n$",
+          "$a_1,\\dots,a_n$ 为实数",
+          "$p(z_0)=0$"
+        ],
+        "conclusion": "$p(\\bar z_0)=0$",
+        "symbols": [
+          "p",
+          "z_0",
+          "\\bar z_0"
+        ]
+      },
+      {
+        "id": "K-EX5",
+        "kind": "identity",
+        "source_refs": [],
+        "conditions": [
+          "$z_1,z_2$ 为任意复数"
+        ],
+        "conclusion": "$|z_1+z_2|^2=|z_1|^2+|z_2|^2+2\\operatorname{Re}(z_1\\bar z_2)$",
+        "symbols": [
+          "z_1",
+          "z_2",
+          "|z_1+z_2|"
+        ]
+      }
+    ]
+  },
+  "teaching_evidence": [
+    {
+      "goal_id": "G-EXAMPLES",
+      "purpose": "example",
+      "reader_pointer": "/examples/0/statement",
+      "claim_refs": [
+        "K-EX2"
+      ],
+      "quote": "设 $z=x+\\mathrm{i}y$，其中 $x,y$ 为实数，且 $y\\ne0$、$z\\ne\\pm\\mathrm{i}$。证明：$\\dfrac{z}{1+z^2}$ 是实数当且仅当 $x^2+y^2=1$。",
+      "reader_role": "worked_example"
+    },
+    {
+      "goal_id": "G-EXAMPLES",
+      "purpose": "example",
+      "reader_pointer": "/examples/0/steps/0/markdown",
+      "claim_refs": [
+        "K-EX2"
+      ],
+      "quote": "记 $w=\\dfrac{z}{1+z^2}$。由 $z\\ne\\pm\\mathrm{i}$，有 $1+z^2\\ne0$，所以 $w$ 有定义。\n\n$w$ 为实数当且仅当 $w=\\bar w$，即\n$$\n\\frac{z}{1+z^2}=\\frac{\\bar z}{1+\\bar z^2}.\n$$\n交叉相乘得\n$$\nz(1+\\bar z^2)=\\bar z(1+z^2),\n$$\n即\n$$\nz+z\\bar z^2=\\bar z+\\bar z z^2.\n$$\n移项并因式分解：\n$$\n(z-\\bar z)(1-z\\bar z)=0.\n$$\n因为 $z=x+\\mathrm{i}y$，所以 $z-\\bar z=2\\mathrm{i}y$。题设 $y\\ne0$，故 $z-\\bar z\\ne0$，于是必须有\n$$\n1-z\\bar z=0,\\quad |z|^2=z\\bar z=1,\n$$\n即 $x^2+y^2=1$。\n\n反过来，若 $x^2+y^2=1$，则 $z\\bar z=1$，从而 $1-z\\bar z=0$，上面的因式等式成立。沿原路乘回分母（分母 $1+z^2$ 与 $1+\\bar z^2$ 均非零，因为 $z\\ne\\pm\\mathrm{i}$），便得到 $w=\\bar w$，所以 $w$ 为实数。因此命题成立。",
+      "reader_role": "worked_example"
+    },
+    {
+      "goal_id": "G-EXAMPLES",
+      "purpose": "example",
+      "reader_pointer": "/examples/1/statement",
+      "claim_refs": [
+        "K-EX3"
+      ],
+      "quote": "设 $z=x+\\mathrm{i}y$（$x,y$ 为实数，$z\\ne1$），求 $f(z)=\\dfrac{1+z}{1-z}$ 的实部、虚部及模。",
+      "reader_role": "worked_example"
+    },
+    {
+      "goal_id": "G-EXAMPLES",
+      "purpose": "example",
+      "reader_pointer": "/examples/1/steps/0/markdown",
+      "claim_refs": [
+        "K-EX3"
+      ],
+      "quote": "由 $z\\ne1$，$1-z\\ne0$。将分子分母同乘 $1-\\bar z$：\n$$\n\\begin{aligned}\nf(z)&=\\frac{1+z}{1-z}=\\frac{(1+z)(1-\\bar z)}{(1-z)(1-\\bar z)}\\\\\n&=\\frac{1+z-\\bar z-z\\bar z}{1-z-\\bar z+z\\bar z}\\\\\n&=\\frac{1-x^2-y^2+\\mathrm{i}2y}{(1-x)^2+y^2}.\n\\end{aligned}\n$$\n这里用到 $z-\\bar z=2\\mathrm{i}y$ 和 $z\\bar z=x^2+y^2$。因此\n$$\n\\operatorname{Re}f(z)=\\frac{1-x^2-y^2}{(1-x)^2+y^2},\n\\qquad\n\\operatorname{Im}f(z)=\\frac{2y}{(1-x)^2+y^2}.\n$$\n再求模。因为 $|f(z)|^2=f(z)\\overline{f(z)}$，且 $\\overline{f(z)}=\\dfrac{1+\\bar z}{1-\\bar z}$，所以\n$$\n\\begin{aligned}\n|f(z)|^2\n&=\\frac{(1+z)(1+\\bar z)}{(1-z)(1-\\bar z)}\\\\\n&=\\frac{1+z+\\bar z+z\\bar z}{1-z-\\bar z+z\\bar z}\\\\\n&=\\frac{(1+x)^2+y^2}{(1-x)^2+y^2}.\n\\end{aligned}\n$$\n于是\n$$\n|f(z)|=\\sqrt{\\frac{(1+x)^2+y^2}{(1-x)^2+y^2}}.\n$$",
+      "reader_role": "worked_example"
+    },
+    {
+      "goal_id": "G-EXAMPLES",
+      "purpose": "example",
+      "reader_pointer": "/examples/2/statement",
+      "claim_refs": [
+        "K-EX4"
+      ],
+      "quote": "证明：若实系数多项式 $p(z)=z^n+a_1z^{n-1}+\\cdots+a_{n-1}z+a_n$（$a_1,\\dots,a_n$ 为实数，$n\\ge1$）满足 $p(z_0)=0$，则 $p(\\bar z_0)=0$。也就是说，实系数多项式的非实根共轭成对出现。",
+      "reader_role": "worked_example"
+    },
+    {
+      "goal_id": "G-EXAMPLES",
+      "purpose": "example",
+      "reader_pointer": "/examples/2/steps/0/markdown",
+      "claim_refs": [
+        "K-EX4"
+      ],
+      "quote": "由 $p(z_0)=0$，要证 $p(\\bar z_0)=0$。计算\n$$\n\\begin{aligned}\np(\\bar z_0)\n&=(\\bar z_0)^n+a_1(\\bar z_0)^{n-1}+\\cdots+a_{n-1}\\bar z_0+a_n\\\\\n&=\\overline{z_0^n}+\\bar a_1\\overline{z_0^{n-1}}+\\cdots+\\overline{a_{n-1}}\\bar z_0+\\bar a_n.\n\\end{aligned}\n$$\n因为 $a_1,\\dots,a_n$ 都是实数，所以 $\\bar a_k=a_k$。又由共轭保持加法与乘法，上式等于\n$$\n\\overline{z_0^n+a_1z_0^{n-1}+\\cdots+a_{n-1}z_0+a_n}\n=\\overline{p(z_0)}=0.\n$$\n故 $p(\\bar z_0)=0$。",
+      "reader_role": "worked_example"
+    },
+    {
+      "goal_id": "G-EXAMPLES",
+      "purpose": "example",
+      "reader_pointer": "/examples/3/statement",
+      "claim_refs": [
+        "K-EX5"
+      ],
+      "quote": "设 $z_1,z_2$ 为任意复数，证明\n$$\n|z_1+z_2|^2=|z_1|^2+|z_2|^2+2\\operatorname{Re}(z_1\\bar z_2).\n$$",
+      "reader_role": "worked_example"
+    },
+    {
+      "goal_id": "G-EXAMPLES",
+      "purpose": "example",
+      "reader_pointer": "/examples/3/steps/0/markdown",
+      "claim_refs": [
+        "K-EX5"
+      ],
+      "quote": "由 $|w|^2=w\\bar w$ 和共轭保持加法，\n$$\n\\begin{aligned}\n|z_1+z_2|^2\n&=(z_1+z_2)\\overline{(z_1+z_2)}\\\\\n&=(z_1+z_2)(\\bar z_1+\\bar z_2)\\\\\n&=z_1\\bar z_1+z_1\\bar z_2+z_2\\bar z_1+z_2\\bar z_2\\\\\n&=|z_1|^2+|z_2|^2+z_1\\bar z_2+z_2\\bar z_1.\n\\end{aligned}\n$$\n令 $u=z_1\\bar z_2$，则\n$$\n\\bar u=\\overline{z_1\\bar z_2}=\\bar z_1z_2=z_2\\bar z_1.\n$$\n所以两个交叉项互为共轭。\n$$\nz_1\\bar z_2+z_2\\bar z_1=u+\\bar u=2\\operatorname{Re}u=2\\operatorname{Re}(z_1\\bar z_2).\n$$\n代回即得\n$$\n|z_1+z_2|^2=|z_1|^2+|z_2|^2+2\\operatorname{Re}(z_1\\bar z_2).\n$$",
+      "reader_role": "worked_example"
+    }
+  ],
+  "math_models": [],
+  "_meta": {
+    "schema_version": "4.0"
+  },
+  "book_id": "complex-analysis-v2",
+  "original_text": "source-transcription.md",
+  "original_sha256": "sha256:c7772b80bffeddfff2013a194d631da569532bdbc7e016d32ba9886056eeea7f",
+  "source_context_hash": "sha256:e2c59ab85a8be91532e04d5fb7421ec985293fbe2fef27bece79940102a64075",
+  "anchor": "1.1.2",
+  "chapter": "CH01",
+  "section": "CH01-S01",
+  "level": "subsection",
+  "one_line": "",
+  "revision": 0,
+  "exercise_regions": [],
+  "notation": [],
+  "corrections": []
+}

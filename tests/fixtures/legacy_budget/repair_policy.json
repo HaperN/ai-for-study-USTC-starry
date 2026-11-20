@@ -1,0 +1,52 @@
+{
+  "_meta": {
+    "file_type": "repair_policy",
+    "schema_version": "1.0",
+    "generator": "aiforstudy.pipeline.budget",
+    "plan": "文档/01-方案与规格/Manim与审核闭环改造实施计划-20261006.md §6.1",
+    "field_notes": {
+      "policy_version": "策略版本。**冻结进 run**：resume 必须保持同一份 digest，不许静默加额度（§6.1）",
+      "content_repair_batches_per_unit": "内容返修批次数上限；**跨阶段、跨 resume 共用**，不因进入另一个阶段重新获得（§4.6）",
+      "evidence_repairs_per_verdict": "每个实质判词的证据格式修复次数；**重复内容继承次数**，换 ID 不算新机会（§4.7）",
+      "attempt_limits": "API 尝试次数上限。unit 32 / stage 16 / resource 8 都是**累计**值：初次、审核、证据修复、运输重试全算在内（§6.1）",
+      "attempt_limits.transport": "单个逻辑请求的传输尝试总数（初次 + 1 次重试）；**没有剩余额度就不重试**（§6.1）",
+      "active_seconds": "活跃时间上限。子级取**父级剩余**与自身上限的更小者；暂停期间不计（§6.1）",
+      "api_deadline_seconds": "单次 API 调用的绝对 deadline 上限；受父 deadline 约束。**不能靠不断收到少量数据无限延长**（§6.1）",
+      "connect_timeout_seconds": "连接超时；与绝对 deadline 分开，避免慢连接吃掉整个响应窗口",
+      "cancel_grace_seconds": "本地确认取消后，本地请求／worker 的收尾窗口；超时即标**远端未确认**，未知费用不填 0（§6.1）",
+      "heartbeat_seconds": "活跃操作的心跳间隔上限；心跳要含 elapsed、deadline、轮次与剩余额度（§6.1）",
+      "render": "渲染资源上限。**同一 run 同时最多 1 个 Manim worker**（§6.1）"
+    }
+  },
+  "policy_version": 1,
+  "content_repair_batches_per_unit": 2,
+  "evidence_repairs_per_verdict": 1,
+  "attempt_limits": {
+    "unit": 32,
+    "stage": 16,
+    "resource": 8,
+    "transport": 2
+  },
+  "active_seconds": {
+    "unit": 1800,
+    "stage": 1200,
+    "resource": 600
+  },
+  "api_deadline_seconds": 300,
+  "connect_timeout_seconds": 15,
+  "cancel_grace_seconds": 10,
+  "heartbeat_seconds": 5,
+  "render": {
+    "draft_seconds": 120,
+    "final_seconds": 300,
+    "cpu_cores": 2,
+    "memory_bytes": 2147483648,
+    "output_bytes": 134217728,
+    "max_concurrent_workers": 1
+  },
+  "accounting": {
+    "note": "子级上限**不是额外额度**：unit/stage/resource 的 token 上限都不得突破父级在途预约与累计实报（§6.1）",
+    "unknown_usage": "网络超时／远端未确认 → 记 unknown 并**保守保留预约**，绝不填 0（§6.1）",
+    "clock": "计时按各 scope **活跃区间的并集**；父层不把并行子任务的时长简单求和；崩溃区间用最后心跳 + 在途租约上限保守结算（§6.1）"
+  }
+}

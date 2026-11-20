@@ -1,0 +1,14 @@
+{
+  "title": "教师偏好配置示例（不是实际教师资料）",
+  "teacher": "请填写课程与教师或班级标识",
+  "evidence_note": "请用真实作业、课件或教师说明替换示例依据；原版保持不变。",
+  "include_ids": ["TB-CH07-Q1", "TB-CH07-Q2"],
+  "exclude_ids": [],
+  "topics": [],
+  "priority_overrides": {
+    "TB-CH07-Q1": {
+      "priority": "必会",
+      "reason": "配置演示：若本学期作业明确要求该题，可在此写出作业题号与日期；这不是实际作业记录。"
+    }
+  }
+}

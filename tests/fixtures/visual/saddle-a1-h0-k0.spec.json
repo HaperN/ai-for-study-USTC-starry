@@ -1,0 +1,411 @@
+{
+  "dependency_paths": [
+    "lesson/body.md",
+    "concepts/index.json"
+  ],
+  "lesson_anchor": "为什么二阶变化抵消不表示曲面是平面",
+  "math_assertions": [
+    {
+      "assertion_id": "uxx",
+      "at": {
+        "x": 0.25,
+        "y": -0.25
+      },
+      "expected": 2.0,
+      "kind": "partial_derivative",
+      "object_id": "u",
+      "order": 2,
+      "variable": "x"
+    },
+    {
+      "assertion_id": "uyy",
+      "at": {
+        "x": 0.25,
+        "y": -0.25
+      },
+      "expected": -2.0,
+      "kind": "partial_derivative",
+      "object_id": "u",
+      "order": 2,
+      "variable": "y"
+    },
+    {
+      "assertion_id": "lap",
+      "at": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "expected": 0.0,
+      "kind": "derivative_sum",
+      "object_id": "u",
+      "terms": [
+        {
+          "order": 2,
+          "variable": "x"
+        },
+        {
+          "order": 2,
+          "variable": "y"
+        }
+      ]
+    },
+    {
+      "assertion_id": "notflat",
+      "kind": "surface_not_planar",
+      "object_id": "u"
+    },
+    {
+      "assertion_id": "poly",
+      "expected_coefficients": {
+        "1": 0.0,
+        "x": -0.0,
+        "x^2": 1.0,
+        "y": 0.0,
+        "y^2": -1.0
+      },
+      "kind": "polynomial",
+      "object_id": "u"
+    },
+    {
+      "assertion_id": "tr_y",
+      "kind": "section_is_trace",
+      "opens": "up",
+      "section": "trace_y",
+      "surface": "u",
+      "variable": "y"
+    },
+    {
+      "assertion_id": "tr_x",
+      "kind": "section_is_trace",
+      "opens": "down",
+      "section": "trace_x",
+      "surface": "u",
+      "variable": "x"
+    }
+  ],
+  "objective": "说明 x/y 是两个方向、u 是高度；区分二阶变化抵消与曲面是平面",
+  "objects": [
+    {
+      "kind": "axes2d",
+      "object_id": "axes2d",
+      "x_label": "x 方向",
+      "x_range": [
+        -2,
+        2
+      ],
+      "y_label": "y 方向",
+      "y_range": [
+        -2,
+        2
+      ]
+    },
+    {
+      "kind": "axes3d",
+      "object_id": "axes3d",
+      "x_range": [
+        -2,
+        2
+      ],
+      "y_range": [
+        -2,
+        2
+      ],
+      "z_range": [
+        -4,
+        4
+      ]
+    },
+    {
+      "color": "blue",
+      "domain": {
+        "x": [
+          -2,
+          2
+        ],
+        "y": [
+          -2,
+          2
+        ]
+      },
+      "expr": {
+        "left": {
+          "op": "const",
+          "value": 1.0
+        },
+        "op": "mul",
+        "right": {
+          "left": {
+            "base": {
+              "left": {
+                "name": "x",
+                "op": "var"
+              },
+              "op": "sub",
+              "right": {
+                "op": "const",
+                "value": 0.0
+              }
+            },
+            "exponent": 2,
+            "op": "pow"
+          },
+          "op": "sub",
+          "right": {
+            "base": {
+              "left": {
+                "name": "y",
+                "op": "var"
+              },
+              "op": "sub",
+              "right": {
+                "op": "const",
+                "value": 0.0
+              }
+            },
+            "exponent": 2,
+            "op": "pow"
+          }
+        }
+      },
+      "kind": "surface",
+      "label": "曲面 u：高度",
+      "object_id": "u",
+      "resolution": [
+        24,
+        24
+      ]
+    },
+    {
+      "at": {
+        "op": "const",
+        "value": 0.0
+      },
+      "color": "red",
+      "kind": "section",
+      "label": "固定 y：沿 x 的截线",
+      "object_id": "trace_y",
+      "range": [
+        -2,
+        2
+      ],
+      "samples": 48,
+      "surface": "u",
+      "variable": "y"
+    },
+    {
+      "at": {
+        "op": "const",
+        "value": 0.0
+      },
+      "color": "green",
+      "kind": "section",
+      "label": "固定 x：沿 y 的截线",
+      "object_id": "trace_x",
+      "range": [
+        -2,
+        2
+      ],
+      "samples": 48,
+      "surface": "u",
+      "variable": "x"
+    },
+    {
+      "expr": {
+        "left": {
+          "op": "const",
+          "value": 1.0
+        },
+        "op": "mul",
+        "right": {
+          "left": {
+            "base": {
+              "left": {
+                "name": "x",
+                "op": "var"
+              },
+              "op": "sub",
+              "right": {
+                "op": "const",
+                "value": 0.0
+              }
+            },
+            "exponent": 2,
+            "op": "pow"
+          },
+          "op": "sub",
+          "right": {
+            "base": {
+              "left": {
+                "name": "y",
+                "op": "var"
+              },
+              "op": "sub",
+              "right": {
+                "op": "const",
+                "value": 0.0
+              }
+            },
+            "exponent": 2,
+            "op": "pow"
+          }
+        }
+      },
+      "kind": "formula",
+      "label": "u(x,y)",
+      "object_id": "formula_u"
+    },
+    {
+      "at": [
+        {
+          "op": "const",
+          "value": -2
+        },
+        {
+          "op": "const",
+          "value": 2
+        }
+      ],
+      "kind": "label",
+      "object_id": "note_xy",
+      "text": "x、y 是两个平面方向，u 是高度"
+    },
+    {
+      "at": [
+        {
+          "op": "const",
+          "value": 0
+        },
+        {
+          "op": "const",
+          "value": 0
+        }
+      ],
+      "kind": "point",
+      "object_id": "origin",
+      "space": "math2d"
+    }
+  ],
+  "parameters": {
+    "a": 1.0,
+    "h": 0.0,
+    "k": 0.0
+  },
+  "render_profile": "draft",
+  "request_id": "vis-saddle",
+  "schema_version": "1.0",
+  "source_claims": [
+    "u(x,y)=x^2-y^2",
+    "u_xx+u_yy=0"
+  ],
+  "source_refs": [
+    "CH04#p12",
+    "CH04#p13"
+  ],
+  "steps": [
+    {
+      "actions": [
+        {
+          "action": "reveal",
+          "object_id": "axes3d"
+        },
+        {
+          "action": "reveal",
+          "object_id": "u"
+        },
+        {
+          "action": "reveal",
+          "object_id": "formula_u"
+        }
+      ],
+      "caption": "x、y 是两个平面方向，u 是高度。",
+      "checkpoints": [
+        {
+          "at": 4.0,
+          "note": "先看清 x、y、u 三个方向"
+        }
+      ],
+      "end": 8.0,
+      "expected_change": "出现三维坐标系与曲面",
+      "start": 0.0,
+      "step_id": "s1"
+    },
+    {
+      "actions": [
+        {
+          "action": "reveal",
+          "object_id": "trace_y"
+        },
+        {
+          "action": "highlight",
+          "object_id": "u"
+        },
+        {
+          "action": "camera",
+          "zoom": 1.2
+        }
+      ],
+      "caption": "固定 y：沿 x 的二阶变化 u_xx={value:uxx}，截线开口up。",
+      "checkpoints": [
+        {
+          "at": 12.0,
+          "note": "只变 x，u 沿 x 开口向上"
+        }
+      ],
+      "end": 16.0,
+      "expected_change": "出现沿 x 的抛物线截线",
+      "start": 8.0,
+      "step_id": "s2"
+    },
+    {
+      "actions": [
+        {
+          "action": "reveal",
+          "object_id": "trace_x"
+        },
+        {
+          "action": "highlight",
+          "object_id": "u"
+        }
+      ],
+      "caption": "固定 x：沿 y 的二阶变化 u_yy={value:uyy}，截线开口down。",
+      "checkpoints": [
+        {
+          "at": 20.0,
+          "note": "只变 y，u 沿 y 开口向下"
+        }
+      ],
+      "end": 24.0,
+      "expected_change": "出现沿 y 的抛物线截线",
+      "start": 16.0,
+      "step_id": "s3"
+    },
+    {
+      "actions": [
+        {
+          "action": "reveal",
+          "object_id": "note_xy"
+        },
+        {
+          "action": "highlight",
+          "object_id": "formula_u"
+        },
+        {
+          "action": "pause",
+          "seconds": 2.0
+        }
+      ],
+      "caption": "两方向二阶变化相加 u_xx+u_yy={value:lap}=0；和为零不等于曲面是平面。",
+      "checkpoints": [
+        {
+          "at": 28.0,
+          "note": "可暂停回看"
+        }
+      ],
+      "end": 32.0,
+      "expected_change": "两条截线与求和结论同屏",
+      "start": 24.0,
+      "step_id": "s4"
+    }
+  ],
+  "unit_id": "CH04"
+}

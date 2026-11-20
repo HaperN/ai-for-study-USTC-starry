@@ -1,0 +1,16 @@
+include blocks/__init__.py
+recursive-include blocks/parse *.py *.md
+include blocks/render/__init__.py blocks/render/build.py
+recursive-include blocks/render/vendor *.js *.css *.woff *.woff2 *.ttf *.txt *.md
+recursive-include blocks/render/templates *.html
+recursive-include blocks/render/assets *.js *.css *.html *.json *.svg *.woff *.woff2 *.ttf *.txt *.md
+include blocks/figures/__init__.py blocks/figures/library.py blocks/figures/spec.py blocks/figures/spec_extra.py blocks/figures/verify_svg.py
+recursive-include blocks/figures/backends *.py
+include blocks/model/__init__.py blocks/model/model_generate.py blocks/model/model_prompt.py blocks/model/model_validate.py
+include lib/__init__.py lib/files.py lib/text.py lib/refs.py lib/book.py lib/curriculum.py lib/non_teaching.py lib/scopes.py lib/parallel.py lib/model.py lib/usage.py
+recursive-include tools/manim_worker *.py *.sh *.txt
+include requirements-manim.lock
+recursive-include src/aiforstudy/resources *.json
+recursive-include src/aiforstudy/resources/shelf *.html *.js *.css *.svg *.webmanifest
+recursive-include src/aiforstudy/blocks/media *.cjs
+global-exclude __pycache__ *.pyc

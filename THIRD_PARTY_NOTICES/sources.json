@@ -1,0 +1,50 @@
+{
+  "licenses": [
+    {
+      "file": "KaTeX-0.16.9.txt",
+      "source": "https://raw.githubusercontent.com/KaTeX/KaTeX/v0.16.9/LICENSE",
+      "sha256": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3"
+    },
+    {
+      "file": "Marked-12.0.2.md",
+      "source": "https://raw.githubusercontent.com/markedjs/marked/v12.0.2/LICENSE.md",
+      "sha256": "8e3a3f82f59a60958f56ca08f445647c32a4733dc7ca6c2c46f6eb898471ab9c"
+    },
+    {
+      "file": "Three-r137.txt",
+      "source": "https://raw.githubusercontent.com/mrdoob/three.js/r137/LICENSE",
+      "sha256": "fbf3943930dacbf56aabb8dc5d816440bd16aa6f4cc78ddbdf12106ee1807832"
+    },
+    {
+      "file": "MathBox.md",
+      "source": "https://raw.githubusercontent.com/unconed/mathbox/master/LICENSE.md",
+      "sha256": "2b2b43d060aef83c9007a5264d5cbd67984d09b72c2f3e6bc1b2359e08707d59"
+    },
+    {
+      "file": "Phosphor-Icons-MIT.txt",
+      "source": "https://raw.githubusercontent.com/phosphor-icons/core/main/LICENSE",
+      "sha256": "b5b1f1da112d18ea2147decfd48ddc1bf2b5aeb6c265381579340e95b15a2bb2",
+      "note": "Notice for Phosphor SVG icons embedded in the reader template."
+    }
+  ],
+  "note": "Bundled KaTeX/Marked/Three versions identified from local assets; MathBox bundle version not asserted, upstream notice retained. Neural model weights and installed SDK/runtime are not bundled.",
+  "bundled_asset_sha256": {
+    "blocks/render/vendor/katex.min.js": "dc84b296ec3e884de093158f760fd9d45b6c7abe58b5381557f4e138f46a58ae",
+    "blocks/render/vendor/marked.min.js": "15fabce5b65898b32b03f5ed25e9f891a729ad4c0d6d877110a7744aa847a894",
+    "blocks/render/vendor/mathbox/three.min.js": "13b5db27493abeb2a9cf1a3c6684dc2e6045dd4b5ae976d9a41dfbad135a5eef",
+    "blocks/render/vendor/mathbox/mathbox.min.js": "8da15c815d12ac1e04757f5df17982f66cfb9cb00b9759f3a1755646a646e9be"
+  },
+  "font_notice": {
+    "file": "KaTeX-fonts-OFL.txt",
+    "source": "Embedded copyright and licence metadata in the supplied unmodified KaTeX WOFF2 files",
+    "sha256": "dade3fc1cd9096a37cea865e975397da613d46492a3b09c99d3bd70275805b16",
+    "font_count": 20
+  },
+  "font_license_text": {
+    "file": "OFL-1.1.txt",
+    "source": "https://raw.githubusercontent.com/silnrsi/font-charis/master/OFL.txt",
+    "original_source_sha256": "d2a66950cb3cf727f07a572e7b3ddd92944a96c66cfc77950412522895d8f769",
+    "file_sha256": "a01c131f2d79795c494319cc39c7ff91374c81e82d97990a8bab10e7592e6e82",
+    "note": "Standard SIL OFL 1.1 clauses from the official SIL repository; unrelated Charis ownership header omitted. Actual KaTeX notices extracted from bundled fonts are retained separately. No fonts modified."
+  }
+}

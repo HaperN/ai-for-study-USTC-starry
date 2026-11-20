@@ -1,0 +1,53 @@
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "text": "u(x,y)=x^2-y^2 的 u_xx=2、u_yy=-2"
+    },
+    {
+      "claim_id": "c2",
+      "text": "u_xx+u_yy=0"
+    }
+  ],
+  "objective": "理解二阶变化抵消不表示曲面是平面",
+  "prerequisites": [
+    "偏导数定义",
+    "二阶偏导记号"
+  ],
+  "source_hash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "steps": [
+    {
+      "claim_ids": [
+        "c1"
+      ],
+      "explanation_anchor": "body#p12",
+      "observe": "两个平面方向加一个高度",
+      "pause_hint": "先停一下看清坐标",
+      "question": "x、y 和 u 各是什么？",
+      "step_id": "t1"
+    },
+    {
+      "claim_ids": [
+        "c1",
+        "c2"
+      ],
+      "explanation_anchor": "body#p13",
+      "observe": "一条开口向上、一条开口向下",
+      "pause_hint": "逐条对照",
+      "question": "两个方向的二阶变化为什么会抵消？",
+      "step_id": "t2"
+    }
+  ],
+  "unit_id": "CH04",
+  "visual_requests": [
+    {
+      "anchor": "body#p12",
+      "claim_ids": [
+        "c1"
+      ],
+      "learning_goal": "看到鞍面不是平面",
+      "misconception": "和为零就等于平",
+      "observe": "两条截线方向相反"
+    }
+  ]
+}

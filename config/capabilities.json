@@ -1,0 +1,266 @@
+{
+  "python": {
+    "matplotlib": {
+      "required_for": [
+        "figure"
+      ],
+      "probe": "import matplotlib"
+    },
+    "numpy": {
+      "required_for": [
+        "figure",
+        "interaction"
+      ],
+      "probe": "import numpy"
+    },
+    "sympy": {
+      "required_for": [
+        "interaction"
+      ],
+      "probe": "import sympy"
+    },
+    "schemdraw": {
+      "required_for": [
+        "figure"
+      ],
+      "probe": "import schemdraw"
+    },
+    "jsonschema": {
+      "required_for": [
+        "checks"
+      ],
+      "probe": "import jsonschema"
+    }
+  },
+  "binaries": {
+    "node": {
+      "required_for": [
+        "render-check",
+        "browser-acceptance"
+      ],
+      "probe": [
+        "node",
+        "--version"
+      ]
+    },
+    "npm": {
+      "required_for": [
+        "browser-acceptance"
+      ],
+      "probe": [
+        "npm",
+        "--version"
+      ]
+    },
+    "pdflatex": {
+      "required_for": [
+        "figure"
+      ],
+      "probe": [
+        "pdflatex",
+        "--version"
+      ]
+    },
+    "latexmk": {
+      "required_for": [
+        "figure"
+      ],
+      "probe": [
+        "latexmk",
+        "--version"
+      ]
+    },
+    "dot": {
+      "required_for": [
+        "figure"
+      ],
+      "probe": [
+        "dot",
+        "-V"
+      ]
+    },
+    "blender": {
+      "required_for": [
+        "figure"
+      ],
+      "probe": [
+        "blender",
+        "--version"
+      ],
+      "fallback_paths": [
+        "~/.local/opt/blender/blender"
+      ]
+    },
+    "latex": {
+      "required_for": [
+        "render"
+      ],
+      "probe": [
+        "latex",
+        "--version"
+      ]
+    },
+    "dvisvgm": {
+      "required_for": [
+        "render"
+      ],
+      "probe": [
+        "dvisvgm",
+        "--version"
+      ],
+      "fallback_paths": [
+        "~/.TinyTeX/bin/x86_64-linux/dvisvgm"
+      ]
+    },
+    "ffmpeg": {
+      "required_for": [
+        "render"
+      ],
+      "probe": [
+        "ffmpeg",
+        "-version"
+      ]
+    },
+    "ffprobe": {
+      "required_for": [
+        "render"
+      ],
+      "probe": [
+        "ffprobe",
+        "-version"
+      ]
+    },
+    "bwrap": {
+      "required_for": [],
+      "probe": [
+        "bwrap",
+        "--version"
+      ],
+      "note": "渲染隔离优先使用 bwrap；实际可用性由 sandbox:worker 在当前运行环境中执行隔离自检确定，不能只凭二进制存在或历史机器状态判断。若 bwrap 自检不可用，再探测 Landlock+seccomp+rlimits。required_for 留空，因为渲染依赖的是通过自检的隔离能力，而非指定一种后端。"
+    }
+  },
+  "figure_backends": {
+    "vector": {
+      "requires": [
+        "python:matplotlib",
+        "python:numpy"
+      ],
+      "note": "向量图；带几何/长度/角度断言，由 verify_svg 在显示坐标下验"
+    },
+    "plot": {
+      "requires": [
+        "python:matplotlib",
+        "python:numpy"
+      ],
+      "note": "表达式绘图；**必须走 AST 白名单求值**，限制函数/变量/节点深度/采样量/有限数值（方案 §8：不执行模型生成的代码）"
+    },
+    "schemdraw": {
+      "requires": [
+        "python:schemdraw"
+      ],
+      "note": "电路图"
+    },
+    "circuitikz": {
+      "requires": [
+        "bin:pdflatex"
+      ],
+      "note": "从受控元件规格生成模板"
+    },
+    "three": {
+      "requires": [
+        "bin:node",
+        "bin:blender"
+      ],
+      "note": "声明式场景 + 已支持基本体；浏览器侧需要内联资源注册表（方案 §12）。⚠️ 2026-10-06 修：实现里 `.glb` 由 Blender 无头导出，只声明 `bin:node` 会把一个**跑不起来的后端**报成'依赖齐备'（A01：不依赖个人 Blender 路径）。现在 Blender 是**显式声明的能力**：先 PATH，再 `binaries.blender.fallback_paths` 里声明式的位置；**代码里不再写死**任何个人路径，两边同一条规则（后端调 `binary_fallback_paths()`）"
+    }
+  },
+  "render_environment": {
+    "worker_dir": "tools/manim_worker",
+    "interpreter_env": "AIFORSTUDY_MANIM_PYTHON",
+    "interpreter_candidates": [
+      "{env:AIFORSTUDY_MANIM_PYTHON}",
+      "{workspace_parent}/.venv-manim-macos/bin/python",
+      "{home}/.venvs/aiforstudy-manim-macos/bin/python",
+      "{workspace_parent}/.venv-manim-linux/bin/python",
+      "{home}/.venvs/aiforstudy-manim-linux/bin/python"
+    ],
+    "note": "T07 的**独立可重建**渲染环境。为什么单独一个 venv：Manim 需要源码编译 pycairo/manimpango（Linux 没有 wheel），把这条重依赖塞进项目 venv 会让基础安装变脆（计划 §8 T07）。位置由配置声明、`AIFORSTUDY_MANIM_PYTHON` 可覆盖，代码里不写死个人路径（A01 同一条纪律）。精确版本见 requirements-manim.lock。",
+    "scratch_env": "AIFORSTUDY_MANIM_SCRATCH",
+    "limits_source": "tools/manim_worker/policy.py（§6.1 的上限只写在那里，配置不重复数字）"
+  },
+  "python_envs": {
+    "manim": {
+      "required_for": [
+        "render"
+      ],
+      "modules": [
+        "manim",
+        "cairo",
+        "manimpango",
+        "numpy",
+        "PIL"
+      ],
+      "distributions": [
+        "manim",
+        "pycairo",
+        "ManimPango",
+        "numpy",
+        "pillow",
+        "scipy",
+        "networkx",
+        "svgelements"
+      ],
+      "note": "由**独立解释器自己** import 并回报版本；用本进程的 find_spec 找 Manim 只会得到错误结论"
+    }
+  },
+  "fonts": {
+    "noto-cjk-sc": {
+      "required_for": [
+        "render"
+      ],
+      "family": "Noto Sans CJK SC",
+      "paths": [
+        "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "~/Library/Fonts/NotoSansCJKsc-Regular.otf"
+      ],
+      "note": "固定一款中文字体（SIL OFL 1.1）；名称与文件 sha256 进环境指纹。不许静默回退 —— worker 里会核 manimpango 家族列表与 fontconfig 实际解析到的文件（§5.4）"
+    }
+  },
+  "sandboxes": {
+    "worker": {
+      "required_for": [
+        "render"
+      ],
+      "note": "macOS 使用默认拒绝的 Seatbelt 文件/网络/信号白名单及进程组逃逸系统调用过滤；Linux 保留 bwrap 与 Landlock+seccomp。必须通过当前内核真实探针，绝不无隔离执行生成代码。"
+    }
+  },
+  "render_backends": {
+    "manim": {
+      "requires": [
+        "env:manim",
+        "sandbox:worker",
+        "bin:ffmpeg",
+        "bin:ffprobe",
+        "bin:latex",
+        "bin:dvisvgm",
+        "font:noto-cjk-sc"
+      ],
+      "required_for": [
+        "render"
+      ],
+      "note": "当前媒体生产入口：GeneratedMediaCodeV1 完整 Manim 源码 → 隔离 worker 真渲染；旧场景规格编译器仅兼容。缺必需依赖在模型调用前阻断；未安装的可选图后端不影响动画。"
+    }
+  },
+  "browser_acceptance": {
+    "requires": [
+      "bin:node",
+      "bin:npm"
+    ],
+    "jsdom_home": ".devtools/",
+    "note": "方案 §12/§15 A24：单 HTML 复制到空目录、断网打开、外部资源请求=0；缺浏览器/Node 属 blocked，不算通过",
+    "playwright_module": "node_modules/playwright"
+  },
+  "not_required": {
+    "blender": "（2026-10-06 修正）**当前生产链不需要 Blender**（A01：不依赖个人 Blender 路径）。唯一用它的地方是可选后端 `three`（无头导出 .glb）：它把 Blender 当**显式声明的能力**——先 PATH，再 `binaries.blender.fallback_paths` 里**声明**的位置。代码里不再写死；没有它时 `three` 整条后端如实判为不可用，实测不影响 help/plan/normalizer/审核器/其余后端（见 docs/M10-A01-验收记录.md §6）"
+  }
+}

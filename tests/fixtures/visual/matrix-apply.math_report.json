@@ -1,0 +1,48 @@
+{
+  "checks": [
+    {
+      "actual": {
+        "drawn_endpoint": [
+          5.0,
+          11.0
+        ],
+        "product": [
+          5.0,
+          11.0
+        ],
+        "rows": [
+          [
+            1.0,
+            2.0
+          ],
+          [
+            3.0,
+            4.0
+          ]
+        ],
+        "vector": [
+          1.0,
+          2.0
+        ]
+      },
+      "assertion_id": "apply",
+      "check_id": "math-apply",
+      "evidence_hash": "sha256:256eeb619e0c05dadf1b7ec8efeb3fab40a3bc2f56f6dba52350a314b220ddc2",
+      "expected": [
+        5.0,
+        11.0
+      ],
+      "kind": "matrix_apply",
+      "method": "matmul2x2:closed_form + coord_eval",
+      "reason": "",
+      "status": "pass",
+      "tolerance": 1e-06
+    }
+  ],
+  "evidence_hashes": [
+    "sha256:256eeb619e0c05dadf1b7ec8efeb3fab40a3bc2f56f6dba52350a314b220ddc2"
+  ],
+  "reasons": [],
+  "schema_version": "1.0",
+  "status": "pass"
+}

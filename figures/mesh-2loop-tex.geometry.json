@@ -1,0 +1,24 @@
+{
+  "kind": "structural",
+  "backend": "circuitikz",
+  "name": "mesh-2loop-tex",
+  "min_paths": 8,
+  "min_bytes": 1500,
+  "paths": 26,
+  "canvas_pt": [
+    0.0,
+    0.0
+  ],
+  "canvas_min_pt": 60.0,
+  "tikz_sha256": "52ef6fdd879c0705",
+  "labels": [
+    "u_{S1}",
+    "R_1",
+    "R_3",
+    "R_5",
+    "u_{S4}",
+    "i_{M1}",
+    "i_{M2}"
+  ],
+  "svg_bytes": 22018
+}

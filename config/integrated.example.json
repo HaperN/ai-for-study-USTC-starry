@@ -1,0 +1,8 @@
+{
+  "reader": "../downloads/starry-complex-analysis-20261120/复变函数A/教材",
+  "practice": "../downloads/starry-complex-analysis-20261120/复变函数A",
+  "database": "../work/community/annotations.sqlite3",
+  "port": 8792,
+  "workbench_workspace": "..",
+  "workbench_port": 18917
+}

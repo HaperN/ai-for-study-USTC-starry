@@ -1,0 +1,27 @@
+:root { --ink: #1f2a27; --soft: #5b6b66; --line: #dfe5e2; --accent: #2f6b5a; --paper: #f7f6f1; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 15px/1.6 "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif; color: var(--ink); background: var(--paper); }
+.shelf-bar { padding: 28px clamp(16px, 5vw, 56px) 8px; }
+.shelf-bar h1 { margin: 0; font-size: 28px; }
+.shelf-note { margin: 4px 0 0; color: var(--soft); font-size: 13px; }
+.shelf { padding: 16px clamp(16px, 5vw, 56px) 60px; display: grid; gap: 28px; }
+.book { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 24px; padding: 22px; background: #fff; border: 1px solid var(--line); border-radius: 16px; }
+@media (max-width: 640px) { .book { grid-template-columns: minmax(0, 1fr); } .book-cover { width: 140px; } }
+.book-cover { width: 180px; aspect-ratio: 3 / 4; border-radius: 10px; box-shadow: 0 8px 24px rgba(0,0,0,.15); }
+.book h2 { margin: 0 0 4px; font-size: 24px; }
+.book-intro { margin: 0 0 12px; color: var(--soft); }
+.book-meta { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; margin-bottom: 12px; font-size: 14px; }
+.book-meta select { font: inherit; padding: 2px 6px; }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 999px; background: #e5f1ec; color: var(--accent); font-size: 12px; }
+.badge.warn { background: #fff3cd; color: #7a5a00; }
+.continue, .button { display: inline-block; padding: 6px 12px; border: 1px solid var(--accent); border-radius: 8px; background: var(--accent); color: #fff; text-decoration: none; font: inherit; font-size: 14px; cursor: pointer; }
+.button.secondary { background: #fff; color: var(--accent); }
+.button[disabled] { opacity: .5; cursor: default; }
+.chapters { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.chapters li { display: grid; grid-template-columns: minmax(0, 1fr) auto auto auto; gap: 10px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.chapters .size { color: var(--soft); font-size: 13px; font-variant-numeric: tabular-nums; }
+.chapters .status { font-size: 13px; min-width: 7em; text-align: right; }
+.chapters a.title { color: var(--ink); text-decoration: none; }
+.chapters a.title:hover { color: var(--accent); }
+.new-version { margin: 0 0 12px; padding: 8px 12px; border-radius: 10px; background: #fff3cd; }
+.empty { color: var(--soft); }

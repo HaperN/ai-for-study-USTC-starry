@@ -1,0 +1,15 @@
+#!/bin/sh
+# Source-checkout launcher; never falls back to an incomplete system Python.
+set -eu
+repo_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+project_python=${AIFORSTUDY_PYTHON:-"$repo_dir/../.venv-linux/bin/python"}
+if [ ! -x "$project_python" ]; then
+    printf '%s\n' "项目 Python 不可执行：$project_python；请指定 AIFORSTUDY_PYTHON。" >&2
+    exit 2
+fi
+export PYTHONPATH="$repo_dir/src:$repo_dir${PYTHONPATH:+:$PYTHONPATH}"
+if [ "${1:-}" = 'local-test' ]; then
+    shift
+    exec "$project_python" "$repo_dir/tools/real_run.py" --workspace "$repo_dir" "$@"
+fi
+exec "$project_python" -m aiforstudy --workspace "$repo_dir" "$@"

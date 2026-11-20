@@ -1,0 +1,15 @@
+'use strict';
+const fs=require('node:fs'), assert=require('node:assert/strict'), {JSDOM}=require('jsdom');
+const marked=require('../../blocks/render/vendor/marked.min.js');
+const core=require('../../blocks/render/assets/render-core.js'),layout=require('../../blocks/render/assets/reader-layout.js');
+const unit=JSON.parse(fs.readFileSync(0,'utf8'));
+const renderer=core.createRenderer({marked});renderer.beginUnit({unitId:'U'});
+const dom=new JSDOM('<main>'+renderer.readerDocumentHtml(unit.reader_document,'body',[],unit.reader_layout,unit.teaching_presentation)+'</main>');
+const root=dom.window.document.querySelector('main');layout.enhance(root,unit,'U');
+const find=text=>[...root.querySelectorAll('p')].find(p=>p.textContent.includes(text));
+assert.ok(find('旧证明').closest('details:not([open])'));
+assert.ok(find('旧题解答').closest('details:not([open])'));
+assert.ok(find('明确例题').closest('details:not([open])'));
+assert.equal(find('适用所有此类问题').closest('details:not([open])'),null);
+assert.ok(find('明确证明').closest('details:not([open])'));
+dom.window.close();

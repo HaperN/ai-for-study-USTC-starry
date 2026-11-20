@@ -1,0 +1,9 @@
+{
+  "enabled": false,
+  "backend": "local-qwen",
+  "model_dir_env": "AIFORSTUDY_TTS_MODEL_DIR",
+  "model_manifest_env": "AIFORSTUDY_TTS_MODEL_MANIFEST",
+  "python_env": "AIFORSTUDY_TTS_PYTHON",
+  "cache_dir_env": "AIFORSTUDY_TTS_CACHE_DIR",
+  "timeout": 900
+}

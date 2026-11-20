@@ -1,0 +1,1950 @@
+{
+  "provenance": {
+    "note": "De-identified semantic regression fixture from project-provided materials; historical run paths and extraction hashes omitted."
+  },
+  "pages": [
+    8,
+    9
+  ],
+  "mineru": [
+    {
+      "entry_id": "M0001",
+      "number": "",
+      "title": "总序",
+      "level": 3,
+      "order": 1,
+      "printed_page": "1",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "总序",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "M0002",
+      "number": "",
+      "title": "前言",
+      "level": 3,
+      "order": 2,
+      "printed_page": "2",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "frontmatter",
+      "reason": "前言",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "M0003",
+      "number": "1",
+      "title": "复数和平面点集",
+      "level": 1,
+      "order": 3,
+      "printed_page": "1",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "第1章 复数和平面点集",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "M0004",
+      "number": "1.1",
+      "title": "复数",
+      "level": 2,
+      "order": 4,
+      "printed_page": "1",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "1.1 复数",
+      "parent_key": "1:复数和平面点集"
+    },
+    {
+      "entry_id": "M0005",
+      "number": "1.2",
+      "title": "平面点集",
+      "level": 2,
+      "order": 5,
+      "printed_page": "5",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "1.2 平面点集",
+      "parent_key": "1:复数和平面点集"
+    },
+    {
+      "entry_id": "M0006",
+      "number": "2",
+      "title": "复变数函数",
+      "level": 1,
+      "order": 6,
+      "printed_page": "20",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "第2章 复变数函数",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "M0007",
+      "number": "2.1",
+      "title": "复变数函数的概念",
+      "level": 2,
+      "order": 7,
+      "printed_page": "20",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "2.1 复变数函数的概念",
+      "parent_key": "2:复变数函数"
+    },
+    {
+      "entry_id": "M0008",
+      "number": "2.2",
+      "title": "函数极限和连续性",
+      "level": 2,
+      "order": 8,
+      "printed_page": "23",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "2.2 函数极限和连续性",
+      "parent_key": "2:复变数函数"
+    },
+    {
+      "entry_id": "M0009",
+      "number": "2.3",
+      "title": "导数和解析函数的概念",
+      "level": 2,
+      "order": 9,
+      "printed_page": "25",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "2.3 导数和解析函数的概念",
+      "parent_key": "2:复变数函数"
+    },
+    {
+      "entry_id": "M0010",
+      "number": "2.4",
+      "title": "柯西-黎曼方程",
+      "level": 2,
+      "order": 10,
+      "printed_page": "27",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "2.4 柯西-黎曼方程",
+      "parent_key": "2:复变数函数"
+    },
+    {
+      "entry_id": "M0011",
+      "number": "2.5",
+      "title": "初等函数",
+      "level": 2,
+      "order": 11,
+      "printed_page": "30",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "2.5 初等函数",
+      "parent_key": "2:复变数函数"
+    },
+    {
+      "entry_id": "M0012",
+      "number": "3",
+      "title": "解析函数的积分表示",
+      "level": 1,
+      "order": 12,
+      "printed_page": "50",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "第3章 解析函数的积分表示",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "M0013",
+      "number": "3.1",
+      "title": "复变函数的积分",
+      "level": 2,
+      "order": 13,
+      "printed_page": "50",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "3.1 复变函数的积分",
+      "parent_key": "3:解析函数的积分表示"
+    },
+    {
+      "entry_id": "M0014",
+      "number": "3.2",
+      "title": "柯西积分定理",
+      "level": 2,
+      "order": 14,
+      "printed_page": "54",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "3.2 柯西积分定理",
+      "parent_key": "3:解析函数的积分表示"
+    },
+    {
+      "entry_id": "M0015",
+      "number": "3.3",
+      "title": "原函数",
+      "level": 2,
+      "order": 15,
+      "printed_page": "56",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "3.3 原函数",
+      "parent_key": "3:解析函数的积分表示"
+    },
+    {
+      "entry_id": "M0016",
+      "number": "3.4",
+      "title": "柯西积分公式",
+      "level": 2,
+      "order": 16,
+      "printed_page": "59",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "3.4 柯西积分公式",
+      "parent_key": "3:解析函数的积分表示"
+    },
+    {
+      "entry_id": "M0017",
+      "number": "3.5",
+      "title": "解析函数的性质",
+      "level": 2,
+      "order": 17,
+      "printed_page": "63",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "3.5 解析函数的性质",
+      "parent_key": "3:解析函数的积分表示"
+    },
+    {
+      "entry_id": "M0018",
+      "number": "4",
+      "title": "调和函数",
+      "level": 1,
+      "order": 18,
+      "printed_page": "69",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "第4章 调和函数",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "M0019",
+      "number": "4.1",
+      "title": "解析函数与调和函数的关系",
+      "level": 2,
+      "order": 19,
+      "printed_page": "69",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "4.1 解析函数与调和函数的关系",
+      "parent_key": "4:调和函数"
+    },
+    {
+      "entry_id": "M0020",
+      "number": "4.2",
+      "title": "调和函数的性质和狭利克雷问题",
+      "level": 2,
+      "order": 20,
+      "printed_page": "72",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "4.2 调和函数的性质和狭利克雷问题",
+      "parent_key": "4:调和函数"
+    },
+    {
+      "entry_id": "M0021",
+      "number": "5",
+      "title": "解析函数的级数展开",
+      "level": 1,
+      "order": 21,
+      "printed_page": "77",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "第5章 解析函数的级数展开",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "M0022",
+      "number": "5.1",
+      "title": "复级数的基本性质",
+      "level": 2,
+      "order": 22,
+      "printed_page": "77",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "5.1 复级数的基本性质",
+      "parent_key": "5:解析函数的级数展开"
+    },
+    {
+      "entry_id": "M0023",
+      "number": "5.2",
+      "title": "基级数",
+      "level": 2,
+      "order": 23,
+      "printed_page": "82",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "5.2 基级数",
+      "parent_key": "5:解析函数的级数展开"
+    },
+    {
+      "entry_id": "M0024",
+      "number": "5.3",
+      "title": "解析函数的泰勒(Taylor)展开",
+      "level": 2,
+      "order": 24,
+      "printed_page": "85",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "5.3 解析函数的泰勒(Taylor)展开",
+      "parent_key": "5:解析函数的级数展开"
+    },
+    {
+      "entry_id": "M0025",
+      "number": "5.4",
+      "title": "罗朗(Laurent)级数",
+      "level": 2,
+      "order": 25,
+      "printed_page": "91",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "5.4 罗朗(Laurent)级数",
+      "parent_key": "5:解析函数的级数展开"
+    },
+    {
+      "entry_id": "M0026",
+      "number": "5.5",
+      "title": "解析函数的孤立奇点",
+      "level": 2,
+      "order": 26,
+      "printed_page": "98",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "5.5 解析函数的孤立奇点",
+      "parent_key": "5:解析函数的级数展开"
+    },
+    {
+      "entry_id": "M0027",
+      "number": "6",
+      "title": "留数及其应用",
+      "level": 1,
+      "order": 27,
+      "printed_page": "107",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "第6章 留数及其应用",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "M0028",
+      "number": "6.1",
+      "title": "留数定理",
+      "level": 2,
+      "order": 28,
+      "printed_page": "107",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "6.1 留数定理",
+      "parent_key": "6:留数及其应用"
+    },
+    {
+      "entry_id": "M0029",
+      "number": "6.2",
+      "title": "积分计算",
+      "level": 2,
+      "order": 29,
+      "printed_page": "111",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "6.2 积分计算",
+      "parent_key": "6:留数及其应用"
+    },
+    {
+      "entry_id": "M0030",
+      "number": "6.3",
+      "title": "辐角原理",
+      "level": 2,
+      "order": 30,
+      "printed_page": "126",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "6.3 辐角原理",
+      "parent_key": "6:留数及其应用"
+    },
+    {
+      "entry_id": "M0031",
+      "number": "7",
+      "title": "解析开拓",
+      "level": 1,
+      "order": 31,
+      "printed_page": "134",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "第7章 解析开拓",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "M0032",
+      "number": "7.1",
+      "title": "唯一性定理和解析开拓的概念",
+      "level": 2,
+      "order": 32,
+      "printed_page": "134",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "7.1 唯一性定理和解析开拓的概念",
+      "parent_key": "7:解析开拓"
+    },
+    {
+      "entry_id": "M0033",
+      "number": "7.2",
+      "title": "含复参变量积分及Γ函数",
+      "level": 2,
+      "order": 33,
+      "printed_page": "138",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "7.2 含复参变量积分及Γ函数",
+      "parent_key": "7:解析开拓"
+    },
+    {
+      "entry_id": "M0034",
+      "number": "8",
+      "title": "保形变换及其应用",
+      "level": 1,
+      "order": 34,
+      "printed_page": "145",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "第8章 保形变换及其应用",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "M0035",
+      "number": "8.1",
+      "title": "导数的几何意义",
+      "level": 2,
+      "order": 35,
+      "printed_page": "145",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "8.1 导数的几何意义",
+      "parent_key": "8:保形变换及其应用"
+    },
+    {
+      "entry_id": "M0036",
+      "number": "8.2",
+      "title": "保形变换的概念",
+      "level": 2,
+      "order": 36,
+      "printed_page": "147",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "8.2 保形变换的概念",
+      "parent_key": "8:保形变换及其应用"
+    },
+    {
+      "entry_id": "M0037",
+      "number": "8.3",
+      "title": "分式线性变换",
+      "level": 2,
+      "order": 37,
+      "printed_page": "149",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "8.3 分式线性变换",
+      "parent_key": "8:保形变换及其应用"
+    },
+    {
+      "entry_id": "M0038",
+      "number": "8.4",
+      "title": "初等函数的映照",
+      "level": 2,
+      "order": 38,
+      "printed_page": "156",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "8.4 初等函数的映照",
+      "parent_key": "8:保形变换及其应用"
+    },
+    {
+      "entry_id": "M0039",
+      "number": "*8.5",
+      "title": "许瓦兹-克利斯托菲变换",
+      "level": 3,
+      "order": 39,
+      "printed_page": "163",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "*8.5 许瓦兹-克利斯托菲变换",
+      "parent_key": "8:保形变换及其应用/8.4:初等函数的映照"
+    },
+    {
+      "entry_id": "M0040",
+      "number": "8.6",
+      "title": "平面场",
+      "level": 2,
+      "order": 40,
+      "printed_page": "171",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "8.6 平面场",
+      "parent_key": "8:保形变换及其应用"
+    },
+    {
+      "entry_id": "M0041",
+      "number": "9",
+      "title": "拉氏变换",
+      "level": 1,
+      "order": 41,
+      "printed_page": "186",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "第9章 拉氏变换",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "M0042",
+      "number": "9.1",
+      "title": "拉氏变换的定义",
+      "level": 2,
+      "order": 42,
+      "printed_page": "186",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "9.1 拉氏变换的定义",
+      "parent_key": "9:拉氏变换"
+    },
+    {
+      "entry_id": "M0043",
+      "number": "9.2",
+      "title": "拉氏变换的基本性质",
+      "level": 2,
+      "order": 43,
+      "printed_page": "189",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "9.2 拉氏变换的基本性质",
+      "parent_key": "9:拉氏变换"
+    },
+    {
+      "entry_id": "M0044",
+      "number": "9.3",
+      "title": "由像函数求本函数",
+      "level": 2,
+      "order": 44,
+      "printed_page": "200",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "9.3 由像函数求本函数",
+      "parent_key": "9:拉氏变换"
+    },
+    {
+      "entry_id": "M0045",
+      "number": "",
+      "title": "附表1 基本法则表",
+      "level": 3,
+      "order": 45,
+      "printed_page": "209",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "附表1 基本法则表",
+      "parent_key": "9:拉氏变换/9.3:由像函数求本函数"
+    },
+    {
+      "entry_id": "M0046",
+      "number": "",
+      "title": "附表2 拉普拉斯变换表",
+      "level": 3,
+      "order": 46,
+      "printed_page": "210",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "附表2 拉普拉斯变换表",
+      "parent_key": "9:拉氏变换/9.3:由像函数求本函数"
+    },
+    {
+      "entry_id": "M0047",
+      "number": "",
+      "title": "习题参考答案",
+      "level": 3,
+      "order": 47,
+      "printed_page": "218",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "answers",
+      "reason": "习题参考答案",
+      "parent_key": "9:拉氏变换/9.3:由像函数求本函数"
+    }
+  ],
+  "visual": [
+    {
+      "entry_id": "V0001",
+      "number": "",
+      "title": "总序",
+      "level": 1,
+      "order": 1,
+      "printed_page": "i",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "frontmatter",
+      "reason": "PDF第8页目录第一条,前置页内容,页码清晰",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "V0002",
+      "number": "",
+      "title": "前言",
+      "level": 1,
+      "order": 2,
+      "printed_page": "iii",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "frontmatter",
+      "reason": "PDF第8页目录第二条,前置页内容,页码清晰",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "V0003",
+      "number": "1",
+      "title": "复数和平面点集",
+      "level": 1,
+      "order": 3,
+      "printed_page": "1",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页章标题,章号与标题清晰",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "V0004",
+      "number": "1.1",
+      "title": "复数",
+      "level": 2,
+      "order": 4,
+      "printed_page": "1",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页第1章节下条目,清晰",
+      "parent_key": "1:复数和平面点集"
+    },
+    {
+      "entry_id": "V0005",
+      "number": "1.2",
+      "title": "平面点集",
+      "level": 2,
+      "order": 5,
+      "printed_page": "15",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页第1章节下条目,清晰",
+      "parent_key": "1:复数和平面点集"
+    },
+    {
+      "entry_id": "V0006",
+      "number": "2",
+      "title": "复变函数",
+      "level": 1,
+      "order": 6,
+      "printed_page": "20",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页章标题,章号与标题清晰",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "V0007",
+      "number": "2.1",
+      "title": "复变函数的概念",
+      "level": 2,
+      "order": 7,
+      "printed_page": "20",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页第2章节下条目,清晰",
+      "parent_key": "2:复变函数"
+    },
+    {
+      "entry_id": "V0008",
+      "number": "2.2",
+      "title": "函数极限和连续性",
+      "level": 2,
+      "order": 8,
+      "printed_page": "23",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页第2章节下条目,清晰",
+      "parent_key": "2:复变函数"
+    },
+    {
+      "entry_id": "V0009",
+      "number": "2.3",
+      "title": "导数和解析函数的概念",
+      "level": 2,
+      "order": 9,
+      "printed_page": "25",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页第2章节下条目,清晰",
+      "parent_key": "2:复变函数"
+    },
+    {
+      "entry_id": "V0010",
+      "number": "2.4",
+      "title": "柯西-黎曼方程",
+      "level": 2,
+      "order": 10,
+      "printed_page": "27",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页第2章节下条目,清晰",
+      "parent_key": "2:复变函数"
+    },
+    {
+      "entry_id": "V0011",
+      "number": "2.5",
+      "title": "初等函数",
+      "level": 2,
+      "order": 11,
+      "printed_page": "30",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页第2章节下条目,清晰",
+      "parent_key": "2:复变函数"
+    },
+    {
+      "entry_id": "V0012",
+      "number": "3",
+      "title": "解析函数的积分表示",
+      "level": 1,
+      "order": 12,
+      "printed_page": "50",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页章标题,章号与标题清晰",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "V0013",
+      "number": "3.1",
+      "title": "复变函数的积分",
+      "level": 2,
+      "order": 13,
+      "printed_page": "50",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页第3章节下条目,清晰",
+      "parent_key": "3:解析函数的积分表示"
+    },
+    {
+      "entry_id": "V0014",
+      "number": "3.2",
+      "title": "柯西积分定理",
+      "level": 2,
+      "order": 14,
+      "printed_page": "54",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页第3章节下条目,清晰",
+      "parent_key": "3:解析函数的积分表示"
+    },
+    {
+      "entry_id": "V0015",
+      "number": "3.3",
+      "title": "原函数",
+      "level": 2,
+      "order": 15,
+      "printed_page": "56",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页第3章节下条目,清晰",
+      "parent_key": "3:解析函数的积分表示"
+    },
+    {
+      "entry_id": "V0016",
+      "number": "3.4",
+      "title": "柯西积分公式",
+      "level": 2,
+      "order": 16,
+      "printed_page": "59",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页第3章节下条目,清晰",
+      "parent_key": "3:解析函数的积分表示"
+    },
+    {
+      "entry_id": "V0017",
+      "number": "3.5",
+      "title": "解析函数的性质",
+      "level": 2,
+      "order": 17,
+      "printed_page": "63",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页第3章节下条目,清晰",
+      "parent_key": "3:解析函数的积分表示"
+    },
+    {
+      "entry_id": "V0018",
+      "number": "4",
+      "title": "调和函数",
+      "level": 1,
+      "order": 18,
+      "printed_page": "69",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页章标题,章号与标题清晰",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "V0019",
+      "number": "4.1",
+      "title": "解析函数与调和函数的关系",
+      "level": 2,
+      "order": 19,
+      "printed_page": "69",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页第4章节下条目,清晰",
+      "parent_key": "4:调和函数"
+    },
+    {
+      "entry_id": "V0020",
+      "number": "4.2",
+      "title": "调和函数的性质和狄利克雷问题",
+      "level": 2,
+      "order": 20,
+      "printed_page": "72",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页第4章节下条目,清晰",
+      "parent_key": "4:调和函数"
+    },
+    {
+      "entry_id": "V0021",
+      "number": "5",
+      "title": "解析函数的级数展开",
+      "level": 1,
+      "order": 21,
+      "printed_page": "77",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页章标题,章号与标题清晰",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "V0022",
+      "number": "5.1",
+      "title": "复数项的基本性质",
+      "level": 2,
+      "order": 22,
+      "printed_page": "77",
+      "pdf_page": null,
+      "toc_page": 8,
+      "category": "teaching",
+      "reason": "PDF第8页第5章节下条目,清晰",
+      "parent_key": "5:解析函数的级数展开"
+    },
+    {
+      "entry_id": "V0023",
+      "number": "5.2",
+      "title": "幂级数",
+      "level": 2,
+      "order": 23,
+      "printed_page": "82",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第一条,续第5章节下条目,清晰",
+      "parent_key": "5:解析函数的级数展开"
+    },
+    {
+      "entry_id": "V0024",
+      "number": "5.3",
+      "title": "解析函数的泰勒(Taylor)展开",
+      "level": 2,
+      "order": 24,
+      "printed_page": "85",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第5章节下条目,清晰",
+      "parent_key": "5:解析函数的级数展开"
+    },
+    {
+      "entry_id": "V0025",
+      "number": "5.4",
+      "title": "罗朗(Laurent)级数",
+      "level": 2,
+      "order": 25,
+      "printed_page": "91",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第5章节下条目,清晰",
+      "parent_key": "5:解析函数的级数展开"
+    },
+    {
+      "entry_id": "V0026",
+      "number": "5.5",
+      "title": "解析函数的孤立奇点",
+      "level": 2,
+      "order": 26,
+      "printed_page": "98",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第5章节下条目,清晰",
+      "parent_key": "5:解析函数的级数展开"
+    },
+    {
+      "entry_id": "V0027",
+      "number": "6",
+      "title": "留数及其应用",
+      "level": 1,
+      "order": 27,
+      "printed_page": "107",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页章标题,章号与标题清晰",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "V0028",
+      "number": "6.1",
+      "title": "留数定理",
+      "level": 2,
+      "order": 28,
+      "printed_page": "107",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第6章节下条目,清晰",
+      "parent_key": "6:留数及其应用"
+    },
+    {
+      "entry_id": "V0029",
+      "number": "6.2",
+      "title": "积分计算",
+      "level": 2,
+      "order": 29,
+      "printed_page": "111",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第6章节下条目,清晰",
+      "parent_key": "6:留数及其应用"
+    },
+    {
+      "entry_id": "V0030",
+      "number": "6.3",
+      "title": "辐角原理",
+      "level": 2,
+      "order": 30,
+      "printed_page": "126",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第6章节下条目,清晰",
+      "parent_key": "6:留数及其应用"
+    },
+    {
+      "entry_id": "V0031",
+      "number": "7",
+      "title": "解析开拓",
+      "level": 1,
+      "order": 31,
+      "printed_page": "134",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页章标题,章号与标题清晰",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "V0032",
+      "number": "7.1",
+      "title": "唯一性定理和解析开拓的概念",
+      "level": 2,
+      "order": 32,
+      "printed_page": "134",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第7章节下条目,清晰",
+      "parent_key": "7:解析开拓"
+    },
+    {
+      "entry_id": "V0033",
+      "number": "7.2",
+      "title": "含参变量的解析开拓",
+      "level": 2,
+      "order": 33,
+      "printed_page": "138",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第7章节下条目,清晰",
+      "parent_key": "7:解析开拓"
+    },
+    {
+      "entry_id": "V0034",
+      "number": "8",
+      "title": "保形变换及其应用",
+      "level": 1,
+      "order": 34,
+      "printed_page": "145",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页章标题,章号与标题清晰",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "V0035",
+      "number": "8.1",
+      "title": "导数的几何意义",
+      "level": 2,
+      "order": 35,
+      "printed_page": "145",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第8章节下条目,清晰",
+      "parent_key": "8:保形变换及其应用"
+    },
+    {
+      "entry_id": "V0036",
+      "number": "8.2",
+      "title": "保形变换的概念",
+      "level": 2,
+      "order": 36,
+      "printed_page": "147",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第8章节下条目,清晰",
+      "parent_key": "8:保形变换及其应用"
+    },
+    {
+      "entry_id": "V0037",
+      "number": "8.3",
+      "title": "分式线性变换",
+      "level": 2,
+      "order": 37,
+      "printed_page": "149",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第8章节下条目,清晰",
+      "parent_key": "8:保形变换及其应用"
+    },
+    {
+      "entry_id": "V0038",
+      "number": "8.4",
+      "title": "初等函数的映射",
+      "level": 2,
+      "order": 38,
+      "printed_page": "156",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第8章节下条目,清晰",
+      "parent_key": "8:保形变换及其应用"
+    },
+    {
+      "entry_id": "V0039",
+      "number": "*8.5",
+      "title": "许瓦兹-克里斯托弗变换",
+      "level": 2,
+      "order": 39,
+      "printed_page": "163",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第8章节下条目,编号前有选学星号,已原样保留",
+      "parent_key": "8:保形变换及其应用"
+    },
+    {
+      "entry_id": "V0040",
+      "number": "8.6",
+      "title": "半平面",
+      "level": 2,
+      "order": 40,
+      "printed_page": "171",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第8章节下条目,清晰",
+      "parent_key": "8:保形变换及其应用"
+    },
+    {
+      "entry_id": "V0041",
+      "number": "9",
+      "title": "拉氏变换",
+      "level": 1,
+      "order": 41,
+      "printed_page": "186",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页章标题,章号与标题清晰",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "V0042",
+      "number": "9.1",
+      "title": "拉氏变换的定义",
+      "level": 2,
+      "order": 42,
+      "printed_page": "186",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第9章节下条目,清晰",
+      "parent_key": "9:拉氏变换"
+    },
+    {
+      "entry_id": "V0043",
+      "number": "9.2",
+      "title": "拉氏变换的基本性质",
+      "level": 2,
+      "order": 43,
+      "printed_page": "189",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第9章节下条目,清晰",
+      "parent_key": "9:拉氏变换"
+    },
+    {
+      "entry_id": "V0044",
+      "number": "9.3",
+      "title": "由像函数求原函数",
+      "level": 2,
+      "order": 44,
+      "printed_page": "200",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页第9章节下条目,清晰",
+      "parent_key": "9:拉氏变换"
+    },
+    {
+      "entry_id": "V0045",
+      "number": "附表1",
+      "title": "基本法则表",
+      "level": 1,
+      "order": 45,
+      "printed_page": "209",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页附表条目,清晰",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "V0046",
+      "number": "附表2",
+      "title": "拉普拉斯变换表",
+      "level": 1,
+      "order": 46,
+      "printed_page": "210",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "teaching",
+      "reason": "PDF第9页附表条目,清晰",
+      "parent_key": ""
+    },
+    {
+      "entry_id": "V0047",
+      "number": "",
+      "title": "习题参考答案",
+      "level": 1,
+      "order": 47,
+      "printed_page": "218",
+      "pdf_page": null,
+      "toc_page": 9,
+      "category": "answers",
+      "reason": "PDF第9页末条,纯习题答案,归 answers",
+      "parent_key": ""
+    }
+  ],
+  "response": {
+    "schema_version": "1.0",
+    "entries": [
+      {
+        "source_ids": [
+          "M0001",
+          "V0001"
+        ],
+        "number": "",
+        "title": "总序",
+        "level": 1,
+        "printed_page": "i",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "frontmatter",
+        "basis": "visual",
+        "reason": "PDF第8页首行清晰为总序，前置页码为罗马数字i，属前置内容；M层级误作3、页码误作1"
+      },
+      {
+        "source_ids": [
+          "M0002",
+          "V0002"
+        ],
+        "number": "",
+        "title": "前言",
+        "level": 1,
+        "printed_page": "iii",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "frontmatter",
+        "basis": "visual",
+        "reason": "PDF第8页第二行清晰为前言，前置页码为罗马数字iii，属前置内容；M层级误作3、页码误作2"
+      },
+      {
+        "source_ids": [
+          "M0003",
+          "V0003"
+        ],
+        "number": "1",
+        "title": "复数和平面点集",
+        "level": 1,
+        "printed_page": "1",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第8页章标题清晰为第1章 复数和平面点集，页码1"
+      },
+      {
+        "source_ids": [
+          "M0004",
+          "V0004"
+        ],
+        "number": "1.1",
+        "title": "复数",
+        "level": 2,
+        "printed_page": "1",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第8页第1章下第一行清晰为1.1 复数，页码1"
+      },
+      {
+        "source_ids": [
+          "M0005",
+          "V0005"
+        ],
+        "number": "1.2",
+        "title": "平面点集",
+        "level": 2,
+        "printed_page": "15",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "visual",
+        "reason": "PDF第8页1.2行清晰为平面点集，印刷页码15；M的5为OCR误读"
+      },
+      {
+        "source_ids": [
+          "M0006",
+          "V0006"
+        ],
+        "number": "2",
+        "title": "复变函数",
+        "level": 1,
+        "printed_page": "20",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "visual",
+        "reason": "PDF第8页章行清晰为第2章 复变函数，页码20；M多一‘数’字作复变数函数"
+      },
+      {
+        "source_ids": [
+          "M0007",
+          "V0007"
+        ],
+        "number": "2.1",
+        "title": "复变函数的概念",
+        "level": 2,
+        "printed_page": "20",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "visual",
+        "reason": "PDF第8页2.1行清晰为复变函数的概念，页码20；M多一‘数’字"
+      },
+      {
+        "source_ids": [
+          "M0008",
+          "V0008"
+        ],
+        "number": "2.2",
+        "title": "函数极限和连续性",
+        "level": 2,
+        "printed_page": "23",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第8页2.2行清晰为函数极限和连续性，页码23"
+      },
+      {
+        "source_ids": [
+          "M0009",
+          "V0009"
+        ],
+        "number": "2.3",
+        "title": "导数和解析函数的概念",
+        "level": 2,
+        "printed_page": "25",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第8页2.3行清晰为导数和解析函数的概念，页码25"
+      },
+      {
+        "source_ids": [
+          "M0010",
+          "V0010"
+        ],
+        "number": "2.4",
+        "title": "柯西-黎曼方程",
+        "level": 2,
+        "printed_page": "27",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第8页2.4行清晰为柯西-黎曼方程，页码27"
+      },
+      {
+        "source_ids": [
+          "M0011",
+          "V0011"
+        ],
+        "number": "2.5",
+        "title": "初等函数",
+        "level": 2,
+        "printed_page": "30",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第8页2.5行清晰为初等函数，页码30"
+      },
+      {
+        "source_ids": [
+          "M0012",
+          "V0012"
+        ],
+        "number": "3",
+        "title": "解析函数的积分表示",
+        "level": 1,
+        "printed_page": "50",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第8页章标题清晰为第3章 解析函数的积分表示，页码50"
+      },
+      {
+        "source_ids": [
+          "M0013",
+          "V0013"
+        ],
+        "number": "3.1",
+        "title": "复变函数的积分",
+        "level": 2,
+        "printed_page": "50",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第8页3.1行清晰为复变函数的积分，页码50"
+      },
+      {
+        "source_ids": [
+          "M0014",
+          "V0014"
+        ],
+        "number": "3.2",
+        "title": "柯西积分定理",
+        "level": 2,
+        "printed_page": "54",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第8页3.2行清晰为柯西积分定理，页码54"
+      },
+      {
+        "source_ids": [
+          "M0015",
+          "V0015"
+        ],
+        "number": "3.3",
+        "title": "原函数",
+        "level": 2,
+        "printed_page": "56",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第8页3.3行清晰为原函数，页码56"
+      },
+      {
+        "source_ids": [
+          "M0016",
+          "V0016"
+        ],
+        "number": "3.4",
+        "title": "柯西积分公式",
+        "level": 2,
+        "printed_page": "59",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第8页3.4行清晰为柯西积分公式，页码59"
+      },
+      {
+        "source_ids": [
+          "M0017",
+          "V0017"
+        ],
+        "number": "3.5",
+        "title": "解析函数的性质",
+        "level": 2,
+        "printed_page": "63",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第8页3.5行清晰为解析函数的性质，页码63"
+      },
+      {
+        "source_ids": [
+          "M0018",
+          "V0018"
+        ],
+        "number": "4",
+        "title": "调和函数",
+        "level": 1,
+        "printed_page": "69",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第8页章标题清晰为第4章 调和函数，页码69"
+      },
+      {
+        "source_ids": [
+          "M0019",
+          "V0019"
+        ],
+        "number": "4.1",
+        "title": "解析函数与调和函数的关系",
+        "level": 2,
+        "printed_page": "69",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第8页4.1行清晰为解析函数与调和函数的关系，页码69"
+      },
+      {
+        "source_ids": [
+          "M0020",
+          "V0020"
+        ],
+        "number": "4.2",
+        "title": "调和函数的性质和狄利克雷问题",
+        "level": 2,
+        "printed_page": "72",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "visual",
+        "reason": "PDF第8页4.2行清晰为调和函数的性质和狄利克雷问题，页码72；M误作狭利克雷问题"
+      },
+      {
+        "source_ids": [
+          "M0021",
+          "V0021"
+        ],
+        "number": "5",
+        "title": "解析函数的级数展开",
+        "level": 1,
+        "printed_page": "77",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第8页章标题清晰为第5章 解析函数的级数展开，页码77"
+      },
+      {
+        "source_ids": [
+          "M0022",
+          "V0022"
+        ],
+        "number": "5.1",
+        "title": "复级数的基本性质",
+        "level": 2,
+        "printed_page": "77",
+        "pdf_page": null,
+        "toc_page": 8,
+        "category": "teaching",
+        "basis": "mineru",
+        "reason": "PDF第8页末行清晰为5.1 复级数的基本性质，页码77；V误作复数项的基本性质"
+      },
+      {
+        "source_ids": [
+          "M0023",
+          "V0023"
+        ],
+        "number": "5.2",
+        "title": "幂级数",
+        "level": 2,
+        "printed_page": "82",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "visual",
+        "reason": "PDF第9页首行清晰为5.2 幂级数，页码82；M误作基级数"
+      },
+      {
+        "source_ids": [
+          "M0024",
+          "V0024"
+        ],
+        "number": "5.3",
+        "title": "解析函数的泰勒(Taylor)展开",
+        "level": 2,
+        "printed_page": "85",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页5.3行清晰为解析函数的泰勒(Taylor)展开，页码85"
+      },
+      {
+        "source_ids": [
+          "M0025",
+          "V0025"
+        ],
+        "number": "5.4",
+        "title": "罗朗(Laurent)级数",
+        "level": 2,
+        "printed_page": "91",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页5.4行清晰为罗朗(Laurent)级数，页码91"
+      },
+      {
+        "source_ids": [
+          "M0026",
+          "V0026"
+        ],
+        "number": "5.5",
+        "title": "解析函数的孤立奇点",
+        "level": 2,
+        "printed_page": "98",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页5.5行清晰为解析函数的孤立奇点，页码98"
+      },
+      {
+        "source_ids": [
+          "M0027",
+          "V0027"
+        ],
+        "number": "6",
+        "title": "留数及其应用",
+        "level": 1,
+        "printed_page": "107",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页章标题清晰为第6章 留数及其应用，页码107"
+      },
+      {
+        "source_ids": [
+          "M0028",
+          "V0028"
+        ],
+        "number": "6.1",
+        "title": "留数定理",
+        "level": 2,
+        "printed_page": "107",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页6.1行清晰为留数定理，页码107"
+      },
+      {
+        "source_ids": [
+          "M0029",
+          "V0029"
+        ],
+        "number": "6.2",
+        "title": "积分计算",
+        "level": 2,
+        "printed_page": "111",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页6.2行清晰为积分计算，页码111"
+      },
+      {
+        "source_ids": [
+          "M0030",
+          "V0030"
+        ],
+        "number": "6.3",
+        "title": "辐角原理",
+        "level": 2,
+        "printed_page": "126",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页6.3行清晰为辐角原理，页码126"
+      },
+      {
+        "source_ids": [
+          "M0031",
+          "V0031"
+        ],
+        "number": "7",
+        "title": "解析开拓",
+        "level": 1,
+        "printed_page": "134",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页章标题清晰为第7章 解析开拓，页码134"
+      },
+      {
+        "source_ids": [
+          "M0032",
+          "V0032"
+        ],
+        "number": "7.1",
+        "title": "唯一性定理和解析开拓的概念",
+        "level": 2,
+        "printed_page": "134",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页7.1行清晰为唯一性定理和解析开拓的概念，页码134"
+      },
+      {
+        "source_ids": [
+          "M0033",
+          "V0033"
+        ],
+        "number": "7.2",
+        "title": "含复参变量积分及Γ函数",
+        "level": 2,
+        "printed_page": "138",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "mineru",
+        "reason": "PDF第9页7.2行清晰为含复参变量积分及Γ函数，页码138；V误作含参变量的解析开拓"
+      },
+      {
+        "source_ids": [
+          "M0034",
+          "V0034"
+        ],
+        "number": "8",
+        "title": "保形变换及其应用",
+        "level": 1,
+        "printed_page": "145",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页章标题清晰为第8章 保形变换及其应用，页码145"
+      },
+      {
+        "source_ids": [
+          "M0035",
+          "V0035"
+        ],
+        "number": "8.1",
+        "title": "导数的几何意义",
+        "level": 2,
+        "printed_page": "145",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页8.1行清晰为导数的几何意义，页码145"
+      },
+      {
+        "source_ids": [
+          "M0036",
+          "V0036"
+        ],
+        "number": "8.2",
+        "title": "保形变换的概念",
+        "level": 2,
+        "printed_page": "147",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页8.2行清晰为保形变换的概念，页码147"
+      },
+      {
+        "source_ids": [
+          "M0037",
+          "V0037"
+        ],
+        "number": "8.3",
+        "title": "分式线性变换",
+        "level": 2,
+        "printed_page": "149",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页8.3行清晰为分式线性变换，页码149"
+      },
+      {
+        "source_ids": [
+          "M0038",
+          "V0038"
+        ],
+        "number": "8.4",
+        "title": "初等函数的映照",
+        "level": 2,
+        "printed_page": "156",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "mineru",
+        "reason": "PDF第9页8.4行清晰为初等函数的映照，页码156；V误作映射"
+      },
+      {
+        "source_ids": [
+          "M0039",
+          "V0039"
+        ],
+        "number": "*8.5",
+        "title": "许瓦兹-克利斯托菲变换",
+        "level": 2,
+        "printed_page": "163",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页*8.5行清晰为许瓦兹-克利斯托菲变换，且与8.1–8.4同级，故取level2；M误作level3置于8.4下，V标题误作克里斯托弗"
+      },
+      {
+        "source_ids": [
+          "M0040",
+          "V0040"
+        ],
+        "number": "8.6",
+        "title": "平面场",
+        "level": 2,
+        "printed_page": "171",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "mineru",
+        "reason": "PDF第9页8.6行清晰为平面场，页码171；V误作半平面"
+      },
+      {
+        "source_ids": [
+          "M0041",
+          "V0041"
+        ],
+        "number": "9",
+        "title": "拉氏变换",
+        "level": 1,
+        "printed_page": "186",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页章标题清晰为第9章 拉氏变换，页码186"
+      },
+      {
+        "source_ids": [
+          "M0042",
+          "V0042"
+        ],
+        "number": "9.1",
+        "title": "拉氏变换的定义",
+        "level": 2,
+        "printed_page": "186",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页9.1行清晰为拉氏变换的定义，页码186"
+      },
+      {
+        "source_ids": [
+          "M0043",
+          "V0043"
+        ],
+        "number": "9.2",
+        "title": "拉氏变换的基本性质",
+        "level": 2,
+        "printed_page": "189",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "both",
+        "reason": "PDF第9页9.2行清晰为拉氏变换的基本性质，页码189"
+      },
+      {
+        "source_ids": [
+          "M0044",
+          "V0044"
+        ],
+        "number": "9.3",
+        "title": "由像函数求本函数",
+        "level": 2,
+        "printed_page": "200",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "teaching",
+        "basis": "mineru",
+        "reason": "PDF第9页9.3行清晰为由像函数求本函数，页码200；V误作由像函数求原函数"
+      },
+      {
+        "source_ids": [
+          "M0045",
+          "V0045"
+        ],
+        "number": "附表1",
+        "title": "基本法则表",
+        "level": 1,
+        "printed_page": "209",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "reference",
+        "basis": "visual",
+        "reason": "PDF第9页末段清晰列出附表1 基本法则表，作为参考表归reference；M将附表并入题名且层级误作3"
+      },
+      {
+        "source_ids": [
+          "M0046",
+          "V0046"
+        ],
+        "number": "附表2",
+        "title": "拉普拉斯变换表",
+        "level": 1,
+        "printed_page": "210",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "reference",
+        "basis": "visual",
+        "reason": "PDF第9页末段清晰列出附表2 拉普拉斯变换表，作为参考表归reference；M将附表并入题名且层级误作3"
+      },
+      {
+        "source_ids": [
+          "M0047",
+          "V0047"
+        ],
+        "number": "",
+        "title": "习题参考答案",
+        "level": 1,
+        "printed_page": "218",
+        "pdf_page": null,
+        "toc_page": 9,
+        "category": "answers",
+        "basis": "visual",
+        "reason": "PDF第9页末行清晰为习题参考答案，为答案章，归answers；层级取与附表同级level1"
+      }
+    ],
+    "discarded": [],
+    "issues": []
+  },
+  "prior_problems": [
+    "ContractError: 复核条目缺选择依据和理由"
+  ]
+}

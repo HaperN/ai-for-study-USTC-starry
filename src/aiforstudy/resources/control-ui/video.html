@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>视频解析 · starry</title><link rel="stylesheet" href="/video.css"></head>
+<body><header><nav><a href="/">← 教材工作台</a><span>starry / 视频学习</span></nav>
+<p class="eyebrow">从一堂课开始</p><h1>让视频成为可回看的讲义</h1>
+<p class="intro">语音转写、画面识别与连续讲解放在一起。每处引用都能回到原片。</p></header>
+<main><section class="upload-panel" aria-labelledby="upload-title"><div><h2 id="upload-title">1. 选择教学视频</h2>
+<p class="muted">视频作为独立课程保存。默认处理全片；画面采用抽样，识别疑问会保留。</p>
+<p class="muted">语音转写和画面文字识别在本机进行；关键帧及识别文字会发送给当前配置的 AI 模型整理讲义。</p>
+<label class="file-label" for="video-file">选择本地视频<input id="video-file" type="file" accept="video/*,.mkv,.avi"></label>
+<span class="or">或</span><button id="sample-video" type="button" disabled>使用已提供的第一讲</button>
+<p id="selected-source" role="status">尚未选择视频。</p><p id="video-capabilities" class="muted">正在检查本地处理能力…</p></div>
+<div class="submit-panel"><label for="video-title">课程标题（可选）</label><input id="video-title" placeholder="例如：复变函数 · 第一讲" maxlength="200">
+<label class="check"><input type="checkbox" id="force-video">重新分析，不复用已完成结果</label>
+<button class="primary" id="submit-video" disabled>开始解析</button>
+<p class="muted">提交后可关闭或刷新页面，任务记录保存在本机。</p></div></section>
+<p id="video-message" role="status" aria-live="polite"></p>
+<section aria-labelledby="history-title"><div class="section-heading"><div><h2 id="history-title">2. 解析任务</h2><p class="muted">阶段进度来自后台；中断或失败后可恢复。</p></div><button id="refresh-videos">刷新</button></div>
+<div id="video-jobs" aria-live="polite"><p>正在读取任务…</p></div></section></main>
+<script src="/video.js"></script></body></html>

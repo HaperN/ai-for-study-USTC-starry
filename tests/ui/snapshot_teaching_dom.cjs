@@ -1,0 +1,16 @@
+'use strict';
+const fs=require('node:fs'),assert=require('node:assert/strict'),{JSDOM}=require('jsdom');
+const marked=require('../../blocks/render/vendor/marked.min.js');
+const core=require('../../blocks/render/assets/render-core.js'),layout=require('../../blocks/render/assets/reader-layout.js');
+const unit=JSON.parse(fs.readFileSync(0,'utf8')),renderer=core.createRenderer({marked});
+renderer.beginUnit({unitId:'U'});
+const dom=new JSDOM('<main>'+renderer.readerDocumentHtml(unit.reader_document,'body',[],unit.reader_layout,unit.teaching_presentation)+'</main>');
+const root=dom.window.document.querySelector('main');layout.enhance(root,unit,'U');
+const find=text=>[...root.querySelectorAll('p')].find(p=>p.textContent.includes(text));
+const proof=find('逐项推导').closest('details');
+assert.ok(proof && !proof.open);
+assert.ok(proof.querySelector('[data-media-anchor]'),'proof media must share the proof disclosure');
+const example=find('取数值代入').closest('details');assert.ok(example && !example.open);
+assert.equal(find('一般结论').closest('details'),null);
+assert.equal(find('结论及适用条件').closest('details'),null);
+dom.window.close();

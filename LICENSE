@@ -1,0 +1,67 @@
+starry — Source-Available, No-Modification Terms
+Version 1.0, 2026-11-20
+
+Copyright (c) 2026 黄浡桉 and 刘睿湘.
+All rights reserved except as expressly permitted below.
+
+1. Scope
+These terms apply to the original starry program, documentation and course
+material controlled by the project authors. They do not replace the licences
+or rights of third-party software, fonts, source documents or other materials.
+Third-party notices and source attributions must be retained.
+
+2. Permitted use
+You may view, download, make personal copies of, and run unchanged copies of
+the covered material for personal study, teaching or evaluation, with the
+copyright, authorship and licence notices intact. Runtime configuration,
+locally supplied credentials, your own input files, and private notes or
+annotations created through the intended application features are permitted.
+These ordinary uses do not authorise changes to the original program or to
+the published course originals.
+
+3. No modification or derivative distribution
+Without prior written permission from both project authors, you may not
+modify, adapt, translate as a derivative publication, or create derivative
+versions of the covered original program, documentation or published course
+content. No permission is granted to redistribute, sublicense, sell, or
+provide a hosted service using the covered material, except for platform
+rights expressly described below or rights independently granted by the
+applicable third-party owner. Sharing the official download link is allowed.
+Permission requests may be initiated through the repository's issue tracker.
+
+4. GitHub platform rights
+For material published in a public GitHub repository, the viewing and
+platform-forking rights required by GitHub's applicable Terms of Service
+remain available. These terms do not purport to disable GitHub features.
+Platform access or a fork does not grant additional permission to modify or
+distribute derivative versions of the project-owned material.
+
+5. Third-party material
+Third-party components remain governed by their own licences, including any
+rights to modification or redistribution those licences grant. Nothing here
+restricts independently granted third-party rights. See THIRD_PARTY_NOTICES
+and notices accompanying the relevant files. Distribution of the supplied
+teaching sources by this project is not a blanket relicensing of those sources.
+
+6. No warranty
+To the extent permitted by applicable law, the covered material is provided
+"as is", without warranties of accuracy, completeness, merchantability,
+fitness for a particular purpose or non-infringement. The authors are not
+liable for losses arising from use of the material to the extent permitted
+by applicable law. Mathematical statements and generated content require
+independent verification for their intended use.
+
+7. No implied grants
+No other rights, including endorsement or trademark rights, are granted.
+This is a source-available licence with a no-modification restriction; it is
+not an open-source licence.
+
+中文说明（与上述条款一并阅读）：
+项目原创程序、文档及作者有权许可的课程内容保留版权。允许查看、下载、
+保存个人副本及原样运行，用于个人学习、教学或评估，并保留署名与许可声明。
+正常的运行配置、输入自己的材料、创建私人笔记及使用批注功能属于允许的使用。
+未经黄浡桉与刘睿湘双方事先书面许可，不得修改原创程序或发布的课程原件，
+也未获得发布衍生版本、重新分发、转许可、销售或提供托管服务的许可。
+可以分享官方项目及下载链接。GitHub 平台条款要求的查看与平台内 fork 权利保留。
+第三方软件、字体及来源材料继续适用其原有许可，本条款不限制第三方已授予的权利。
+本项目不保证内容无误；具体使用条款及责任范围以上述完整条款为准。

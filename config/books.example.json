@@ -1,0 +1,23 @@
+{
+  "workspace": ".",
+  "books": {
+    "complex-analysis": {
+      "title": "复变函数（用户自行导入的来源）",
+      "revision": "user-source-v1",
+      "sources": [
+        {
+          "kind": "pdf",
+          "path": "data/raw/复变函数.pdf",
+          "sha256": null
+        }
+      ],
+      "parse": "data/parse/complex-analysis",
+      "lessons": "data/lesson/complex-analysis",
+      "audit": "data/audit/complex-analysis",
+      "problems": "data/problems/complex-analysis.json",
+      "artifacts_root": "data/books/complex-analysis/artifacts",
+      "runs_root": "data/books/complex-analysis/runs",
+      "releases_root": "data/books/complex-analysis/releases"
+    }
+  }
+}

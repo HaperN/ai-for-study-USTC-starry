@@ -1,0 +1,44 @@
+{
+  "policy_version": 2,
+  "parallelism": 2,
+  "media_resource_parallelism": 4,
+  "api_deadline_seconds": 1000,
+  "connect_timeout_seconds": 15,
+  "cancel_grace_seconds": 10,
+  "drain_seconds": 30,
+  "heartbeat_seconds": 5,
+  "content_repair_rounds_per_object": 2,
+  "evidence_repairs_per_verdict": 1,
+  "attempt_limits": {
+    "transport": 2
+  },
+  "render": {
+    "draft_seconds": 120,
+    "final_seconds": 300,
+    "cpu_cores": 2,
+    "memory_bytes": 2147483648,
+    "output_bytes": 134217728,
+    "max_concurrent_workers": 6
+  },
+  "profiles": {
+    "release": {
+      "parallelism": 18,
+      "allow_real_services": true,
+      "release_ready_possible": true,
+      "api_deadline_seconds": null,
+      "content_parallelism": 6,
+      "media_api_parallelism": 12
+    },
+    "replay": {
+      "parallelism": 1,
+      "allow_real_services": false,
+      "release_ready_possible": false
+    },
+    "smoke": {
+      "parallelism": 1,
+      "allow_real_services": false,
+      "release_ready_possible": false
+    }
+  },
+  "call_timeout_seconds": 900
+}

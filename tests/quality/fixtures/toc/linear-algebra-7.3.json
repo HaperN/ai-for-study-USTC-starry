@@ -1,0 +1,43 @@
+{
+  "provenance": {
+    "note": "De-identified semantic regression fixture from project-provided materials; historical run paths and extraction hashes omitted."
+  },
+  "authority": {
+    "toc_id": "T-0091",
+    "level": 2,
+    "number": "7.3",
+    "title": "ℝⁿ上的线性变换",
+    "parent": "T-0088",
+    "page": {
+      "printed": "231",
+      "pdf": null
+    },
+    "kind": "section",
+    "confirmed": true,
+    "evidence": {
+      "from": [
+        "pdf-visual-toc"
+      ],
+      "agree": false
+    },
+    "order": 91
+  },
+  "candidate": {
+    "page": 231,
+    "line": 3650,
+    "text": "§7.3 \\mathbb{R}^n 上的线性变换",
+    "level": 2,
+    "region": "body"
+  },
+  "body_span": {
+    "line": 3650,
+    "text": "§7.3 $\\mathbb{R}^n$ 上的线性变换"
+  },
+  "prior_unmatched": {
+    "toc_id": "T-0091",
+    "number": "7.3",
+    "level": 2,
+    "title": "ℝⁿ上的线性变换",
+    "why": "目录里有、正文候选里找不到（正文可能没这一节，或 MinerU 没标成 title）"
+  }
+}

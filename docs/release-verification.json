@@ -1,0 +1,127 @@
+{
+  "date": "2026-11-20",
+  "source_baseline": "0a80b0303b17833398b384eb5c5025df9dfc5a2f",
+  "scope": "Public packaging, configuration, documentation and targeted regression checks; not a full mathematical or live-model certification.",
+  "fresh_install": {
+    "environment": "fresh Python 3.12 venv, macOS",
+    "real_model_calls": 0,
+    "installed_cli_help": true,
+    "workbench_source_registry": true,
+    "workbench_http": true,
+    "read_only_check": true,
+    "teaching_units": 76,
+    "reader_data_sha256": "e68fd872d0430bbb56aea617badf892c59e441e8b53c0170f98879b2f95c02f3",
+    "practice_revision": "cc531353b909b643e23fe9fc19d1f98a20ae2a7b66ed8bc42824aa57ab211110",
+    "integrated_http_routes": [
+      "/start",
+      "/",
+      "/practice/",
+      "/assets/notes.js",
+      "/data/data.js"
+    ],
+    "separate_workbench_origin": true,
+    "installed_package_used": true
+  },
+  "offline_browser": {
+    "browser": "Edge/Chromium, file URLs, network offline",
+    "units": 76,
+    "basic": 42,
+    "full": 103,
+    "formulas": 581,
+    "gallery": {
+      "title": "复变函数 A · 动画目录",
+      "videos": 1,
+      "currentTime": 0.2179,
+      "entries": 15
+    },
+    "js_errors": 0,
+    "external_requests": 0
+  },
+  "static_distribution": {
+    "local_html_links_checked": 360,
+    "missing_local_html_links": 0,
+    "original_student_files_unchanged": 448,
+    "original_media_files_unchanged": 335,
+    "credential_signature_findings": 0,
+    "private_database_files": 0,
+    "personal_runtime_path_findings": 0,
+    "allowed_student_changes": [
+      "README.txt",
+      "index.html",
+      "复变函数A/可打印/基础版-习题解析.pdf",
+      "复变函数A/可打印/基础版-习题题册.pdf",
+      "复变函数A/可打印/完整版-习题解析.pdf",
+      "复变函数A/可打印/完整版-习题题册.pdf",
+      "复变函数A/教材/index.html",
+      "点这里开始阅读.html"
+    ],
+    "source_pdf_sha256": "2028b7f926b9f65129f35daaaedf9df9aefe8ad5d336e4acd95846f00b7c5c23",
+    "tracked_source_files": 1249,
+    "student_files": 467
+  },
+  "targeted_python_tests": {
+    "passed": 186,
+    "failed": 0,
+    "skipped": 14,
+    "note": "Final publication regression selection after metadata sanitization. Fourteen historical content-correction tests require a separately provided pre-correction reader fixture and are explicitly skipped."
+  },
+  "targeted_node_browser_tests": {
+    "passed": 5,
+    "failed": 0
+  },
+  "wheel_build": {
+    "succeeded": true,
+    "third_party_and_project_licenses_included": true,
+    "authors_present": true
+  },
+  "new_real_model_calls_in_publication_checks": 0,
+  "citation_schema_validated": true,
+  "publication_review": {
+    "personal_paths_and_internal_run_metadata": "removed; fresh Git history created before publication",
+    "python_source_authority": "publisher expressly confirmed authorization; historical missing standalone licence metadata retained and documented; upstream chain not independently audited",
+    "runtime_code_sanitization": "executable AST unchanged in the eight source modules with redacted documentation",
+    "student_archive": "Regenerated after removing local workstation URLs from four PDFs; final archive checksums are in the release SHA256SUMS.txt."
+  },
+  "pdf_link_privacy": [
+    {
+      "file": "复变函数A/可打印/基础版-习题解析.pdf",
+      "pages": 63,
+      "local_links_made_relative": 84,
+      "all_page_content_streams_unchanged": true,
+      "rendered_pages_pixel_identical": [
+        1,
+        63
+      ]
+    },
+    {
+      "file": "复变函数A/可打印/基础版-习题题册.pdf",
+      "pages": 13,
+      "local_links_made_relative": 42,
+      "all_page_content_streams_unchanged": true,
+      "rendered_pages_pixel_identical": [
+        1,
+        13
+      ]
+    },
+    {
+      "file": "复变函数A/可打印/完整版-习题解析.pdf",
+      "pages": 146,
+      "local_links_made_relative": 179,
+      "all_page_content_streams_unchanged": true,
+      "rendered_pages_pixel_identical": [
+        1,
+        146
+      ]
+    },
+    {
+      "file": "复变函数A/可打印/完整版-习题题册.pdf",
+      "pages": 29,
+      "local_links_made_relative": 76,
+      "all_page_content_streams_unchanged": true,
+      "rendered_pages_pixel_identical": [
+        1,
+        29
+      ]
+    }
+  ]
+}

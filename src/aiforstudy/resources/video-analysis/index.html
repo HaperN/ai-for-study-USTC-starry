@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>视频讲义 · starry</title><link rel="stylesheet" href="/video.css"><link rel="stylesheet" href="/video-analysis/result.css"><link rel="stylesheet" href="/video-assets/katex.min.css"></head>
+<body><header><nav><a href="/video">← 视频解析与任务</a><span>starry / 视频讲义</span></nav>
+<p class="eyebrow">先读懂讲义，需要时回看原片</p><h1 id="result-title">视频讲义</h1><p id="result-status" role="status">正在读取结果…</p></header>
+<main id="reader" hidden><aside class="source-panel"><video id="source-video" controls playsinline preload="metadata" aria-label="原片回看"></video>
+<div class="actions"><button id="play-video" class="primary">有声播放</button><button id="pause-video">暂停</button></div>
+<p id="player-status" role="status" class="muted">点击时间引用可以定位到原片。时间为识别窗口或抽样位置。</p>
+<p id="playback-mode" class="muted"></p><div id="downloads" class="downloads"></div>
+<h2>时间目录</h2><ol id="time-directory"></ol></aside>
+<div class="content-panel"><nav class="reader-tabs" aria-label="结果内容"><a href="#lesson">完整讲义</a><a href="#transcript">逐窗转写</a><a href="#frames">画面与识别</a><a href="#uncertainties">公式与疑问</a></nav>
+<section id="deferred-work" hidden aria-label="局部待核与未完成检查"></section>
+<section id="lesson" aria-label="完整讲义"></section>
+<section id="corrections" hidden><details><summary id="correction-summary">查看全片校订记录</summary><div id="correction-list"></div></details></section>
+<section><h2>逐窗转写 · 原始识别稿</h2><p class="muted">按音频窗口展示，重叠窗口可能重复。以下原文保留识别结果，不以整理后的讲义替换。</p><div id="transcript"></div></section>
+<section><h2>关键帧与画面文字</h2><p class="muted">画面是抽样证据，不代表逐帧识别；OCR 与模型理解分开保存。</p><div id="frames"></div></section>
+<section id="uncertainties"><h2>公式与待核实项</h2><div id="formulas"></div><ul id="questions"></ul></section>
+<section><h2>覆盖范围与执行记录</h2><div id="coverage"></div><details><summary>模型身份、来源与审核记录</summary><pre id="provenance"></pre></details></section></div></main>
+<script src="/video-assets/katex.min.js"></script><script src="/video-assets/study-math.js"></script><script src="/video-assets/audible-audio.js"></script><script src="/video-analysis/result.js"></script></body></html>

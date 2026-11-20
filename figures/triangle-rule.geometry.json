@@ -1,0 +1,143 @@
+{
+  "_meta": {
+    "file_type": "figure_geometry",
+    "schema_version": "1.0",
+    "generator": "aiforstudy.figures",
+    "field_notes": {
+      "points": "图形数据坐标（只写一次，图和校验都从这里取）",
+      "display": "matplotlib 实际渲染用的显示坐标；仿射不变量在这里成立",
+      "canvas": "画布像素尺寸 [宽, 高]",
+      "label_boxes": "每个标注的实际外框；用来查「有没有画出画布」",
+      "expected_ids": "这张图该有的图元 id",
+      "label_gids": "每个标注的图元 id。**数学标注会被渲成路径**（不依赖字体，任何浏览器都一样），所以靠 gid 而不是 <text> 来证明它画出来了；普通文字标注则要求是 <text>（能搜索、能选中）",
+      "closes[]": "首尾相接必须闭环的段：Σ(终点−起点) ≈ 0",
+      "relations[]": "两对点之间的位移必须相等",
+      "lengths[]": "两段长度的比值",
+      "angles[]": "顶点处两段之间的夹角（度）",
+      "directions[]": "两段方向之间的夹角（度）—— 不需要共用顶点，用来查「方向相反」这类关系",
+      "anchors": "每个标注挂在哪一点上（查「标注有没有挂错点」）"
+    }
+  },
+  "name": "triangle-rule",
+  "title": "三角形法则",
+  "concepts": [
+    "C-0139"
+  ],
+  "points": {
+    "O": [
+      0.0,
+      0.0
+    ],
+    "A": [
+      2.6,
+      0.2
+    ],
+    "C": [
+      3.5,
+      2.1
+    ],
+    "M": [
+      3.05,
+      1.15
+    ],
+    "N": [
+      1.75,
+      1.05
+    ]
+  },
+  "display": {
+    "O": [
+      129.71929824561394,
+      120.98245614035085
+    ],
+    "A": [
+      459.9649122807018,
+      146.38596491228066
+    ],
+    "C": [
+      574.280701754386,
+      387.71929824561397
+    ],
+    "M": [
+      517.1228070175439,
+      267.0526315789473
+    ],
+    "N": [
+      352.0,
+      254.3508771929824
+    ]
+  },
+  "canvas": [
+    704.0,
+    496.0
+  ],
+  "label_boxes": {
+    "$\\boldsymbol{a}$": [
+      421.86,
+      88.639,
+      441.86,
+      117.528
+    ],
+    "$\\boldsymbol{b}$": [
+      532.365,
+      267.734,
+      553.365,
+      296.674
+    ],
+    "$\\boldsymbol{a}+\\boldsymbol{b}$": [
+      313.895,
+      188.983,
+      389.895,
+      217.923
+    ],
+    "O": [
+      86.533,
+      73.397,
+      109.533,
+      102.286
+    ]
+  },
+  "labels": [
+    "$\\boldsymbol{a}$",
+    "$\\boldsymbol{b}$",
+    "$\\boldsymbol{a}+\\boldsymbol{b}$",
+    "O"
+  ],
+  "label_gids": {
+    "$\\boldsymbol{a}$": "label-0",
+    "$\\boldsymbol{b}$": "label-1",
+    "$\\boldsymbol{a}+\\boldsymbol{b}$": "label-2",
+    "O": "label-3"
+  },
+  "expected_ids": [
+    "vec-a",
+    "vec-b",
+    "vec-sum"
+  ],
+  "closes": [
+    [
+      [
+        "O",
+        "A"
+      ],
+      [
+        "A",
+        "C"
+      ],
+      [
+        "C",
+        "O"
+      ]
+    ]
+  ],
+  "relations": [],
+  "lengths": [],
+  "angles": [],
+  "directions": [],
+  "anchors": {
+    "$\\boldsymbol{a}$": "A",
+    "$\\boldsymbol{b}$": "M",
+    "$\\boldsymbol{a}+\\boldsymbol{b}$": "N",
+    "O": "O"
+  }
+}

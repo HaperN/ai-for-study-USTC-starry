@@ -1,0 +1,206 @@
+/* A quiet paper column and a deliberately dark mathematical workspace.
+   Loaded last so the offline reader and legacy media share the same theme. */
+.book-page {
+  --paper: #fbfaf7;
+  --bg: #fbfaf7;
+  --ink: #27332f;
+  --accent: #166657;
+  --study-dark: #101b2b;
+  --study-muted: #a9b9ce;
+  --reader-sidebar-width: 230px;
+  background: var(--paper);
+}
+.book-page .layout { max-width: 1800px; }
+.book-page .content { min-width: 0; padding-left: 38px; padding-right: 38px; }
+.book-page .unit-head { margin-bottom: 42px; }
+.book-page .unit-head h1 { letter-spacing: -.035em; font-weight: 650; }
+.book-page .reader-topic { margin-bottom: 56px; }
+.book-page .content .reader-topic-title { font-size: 27px; letter-spacing: -.02em; }
+.study-target-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(340px, .92fr);
+  gap: 34px;
+  align-items: start;
+  width: 100%;
+  min-width: 0;
+}
+.study-target-copy, .study-visual-column { min-width: 0; }
+.study-target-copy { font-size: var(--reader-font-size); line-height: 1.95; }
+.study-visual-column { display: grid; gap: 18px; align-content: start; }
+/* An existing authored proof/video pair sits inside the paper column. Never
+   create four competing columns when adding its new interactive companion. */
+.book-page .study-target-copy .reader-comparison { display: block; }
+.book-page .study-target-copy .reader-media-column { position: static; margin-top: 22px; }
+.book-page .study-target-copy .reader-concept-card { max-width: none; }
+.book-page .reader-group.has-study-visuals { max-width: none; }
+.book-page .reader-group.has-study-visuals > .study-target-layout { margin-top: 18px; }
+.book-page .reader-proof-disclosure, .book-page .reader-example-disclosure {
+  border: 1px solid #dbe4dc;
+  border-radius: 9px;
+  padding: 0 16px;
+  background: #f7f8f3;
+  margin: 18px 0;
+}
+.book-page .reader-proof-disclosure > summary,
+.book-page .reader-example-disclosure > summary { padding: 13px 0; color: #256254; cursor: pointer; }
+.book-page .study-visual {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 19px 18px 15px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid #26384d;
+  border-radius: 15px;
+  background: var(--study-dark);
+  color: #e1eaf5;
+  box-shadow: 0 8px 24px #17283b0b;
+  font: 13px/1.65 var(--sans, sans-serif);
+  color-scheme: dark;
+  scroll-margin-top: 100px;
+}
+.study-visual-header { display: block; border: 0; background: none; padding: 0; margin: 0; }
+.book-page .study-visual .study-eyebrow {
+  padding: 0; margin: 0 0 7px;
+  color: #83b9b0;
+  font: 10px/1.5 var(--sans, sans-serif);
+  letter-spacing: .07em;
+}
+.book-page .study-visual .study-visual-title {
+  padding: 0; margin: 0;
+  color: #edf4fc;
+  font: 600 17px/1.6 var(--sans, sans-serif);
+  letter-spacing: 0;
+  border: 0;
+  overflow-wrap: anywhere;
+}
+.book-page .study-visual .study-formula {
+  margin: 10px 0 4px;
+  color: #c1d3ec;
+  font: 13px/1.7 ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  overflow-wrap: anywhere;
+}
+.study-viewport {
+  position: relative;
+  width: 100%;
+  height: clamp(230px, 22vw, 310px);
+  overflow: hidden;
+  border-radius: 8px;
+  background: #101b2b;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.study-viewport:active { cursor: grabbing; }
+.study-viewport > canvas { display: block; width: 100%; height: 100%; border: 0; margin: 0; }
+.study-load-note { position: absolute; inset: 0; display: grid; place-items: center; color: #7f95ae; font-size: 12px; }
+.study-plot-labels { position: absolute; inset: 8px 0 auto; pointer-events: none; }
+.study-plot-labels > span { position: absolute; transform: translateX(-50%); color: #a9c4e4; font-size: 10px; white-space: nowrap; }
+.book-page .study-visual .study-readout {
+  min-height: 38px; padding: 10px 11px; margin: 3px 0 15px;
+  border: 1px solid #293a50; border-radius: 6px;
+  background: #152338;
+  color: #b7d8d0;
+  font: 12px/1.7 ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  overflow-wrap: anywhere;
+}
+.study-parameters { display: grid; gap: 10px; margin-bottom: 16px; }
+.study-parameter { display: grid; grid-template-columns: minmax(74px, auto) minmax(60px, 1fr) 62px; align-items: center; gap: 9px; margin: 0; font: 11px/1.5 var(--sans, sans-serif); color: #c0cfe0; }
+.study-parameter input[type='range'] { width: 100%; min-width: 0; height: 20px; margin: 0; padding: 0; accent-color: #60d9bb; cursor: pointer; }
+.study-parameter input[type='number'] {
+  width: 100%; min-width: 0; height: 29px; box-sizing: border-box;
+  border: 1px solid #384b62; border-radius: 5px;
+  padding: 3px 4px; margin: 0; background: #1a2b41; color: #edf4fb;
+  text-align: center; font: 12px/1.5 ui-monospace, monospace;
+}
+.study-tools, .study-view-tools { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
+.book-page .study-visual button {
+  min-height: 32px; padding: 5px 11px; margin: 0; border: 1px solid #34485f; border-radius: 6px;
+  background: #1b2b40; color: #d9e7f6; font: 11px/1.5 var(--sans, sans-serif);
+  cursor: pointer; box-shadow: none; transition: border-color .15s, background .15s;
+}
+.book-page .study-visual button:hover { background: #263d55; border-color: #6e9fba; }
+.book-page .study-visual button:focus-visible, .book-page .study-visual input:focus-visible { outline-color: #8ae7d0; outline-offset: 3px; }
+.book-page .study-visual button[data-study-action='play'] { background: #254d48; color: #b8f6e2; border-color: #40776a; margin-right: auto; }
+.study-view-tools { border-top: 1px solid #29384b; margin-top: 12px; padding-top: 11px; gap: 5px; }
+.book-page .study-view-tools button { min-width: 30px; min-height: 28px; padding: 3px 6px; color: #a9c1db; background: transparent; font-size: 14px; }
+.book-page .study-visual .study-explanation { margin: 12px 0 5px; color: #aebdd0; font: 11px/1.85 var(--sans, sans-serif); }
+.book-page .study-visual .study-gesture-hint { margin: 0; color: #7089a4; font: 10px/1.7 var(--sans, sans-serif); }
+.book-page .study-visual.study-inline-visual { margin-top: 20px; max-width: 650px; }
+.book-page .study-visual:fullscreen, .book-page .study-visual.study-expanded { width: min(1100px, 100vw); max-height: 100dvh; padding: 22px max(22px, calc((100vw - 900px)/2)); border: 0; border-radius: 0; overflow: auto; }
+.book-page .study-visual:fullscreen { width: 100vw; height: 100dvh; }
+.book-page .study-visual:fullscreen .study-viewport, .book-page .study-visual.study-expanded .study-viewport { height: max(260px, 54dvh); }
+.book-page .study-visual.study-expanded { position: fixed; inset: 0; z-index: 100; width: 100vw; height: 100dvh; }
+/* Existing white-background authored videos use a display-only theme. The
+   original image/video bytes and mathematical formulae remain untouched. */
+.book-page .animation-stage { background: #101b2b; border-color: #293a50; }
+.book-page .animation-stage .animation-video { filter: invert(.94) hue-rotate(180deg); background: #fff; }
+.book-page .animation-stagebar { background: #17263a; color: #c3d4e7; border-color: #304057; }
+.book-page .animation-stagebar .animation-stage-title { color: #c3d4e7; }
+.book-page.reader-reading-only .study-target-layout { grid-template-columns: minmax(0, 1fr); }
+.book-page.reader-reading-only .study-visual-column { max-width: 700px; }
+@media (max-width: 1250px) {
+  .study-target-layout { gap: 22px; grid-template-columns: minmax(0, 1fr) minmax(310px, .93fr); }
+  .book-page { --reader-sidebar-width: 205px; }
+  .book-page .content { padding-left: 26px; padding-right: 26px; }
+  .study-parameter { grid-template-columns: minmax(69px, auto) minmax(45px, 1fr) 56px; gap: 6px; }
+}
+@media (max-width: 1050px) {
+  .study-target-layout { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .study-visual-column { max-width: 750px; }
+  .study-viewport { height: 300px; }
+  .book-page .study-target-copy .reader-media-column { order: initial; }
+}
+@media (max-width: 720px) {
+  .book-page .content { padding: 25px 17px 70px; }
+  .book-page .unit-head { margin-bottom: 30px; }
+  .book-page .content .reader-topic-title { font-size: 23px; }
+  .book-page .reader-topic { margin-bottom: 38px; }
+  .book-page .study-visual { padding: 16px 13px 13px; border-radius: 12px; }
+  .study-viewport { height: 260px; }
+  .study-parameter { grid-template-columns: minmax(72px, auto) minmax(55px, 1fr) 60px; gap: 7px; }
+  .book-page .study-visual .study-visual-title { font-size: 16px; }
+  .study-target-copy .katex-display { overflow-x: auto; }
+  .study-tools { gap: 5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .book-page .study-visual button { transition: none; }
+}
+/* A missing specialized model is a compact, honest coverage gap, never an
+   unrelated generic neighborhood disguised as an explanation. */
+.book-page .study-visual.study-unmatched { padding: 15px 17px; border-color: #3c4552; box-shadow: none; }
+.book-page .study-unmatched .study-eyebrow { color: #b9b0a0; }
+.book-page .study-unmatched .study-formula { color: #aeb7c4; font: 12px/1.7 var(--sans, sans-serif); }
+
+/* Native reflow takes precedence over the old annotation snapshot's 1026px
+   CSS-zoom layout. notes.js uses matching scale=1 for the new study theme. */
+.book-page main.content, html[data-fixed-layout] .book-page main.content {
+  position: relative;
+  width: auto;
+  max-width: 100%;
+  min-width: 0;
+  zoom: 1 !important;
+}
+@media (max-width: 1050px) {
+  html[data-fixed-layout] .book-page main.content { padding-left: 26px; padding-right: 26px; }
+  html[data-fixed-layout] .book-page .reader-comparison { display: block; }
+  html[data-fixed-layout] .book-page .reader-media-column { position: static; order: initial; }
+}
+@media (max-width: 720px) {
+  html[data-fixed-layout] .book-page main.content { padding: 25px 17px 70px; }
+  .book-page { --reader-font-size: 17px; }
+  .book-page .unit-head h1 { font-size: 28px; line-height: 1.55; }
+  .book-page .one-line { font-size: 16px; }
+}
+
+/* Reference windows have their own narrow viewport even on a wide desktop. */
+.reader-popup .study-target-layout, .drawer-panel .study-target-layout {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+}
+.reader-popup .study-visual-column, .drawer-panel .study-visual-column {
+  max-width: 100%;
+  min-width: 0;
+}

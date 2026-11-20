@@ -1,0 +1,120 @@
+/* 修改计划 S：固定版式与批注层。主阅读区按 1026 逻辑宽度（= 1280 电脑视口下的原生宽度）等比缩放（CSS zoom），
+   不再在窄屏下变单栏；侧栏目录照常自适应。 */
+html[data-fixed-layout] .book-page main.content {
+  position: relative;
+  box-sizing: border-box;
+  width: 1026px;
+  max-width: none;
+  zoom: var(--reader-page-scale, 1);
+  padding: 40px 42px 90px;
+}
+html[data-fixed-layout] .book-page .reader-comparison {
+  grid-template-columns: minmax(0, var(--reader-comparison-text-track, 1fr)) minmax(0, var(--reader-comparison-media-track, 1.02fr));
+  gap: var(--reader-comparison-gap, 32px);
+  max-width: none;
+}
+html[data-fixed-layout] .book-page .reader-media-column {
+  position: sticky;
+  order: 0;
+  margin: 0;
+  max-width: none;
+}
+html[data-fixed-layout] .book-page.reader-reading-only .reader-comparison { display: block; max-width: 850px; }
+html[data-fixed-layout] .book-page.reader-reading-only .reader-media-column { position: static; margin-top: 30px; }
+
+.notes-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 5;
+}
+html[data-notes-tool="pen"] .notes-layer,
+html[data-notes-tool="highlight"] .notes-layer,
+html[data-notes-tool="erase"] .notes-layer,
+html[data-notes-tool="note"] .notes-layer {
+  pointer-events: auto;
+  touch-action: pan-y pinch-zoom;           /* 手指滚动；触控笔与鼠标写字 */
+  cursor: crosshair;
+}
+html[data-notes-write] .notes-layer { touch-action: none; }   /* 书写模式：手指也写字 */
+html[data-notes-tool="erase"] .notes-layer { cursor: cell; }
+.notes-stroke.notes-highlight path { opacity: .38; mix-blend-mode: multiply; }
+.notes-stickies { position: absolute; left: 0; top: 0; width: 0; height: 0; z-index: 6; }
+.notes-sticky {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 26px;
+  height: 26px;
+  border: 1px solid #d4a514;
+  border-radius: 6px;
+  background: #fff3b0;
+  color: #6b4f00;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+}
+.notes-toolbar {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 60;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  max-width: min(560px, calc(100vw - 28px));
+  padding: 6px;
+  border-radius: 12px;
+  background: rgba(255, 255, 253, .96);
+  box-shadow: 0 6px 24px rgba(26, 46, 40, .18);
+  font-size: 13px;
+}
+.notes-toolbar button {
+  min-height: 34px;
+  padding: 4px 9px;
+  border: 1px solid #d5ddd9;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+}
+.notes-toolbar button.is-active { border-color: #2f6b5a; background: #e5f1ec; font-weight: 600; }
+.notes-toolbar .notes-swatch { width: 30px; padding: 0; }
+.notes-toolbar .notes-collapse { font-weight: 600; }
+.notes-toolbar.is-collapsed > :not(.notes-collapse) { display: none; }
+@media (max-width: 900px) {
+  .notes-toolbar { right: 8px; bottom: 8px; gap: 3px; padding: 4px; font-size: 12px; max-width: min(430px, calc(100vw - 16px)); }
+  .notes-toolbar button { min-height: 30px; padding: 2px 7px; }
+  .notes-toolbar .notes-swatch { width: 24px; }
+}
+.notes-toolbar .notes-swatch.is-active { outline: 2px solid #2f6b5a; outline-offset: 1px; }
+.notes-panel {
+  position: fixed;
+  right: 14px;
+  bottom: 120px;
+  z-index: 60;
+  width: min(340px, calc(100vw - 28px));
+  max-height: 50vh;
+  overflow: auto;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #fffefa;
+  box-shadow: 0 6px 24px rgba(26, 46, 40, .18);
+}
+.notes-panel h2 { margin: 0 0 6px; font-size: 16px; }
+.notes-panel li { margin: 6px 0; }
+.notes-panel li button { margin-left: 8px; font-size: 12px; }
+.notes-hint {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  z-index: 61;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #fff7d6;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .15);
+}
+.notes-hint button { margin-left: 10px; }
+@media print { .notes-toolbar, .notes-panel, .notes-hint { display: none; } }

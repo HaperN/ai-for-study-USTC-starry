@@ -1,0 +1,11 @@
+{
+  "name": "aiforstudy-acceptance",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AIforStudy 的 Node 侧**验收依赖**（方案 §3）。只用于检查与验收，不参与生产渲染：页面本身是原生 JS/CSS，不需要打包器。",
+  "comment": "⚠️ 这是 Node 依赖的**唯一声明**。此前它在 `.devtools/package.json`，与本文件重复；`.devtools/` 现在只剩无头浏览器（tools/shot.js 用的 Chrome），那是**二进制能力**不是 npm 依赖。",
+  "dependencies": {
+    "jsdom": "^30.1.1",
+    "playwright": "1.62.1"
+  }
+}

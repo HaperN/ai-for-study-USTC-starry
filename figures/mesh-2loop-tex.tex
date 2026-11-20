@@ -1,0 +1,15 @@
+\documentclass[border=4pt]{standalone}
+\usepackage[siunitx]{circuitikz}
+\begin{document}
+\begin{circuitikz}[american]
+\draw (0,0) to[V,l=$u_{S1}$] (0,3)
+        to[R,l=$R_1$] (3,3)
+        to[R,l=$R_3$] (3,0) -- (0,0);
+      \draw (3,3) to[R,l=$R_5$] (6,3)
+        to[V,l_=$u_{S4}$] (6,0) -- (3,0);
+      \draw[->,>=latex,orange] (1.5,1.5) arc (150:-150:1.1);
+      \node[orange] at (1.45,0.85) {$i_{M1}$};
+      \draw[->,>=latex,orange] (4.5,1.5) arc (30:-30:-1.1);
+      \node[orange] at (4.55,0.85) {$i_{M2}$};
+\end{circuitikz}
+\end{document}

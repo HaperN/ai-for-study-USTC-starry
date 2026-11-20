@@ -1,0 +1,186 @@
+[
+  {
+    "unit": "CH04-S01",
+    "verdicts": [
+      {
+        "no": 1,
+        "status": "closed",
+        "quote": "积分路线取从 $(0,0)$ 到 $(x,y)$ 的折线：先沿 $x$ 轴走到 $(x,0)$，再竖直走到 $(x,y)$。…… $u(x,y)=\\int_{0}^{x}\\frac{\\partial v}{\\partial y}(t,0)\\,\\mathrm{d}t-\\int_{0}^{y}\\frac{\\partial v}{\\partial x}(x,s)\\,\\mathrm{d}s+C=-\\int_{0}^{y}(4x+1)\\,\\mathrm{d}s+C=-4xy-y+C$ …… 拼起来得 $f(z)=u+\\mathrm{i}v=-4xy-y+C+\\mathrm{i}(2x^{2}-2y^{2}+x)=2\\mathrm{i}z^{2}+\\mathrm{i}z+C$。最后用 $f(0)=1$：代入 $z=0$ 得 $f(0)=C$，于是 $C=1$，所求的解析函数为 $f(z)=2\\mathrm{i}z^{2}+\\mathrm{i}z+1$。",
+        "why": "折线路径、u 的计算、拼出 f(z) 及由 f(0)=1 定 C=1 全部逐字出现，链条完整且结果正确。"
+      },
+      {
+        "no": 2,
+        "status": "closed",
+        "quote": "这里要用到上一节已证的一条反向结论：若 $u$、$v$ 在区域 $D$ 内有一阶连续偏导数，并且处处满足 C-R 方程，则 $f(z)=u+\\mathrm{i}v$ 在 $D$ 内解析。本证明中 $v$ 的两个一阶偏导正是被积表达式里的 $P=-\\frac{\\partial u}{\\partial y}$ 与 $Q=\\frac{\\partial u}{\\partial x}$，它们在 $D$ 内连续，所以这条结论的条件满足，$f(z)=u+\\mathrm{i}v$ 在 $D$ 内解析。",
+        "why": "反向定理的内容与来历（上一节已证）已在引用前点明，并说明了 v 的偏导由被积表达式 P、Q 的连续性而得。"
+      }
+    ],
+    "new_p0": [],
+    "_dropped_fields": [
+      "usage",
+      "at",
+      "fingerprint"
+    ],
+    "_upstream_cache": "work/model-cache/sha256:e8ea8279728c04f550f1c45b7fb2ee20ac75e5cf26914be8da6dcacd54ab6504.json",
+    "_upstream_cache_sha256": "e8ea8279728c04f550f1c45b7fb2ee20ac75e5cf26914be8da6dcacd54ab6504",
+    "_verdict_analysis": [
+      {
+        "no": 1,
+        "status": "closed",
+        "why": "折线路径、u 的计算、拼出 f(z) 及由 f(0)=1 定 C=1 全部逐字出现，链条完整且结果正确。",
+        "quote_len": 426,
+        "quote_sha256": "557a06ea1df800514eab23c0a6b9a50b7da5127332de4d72ea545000684db09d",
+        "quote_has_ellipsis": true,
+        "ellipsis_part_count": 3,
+        "strict_containment": false,
+        "legacy_verdict_closed": false,
+        "rejection_reason": "quote.strip() 不是 current_text 的子串；旧 `_verdict_closed` 返回 False，verdict.why 与拒绝原因都没有传给生成器",
+        "parts": [
+          {
+            "exact": true,
+            "start": 6347,
+            "end": 6409,
+            "matches": 1
+          },
+          {
+            "exact": false,
+            "start": -1,
+            "end": -1,
+            "matches": 0,
+            "stripped_exact_start": -1,
+            "stripped_exact_len": 174,
+            "longest_common_len": 173,
+            "longest_common_in_quote": [
+              1,
+              174
+            ],
+            "longest_common_in_body": [
+              6569,
+              6742
+            ],
+            "whitespace_normalized_in_body": false,
+            "whitespace_normalized_matches": 0
+          },
+          {
+            "exact": false,
+            "start": -1,
+            "end": -1,
+            "matches": 0,
+            "stripped_exact_start": 6775,
+            "stripped_exact_len": 183,
+            "longest_common_len": 183,
+            "longest_common_in_quote": [
+              1,
+              184
+            ],
+            "longest_common_in_body": [
+              6775,
+              6958
+            ],
+            "whitespace_normalized_in_body": false,
+            "whitespace_normalized_matches": 0
+          }
+        ]
+      },
+      {
+        "no": 2,
+        "status": "closed",
+        "why": "反向定理的内容与来历（上一节已证）已在引用前点明，并说明了 v 的偏导由被积表达式 P、Q 的连续性而得。",
+        "quote_len": 245,
+        "quote_sha256": "38b7d20303c928a01b70493b4ce87e71a756cfa620f31fcae30fea082c55ce82",
+        "quote_has_ellipsis": false,
+        "ellipsis_part_count": 1,
+        "strict_containment": true,
+        "legacy_verdict_closed": true,
+        "rejection_reason": "",
+        "parts": [
+          {
+            "exact": true,
+            "start": 5332,
+            "end": 5577,
+            "matches": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "unit": "CH04-S01",
+    "verdicts": [
+      {
+        "no": 1,
+        "status": "closed",
+        "quote": "积分路线取从 $(0,0)$ 到 $(x,y)$ 的折线：先沿 $x$ 轴走到 $(x,0)$，再竖直走到 $(x,y)$。……代入 (4.5) 得 $u(x,y)=\\int_{0}^{x}\\frac{\\partial v}{\\partial y}(t,0)\\,\\mathrm{d}t-\\int_{0}^{y}\\frac{\\partial v}{\\partial x}(x,s)\\,\\mathrm{d}s+C=-\\int_{0}^{y}(4x+1)\\,\\mathrm{d}s+C=-4xy-y+C$ …… 拼起来得 $f(z)=u+\\mathrm{i}v=-4xy-y+C+\\mathrm{i}(2x^{2}-2y^{2}+x)=2\\mathrm{i}z^{2}+\\mathrm{i}z+C$。最后用 $f(0)=1$：代入 $z=0$ 得 $f(0)=C$，于是 $C=1$，所求的解析函数为 $f(z)=2\\mathrm{i}z^{2}+\\mathrm{i}z+1$。",
+        "why": "折线路径、u=-4xy-y+C、f=2iz²+iz+C、由 f(0)=1 定出 C=1 四步在成品中全部逐字出现，且积分与拼装算式正确。"
+      }
+    ],
+    "new_p0": [],
+    "_dropped_fields": [
+      "usage",
+      "at",
+      "fingerprint"
+    ],
+    "_upstream_cache": "work/model-cache/sha256:d07170e160d278d15522b1d2b0a866a38d37c1f6d46deca49b73c6fda0a2d2e2.json",
+    "_upstream_cache_sha256": "d07170e160d278d15522b1d2b0a866a38d37c1f6d46deca49b73c6fda0a2d2e2",
+    "_verdict_analysis": [
+      {
+        "no": 1,
+        "status": "closed",
+        "why": "折线路径、u=-4xy-y+C、f=2iz²+iz+C、由 f(0)=1 定出 C=1 四步在成品中全部逐字出现，且积分与拼装算式正确。",
+        "quote_len": 436,
+        "quote_sha256": "3653bd8c7189b4527cce06c7f8e23d88a7465b6ce2ff857a6fec23eb7db7b20f",
+        "quote_has_ellipsis": true,
+        "ellipsis_part_count": 3,
+        "strict_containment": false,
+        "legacy_verdict_closed": false,
+        "rejection_reason": "quote.strip() 不是 current_text 的子串；旧 `_verdict_closed` 返回 False，verdict.why 与拒绝原因都没有传给生成器",
+        "parts": [
+          {
+            "exact": true,
+            "start": 6347,
+            "end": 6409,
+            "matches": 1
+          },
+          {
+            "exact": false,
+            "start": -1,
+            "end": -1,
+            "matches": 0,
+            "stripped_exact_start": -1,
+            "stripped_exact_len": 185,
+            "longest_common_len": 173,
+            "longest_common_in_quote": [
+              11,
+              184
+            ],
+            "longest_common_in_body": [
+              6569,
+              6742
+            ],
+            "whitespace_normalized_in_body": false,
+            "whitespace_normalized_matches": 0
+          },
+          {
+            "exact": false,
+            "start": -1,
+            "end": -1,
+            "matches": 0,
+            "stripped_exact_start": 6775,
+            "stripped_exact_len": 183,
+            "longest_common_len": 183,
+            "longest_common_in_quote": [
+              1,
+              184
+            ],
+            "longest_common_in_body": [
+              6775,
+              6958
+            ],
+            "whitespace_normalized_in_body": false,
+            "whitespace_normalized_matches": 0
+          }
+        ]
+      }
+    ]
+  }
+]
