@@ -105,4 +105,4 @@ python3.12 -m venv .venv
 
 Students can read the exported course offline. Shared annotations and content production require separately configured local services. Video analysis uses full-audio transcription and sampled visual evidence; shared comments currently update on navigation or manual refresh.
 
-Equal authorship: **黄浡桉 (50%) and 刘睿湘 (50%)**. This is a personal project. Source is visible under a custom no-modification licence, not an open-source licence. See [LICENSE](LICENSE) for permitted use and third-party exceptions.
+Equal authorship: **HaberN (50%) and 刘睿翔 (50%)**. This is a personal project. Source is visible under a custom no-modification licence, not an open-source licence. See [LICENSE](LICENSE) for permitted use and third-party exceptions.
