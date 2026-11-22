@@ -4,21 +4,23 @@
 
 starry 是一个面向课程学习的 AI 辅助项目。它把教材讲解、原文对照、交互图像、有声动画、习题和笔记放在同一个学习环境里，并提供教学视频解析与内容制作工作台。
 
-目前可下载的成品是 **复变函数 A**：76 个教学单元、基础版 42 题／完整版 103 题、15 段动画和配套可打印材料。普通同学下载阅读包后，解压并双击 HTML 即可使用，无需配置模型账号。
+目前可下载的成品是 **复变函数 A**：76 个教学单元、基础版 579 题／完整版 1240 题、16 段动画、2 个可操作三维图，以及覆盖卷、拟合卷、压力卷各 12 套和配套可打印材料。普通同学下载阅读包后，解压并双击 HTML 即可使用，无需配置模型账号。
 
 
 **当前为公开预览版。源码可查看；未经作者事先书面许可，不得修改项目原创程序或发布的课程原件。** 允许下载、原样运行、正常配置及创建个人笔记。完整条款见 [LICENSE](LICENSE)，第三方组件沿用各自许可证。
 
 ## 直接开始学习
 
-1. [下载复变函数完整阅读包](https://github.com/HaperN/ai-for-study-USTC-starry/releases/download/v0.1.0-preview.1/starry-complex-analysis-20261120.zip)。
+1. [下载复变函数完整阅读包](https://github.com/HaperN/ai-for-study-USTC-starry/releases/download/v0.2.0-preview.1/starry-complex-analysis-20261122.zip)。
 2. 完整解压，保留文件夹内部结构。
 3. 双击 **点这里开始阅读.html**，进入教材与练习。
-4. 需要查功能和操作时，阅读包内 `README.txt` 或 [同学使用指南](docs/student-guide.md)。
+4. 需要查功能和操作时，阅读包内 `先读我.txt` 或 [同学使用指南](docs/student-guide.md)。
+
+[单独下载全部试卷与解析](https://github.com/HaperN/ai-for-study-USTC-starry/releases/download/v0.2.0-preview.1/starry-exam-papers-20261122.zip)。首页提供“教材解析”“日常巩固”“押题”三个入口；动画在 HTML 中播放，PDF 为静态打印版。
 
 阅读包包含本地页面、公式字体、图片、动画、配音和 PDF。已有材料可离线阅读。私人笔记保存在当前浏览器中，换电脑前请先导出备份。**共享评论需要维护者启动服务，双击离线 HTML 不会连接公共讨论。**
 
-![starry 复变函数阅读页面](docs/assets/reader.png)
+![starry 复变函数学习入口](docs/assets/entry-20261122.png)
 
 ## 可以做什么
 
@@ -27,7 +29,7 @@ starry 是一个面向课程学习的 AI 辅助项目。它把教材讲解、原
 | 教材阅读 | 按单元学习，查看原文、讲解、证明和例题；较长推导可以展开阅读 | 离线包即可 |
 | 交互图像 | 调整参数，观察复数、映射及其他数学对象的变化 | 离线包即可 |
 | 动画与配音 | 查看分步演示、字幕和文字稿，控制播放、音量及进度 | 离线包即可 |
-| 练习与试卷 | 在 42 题基础版和 103 题完整版间选择，做题后回到对应教材位置；使用题册、解析、模拟卷和原卷 PDF | 离线包即可 |
+| 练习与试卷 | 在 579 题基础版和 1240 题完整版间选择，做题后回到对应教材位置；使用题册、解析、模拟卷和原卷 PDF | 离线包即可 |
 | 私人笔记 | 保存自己的理解和批注，导入、导出备份；冲突导入保留本地编辑并另存副本 | 离线包即可 |
 | 同学感悟 | 围绕具体原文发布文字或图片批注，作者可编辑、删除自己的内容 | 本地共享服务 |
 | 图片识别 | 将手写推导或截图识别为可核对的文字，再由使用者决定是否发布 | 共享服务＋另配本地 OCR |
@@ -85,7 +87,7 @@ python3.12 -m venv .venv
 
 - 本次公开课程只有复变函数 A。其他课程不是本次成品的一部分。
 - “一门课程是一颗星”的知识星空是产品设计方向，星图式课程首页尚未实现。
-- 已有 75 项数学内容待核对记录，工程验证通过不等于全书数学内容已经认证。
+- 历史教材留有 75 项待核对记录；本次题库专项审核和已完成订正不代表该历史清单全部关闭，工程验证也不等于全书数学内容已经认证。
 - 没有随本仓库提供公网多人部署、真实学校统一认证或评论自动推送。
 - 视频入口处理本地文件，尚不自动下载任意视频网站链接。
 - 本地服务已在 macOS 环境验证；不宣称所有系统和浏览器均经过验收。
@@ -101,7 +103,7 @@ python3.12 -m venv .venv
 
 ## English overview
 
-**starry** turns textbooks and lectures into source-linked learning materials with interactive figures, narrated animations, exercises and annotations. The current downloadable course is Complex Analysis A: 76 teaching units, 42-question basic and 103-question full editions, and 15 animations.
+**starry** turns textbooks and lectures into source-linked learning materials with interactive figures, narrated animations, exercises and annotations. The current downloadable course is Complex Analysis A: 76 teaching units, 579-question basic and 1240-question full editions, 16 animations, two interactive 3D scenes, and 36 formal training papers.
 
 Students can read the exported course offline. Shared annotations and content production require separately configured local services. Video analysis uses full-audio transcription and sampled visual evidence; shared comments currently update on navigation or manual refresh.
 

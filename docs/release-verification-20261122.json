@@ -1,0 +1,47 @@
+{
+  "release": "v0.2.0-preview.1",
+  "date": "2026-11-22",
+  "main_questions": 1240,
+  "basic_questions": 579,
+  "paper_only_views": 2,
+  "teaching_units_full": 76,
+  "knowledge_obligations": 416,
+  "required_facets": 894,
+  "formal_papers": {
+    "coverage": 12,
+    "fitted": 12,
+    "pressure": 12
+  },
+  "reference_trials": 2,
+  "original_pdf_files": 39,
+  "source_A_exam_sets": 7,
+  "animations": 16,
+  "interactive_3d": 2,
+  "generated_pdf_documents": 80,
+  "browser_checked_documents": 80,
+  "math_render_fields": 8814,
+  "math_renderer_errors": 0,
+  "student_package_manifest_files": 805,
+  "checks": [
+    "actual independent mathematical solutions and comparison records",
+    "statement-bound knowledge coverage",
+    "current-hash fitted and pressure task matching",
+    "offline and loopback HTTP playback",
+    "embedded WebGL resize, interaction and disposal",
+    "moved-folder rebuild with historical-source lookup disabled",
+    "question-only answer and media isolation",
+    "PDF font verification and selected page inspection",
+    "ZIP CRC integrity"
+  ],
+  "known_minor_layout_issues": [
+    "Two answer books retain an isolated closing note page.",
+    "Some explanations retain readable plain-text mathematical notation."
+  ],
+  "not_claimed": [
+    "full historical repository test suite all-green",
+    "every PDF page visually inspected",
+    "human student learning gain",
+    "future exam hit rate",
+    "complete closure of all historical textbook audit findings"
+  ]
+}
