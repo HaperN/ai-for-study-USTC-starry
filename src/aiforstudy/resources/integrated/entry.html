@@ -1,4 +1,65 @@
-<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>$title · 复变函数 A</title>
-<style>body{max-width:44rem;margin:auto;padding:clamp(1.2rem,6vw,4rem);font:1.1rem/1.7 system-ui,sans-serif;color:#183948;background:#faf9f5}h1{font-family:serif;line-height:1.2}ul{list-style:none;padding:0}li{border-bottom:1px solid #d3dad6}a{display:block;padding:.65rem 0;color:#12574f}nav{margin-top:2rem}</style>
-<main><p>复变函数 A</p><h1>$title</h1><ul>$links</ul></main><nav>$footer</nav></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>$title · 复变函数 A</title>
+  <style>
+    :root { color-scheme: light; --ink: #253b31; --muted: #5b6b62; --green: #205c43; --line: #d7e1d8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f5f3ed; color: var(--ink); font: 17px/1.7 system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+    main, footer { width: min(100% - 48px, 880px); margin-inline: auto; }
+    main { padding-top: clamp(36px, 7vw, 80px); }
+    .eyebrow { margin: 0 0 17px; color: var(--green); font-size: 14px; font-weight: 650; letter-spacing: .13em; }
+    .entry-card { padding: clamp(24px, 4vw, 40px); background: #fff; border: 1px solid var(--line); border-radius: 20px; }
+    h1 { margin: 0; font-size: clamp(30px, 5vw, 42px); font-weight: 700; letter-spacing: -.035em; line-height: 1.3; }
+    .intro, .directory-title { margin: 14px 0 28px; color: var(--muted); }
+    .intro { display: none; }
+    .directory-title { font-size: 20px; font-weight: 600; }
+    .entry-actions { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .entry-actions li { min-width: 0; }
+    .entry-actions a { position: relative; display: block; padding: 14px 20px; border: 1px solid #c5d7c9; border-radius: 12px; background: #f8faf7; color: var(--green); font-weight: 600; overflow-wrap: anywhere; text-decoration: none; }
+    .entry-actions a:hover { background: #edf4ec; border-color: #8ba997; }
+    a:focus-visible { outline: 3px solid #9c6c24; outline-offset: 4px; }
+    footer { margin-top: 24px; padding: 0 2px 40px; color: var(--muted); font-size: 13px; }
+    footer a { display: inline-block; margin-right: 20px; padding-block: 10px; color: var(--green); text-underline-offset: 3px; }
+    [data-page="学习首页"] .intro { display: block; }
+    [data-page="学习首页"] .directory-title { display: none; }
+    [data-page="学习首页"] .entry-actions { grid-template-columns: 1fr 1fr; gap: 16px; }
+    [data-page="学习首页"] .entry-actions li:only-child { grid-column: 1 / -1; }
+    [data-page="学习首页"] .entry-actions a { min-height: 100px; padding: 20px 24px; font-size: 21px; font-weight: 650; line-height: 1.4; }
+    [data-page="学习首页"] .entry-actions a::after { display: block; margin-top: 5px; color: var(--muted); font-size: 14px; font-weight: 400; line-height: 1.6; }
+    [data-page="学习首页"] .entry-actions a[href="/?practice=full"]::after { content: "概念、定理与例题"; }
+    [data-page="学习首页"] .entry-actions a[href$$="/日常巩固.html"]::after { content: "随学随练，巩固方法"; }
+    [data-page="学习首页"] .entry-actions li:has(a[href$$="/押题.html"]) { grid-column: 1 / -1; }
+    [data-page="学习首页"] .entry-actions a[href$$="/押题.html"] { min-height: 116px; padding-block: 24px; background: var(--green); border-color: var(--green); color: #fff; font-size: 27px; }
+    [data-page="学习首页"] .entry-actions a[href$$="/押题.html"]::after { content: "按题型集中复习"; color: #e1ece4; }
+    [data-page="学习首页"] .entry-actions a[href$$="/押题.html"]::before { content: "重点"; position: absolute; top: 26px; right: 24px; padding: 2px 10px; border: 1px solid #8fb49b; border-radius: 999px; color: #eff9d4; font-size: 12px; font-weight: 650; line-height: 1.8; letter-spacing: .06em; }
+    [data-page="学习首页"] .entry-actions a[href$$="/押题.html"]:hover { background: #174a35; border-color: #174a35; }
+    @media (max-width: 600px) {
+      main, footer { width: calc(100% - 32px); }
+      main { padding-top: 28px; }
+      .eyebrow { margin-bottom: 12px; }
+      .entry-card { border-radius: 16px; }
+      .intro { margin-bottom: 24px; font-size: 15px; }
+      [data-page="学习首页"] .entry-actions { grid-template-columns: 1fr; gap: 12px; }
+      [data-page="学习首页"] .entry-actions a { min-height: 94px; padding: 17px 20px; }
+      [data-page="学习首页"] .entry-actions a[href$$="/押题.html"] { min-height: 112px; padding-block: 22px; }
+      [data-page="学习首页"] .entry-actions a[href$$="/押题.html"]::before { top: 25px; right: 20px; }
+      footer { margin-top: 20px; }
+    }
+  </style>
+</head>
+<body data-page="$title">
+  <main>
+    <p class="eyebrow">学习入口</p>
+    <section class="entry-card" aria-labelledby="course-title">
+      <h1 id="course-title">复变函数 A</h1>
+      <h2 class="directory-title">$title</h2>
+      <p class="intro">读懂教材，随学随练，按题型集中复习。</p>
+      <ul class="entry-actions" aria-label="选择学习内容">$links</ul>
+    </section>
+  </main>
+  <footer aria-label="其他入口">$footer</footer>
+</body>
+</html>

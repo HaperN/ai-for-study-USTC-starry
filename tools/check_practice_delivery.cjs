@@ -9,13 +9,13 @@ const publicFields = [
     'id', 'title', 'stem', 'topic', 'unit_id', 'priority', 'difficulty', 'points',
     'answer', 'solution', 'necessary_conditions', 'methods', 'pitfalls', 'priority_reason',
     'public_source_path', 'public_textbook_path', 'section', 'anchor_text',
-    'mount_unit_id', 'placement', 'subquestion_count', 'source',
+    'mount_unit_id', 'placement', 'subquestion_count', 'source', 'spatial_scenes', 'additional_mounts', 'focus_note',
 ];
-const publicSourceFields = ['kind', 'course', 'year', 'pdf_page', 'question_number', 'common_header', 'public_path'];
+const publicSourceFields = ['kind', 'course', 'year', 'pdf_page', 'question_number', 'common_header', 'public_path', 'adaptation_note'];
 const placementFields = ['unit_id', 'quote', 'paragraph_sha256', 'method'];
-const bookletFields = ['id', 'title', 'stem', 'priority', 'difficulty', 'topic', 'public_source_path', 'source'];
+const bookletFields = ['id', 'title', 'stem', 'priority', 'difficulty', 'topic', 'public_source_path', 'source', 'section'];
 const examFields = ['id', 'stem', 'points', 'section', 'source'];
-const bookletSourceFields = publicSourceFields.filter(field => field !== 'public_path');
+const bookletSourceFields = publicSourceFields.filter(field => !['public_path','adaptation_note'].includes(field));
 
 function expectSameIds(actual, expected, label, problems) {
     if (JSON.stringify([...actual].sort()) !== JSON.stringify([...expected].sort())) {
@@ -39,6 +39,12 @@ function projectPlacement(placement) {
     if (!placementFields.every(key => typeof placement[key] === 'string' && placement[key].trim()) ||
         !/^[a-f0-9]{64}$/.test(placement.paragraph_sha256)) return undefined;
     return Object.fromEntries(placementFields.map(key => [key, placement[key]]));
+}
+
+function projectAdditionalMounts(rows) {
+    if (!Array.isArray(rows) || !rows.length) return undefined;
+    return rows.map(row => ({unit_id: row.unit_id, anchor_text: row.anchor_text,
+        placement: projectPlacement(row.placement), focus_note: String(row.focus_note || '')}));
 }
 
 function checkRows(rows, expected, fields = publicFields, sourceFields = publicSourceFields) {
@@ -78,6 +84,36 @@ function checkRows(rows, expected, fields = publicFields, sourceFields = publicS
         }
         const original = byId.get(row.id);
         if (!original) continue;
+        if (fields.includes('additional_mounts')) {
+            if (row.additional_mounts !== undefined && !Array.isArray(row.additional_mounts)) {
+                problems.push(row.id + ': invalid related placements');
+            }
+            for (const mount of Array.isArray(row.additional_mounts) ? row.additional_mounts : []) {
+                if (!mount || typeof mount !== 'object' || Array.isArray(mount)) {
+                    problems.push(row.id + ': invalid related placement');
+                    continue;
+                }
+                for (const key of Object.keys(mount)) {
+                    if (!['unit_id', 'anchor_text', 'placement', 'focus_note'].includes(key)) {
+                        problems.push(row.id + ': unexpected related placement field ' + key);
+                    }
+                }
+                if (!projectPlacement(mount.placement) || mount.placement.unit_id !== mount.unit_id) {
+                    problems.push(row.id + ': invalid related paragraph');
+                }
+                for (const key of Object.keys(mount.placement || {})) {
+                    if (!placementFields.includes(key)) problems.push(row.id + ': unexpected related paragraph field ' + key);
+                }
+            }
+            if (!isDeepStrictEqual(row.additional_mounts, projectAdditionalMounts(original.additional_mounts))) {
+                problems.push(row.id + ': published additional_mounts differs');
+            }
+        }
+        for (const field of ['focus_note', 'spatial_scenes']) {
+            if (fields.includes(field) && !isDeepStrictEqual(row[field], original[field])) {
+                problems.push(row.id + ': published ' + field + ' differs');
+            }
+        }
         if (fields.includes('placement') &&
             !isDeepStrictEqual(projectPlacement(row.placement), projectPlacement(original.placement))) {
             problems.push(row.id + ': published placement differs');
@@ -102,10 +138,11 @@ function readDelivery(root) {
     const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
     const exists = name => fs.existsSync(path.join(root, name));
     const catalog = read('catalog.json');
+    const paperViews = exists('paper-catalog.json') ? read('paper-catalog.json') : [];
     const editions = {basic: catalog.filter(row => row.basic === true), full: catalog};
     const hasCustom = exists('teacher-profile.json');
+    const profile = hasCustom ? read('teacher-profile.json') : {};
     if (hasCustom) {
-        const profile = read('teacher-profile.json');
         const additions = exists('teacher-additions.json') ? read('teacher-additions.json') : [];
         const excluded = new Set(profile.exclude_ids || []);
         const included = new Set(profile.include_ids || []);
@@ -145,6 +182,12 @@ function readDelivery(root) {
             continue;
         }
         const members = new Map((editions[paper.edition || 'full'] || []).map(row => [row.id, row]));
+        for (const view of paperViews) {
+            const edition = paper.edition || 'full';
+            const eligible = edition === 'full' || (edition === 'basic' && view.basic === true) ||
+                (edition === 'custom' && (profile.include_ids || []).includes(view.id) && !(profile.exclude_ids || []).includes(view.id));
+            if (eligible) members.set(view.id, view);
+        }
         const rows = [];
         for (const item of paper.items) {
             const question = members.get(item.question_id);
@@ -191,9 +234,15 @@ async function inspectPage(page, root, job) {
 async function inspectReader(page, url, edition, rows, editions) {
     const perUnit = new Map();
     for (const row of rows) {
-        const unit = row.mount_unit_id || row.unit_id;
-        if (!perUnit.has(unit)) perUnit.set(unit, []);
-        perUnit.get(unit).push(row);
+        const sites = [{unit_id: row.mount_unit_id || row.unit_id, focus_note: row.focus_note}, ...(row.additional_mounts || [])];
+        const seen = new Set();
+        for (const site of sites) {
+            const unit = site.unit_id;
+            if (seen.has(unit)) continue;
+            seen.add(unit);
+            if (!perUnit.has(unit)) perUnit.set(unit, []);
+            perUnit.get(unit).push({...row, focus_note: site.focus_note});
+        }
     }
     const first = perUnit.keys().next().value;
     const problems = [];
@@ -219,18 +268,23 @@ async function inspectReader(page, url, edition, rows, editions) {
         const mount = await page.evaluate(() => ({
             unit: document.documentElement.dataset.readerUnit,
             anchors: [...document.querySelectorAll('.practice-inline')]
-                .map(node => ({id: node.dataset.practiceId, anchor: node.dataset.anchorState})),
+                .map(node => ({id: node.dataset.practiceId, anchor: node.dataset.anchorState,
+                    focus: node.querySelector('.practice-focus')?.textContent || ''})),
             mathErrors: document.querySelectorAll('.practice-inline .katex-error').length,
             brokenImages: [...document.querySelectorAll('.practice-inline img')]
                 .filter(node => !node.complete || !node.naturalWidth).map(node => node.getAttribute('src')),
         }));
         mount.count = mount.anchors.length;
         expectSameIds(mount.anchors.map(anchor => anchor.id), ids, unit + ' mounted', problems);
+        for (const member of members) {
+            const rendered = mount.anchors.find(anchor => anchor.id === member.id);
+            if (member.focus_note && !rendered?.focus.includes(member.focus_note)) problems.push(unit + ': missing focus for ' + member.id);
+        }
         if (mount.unit !== unit || mount.anchors.some(anchor => anchor.anchor !== 'matched') ||
             mount.mathErrors || mount.brokenImages.length) problems.push(unit + ': invalid mounted question');
         mounts.push(mount);
     }
-    return {mounts, readerQuestions: mounts.reduce((total, mount) => total + mount.count, 0), problems};
+    return {mounts, uniqueQuestions: rows.length, readerQuestions: mounts.reduce((total, mount) => total + mount.count, 0), problems};
 }
 
 async function main() {

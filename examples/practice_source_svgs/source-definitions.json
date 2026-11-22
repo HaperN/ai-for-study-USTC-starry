@@ -1,0 +1,35 @@
+[
+  {
+    "question_id": "TB-FIG-CH08-Q12",
+    "base_question_id": "TB-CH08-Q12",
+    "stem": "求从上半平面$\\{z:\\operatorname{Im}z>0\\}$到下列两个多边形域的保形映射（可保留由边长决定的Schwarz–Christoffel参数关系，须说明如何确定这些参数）：\n\n（1）给定$h,H>0$，目标域是\n$$G_1=\\{w=x+iy:x>-h,\\ y>-H,\\ (x<0\\ \\text{或}\\ y<0)\\}.$$\n其边界由四条线段/射线依次连接：$x=-h,y\\ge-H$；$y=-H,x\\ge-h$；$y=0,x\\ge0$；$x=0,y\\ge0$。这是向上延伸的宽$h$竖向通道与向右延伸的高$H$横向通道的直角转弯域。\n\n（2）给定$h_2>h_1>0,h_3>0$，目标域是\n$$G_2=\\{w=x+iy:y<h_1,\\ (x<0\\ \\text{或}\\ y>0),\\ (x>-h_3\\ \\text{或}\\ y>h_1-h_2)\\}.$$\n边界为整条直线$y=h_1$，以及两条折线：$y=0,x\\ge0$与$x=0,y\\le0$；$y=h_1-h_2,x\\le-h_3$与$x=-h_3,y\\le h_1-h_2$。它有向左、向右、向下三个通道。",
+    "stem_sha256": "339d404c9bd827eea1da064aa43b34d59e43ab817b1ab60e82cac94ea021c25b",
+    "original_figure": "fig-8-26-verified.png",
+    "original_figure_sha256": "f019b5984b9cf8ad7e4f7686443e16694a8e187e388d5a1777485753831746cb",
+    "source_pdf_page": 193,
+    "source_pdf_sha256": "2028b7f926b9f65129f35daaaedf9df9aefe8ad5d336e4acd95846f00b7c5c23",
+    "transcription_note": "严格不等式排除黑色边界；坐标w沿用目标多边形图的x,y。参数大小关系来自图中所示位置，不由比例估算数值。"
+  },
+  {
+    "question_id": "TB-FIG-CH09-Q3",
+    "base_question_id": "TB-CH09-Q3",
+    "stem": "设$T,E>0$，所有信号在$t<0$为0。利用单位阶跃函数$h$写出下列非周期信号，并求单边拉普拉斯变换。跳跃点取右侧值；单个端点值不影响变换。\n\n（1）$f_1(t)=0$（$0\\le t<T$），$f_1(t)=t-T$（$t\\ge T$）。\n\n（2）$f_2(t)=0$（$0\\le t<T$），$f_2(t)=-E$（$t\\ge T$）。\n\n（3）设$0\\le t_1<t_1+\\tau_1<t_2<t_2+\\tau_2$，$f_3(t)=E$在$[t_1,t_1+\\tau_1)$与$[t_2,t_2+\\tau_2)$上成立，其余处$f_3(t)=0$。\n\n（4）原图在$[0,T)$、$[T,2T)$、$[2T,3T)$、$[3T,4T)$画四级下降阶梯，此后为0；仅明标第一级$E$与第三级$E/2$。为使题面完全明确，以下采用公开补充的等高阶梯约定：$f_4(t)=E(1-k/4)$（$kT\\le t<(k+1)T,\\ k=0,1,2,3$），$t\\ge4T$时为0。\n\n（5）$f_5(t)=Et/T$（$0\\le t<T$），$f_5(t)=0$（$t\\ge T$）。",
+    "stem_sha256": "346ae23ee1dd7bb083c052e1cc0f8e11360f1ca6d2740ac8d0f9ef795697b78b",
+    "original_figure": "fig-9-8-verified.png",
+    "original_figure_sha256": "eef08d6bb54c84faabf2f44c991e48ae64e61b6d777fc44791cc9f69956702f4",
+    "source_pdf_page": 223,
+    "source_pdf_sha256": "2028b7f926b9f65129f35daaaedf9df9aefe8ad5d336e4acd95846f00b7c5c23",
+    "transcription_note": "第(4)问必须展示“等高阶梯”补充条件，其余四问为图形定义的文字转录。"
+  },
+  {
+    "question_id": "TB-FIG-CH09-Q5",
+    "base_question_id": "TB-CH09-Q5",
+    "stem": "求下列周期信号的单边拉普拉斯变换。设$E,A,T,\\omega>0$，$0<\\tau<T$；信号在$t<0$为0。对周期为$T$的信号，令$s=t-kT\\in[0,T)$，$k=0,1,2,\\ldots$；跳跃点取右侧值。\n\n（1）周期$T$的锯齿波：$f_1(t)=E-2Es/T$。\n\n（2）周期$2\\pi/\\omega$的半波整流信号：令$r=t-(2k\\pi/\\omega)\\in[0,2\\pi/\\omega)$，\n$$f_2(t)=\\begin{cases}A\\sin(\\omega r),&0\\le r<\\pi/\\omega,\\\\0,&\\pi/\\omega\\le r<2\\pi/\\omega.\\end{cases}$$\n\n（3）周期$T$的分段直线信号：\n$$f_3(t)=\\begin{cases}E-\\dfrac{2E}{5T}s,&0\\le s<T/2,\\\\\\dfrac{2E}{5T}(s-T),&T/2\\le s<T.\\end{cases}$$\n因此每周期前半从$E$降至$0.8E$，在$T/2$跳至$-0.2E$，后半升至0。\n\n（4）周期$T$的正弦波串：\n$$f_4(t)=\\begin{cases}E\\sin(2\\pi s/\\tau),&0\\le s<\\tau,\\\\0,&\\tau\\le s<T.\\end{cases}$$",
+    "stem_sha256": "42569d22d2f6063bb6b0dd8f7916d617809b43fd55654a1dc19b2d1a10c7a431",
+    "original_figure": "fig-9-9-verified.png",
+    "original_figure_sha256": "db6b96316350b4c0172747038bff985a9c31689c8295bd54b3ba80c3f809358f",
+    "source_pdf_page": 224,
+    "source_pdf_sha256": "2028b7f926b9f65129f35daaaedf9df9aefe8ad5d336e4acd95846f00b7c5c23",
+    "transcription_note": "单点跳跃值为计算单边拉氏变换的明确约定；原图没有空心/实心端点标记。"
+  }
+]

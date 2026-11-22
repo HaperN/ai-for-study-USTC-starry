@@ -3,3 +3,6 @@
 @media print{.practice-q>.practice-meta,.practice-q>h2{break-after:avoid}.practice-q>h2+.markdown{break-before:avoid}}
 
 .practice-q img{display:block;max-width:100%;height:auto;margin:18px auto;break-inside:avoid}
+@media screen and (max-width:600px){.practice-q :not(.katex-display)>.katex{display:inline-block;max-width:100%;overflow-x:auto;overflow-y:hidden;vertical-align:middle;padding:3px 0}.practice-chip{min-width:0;max-width:100%}}
+.practice-q>.practice-question-heading{font-size:21px;margin:8px 0 14px}.practice-inline .practice-q>.practice-question-heading{font-size:18px}.practice-answer-heading{font-size:18px;margin:16px 0 8px}.practice-content-heading{font-size:17px;margin:15px 0 8px}.practice-chapter{font-size:25px;margin:36px 0 18px;padding-top:16px;border-top:2px solid var(--line)}
+@media print{.practice-chapter{break-before:page;break-after:avoid;font-size:18pt;margin-top:0}.practice-chapter:first-child{break-before:auto}body.print-answers .practice-solution>summary{display:none}.practice-question-heading{break-after:avoid}}

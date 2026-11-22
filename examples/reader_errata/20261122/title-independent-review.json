@@ -1,0 +1,38 @@
+{
+  "engine": "codex-native-agent",
+  "reviewer": "/root/native_math_compare",
+  "input_sha256": "0014afaa9e2606c37dac136c2478a12a667401e9d912c7de270dd409dcb698fe",
+  "changes": [
+    {
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-01-TITLE",
+      "status": "accepted",
+      "reason": "标题准确。正文允许m等于或高于真实极点阶数，关键是(z−a)^m f能解析延拓；“能消去极点的幂次”概括该充分适用条件，不再暗示必须知道且只能采用真实阶数，也不混入本性奇点无法消去的情形。",
+      "issues": []
+    },
+    {
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-02-TITLE",
+      "status": "accepted",
+      "reason": "标题准确区分两件事：商式留数恒等式只需局部解析及分母简单零点，真正一阶极点还要分子非零。新标题不再把额外极点判定条件误列为数值恒等式的必要条件，和全部正文例子一致。",
+      "issues": []
+    },
+    {
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-05-TITLE",
+      "status": "accepted",
+      "reason": "标题准确概括正文中的零端条件强弱：所讨论的f(t)/t在0附近有界是方便的充分保证，真正需要检验相应可积控制；正文另保留分段连续、指数增长和右半平面条件，并给t^{-1/2}无界但可积例子，标题没有再声称有界不可省。",
+      "issues": []
+    },
+    {
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-07-TITLE",
+      "status": "accepted",
+      "reason": "标题准确。正文讲完整待定系数模板应允许从一次到m次分母，而实际系数可以为0；“完整模板”不会被误读成每个系数必须非零，并涵盖实例As−A的正确通分核查。",
+      "issues": []
+    },
+    {
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-08-TITLE",
+      "status": "accepted",
+      "reason": "标题准确。正文一方面给不要求有界的强最大模原理，另一方面讲有界闭包连续时的最大值取得与边界推论；标题直接对应这一区分，消除了旧标题对任意区域应用强原理的错误禁止。",
+      "issues": []
+    }
+  ],
+  "overall": "accepted"
+}

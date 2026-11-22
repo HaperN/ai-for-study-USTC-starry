@@ -1,3 +1,68 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>复变函数 A · 同学阅读包</title><style>
-    *{box-sizing:border-box}body{margin:0;background:#f5f3ed;color:#25382f;font:17px/1.75 system-ui,-apple-system,"Microsoft YaHei",sans-serif}main{max-width:1080px;margin:auto;padding:48px 24px 70px}h1{font-size:clamp(30px,5vw,46px);line-height:1.25;margin:18px 0}h2{font-size:24px;margin:30px 0 12px}p{color:#55645d}a{color:#245d46;text-decoration:none}a:hover{text-decoration:underline}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}.card{background:#fff;border:1px solid #dce1d8;border-radius:16px;padding:25px}.card h2{margin:0 0 10px}.button{display:inline-block;background:#245d46;color:white;border-radius:8px;padding:10px 18px;margin:10px 8px 2px 0}.secondary{background:#edf3eb;color:#245d46}li{margin:10px 0}footer{margin-top:40px;border-top:1px solid #dce1d8;padding-top:18px;color:#637168;font-size:14px}.back{font-size:15px}.small{font-size:15px}details{background:#fff;border:1px solid #dce1d8;border-radius:12px;padding:18px;margin:20px 0}summary{cursor:pointer;font-weight:600}
-    </style></head><body><main><p class="small">复变函数 A · 同学阅读包 · 2026-11-20</p><h1>复变函数 A · 阅读与练习</h1><p>这是可复制、可离线阅读的完整文件夹。请将整个文件夹一起发送，在电脑上用 Edge、Chrome 或 Safari 打开本页。</p><div class="grid"><section class="card"><h2>复变函数 A</h2><p>76 个教学单元，包含讲解、图像、动画与配音；配套基础版和完整版练习、解析、模拟卷及原卷 PDF。</p><a class="button" href="复变函数A/index.html">进入教材与练习</a><a class="button secondary" href="复变函数A/教材/index.html?practice=full">直接阅读教材</a></section></div><footer>双击本页即可阅读，无需安装 Python 或启动工作台。请保留内部文件和相对位置；声音或播放需要先点击按钮。</footer></main></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>复变函数 A · 学习入口</title>
+  <style>
+    :root { color-scheme: light; --ink: #253b31; --muted: #5b6b62; --green: #205c43; --line: #d7e1d8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f5f3ed; color: var(--ink); font: 17px/1.7 system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; }
+    main, footer { width: min(100% - 48px, 880px); margin-inline: auto; }
+    main { padding-top: clamp(36px, 7vw, 80px); }
+    .eyebrow { margin: 0 0 17px; color: var(--green); font-size: 14px; font-weight: 650; letter-spacing: .13em; }
+    .entry-card { padding: clamp(24px, 4vw, 40px); background: #fff; border: 1px solid var(--line); border-radius: 20px; }
+    h1 { margin: 0; font-size: clamp(30px, 5vw, 42px); font-weight: 700; letter-spacing: -.035em; line-height: 1.3; }
+    .intro { margin: 14px 0 28px; color: var(--muted); }
+    .entry-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .study-action { position: relative; display: block; min-width: 0; min-height: 100px; padding: 20px 24px; border: 1px solid #c5d7c9; border-radius: 12px; background: #f8faf7; color: var(--green); text-decoration: none; }
+    .action-label { display: block; font-size: 21px; font-weight: 650; line-height: 1.4; }
+    .action-caption { display: block; margin-top: 5px; color: var(--muted); font-size: 14px; font-weight: 400; line-height: 1.6; }
+    .study-action:hover { background: #edf4ec; border-color: #8ba997; }
+    .study-action:focus-visible { outline: 3px solid #9c6c24; outline-offset: 4px; }
+    .priority { grid-column: 1 / -1; min-height: 116px; padding-block: 24px; background: var(--green); border-color: var(--green); color: #fff; }
+    .priority .action-label { font-size: 27px; }
+    .priority .action-caption { color: #e1ece4; }
+    .priority:hover { background: #174a35; border-color: #174a35; }
+    .priority-badge { position: absolute; top: 26px; right: 24px; padding: 2px 10px; border: 1px solid #8fb49b; border-radius: 999px; color: #eff9d4; font-size: 12px; font-weight: 650; line-height: 1.8; letter-spacing: .06em; }
+    footer { margin-top: 24px; padding: 0 2px 40px; color: var(--muted); font-size: 13px; }
+    @media (max-width: 600px) {
+      main, footer { width: calc(100% - 32px); }
+      main { padding-top: 28px; }
+      .eyebrow { margin-bottom: 12px; }
+      .entry-card { border-radius: 16px; }
+      .intro { margin-bottom: 24px; font-size: 15px; }
+      .entry-actions { grid-template-columns: 1fr; gap: 12px; }
+      .study-action { min-height: 94px; padding: 17px 20px; }
+      .priority { min-height: 112px; padding-block: 22px; }
+      .priority-badge { top: 25px; right: 20px; }
+      footer { margin-top: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">学习入口</p>
+    <section class="entry-card" aria-labelledby="course-title">
+      <h1 id="course-title">复变函数 A</h1>
+      <p class="intro">读懂教材，随学随练，按题型集中复习。</p>
+      <nav class="entry-actions" aria-label="选择学习内容">
+        <a class="study-action" href="复变函数A/教材/index.html?practice=full" aria-label="教材解析">
+          <span class="action-label">教材解析</span>
+          <span class="action-caption">概念、定理与例题</span>
+        </a>
+        <a class="study-action" href="复变函数A/日常巩固.html" aria-label="日常巩固">
+          <span class="action-label">日常巩固</span>
+          <span class="action-caption">随学随练，巩固方法</span>
+        </a>
+        <a class="study-action priority" href="复变函数A/押题.html" aria-label="押题">
+          <span class="action-label">押题</span>
+          <span class="priority-badge" aria-hidden="true">重点</span>
+          <span class="action-caption">按题型集中复习</span>
+        </a>
+      </nav>
+    </section>
+  </main>
+  <footer>可离线阅读。分享时请发送整个文件夹，并保留内部文件的相对位置。</footer>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # 复变函数 A 习题与试卷制作工具
 
-本轮制作的是有来源、经独立数学核验的基础版与完整版初版。教材正文使用现有读本，练习按具体正文段落折叠插入，独立习题集与试卷使用同一题目数据。基础版和完整版不是难度标签；必会、可能考、罕见是题目优先级，每级内按难度排列。
+教材正文使用现有读本，练习按具体正文段落折叠插入，独立习题集与试卷使用同一题目数据。基础版和完整版不是难度标签；必会、可能考、罕见是题目优先级，每级内按难度排列。2026-11-22 扩充的主目录包含 1240 个题目记录，基础版选入 579 个；综合题可在多个相关单元显示，但全书题数按题号去重。
 
 ## 当前可以重跑的部分
 
@@ -28,6 +28,8 @@ node tools/print_practice_pdf.cjs /path/to/新的输出目录
 
 输出目录必须是新的空目录，并且不能与输入教材存在包含关系。历史源路径作为来源记录保留；重新构建根据当前交付中的文件、哈希和审核证据寻找输入，不要求另一台电脑存在原作者的用户目录。
 
+重建需要“制作与复现包”中的 `catalog.json`、实际审核证据、教材和媒体源。供同学直接阅读的精简包只含公开学习页面，不能当作完整生产输入。源码包不包含账号密钥或本机模型权重。打印所需的 `pypdf`、`Pillow` 与浏览器应在本机安装；非默认 Python 可用环境变量 `AIFORSTUDY_PYTHON` 指定。
+
 ## 教师定制
 
 复制 examples/practice/teacher-profile.example.json，填写自己的实际依据。include_ids表示额外纳入，exclude_ids表示排除，topics表示选取指定专题；priority_overrides可改优先级但必须写原因。该操作不改数学内容，也不改公共原版。
@@ -37,6 +39,8 @@ python tools/rebuild_practice_delivery.py --delivery /path/to/交付目录 --out
 ```
 
 若增加公共题库之外的题，增加 --additions 指向已审核题目JSON。新增题的evidence_files相对于新增题JSON所在文件夹；发布时会读取实际证据、校验题目ID、最终内容摘要及独立解答，而不仅查看status字段。试卷配置在papers.json，按question_id引用已审题；指定edition的卷不能使用该版未收录的题。
+
+`paper-catalog.json` 保存仅用于组卷的完整小问视图。它们引用母题的真实来源、当前内容摘要和原独立解答的准确摘录，不作为额外练习计入主目录。母题与其视图不能在同一张卷内重复出现；定制卷使用视图时，需要在 `include_ids` 中明确选入。移动交付包后，重建工具自动读取这份目录及其证据。
 
 若教师要求新的知识章节，先在已有教学系统中补齐有来源的正文单元，再配置练习挂载；不存在的unit_id会被阻断。当前题目层定制不冒充已自动扩写任意课程正文。
 
@@ -68,12 +72,16 @@ node tools/compile_practice_placements.cjs /path/to/catalog.json /path/to/教材
 
 源头模型输出、符号/数值核验、独立数学对照、实际页面和PDF检查是不同证据。新功能测试通过不代表旧仓库所有回归通过，也不代表学生一定提分。
 
+本次扩充保留 36 套正式训练卷（覆盖、拟合、压力各 12 套），另列 2 套旧结构参照试制卷。专题训练可以是较短的一组题，页面明确列出题数、实际训练分值与建议用时；并非每一套都是同长度的期末全真模拟。教师的实际作业、课件和题源偏好仍由同学配置，不根据学校或教师姓名猜测。
+
 ## 动画与静态 SVG
 
 新增习题媒体独立于题目的数学正文：通过题号和 content_digest 绑定已审题目。动画目录汇集原正文动画和新增习题动画；题目页面在展开答案后才装载播放器，收起外层习题、答案或筛选移除题目时会暂停并卸载。纯题卷不加载动画数据；PDF只保留静态图。
 
 交付中的 `媒体源/manifest.json` 保存真实视频、SVG、源程序、渲染收据、实际画面审查和发布配置摘要。重建工具自动携带这份媒体清单。修改公式、字幕、步骤、播放音轨或文件字节后都必须重审，不能沿用旧审核状态。渲染器返回 `needs_review` 只代表技术检查通过。
 
-三段 Manim 源码及经审分镜在 `examples/practice_media/`。重渲染使用 `tools/render_practice_media.py --specs examples/practice_media/programs.json --out /path/to/new-renders --profile draft --manim-python /path/to/manim/python`。最终有声版选择 `--profile final --speech-config /path/to/local-speech.json`；配置使用现有 local-qwen 后端，提供本机模型目录、校验清单、Python 与缓存目录，不发布模型权重或账号资料。全审查模式和 OS 隔离保持启用。
+Manim 源码在 `examples/practice_media/`，包含原三段习题动画、Laurent 圆环展开，以及教材圆弧域到条带的新运动版本。原三段的重渲染使用 `tools/render_practice_media.py --specs examples/practice_media/programs.json --out /path/to/new-renders --profile draft --manim-python /path/to/manim/python`。Laurent 分镜由 `tools/build_laurent_media_spec.py` 准备；圆弧域替换工具 `tools/apply_reviewed_motion_replacement.py` 仅接受与实际独立审核、输入和成品字节一致的资源。最终有声版配置使用现有 local-qwen 后端，提供本机模型目录、校验清单、Python 与缓存目录，不发布模型权重或账号资料。
 
-实际视频画面、静态图和数学需要独立检查后，才可用 `tools/package_practice_media.py` 生成发布清单。默认新成品保持原有正文媒体字节不变。当前配音通过声稿审核、解码及非静音检查，未作人工听感评估。
+实际视频画面、静态图和数学需要独立检查后，才可用 `tools/package_practice_media.py` 生成发布清单。正文动画的替换单独记录，并保留历史资源；不把静态图切换当作数学对象运动。当前配音通过声稿、解码及非静音检查，未作人工听感评估。三维球面与连续对数图使用本地运行时，支持拖拽、播放、暂停；无 WebGL 或打印时明确显示静态 SVG 后备图。
+
+本轮后半段的独立审核由实际 Codex 原生代理完成，记录保存真实参与者、独立求解及最终对照，不冒充外部 API 响应。外部额度或重试上限触发后，不应清空记录或改请求标识绕过。覆盖审核同时绑定题面及共用条件；跨章节引用必须匹配审核者当时记录的题面摘要。

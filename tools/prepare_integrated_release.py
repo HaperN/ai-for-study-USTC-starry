@@ -158,7 +158,7 @@ def project_book(book):
         lesson = unit.get('study_lesson',{})
         discard(lesson,'source_path')
         discard(lesson.get('source_metadata',{}),'source_path')
-        discard(unit,'automatic_processing diagnostic_problems study_provenance study_support_corrections study_display_corrections study_textbook_format_corrections study_recovery')
+        discard(unit,'automatic_processing diagnostic_problems study_provenance study_support_corrections study_support_corrections_20261122 study_display_corrections study_textbook_format_corrections study_recovery')
     strip_record_fields(book['course_library'],('evidence_png','evidence_pngs'))
     if not book.get('unavailable_units'):
         discard(book,'problem_summary')
@@ -245,7 +245,11 @@ def source_snapshot(dest):
     if status:
         raise ValueError('请先提交源代码修改')
     commit = subprocess.check_output(['git','rev-parse','HEAD'],cwd=REPO,text=True).strip()
-    roots = ['src','tools','blocks','lib','figures','config','THIRD_PARTY_NOTICES','docs/integrated-study.md',
+    roots = ['src','tools','blocks','lib','figures','config','tests','THIRD_PARTY_NOTICES',
+             'examples/practice','examples/practice_media','examples/practice_source_svgs',
+             'examples/practice_spatial','examples/reader_errata',
+             'docs/integrated-study.md','docs/practice-production.md','docs/account-runtime.md',
+             'docs/narration-providers.md',
              'README.md','aifs','setup.py','pyproject.toml','MANIFEST.in','package.json','package-lock.json',
              'requirements*.txt','requirements*.lock','vendor.lock.json']
     archive = dest/'source.zip'

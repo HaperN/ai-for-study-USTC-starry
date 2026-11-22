@@ -241,14 +241,18 @@ class BookSnapshot:
         questions = {}
         for edition, rows in _assignment(self.raw[PRACTICE], 'PRACTICE_EDITIONS').items():
             for q in rows:
-                uid = q.get('mount_unit_id') or q['unit_id']
-                target = self._add(uid, 'data-practice-id', q['id'], q['stem'], layer=revision)
-                if not target:
-                    raise ValueError(f'练习缺少题干：{uid}')
-                editions = target.setdefault('editions', [])
-                if edition not in editions:
-                    editions.append(edition)
-                questions.setdefault(q['id'], {})[uid] = editions
+                units = [q.get('mount_unit_id') or q['unit_id']]
+                units.extend(m['unit_id'] for m in q.get('additional_mounts', []))
+                for uid in dict.fromkeys(units):
+                    if uid not in self.targets:
+                        raise ValueError(f'练习挂载单元不存在：{uid}')
+                    target = self._add(uid, 'data-practice-id', q['id'], q['stem'], layer=revision)
+                    if not target:
+                        raise ValueError(f'练习缺少题干：{uid}')
+                    editions = target.setdefault('editions', [])
+                    if edition not in editions:
+                        editions.append(edition)
+                    questions.setdefault(q['id'], {})[uid] = editions
         for item in _assignment(self.raw[MEDIA], 'PRACTICE_MEDIA') if MEDIA in self.raw else ():
             for uid, editions in questions.get(item['question_id'], {}).items():
                 target = self._add(uid, 'data-practice-media-id', item['id'], item['title'], 'media', layer=revision)

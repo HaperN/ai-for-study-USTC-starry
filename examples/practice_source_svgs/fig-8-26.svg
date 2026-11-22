@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="1390" viewBox="0 0 1120 1390" role="img" aria-labelledby="title description">
+<title id="title">图8.26对应的两个开多边形域</title><desc id="description">蓝色阴影表示域内；虚线边界全部排除。边界箭头仅表示向无穷延伸，不表示积分方向。</desc>
+<defs><marker id="axis-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#788994"/></marker>
+<marker id="domain-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#126d91"/></marker>
+<marker id="dimension-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1L9 5L0 9" fill="none" stroke="#788994" stroke-width="1.3"/></marker></defs>
+<rect width="1120" height="1390" fill="white"/><g font-family="&#x27;STIX Two Text&#x27;,&#x27;Cambria Math&#x27;,&#x27;Times New Roman&#x27;,&#x27;PingFang SC&#x27;,&#x27;Microsoft YaHei&#x27;,serif" fill="#172d3c">
+<text x="35" y="45" font-size="36" text-anchor="start" fill="#172d3c" font-weight="600">图 8.26 · 两个开多边形域</text>
+<text x="35" y="85" font-size="26" text-anchor="start" fill="#172d3c">蓝色为域内；虚线边界均不含。箭头仅表示无限延伸，图边缘不是边界。</text>
+<text x="35" y="140" font-size="31" text-anchor="start" fill="#172d3c" font-weight="600">（1）直角转弯域 G₁</text>
+<polygon points="158.8889,190 314.4444,190 314.4444,384.4444 620,384.4444 620,475.1852 158.8889,475.1852" fill="#e4f3f7" stroke="none" data-panel="domain-1" data-role="domain-fill"/>
+<path d="M81.1111 384.4444 L612.2222 384.4444" fill="none" stroke="#788994" stroke-width="1.3" marker-end="url(#axis-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-1" data-role="axis"/>
+<path d="M314.4444 531.358 L314.4444 195.1852" fill="none" stroke="#788994" stroke-width="1.3" marker-end="url(#axis-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-1" data-role="axis"/>
+<path d="M158.8889 475.1852 L158.8889 202.963" fill="none" stroke="#126d91" stroke-width="3.8" stroke-dasharray="10 7" marker-end="url(#domain-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-1" data-role="boundary"/>
+<path d="M158.8889 475.1852 L605.5556 475.1852" fill="none" stroke="#126d91" stroke-width="3.8" stroke-dasharray="10 7" marker-end="url(#domain-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-1" data-role="boundary"/>
+<path d="M314.4444 384.4444 L605.5556 384.4444" fill="none" stroke="#126d91" stroke-width="3.8" stroke-dasharray="10 7" marker-end="url(#domain-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-1" data-role="boundary"/>
+<path d="M314.4444 384.4444 L314.4444 202.963" fill="none" stroke="#126d91" stroke-width="3.8" stroke-dasharray="10 7" marker-end="url(#domain-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-1" data-role="boundary"/>
+<path d="M158.8889 280.7407 L314.4444 280.7407" fill="none" stroke="#788994" stroke-width="1.4" marker-end="url(#dimension-arrow)" marker-start="url(#dimension-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-1" data-role="dimension"/>
+<text x="236.6667" y="266.7407" font-size="27" text-anchor="middle" fill="#172d3c">h</text>
+<path d="M447.7778 475.1852 L447.7778 384.4444" fill="none" stroke="#788994" stroke-width="1.4" marker-end="url(#dimension-arrow)" marker-start="url(#dimension-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-1" data-role="dimension"/>
+<text x="473.7778" y="429.8148" font-size="27" text-anchor="middle" fill="#172d3c">H</text>
+<text x="324.4444" y="372.4444" font-size="26" text-anchor="start" fill="#172d3c">O</text>
+<text x="614.4444" y="414.4444" font-size="26" text-anchor="end" fill="#172d3c">x</text>
+<text x="330.4444" y="199.321" font-size="26" text-anchor="start" fill="#172d3c">y</text>
+<text x="153.8889" y="511.1852" font-size="26" text-anchor="start" fill="#172d3c">(−h,−H)</text>
+<text x="236.6667" y="203.5185" font-size="26" text-anchor="middle" fill="#172d3c">+∞</text>
+<text x="589.8889" y="437.8148" font-size="26" text-anchor="middle" fill="#172d3c">+∞</text>
+<text x="240" y="438.0247" font-size="30" text-anchor="middle" fill="#172d3c">G₁</text>
+<text x="715" y="195" font-size="28" text-anchor="start" fill="#172d3c">h,H&gt;0；w=x+iy</text>
+<text x="715" y="237" font-size="28" text-anchor="start" fill="#172d3c">x&gt;−h，y&gt;−H</text>
+<text x="715" y="279" font-size="28" text-anchor="start" fill="#172d3c">并且 x&lt;0 或 y&lt;0。</text>
+<text x="715" y="345" font-size="27" text-anchor="start" fill="#172d3c" font-weight="600">排除的四条边界：</text>
+<text x="715" y="390" font-size="27" text-anchor="start" fill="#172d3c">x=−h，y≥−H</text>
+<text x="715" y="432" font-size="27" text-anchor="start" fill="#172d3c">y=−H，x≥−h</text>
+<text x="715" y="474" font-size="27" text-anchor="start" fill="#172d3c">y=0，x≥0</text>
+<text x="715" y="516" font-size="27" text-anchor="start" fill="#172d3c">x=0，y≥0</text>
+<text x="70" y="590" font-size="25" text-anchor="start" fill="#788994">向上、向右两个通道开放；长度只作示意，未固定 h/H。</text>
+<path d="M35 632 L1085 632" fill="none" stroke="#dbe3e7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="35" y="690" font-size="31" text-anchor="start" fill="#172d3c" font-weight="600">（2）三通道域 G₂</text>
+<polygon points="70,843.8298 620,843.8298 620,914.3617 381.3208,914.3617 381.3208,1155 246.4151,1155 246.4151,993.1915 70,993.1915" fill="#e4f3f7" stroke="none" data-panel="domain-2" data-role="domain-fill"/>
+<path d="M78.3019 914.3617 L612.7358 914.3617" fill="none" stroke="#788994" stroke-width="1.3" marker-end="url(#axis-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-2" data-role="axis"/>
+<path d="M381.3208 1146.7021 L381.3208 773.2979" fill="none" stroke="#788994" stroke-width="1.3" marker-end="url(#axis-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-2" data-role="axis"/>
+<path d="M84.5283 843.8298 L604.434 843.8298" fill="none" stroke="#126d91" stroke-width="3.8" stroke-dasharray="10 7" marker-end="url(#domain-arrow)" marker-start="url(#domain-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-2" data-role="boundary"/>
+<path d="M381.3208 914.3617 L604.434 914.3617" fill="none" stroke="#126d91" stroke-width="3.8" stroke-dasharray="10 7" marker-end="url(#domain-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-2" data-role="boundary"/>
+<path d="M381.3208 914.3617 L381.3208 1145.0426" fill="none" stroke="#126d91" stroke-width="3.8" stroke-dasharray="10 7" marker-end="url(#domain-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-2" data-role="boundary"/>
+<path d="M246.4151 993.1915 L84.5283 993.1915" fill="none" stroke="#126d91" stroke-width="3.8" stroke-dasharray="10 7" marker-end="url(#domain-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-2" data-role="boundary"/>
+<path d="M246.4151 993.1915 L246.4151 1145.0426" fill="none" stroke="#126d91" stroke-width="3.8" stroke-dasharray="10 7" marker-end="url(#domain-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-2" data-role="boundary"/>
+<path d="M495.4717 914.3617 L495.4717 843.8298" fill="none" stroke="#788994" stroke-width="1.4" marker-end="url(#dimension-arrow)" marker-start="url(#dimension-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-2" data-role="dimension"/>
+<text x="521.4717" y="879.0957" font-size="27" text-anchor="middle" fill="#172d3c">h₁</text>
+<path d="M142.6415 993.1915 L142.6415 843.8298" fill="none" stroke="#788994" stroke-width="1.4" marker-end="url(#dimension-arrow)" marker-start="url(#dimension-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-2" data-role="dimension"/>
+<text x="113.6415" y="918.5106" font-size="27" text-anchor="middle" fill="#172d3c">h₂</text>
+<path d="M246.4151 1076.1702 L381.3208 1076.1702" fill="none" stroke="#788994" stroke-width="1.4" marker-end="url(#dimension-arrow)" marker-start="url(#dimension-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="domain-2" data-role="dimension"/>
+<text x="313.8679" y="1061.1702" font-size="27" text-anchor="middle" fill="#172d3c">h₃</text>
+<text x="393.3208" y="944.3617" font-size="26" text-anchor="start" fill="#172d3c">O</text>
+<text x="614.8113" y="944.3617" font-size="26" text-anchor="end" fill="#172d3c">x</text>
+<text x="397.3208" y="779.6383" font-size="26" text-anchor="start" fill="#172d3c">y</text>
+<text x="234.4151" y="1032.1915" font-size="25" text-anchor="end" fill="#172d3c">(−h₃,h₁−h₂)</text>
+<text x="101.3208" y="876.7234" font-size="26" text-anchor="middle" fill="#172d3c">−∞</text>
+<text x="595.0943" y="887.5106" font-size="26" text-anchor="middle" fill="#172d3c">+∞</text>
+<text x="313.8679" y="1143.9362" font-size="26" text-anchor="middle" fill="#172d3c">−∞</text>
+<text x="313.8679" y="955.8511" font-size="30" text-anchor="middle" fill="#172d3c">G₂</text>
+<text x="715" y="765" font-size="27" text-anchor="start" fill="#172d3c">h₂&gt;h₁&gt;0，h₃&gt;0</text>
+<text x="715" y="807" font-size="27" text-anchor="start" fill="#172d3c">y&lt;h₁；</text>
+<text x="715" y="849" font-size="27" text-anchor="start" fill="#172d3c">x&lt;0 或 y&gt;0；</text>
+<text x="715" y="891" font-size="27" text-anchor="start" fill="#172d3c">x&gt;−h₃ 或 y&gt;h₁−h₂。</text>
+<text x="715" y="967" font-size="27" text-anchor="start" fill="#172d3c" font-weight="600">排除的边界：</text>
+<text x="715" y="1012" font-size="26" text-anchor="start" fill="#172d3c">y=h₁（整条直线）</text>
+<text x="715" y="1052" font-size="26" text-anchor="start" fill="#172d3c">y=0，x≥0</text>
+<text x="715" y="1092" font-size="26" text-anchor="start" fill="#172d3c">x=0，y≤0</text>
+<text x="715" y="1132" font-size="26" text-anchor="start" fill="#172d3c">y=h₁−h₂，x≤−h₃</text>
+<text x="715" y="1172" font-size="26" text-anchor="start" fill="#172d3c">x=−h₃，y≤h₁−h₂</text>
+<text x="70" y="1252" font-size="26" text-anchor="start" fill="#788994">向左、向右、向下三个通道开放；h₁−h₂&lt;0。</text>
+<text x="35" y="1348" font-size="26" text-anchor="start" fill="#788994">域为严格不等式定义的开集；边界上的点（含拐角）均不属于域。</text>
+</g><metadata id="figure-data">{&quot;schema&quot;:&quot;source-practice-svg-v1&quot;,&quot;binding&quot;:{&quot;question_id&quot;:&quot;TB-FIG-CH08-Q12&quot;,&quot;base_question_id&quot;:&quot;TB-CH08-Q12&quot;,&quot;figure&quot;:&quot;fig-8-26.svg&quot;,&quot;source_stem_sha256&quot;:&quot;339d404c9bd827eea1da064aa43b34d59e43ab817b1ab60e82cac94ea021c25b&quot;,&quot;catalog_content_sha256&quot;:null,&quot;binding_status&quot;:&quot;candidate_not_in_accepted_catalog&quot;,&quot;independent_figure_review&quot;:&quot;pending&quot;},&quot;source_definition&quot;:{&quot;question_id&quot;:&quot;TB-FIG-CH08-Q12&quot;,&quot;base_question_id&quot;:&quot;TB-CH08-Q12&quot;,&quot;stem&quot;:&quot;求从上半平面$\\{z:\\operatorname{Im}z&gt;0\\}$到下列两个多边形域的保形映射（可保留由边长决定的Schwarz–Christoffel参数关系，须说明如何确定这些参数）：\n\n（1）给定$h,H&gt;0$，目标域是\n$$G_1=\\{w=x+iy:x&gt;-h,\\ y&gt;-H,\\ (x&lt;0\\ \\text{或}\\ y&lt;0)\\}.$$\n其边界由四条线段/射线依次连接：$x=-h,y\\ge-H$；$y=-H,x\\ge-h$；$y=0,x\\ge0$；$x=0,y\\ge0$。这是向上延伸的宽$h$竖向通道与向右延伸的高$H$横向通道的直角转弯域。\n\n（2）给定$h_2&gt;h_1&gt;0,h_3&gt;0$，目标域是\n$$G_2=\\{w=x+iy:y&lt;h_1,\\ (x&lt;0\\ \\text{或}\\ y&gt;0),\\ (x&gt;-h_3\\ \\text{或}\\ y&gt;h_1-h_2)\\}.$$\n边界为整条直线$y=h_1$，以及两条折线：$y=0,x\\ge0$与$x=0,y\\le0$；$y=h_1-h_2,x\\le-h_3$与$x=-h_3,y\\le h_1-h_2$。它有向左、向右、向下三个通道。&quot;,&quot;stem_sha256&quot;:&quot;339d404c9bd827eea1da064aa43b34d59e43ab817b1ab60e82cac94ea021c25b&quot;,&quot;original_figure&quot;:&quot;fig-8-26-verified.png&quot;,&quot;original_figure_sha256&quot;:&quot;f019b5984b9cf8ad7e4f7686443e16694a8e187e388d5a1777485753831746cb&quot;,&quot;source_pdf_page&quot;:193,&quot;source_pdf_sha256&quot;:&quot;2028b7f926b9f65129f35daaaedf9df9aefe8ad5d336e4acd95846f00b7c5c23&quot;,&quot;transcription_note&quot;:&quot;严格不等式排除黑色边界；坐标w沿用目标多边形图的x,y。参数大小关系来自图中所示位置，不由比例估算数值。&quot;},&quot;geometry&quot;:[{&quot;panel&quot;:&quot;domain-1&quot;,&quot;box&quot;:[70,190,550,350],&quot;xrange&quot;:[-2.2,2.75],&quot;yrange&quot;:[-1.8,2.25],&quot;segments&quot;:[{&quot;role&quot;:&quot;boundary&quot;,&quot;points&quot;:[[-1.4,-1.05],[-1.4,2.1]]},{&quot;role&quot;:&quot;boundary&quot;,&quot;points&quot;:[[-1.4,-1.05],[2.62,-1.05]]},{&quot;role&quot;:&quot;boundary&quot;,&quot;points&quot;:[[0,0],[2.62,0]]},{&quot;role&quot;:&quot;boundary&quot;,&quot;points&quot;:[[0,0],[0,2.1]]}],&quot;endpoints&quot;:[],&quot;illustrative_parameters&quot;:{&quot;h&quot;:1.4,&quot;H&quot;:1.05},&quot;fill_polygon&quot;:[[-1.4,2.25],[0,2.25],[0,0],[2.75,0],[2.75,-1.05],[-1.4,-1.05]]},{&quot;panel&quot;:&quot;domain-2&quot;,&quot;box&quot;:[70,765,550,390],&quot;xrange&quot;:[-3.0,2.3],&quot;yrange&quot;:[-2.9,1.8],&quot;segments&quot;:[{&quot;role&quot;:&quot;boundary&quot;,&quot;points&quot;:[[-2.86,0.85],[2.15,0.85]]},{&quot;role&quot;:&quot;boundary&quot;,&quot;points&quot;:[[0,0],[2.15,0]]},{&quot;role&quot;:&quot;boundary&quot;,&quot;points&quot;:[[0,0],[0,-2.78]]},{&quot;role&quot;:&quot;boundary&quot;,&quot;points&quot;:[[-1.3,-0.9500000000000001],[-2.86,-0.9500000000000001]]},{&quot;role&quot;:&quot;boundary&quot;,&quot;points&quot;:[[-1.3,-0.9500000000000001],[-1.3,-2.78]]}],&quot;endpoints&quot;:[],&quot;illustrative_parameters&quot;:{&quot;h1&quot;:0.85,&quot;h2&quot;:1.8,&quot;h3&quot;:1.3},&quot;fill_polygon&quot;:[[-3,0.85],[2.3,0.85],[2.3,0],[0,0],[0,-2.9],[-1.3,-2.9],[-1.3,-0.9500000000000001],[-3,-0.9500000000000001]]}]}</metadata></svg>

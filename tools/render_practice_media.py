@@ -12,7 +12,7 @@ def main():
     p.add_argument('--profile',choices=['draft','final'],default='draft');p.add_argument('--only')
     p.add_argument('--manim-python',type=Path);p.add_argument('--speech-config',type=Path)
     a=p.parse_args()
-    if a.manim_python:os.environ['AIFORSTUDY_MANIM_PYTHON']=str(a.manim_python.resolve())
+    if a.manim_python:os.environ['AIFORSTUDY_MANIM_PYTHON']=str(a.manim_python.expanduser().absolute())
     narration=json.loads(a.speech_config.read_text()) if a.speech_config else {'enabled':False}
     if a.profile=='final' and not narration.get('enabled'):raise ValueError('final narrated edition needs an explicit enabled speech configuration')
     for item in json.loads(a.specs.read_text()):

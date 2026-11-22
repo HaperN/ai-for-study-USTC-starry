@@ -18,7 +18,9 @@ from .config import check_link
 
 PRACTICE_ASSETS = set("""animations.js audible-audio.js katex.min.css katex.min.js marked.min.js
 practice-media.css practice-media.js practice-reader.js practice.css practice.js reader-markdown.js
-render-core.js study-math.js practice-para23-15.svg""".split())
+render-core.js study-math.js practice-para23-15.svg practice-spatial-attachments.js
+practice-spatial.js practice-spatial.css practice-three.min.js
+practice-spatial-sphere.svg practice-spatial-log.svg""".split())
 READER_ASSETS = PRACTICE_ASSETS | set("""app.js course-library.css course-library.js media-purpose.css
 media-purpose.js media-surface.css models.js notes.css notes.js reader-book.css reader-layout.js
 study-foundation-scenes.js study-guides.js study-lesson.js study-light.css study-reader.css
@@ -27,7 +29,7 @@ styles.css text-led-multiplication.js textbook.pdf three.min.js video-evidence.j
 EDITION = ('基础版','完整版','定制版')
 WORKBOOKS = [f'{e}-{kind}.html' for e in EDITION for kind in ('习题集','习题题册')]
 PRINTS = [f'可打印/{e}-{kind}.pdf' for e in EDITION for kind in ('习题解析','习题题册')]
-PAGES = WORKBOOKS + ['动画目录.html','试卷包/index.html','题目来源对照.html'] + PRINTS
+PAGES = WORKBOOKS + ['日常巩固.html','押题.html','三维图解.html','动画目录.html','试卷包/index.html','题目来源对照.html'] + PRINTS
 
 # These names are the public renderer outputs. Source records, receipts and caches
 # in the very same directories have no route.
@@ -46,6 +48,28 @@ def reader_media_names(raw):
             paths.update(name + filename for filename in NARRATED_FILES)
         else:
             paths.add(name)
+    # New reviewed revisions keep a logical request id while using a distinct
+    # resource directory. Admit only the public resources actually declared by
+    # animation records, never neighbouring source files or review receipts.
+    try:
+        data = _assignment(raw, '__DATA__')
+    except (ValueError, TypeError, UnicodeError):
+        return paths
+    suffixes={'mp4':('.mp4',),'picture':('.mp4',),'audio':('.mp3','.wav','.m4a','.ogg'),
+              'svg':('.svg',),'poster':('.png','.jpg','.jpeg','.webp'),'captions':('.vtt',),'transcript':('.txt',)}
+    for rows in data.get('animations',{}).values():
+        for item in rows if isinstance(rows,list) else [rows]:
+            if not isinstance(item,dict):continue
+            base=item.get('base','')
+            if not re.fullmatch(r'assets/narrated/CH\d+(?:-[A-Z]+\d+)*/MR-[0-9a-f]+(?:-motion-\d{8})?/',base):continue
+            for kind,resource in item.get('resources',{}).items():
+                name=resource.get('relative_path','') if isinstance(resource,dict) else ''
+                if kind in suffixes and re.fullmatch(r'[A-Za-z0-9_.-]+',name) and name.endswith(suffixes[kind]):paths.add(base+name)
+            playback=item.get('playback',{})
+            for value,kind in [(playback.get('video_src',''),'picture'),(playback.get('audio',{}).get('src',''),'audio')]:
+                if isinstance(value,str) and value.startswith(base):
+                    name=value[len(base):]
+                    if re.fullmatch(r'[A-Za-z0-9_.-]+',name) and name.endswith(suffixes[kind]):paths.add(value)
     return paths
 
 FONT = re.compile(r'assets/fonts/KaTeX_(?:AMS|Caligraphic|Fraktur|Main|Math|SansSerif|Script|Size[1-4]|Typewriter)'
@@ -81,6 +105,8 @@ class PaperLinks(HTMLParser):
 def delivery_names(server):
     practice = server.config.practice
     names = set(PAGES)
+    names.update('章节练习/'+unit+'.html' for unit in getattr(server,'units',())
+                 if re.fullmatch(r'CH\d+(?:-(?:S|SS)\d+)*',unit))
     if practice and (index := public_file(practice,'试卷包/index.html')):
         links = PaperLinks()
         links.feed(index.read_text(encoding='utf-8'))
@@ -96,6 +122,8 @@ def delivery_names(server):
                 if (role in MEDIA_TYPES and re.fullmatch(r'[\w-]+\.[a-z0-9]+',filename)
                         and filename.endswith(MEDIA_TYPES[role])):
                     media.add('assets/' + base + filename)
+                    if role=='svg' and item.get('static_existing_in_solution') is True:
+                        media.add('assets/' + filename)
     return names, media
 
 
@@ -132,9 +160,9 @@ class LearningHandler(CommunityHandler):
             return self._missing()
         practice = self.server.config.practice
         if path == '/start':
-            links = [('/','阅读教材与共享感悟')]
+            links = [('/?practice=full','教材解析')]
             if practice:
-                links.append(('/practice/','练习与试卷'))
+                links.extend([('/practice/日常巩固.html','日常巩固'),('/practice/押题.html','押题')])
             footer = link(self.server.workbench_url,'打开制作工作台') if self.server.workbench_url else ''
             return self._entry('学习首页',links,footer)
         if path in ('/', '/index.html') and not public_file(self.server.reader, 'index.html'):

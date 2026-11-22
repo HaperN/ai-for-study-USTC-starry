@@ -1,0 +1,61 @@
+{
+  "engine": "codex-native-agent",
+  "author": "/root",
+  "changes": [
+    {
+      "unit_id": "CH06-S01",
+      "group": "annotations",
+      "owner_id": "NOTE-MPOLE-WRONG-ORDER",
+      "anchor": "reader-769046bb82fb098a18a3",
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-01-TITLE",
+      "json_pointer": "/annotations/4/title",
+      "before": "套公式前必须先定对极点的阶数",
+      "after": "选择能消去极点的幂次",
+      "approved_body": "设 $a$ 为孤立奇点，取正整数 $m$，只要 $H(z)=(z-a)^m f(z)$ 能在 $a$ 解析延拓，就有\n$$\\operatorname{Res}(f,a)=\\frac{H^{(m-1)}(a)}{(m-1)!}.$$\n这是提取 $H$ 的第 $m-1$ 次 Taylor 系数，等价于提取 $f$ 的负一次 Laurent 系数。$m$ 可以大于真实极点阶数；取真实阶数通常最简。若 $m$ 小于真实极点阶数，$H$ 仍有极点，不能在 $a$ 求上述解析导数。\n例如 $f(z)=1/z^2$，用 $m=2$ 得 $H=1$、$H'(0)=0$；用 $m=3$ 得 $H=z$、$H''(0)/2=0$，两者都正确。用 $m=1$ 时 $H=1/z$ 在 $0$ 无有限极限，公式不适用。本性奇点无法由任何有限次幂消去全部负幂项。"
+    },
+    {
+      "unit_id": "CH06-S01",
+      "group": "annotations",
+      "owner_id": "NOTE-PQ-CONDITION",
+      "anchor": "reader-86b607e5253327842d17",
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-02-TITLE",
+      "json_pointer": "/annotations/5/title",
+      "before": "公式 (6.4) 的三个条件缺一不可",
+      "after": "商式留数公式与一阶极点的条件",
+      "approved_body": "若 $P,Q$ 在 $a$ 邻域解析，$Q(a)=0$ 且 $Q'(a)\\ne0$，则\n$$\\operatorname{Res}(P/Q,a)=\\frac{P(a)}{Q'(a)}.$$\n确实，$Q(z)=(z-a)q(z)$，其中 $q(a)=Q'(a)\\ne0$，$P/q$ 解析；其常数项除以 $z-a$ 正好给出留数。额外的 $P(a)\\ne0$ 保证 $a$ 是真正一阶极点。若 $P(a)=0$，$a$ 可去，但同一恒等式仍给留数 $0$。\n例如 $(z-\\mathrm i)/(z^2+1)=1/(z+\\mathrm i)$（$z\\ne\\mathrm i$），在 $\\mathrm i$ 可去，留数 $0=P(\\mathrm i)/Q'(\\mathrm i)$。若 $Q'(a)=0$，不能使用这个分母简单零点公式；此时需比较分子分母的零点阶数，商可能是高阶极点、一阶极点或可去点，不能仅凭分母有重零点断言商为高阶极点。"
+    },
+    {
+      "unit_id": "CH09-S02-SS06",
+      "group": "annotations",
+      "owner_id": "CH09-S02-SS06-PITFALL-BOUNDED",
+      "anchor": "reader-8e279b2f9de92622f1ad",
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-05-TITLE",
+      "json_pointer": "/annotations/0/title",
+      "before": "条件 $t\\to0^+$ 时 $|f(t)/t|$ 有界不能省",
+      "after": "零端有界是充分条件，需核查可积性",
+      "approved_body": "在原函数满足教材所需分段连续、指数增长等条件时，额外要求 $f(t)/t$ 在 $0^+$ 附近有界，是保证公式\n$$\\mathrm L[f(t)/t](p)=\\int_p^{+\\infty}F(s)\\,\\mathrm ds$$\n成立的一组方便充分条件（右侧沿水平射线，取绝对收敛的右半平面）。若 $f$ 在 $0$ 右连续且 $f(0)\\ne0$，则 $f(t)/t$ 类似非零常数除以 $t$，零端通常的积分发散。例如 $f(t)=1$ 时 $F(p)=1/p$，$\\mathrm L[1/t]$ 在零端发散。\n有界并非必要：$f(t)=\\sqrt t$ 时 $f(t)/t=t^{-1/2}$ 无界但局部可积，对 $\\operatorname{Re}p>0$ 仍可变换且公式成立。$f(0)=0$ 也不能单独保证有界或可积，须检查趋零速度。对 $f(t)=e^{bt}-e^{at}$，商在零端趋于 $b-a$，满足这组充分条件。"
+    },
+    {
+      "unit_id": "CH09-S03",
+      "group": "annotations",
+      "owner_id": "ANNO-REPEATED-FACTOR",
+      "anchor": "reader-ee3cb0de7e76e65b3aec",
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-07-TITLE",
+      "json_pointer": "/annotations/1/title",
+      "before": "重因式不能只列一次",
+      "after": "重因式的完整待定系数模板",
+      "approved_body": "若分母含 $(s-a)^m$，完整的待定系数模板应允许 $A_1/(s-a)+\\cdots+A_m/(s-a)^m$，求得的某些系数可以为零。例如\n$$\\frac{s+2}{(s-1)^2}=\\frac A{s-1}+\\frac B{(s-1)^2}$$\n去分母得 $A(s-1)+B=s+2$，故 $A=1,B=3$。如果只写 $A/(s-1)$，通分后的分子是 $A(s-1)=As-A$，并非常数；一次项要求 $A=1$，常数项却要求 $-A=2$，不能同时满足，故该简化模板不足。是否可省某项应由系数确为零决定，不能预先假定。"
+    },
+    {
+      "unit_id": "CH03-S05",
+      "group": "annotations",
+      "owner_id": "EX-MIN-MAXMOD-CONDITION",
+      "anchor": "reader-e20b9be9843090cb6f09",
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-08-TITLE",
+      "json_pointer": "/annotations/7/title",
+      "before": "最大模原理不能直接用于任意区域 D",
+      "after": "强最大模原理与有界域边界推论",
+      "approved_body": "应区分强最大模原理与有界闭域的边界推论。强最大模原理说：在任意连通区域 $D$ 内解析的函数，若模在一个内点取得局部最大值，便在 $D$ 上为常数；它不要求 $D$ 有界。\n教材在有界闭域且函数连续到边界的版本中，可以进一步保证最大值能够取到，并由非常数性将最大值置于边界。应用到 $g=1/f$ 时，先须保证 $f$ 在 $D$ 无零点，故 $g$ 解析。如果已知 $|g|$ 在内点最大，可直接用强最大模原理；若只引用教材的有界版本，就在该点周围取含于 $D$ 的小闭圆，先得到局部常数，再由恒等定理推广到整个 $D$。两种论证结论一致。"
+    }
+  ]
+}

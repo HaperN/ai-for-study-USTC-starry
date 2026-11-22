@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="1900" viewBox="0 0 1120 1900" role="img" aria-labelledby="title description">
+<title id="title">图9.8对应的五种非周期信号</title><desc id="description">按本题文字定义绘制，采用右连续端点。第四问的3E/4和E/4是公开补充条件。</desc>
+<defs><marker id="axis-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#788994"/></marker>
+<marker id="domain-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#126d91"/></marker>
+<marker id="dimension-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1L9 5L0 9" fill="none" stroke="#788994" stroke-width="1.3"/></marker></defs>
+<rect width="1120" height="1900" fill="white"/><g font-family="&#x27;STIX Two Text&#x27;,&#x27;Cambria Math&#x27;,&#x27;Times New Roman&#x27;,&#x27;PingFang SC&#x27;,&#x27;Microsoft YaHei&#x27;,serif" fill="#172d3c">
+<text x="35" y="45" font-size="36" text-anchor="start" fill="#172d3c" font-weight="600">图 9.8 · 五种非周期信号</text>
+<text x="35" y="85" font-size="27" text-anchor="start" fill="#172d3c">T,E&gt;0；t&lt;0 时均为 0。实心点取到，空心点不取；跳点取右侧值。</text>
+<text x="35" y="147" font-size="30" text-anchor="start" fill="#172d3c" font-weight="600">（1）延迟斜坡</text>
+<text x="35" y="492" font-size="30" text-anchor="start" fill="#172d3c" font-weight="600">（2）延迟负阶跃</text>
+<text x="35" y="837" font-size="30" text-anchor="start" fill="#172d3c" font-weight="600">（3）两个不相交矩形脉冲</text>
+<text x="35" y="1182" font-size="30" text-anchor="start" fill="#172d3c" font-weight="600">（4）等高下降阶梯</text>
+<text x="35" y="1527" font-size="30" text-anchor="start" fill="#172d3c" font-weight="600">（5）截断斜坡</text>
+<path d="M135 361.8039 L685 361.8039" fill="none" stroke="#788994" stroke-width="1.7" marker-end="url(#axis-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-1" data-role="axis"/>
+<path d="M168.3333 376 L168.3333 195" fill="none" stroke="#788994" stroke-width="1.7" marker-end="url(#axis-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-1" data-role="axis"/>
+<text x="693" y="369.8039" font-size="25" text-anchor="start" fill="#172d3c">t/T</text>
+<text x="156.3333" y="181" font-size="26" text-anchor="end" fill="#172d3c">f₁/E</text>
+<path d="M168.3333 357.8039 L168.3333 366.8039" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="168.3333" y="407" font-size="25" text-anchor="middle" fill="#172d3c">0</text>
+<path d="M335 357.8039 L335 366.8039" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="335" y="407" font-size="25" text-anchor="middle" fill="#172d3c">1</text>
+<path d="M501.6667 357.8039 L501.6667 366.8039" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="501.6667" y="407" font-size="25" text-anchor="middle" fill="#172d3c">2</text>
+<path d="M668.3333 357.8039 L668.3333 366.8039" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="668.3333" y="407" font-size="25" text-anchor="middle" fill="#172d3c">3</text>
+<path d="M163.3333 290.8235 L172.3333 290.8235" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="155.3333" y="298.8235" font-size="25" text-anchor="end" fill="#172d3c">T/E</text>
+<path d="M163.3333 219.8431 L172.3333 219.8431" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="155.3333" y="227.8431" font-size="25" text-anchor="end" fill="#172d3c">2T/E</text>
+<path d="M135 361.8039 L335 361.8039" fill="none" stroke="#126d91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-1" data-role="signal"/>
+<path d="M335 361.8039 L676.6667 216.2941" fill="none" stroke="#126d91" stroke-width="4" marker-end="url(#domain-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-1" data-role="signal"/>
+<circle cx="335" cy="361.8039" r="5.7" fill="#126d91" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-1" data-role="endpoint" data-x="1" data-y="0" data-closed="true"/>
+<text x="790" y="225" font-size="26" text-anchor="start" fill="#172d3c">令 u=t/T。</text>
+<text x="790" y="262" font-size="26" text-anchor="start" fill="#172d3c">u&lt;1 时为 0；</text>
+<text x="790" y="299" font-size="26" text-anchor="start" fill="#172d3c">u≥1 时</text>
+<text x="790" y="336" font-size="26" text-anchor="start" fill="#172d3c">f₁/E=(T/E)(u−1)。</text>
+<text x="135" y="445" font-size="25" text-anchor="start" fill="#788994">纵刻度保留 T/E；未令 E=T。</text>
+<path d="M135 586.5429 L685 586.5429" fill="none" stroke="#788994" stroke-width="1.7" marker-end="url(#axis-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-2" data-role="axis"/>
+<path d="M178.1373 721 L178.1373 540" fill="none" stroke="#788994" stroke-width="1.7" marker-end="url(#axis-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-2" data-role="axis"/>
+<text x="693" y="594.5429" font-size="25" text-anchor="start" fill="#172d3c">t/T</text>
+<text x="166.1373" y="526" font-size="26" text-anchor="end" fill="#172d3c">f₂/E</text>
+<path d="M178.1373 582.5429 L178.1373 591.5429" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="178.1373" y="752" font-size="25" text-anchor="middle" fill="#172d3c">0</text>
+<path d="M393.8235 582.5429 L393.8235 591.5429" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="393.8235" y="752" font-size="25" text-anchor="middle" fill="#172d3c">1</text>
+<path d="M609.5098 582.5429 L609.5098 591.5429" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="609.5098" y="752" font-size="25" text-anchor="middle" fill="#172d3c">2</text>
+<path d="M173.1373 689.9714 L182.1373 689.9714" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="165.1373" y="697.9714" font-size="25" text-anchor="end" fill="#172d3c">−1</text>
+<path d="M393.8235 586.5429 L393.8235 689.9714" fill="none" stroke="#bac8ce" stroke-width="1.4" stroke-dasharray="5 6" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-2" data-role="guide"/>
+<path d="M135 586.5429 L393.8235 586.5429" fill="none" stroke="#126d91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-2" data-role="signal"/>
+<path d="M393.8235 689.9714 L674.2157 689.9714" fill="none" stroke="#126d91" stroke-width="4" marker-end="url(#domain-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-2" data-role="signal"/>
+<circle cx="393.8235" cy="586.5429" r="5.7" fill="white" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-2" data-role="endpoint" data-x="1" data-y="0" data-closed="false"/>
+<circle cx="393.8235" cy="689.9714" r="5.7" fill="#126d91" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-2" data-role="endpoint" data-x="1" data-y="-1" data-closed="true"/>
+<text x="790" y="570" font-size="26" text-anchor="start" fill="#172d3c">u=t/T</text>
+<text x="790" y="607" font-size="26" text-anchor="start" fill="#172d3c">u&lt;1：f₂/E=0</text>
+<text x="790" y="644" font-size="26" text-anchor="start" fill="#172d3c">u≥1：f₂/E=−1</text>
+<path d="M135 1039.2752 L685 1039.2752" fill="none" stroke="#788994" stroke-width="1.7" marker-end="url(#axis-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-3" data-role="axis"/>
+<path d="M164.8913 1066 L164.8913 885" fill="none" stroke="#788994" stroke-width="1.7" marker-end="url(#axis-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-3" data-role="axis"/>
+<text x="693" y="1047.2752" font-size="25" text-anchor="start" fill="#172d3c">t/T</text>
+<text x="152.8913" y="871" font-size="26" text-anchor="end" fill="#172d3c">f₃/E</text>
+<path d="M164.8913 1035.2752 L164.8913 1044.2752" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="164.8913" y="1097" font-size="25" text-anchor="middle" fill="#172d3c">0</text>
+<path d="M242.6087 1035.2752 L242.6087 1044.2752" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="242.6087" y="1097" font-size="25" text-anchor="middle" fill="#172d3c">a</text>
+<path d="M350.2174 1035.2752 L350.2174 1044.2752" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="350.2174" y="1097" font-size="25" text-anchor="middle" fill="#172d3c">b</text>
+<path d="M463.8043 1035.2752 L463.8043 1044.2752" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="463.8043" y="1097" font-size="25" text-anchor="middle" fill="#172d3c">c</text>
+<path d="M601.3043 1035.2752 L601.3043 1044.2752" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="601.3043" y="1097" font-size="25" text-anchor="middle" fill="#172d3c">d</text>
+<path d="M159.8913 917.7987 L168.8913 917.7987" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="151.8913" y="925.7987" font-size="25" text-anchor="end" fill="#172d3c">1</text>
+<path d="M135 1039.2752 L242.6087 1039.2752" fill="none" stroke="#126d91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-3" data-role="signal"/>
+<path d="M242.6087 917.7987 L350.2174 917.7987" fill="none" stroke="#126d91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-3" data-role="signal"/>
+<path d="M350.2174 1039.2752 L463.8043 1039.2752" fill="none" stroke="#126d91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-3" data-role="signal"/>
+<path d="M463.8043 917.7987 L601.3043 917.7987" fill="none" stroke="#126d91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-3" data-role="signal"/>
+<path d="M601.3043 1039.2752 L679.0217 1039.2752" fill="none" stroke="#126d91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-3" data-role="signal"/>
+<path d="M242.6087 1039.2752 L242.6087 917.7987" fill="none" stroke="#bac8ce" stroke-width="1.4" stroke-dasharray="5 6" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-3" data-role="guide"/>
+<circle cx="242.6087" cy="1039.2752" r="5.7" fill="white" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-3" data-role="endpoint" data-x="0.65" data-y="0" data-closed="false"/>
+<circle cx="242.6087" cy="917.7987" r="5.7" fill="#126d91" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-3" data-role="endpoint" data-x="0.65" data-y="1" data-closed="true"/>
+<path d="M350.2174 1039.2752 L350.2174 917.7987" fill="none" stroke="#bac8ce" stroke-width="1.4" stroke-dasharray="5 6" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-3" data-role="guide"/>
+<circle cx="350.2174" cy="917.7987" r="5.7" fill="white" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-3" data-role="endpoint" data-x="1.55" data-y="1" data-closed="false"/>
+<circle cx="350.2174" cy="1039.2752" r="5.7" fill="#126d91" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-3" data-role="endpoint" data-x="1.55" data-y="0" data-closed="true"/>
+<path d="M463.8043 1039.2752 L463.8043 917.7987" fill="none" stroke="#bac8ce" stroke-width="1.4" stroke-dasharray="5 6" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-3" data-role="guide"/>
+<circle cx="463.8043" cy="1039.2752" r="5.7" fill="white" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-3" data-role="endpoint" data-x="2.5" data-y="0" data-closed="false"/>
+<circle cx="463.8043" cy="917.7987" r="5.7" fill="#126d91" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-3" data-role="endpoint" data-x="2.5" data-y="1" data-closed="true"/>
+<path d="M601.3043 1039.2752 L601.3043 917.7987" fill="none" stroke="#bac8ce" stroke-width="1.4" stroke-dasharray="5 6" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-3" data-role="guide"/>
+<circle cx="601.3043" cy="917.7987" r="5.7" fill="white" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-3" data-role="endpoint" data-x="3.65" data-y="1" data-closed="false"/>
+<circle cx="601.3043" cy="1039.2752" r="5.7" fill="#126d91" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-3" data-role="endpoint" data-x="3.65" data-y="0" data-closed="true"/>
+<text x="790" y="882" font-size="26" text-anchor="start" fill="#172d3c">a=t₁/T</text>
+<text x="790" y="920" font-size="26" text-anchor="start" fill="#172d3c">b=(t₁+τ₁)/T</text>
+<text x="790" y="958" font-size="26" text-anchor="start" fill="#172d3c">c=t₂/T</text>
+<text x="790" y="996" font-size="26" text-anchor="start" fill="#172d3c">d=(t₂+τ₂)/T</text>
+<text x="790" y="1034" font-size="26" text-anchor="start" fill="#172d3c">0≤a&lt;b&lt;c&lt;d</text>
+<text x="135" y="1135" font-size="25" text-anchor="start" fill="#788994">[a,b)、[c,d) 上为 1，其余为 0；横向间距仅示意。</text>
+<path d="M135 1386.0345 L685 1386.0345" fill="none" stroke="#788994" stroke-width="1.7" marker-end="url(#axis-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-4" data-role="axis"/>
+<path d="M163.6458 1411 L163.6458 1230" fill="none" stroke="#788994" stroke-width="1.7" marker-end="url(#axis-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-4" data-role="axis"/>
+<text x="693" y="1394.0345" font-size="25" text-anchor="start" fill="#172d3c">t/T</text>
+<text x="151.6458" y="1216" font-size="26" text-anchor="end" fill="#172d3c">f₄/E</text>
+<path d="M163.6458 1382.0345 L163.6458 1391.0345" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="163.6458" y="1442" font-size="25" text-anchor="middle" fill="#172d3c">0</text>
+<path d="M278.2292 1382.0345 L278.2292 1391.0345" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="278.2292" y="1442" font-size="25" text-anchor="middle" fill="#172d3c">1</text>
+<path d="M392.8125 1382.0345 L392.8125 1391.0345" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="392.8125" y="1442" font-size="25" text-anchor="middle" fill="#172d3c">2</text>
+<path d="M507.3958 1382.0345 L507.3958 1391.0345" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="507.3958" y="1442" font-size="25" text-anchor="middle" fill="#172d3c">3</text>
+<path d="M621.9792 1382.0345 L621.9792 1391.0345" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="621.9792" y="1442" font-size="25" text-anchor="middle" fill="#172d3c">4</text>
+<path d="M158.6458 1261.2069 L167.6458 1261.2069" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="150.6458" y="1269.2069" font-size="25" text-anchor="end" fill="#172d3c">1</text>
+<path d="M158.6458 1292.4138 L167.6458 1292.4138" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="150.6458" y="1300.4138" font-size="25" text-anchor="end" fill="#172d3c">3/4</text>
+<path d="M158.6458 1323.6207 L167.6458 1323.6207" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="150.6458" y="1331.6207" font-size="25" text-anchor="end" fill="#172d3c">1/2</text>
+<path d="M158.6458 1354.8276 L167.6458 1354.8276" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="150.6458" y="1362.8276" font-size="25" text-anchor="end" fill="#172d3c">1/4</text>
+<path d="M135 1386.0345 L163.6458 1386.0345" fill="none" stroke="#126d91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-4" data-role="signal"/>
+<circle cx="163.6458" cy="1386.0345" r="5.7" fill="white" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-4" data-role="endpoint" data-x="0" data-y="0" data-closed="false"/>
+<path d="M163.6458 1261.2069 L278.2292 1261.2069" fill="none" stroke="#126d91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-4" data-role="signal"/>
+<circle cx="163.6458" cy="1261.2069" r="5.7" fill="#126d91" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-4" data-role="endpoint" data-x="0" data-y="1.0" data-closed="true"/>
+<circle cx="278.2292" cy="1261.2069" r="5.7" fill="white" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-4" data-role="endpoint" data-x="1" data-y="1.0" data-closed="false"/>
+<path d="M278.2292 1292.4138 L392.8125 1292.4138" fill="none" stroke="#126d91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-4" data-role="signal"/>
+<circle cx="278.2292" cy="1292.4138" r="5.7" fill="#126d91" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-4" data-role="endpoint" data-x="1" data-y="0.75" data-closed="true"/>
+<circle cx="392.8125" cy="1292.4138" r="5.7" fill="white" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-4" data-role="endpoint" data-x="2" data-y="0.75" data-closed="false"/>
+<path d="M392.8125 1323.6207 L507.3958 1323.6207" fill="none" stroke="#126d91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-4" data-role="signal"/>
+<circle cx="392.8125" cy="1323.6207" r="5.7" fill="#126d91" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-4" data-role="endpoint" data-x="2" data-y="0.5" data-closed="true"/>
+<circle cx="507.3958" cy="1323.6207" r="5.7" fill="white" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-4" data-role="endpoint" data-x="3" data-y="0.5" data-closed="false"/>
+<path d="M507.3958 1354.8276 L621.9792 1354.8276" fill="none" stroke="#126d91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-4" data-role="signal"/>
+<circle cx="507.3958" cy="1354.8276" r="5.7" fill="#126d91" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-4" data-role="endpoint" data-x="3" data-y="0.25" data-closed="true"/>
+<circle cx="621.9792" cy="1354.8276" r="5.7" fill="white" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-4" data-role="endpoint" data-x="4" data-y="0.25" data-closed="false"/>
+<path d="M621.9792 1386.0345 L679.2708 1386.0345" fill="none" stroke="#126d91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-4" data-role="signal"/>
+<circle cx="621.9792" cy="1386.0345" r="5.7" fill="#126d91" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-4" data-role="endpoint" data-x="4" data-y="0" data-closed="true"/>
+<text x="790" y="1247" font-size="26" text-anchor="start" fill="#172d3c">u=t/T，k=0,1,2,3</text>
+<text x="790" y="1284" font-size="26" text-anchor="start" fill="#172d3c">k≤u&lt;k+1：</text>
+<text x="790" y="1321" font-size="26" text-anchor="start" fill="#172d3c">f₄/E=1−k/4</text>
+<text x="790" y="1358" font-size="26" text-anchor="start" fill="#172d3c">u≥4：f₄/E=0</text>
+<text x="135" y="1480" font-size="25" text-anchor="start" fill="#97531a">按本题补充条件绘制；3E/4、E/4 为公开补充值。</text>
+<path d="M135 1731.0345 L685 1731.0345" fill="none" stroke="#788994" stroke-width="1.7" marker-end="url(#axis-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-5" data-role="axis"/>
+<path d="M185 1756 L185 1575" fill="none" stroke="#788994" stroke-width="1.7" marker-end="url(#axis-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-5" data-role="axis"/>
+<text x="693" y="1739.0345" font-size="25" text-anchor="start" fill="#172d3c">t/T</text>
+<text x="173" y="1561" font-size="26" text-anchor="end" fill="#172d3c">f₅/E</text>
+<path d="M185 1727.0345 L185 1736.0345" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="185" y="1787" font-size="25" text-anchor="middle" fill="#172d3c">0</text>
+<path d="M462.7778 1727.0345 L462.7778 1736.0345" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="462.7778" y="1787" font-size="25" text-anchor="middle" fill="#172d3c">1</text>
+<path d="M180 1606.2069 L189 1606.2069" fill="none" stroke="#788994" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="172" y="1614.2069" font-size="25" text-anchor="end" fill="#172d3c">1</text>
+<path d="M135 1731.0345 L185 1731.0345" fill="none" stroke="#126d91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-5" data-role="signal"/>
+<path d="M185 1731.0345 L462.7778 1606.2069" fill="none" stroke="#126d91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-5" data-role="signal"/>
+<path d="M462.7778 1731.0345 L671.1111 1731.0345" fill="none" stroke="#126d91" stroke-width="4" marker-end="url(#domain-arrow)" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-5" data-role="signal"/>
+<circle cx="185" cy="1731.0345" r="5.7" fill="#126d91" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-5" data-role="endpoint" data-x="0" data-y="0" data-closed="true"/>
+<circle cx="462.7778" cy="1606.2069" r="5.7" fill="white" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-5" data-role="endpoint" data-x="1" data-y="1" data-closed="false"/>
+<circle cx="462.7778" cy="1731.0345" r="5.7" fill="#126d91" stroke="#126d91" stroke-width="2.5" data-panel="nonperiodic-5" data-role="endpoint" data-x="1" data-y="0" data-closed="true"/>
+<path d="M185 1606.2069 L462.7778 1606.2069" fill="none" stroke="#bac8ce" stroke-width="1.4" stroke-dasharray="5 6" stroke-linecap="round" stroke-linejoin="round" data-panel="nonperiodic-5" data-role="guide"/>
+<text x="790" y="1605" font-size="26" text-anchor="start" fill="#172d3c">u=t/T</text>
+<text x="790" y="1642" font-size="26" text-anchor="start" fill="#172d3c">0≤u&lt;1：f₅/E=u</text>
+<text x="790" y="1679" font-size="26" text-anchor="start" fill="#172d3c">u≥1：f₅/E=0</text>
+<path d="M35 458 L1085 458" fill="none" stroke="#dbe3e7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M35 803 L1085 803" fill="none" stroke="#dbe3e7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M35 1148 L1085 1148" fill="none" stroke="#dbe3e7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M35 1493 L1085 1493" fill="none" stroke="#dbe3e7" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="35" y="1870" font-size="25" text-anchor="start" fill="#788994">端点约定来自本题文字定义；原图未使用空心／实心端点符号。</text>
+</g><metadata id="figure-data">{&quot;schema&quot;:&quot;source-practice-svg-v1&quot;,&quot;binding&quot;:{&quot;question_id&quot;:&quot;TB-FIG-CH09-Q3&quot;,&quot;base_question_id&quot;:&quot;TB-CH09-Q3&quot;,&quot;figure&quot;:&quot;fig-9-8.svg&quot;,&quot;source_stem_sha256&quot;:&quot;346ae23ee1dd7bb083c052e1cc0f8e11360f1ca6d2740ac8d0f9ef795697b78b&quot;,&quot;catalog_content_sha256&quot;:null,&quot;binding_status&quot;:&quot;candidate_not_in_accepted_catalog&quot;,&quot;independent_figure_review&quot;:&quot;pending&quot;},&quot;source_definition&quot;:{&quot;question_id&quot;:&quot;TB-FIG-CH09-Q3&quot;,&quot;base_question_id&quot;:&quot;TB-CH09-Q3&quot;,&quot;stem&quot;:&quot;设$T,E&gt;0$，所有信号在$t&lt;0$为0。利用单位阶跃函数$h$写出下列非周期信号，并求单边拉普拉斯变换。跳跃点取右侧值；单个端点值不影响变换。\n\n（1）$f_1(t)=0$（$0\\le t&lt;T$），$f_1(t)=t-T$（$t\\ge T$）。\n\n（2）$f_2(t)=0$（$0\\le t&lt;T$），$f_2(t)=-E$（$t\\ge T$）。\n\n（3）设$0\\le t_1&lt;t_1+\\tau_1&lt;t_2&lt;t_2+\\tau_2$，$f_3(t)=E$在$[t_1,t_1+\\tau_1)$与$[t_2,t_2+\\tau_2)$上成立，其余处$f_3(t)=0$。\n\n（4）原图在$[0,T)$、$[T,2T)$、$[2T,3T)$、$[3T,4T)$画四级下降阶梯，此后为0；仅明标第一级$E$与第三级$E/2$。为使题面完全明确，以下采用公开补充的等高阶梯约定：$f_4(t)=E(1-k/4)$（$kT\\le t&lt;(k+1)T,\\ k=0,1,2,3$），$t\\ge4T$时为0。\n\n（5）$f_5(t)=Et/T$（$0\\le t&lt;T$），$f_5(t)=0$（$t\\ge T$）。&quot;,&quot;stem_sha256&quot;:&quot;346ae23ee1dd7bb083c052e1cc0f8e11360f1ca6d2740ac8d0f9ef795697b78b&quot;,&quot;original_figure&quot;:&quot;fig-9-8-verified.png&quot;,&quot;original_figure_sha256&quot;:&quot;eef08d6bb54c84faabf2f44c991e48ae64e61b6d777fc44791cc9f69956702f4&quot;,&quot;source_pdf_page&quot;:223,&quot;source_pdf_sha256&quot;:&quot;2028b7f926b9f65129f35daaaedf9df9aefe8ad5d336e4acd95846f00b7c5c23&quot;,&quot;transcription_note&quot;:&quot;第(4)问必须展示“等高阶梯”补充条件，其余四问为图形定义的文字转录。&quot;},&quot;geometry&quot;:[{&quot;panel&quot;:&quot;nonperiodic-1&quot;,&quot;box&quot;:[135,195,550,181],&quot;xrange&quot;:[-0.2,3.1],&quot;yrange&quot;:[-0.2,2.35],&quot;segments&quot;:[{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[-0.2,0],[1,0]]},{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[1,0],[3.05,2.05]]}],&quot;endpoints&quot;:[{&quot;x&quot;:1,&quot;y&quot;:0,&quot;closed&quot;:true}],&quot;y_unit&quot;:&quot;T/E; drawn y-coordinate v means f1/E=(T/E)*v&quot;},{&quot;panel&quot;:&quot;nonperiodic-2&quot;,&quot;box&quot;:[135,540,550,181],&quot;xrange&quot;:[-0.2,2.35],&quot;yrange&quot;:[-1.3,0.45],&quot;segments&quot;:[{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[-0.2,0],[1,0]]},{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[1,-1],[2.3,-1]]}],&quot;endpoints&quot;:[{&quot;x&quot;:1,&quot;y&quot;:0,&quot;closed&quot;:false},{&quot;x&quot;:1,&quot;y&quot;:-1,&quot;closed&quot;:true}]},{&quot;panel&quot;:&quot;nonperiodic-3&quot;,&quot;box&quot;:[135,885,550,181],&quot;xrange&quot;:[-0.25,4.35],&quot;yrange&quot;:[-0.22,1.27],&quot;segments&quot;:[{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[-0.25,0],[0.65,0]]},{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[0.65,1],[1.55,1]]},{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[1.55,0],[2.5,0]]},{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[2.5,1],[3.65,1]]},{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[3.65,0],[4.3,0]]}],&quot;endpoints&quot;:[{&quot;x&quot;:0.65,&quot;y&quot;:0,&quot;closed&quot;:false},{&quot;x&quot;:0.65,&quot;y&quot;:1,&quot;closed&quot;:true},{&quot;x&quot;:1.55,&quot;y&quot;:1,&quot;closed&quot;:false},{&quot;x&quot;:1.55,&quot;y&quot;:0,&quot;closed&quot;:true},{&quot;x&quot;:2.5,&quot;y&quot;:0,&quot;closed&quot;:false},{&quot;x&quot;:2.5,&quot;y&quot;:1,&quot;closed&quot;:true},{&quot;x&quot;:3.65,&quot;y&quot;:1,&quot;closed&quot;:false},{&quot;x&quot;:3.65,&quot;y&quot;:0,&quot;closed&quot;:true}],&quot;illustrative_positions&quot;:{&quot;a&quot;:0.65,&quot;b&quot;:1.55,&quot;c&quot;:2.5,&quot;d&quot;:3.65,&quot;numeric_spacing_is_not_a_question_condition&quot;:true}},{&quot;panel&quot;:&quot;nonperiodic-4&quot;,&quot;box&quot;:[135,1230,550,181],&quot;xrange&quot;:[-0.25,4.55],&quot;yrange&quot;:[-0.2,1.25],&quot;segments&quot;:[{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[-0.25,0],[0,0]]},{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[0,1.0],[1,1.0]]},{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[1,0.75],[2,0.75]]},{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[2,0.5],[3,0.5]]},{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[3,0.25],[4,0.25]]},{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[4,0],[4.5,0]]}],&quot;endpoints&quot;:[{&quot;x&quot;:0,&quot;y&quot;:0,&quot;closed&quot;:false},{&quot;x&quot;:0,&quot;y&quot;:1.0,&quot;closed&quot;:true},{&quot;x&quot;:1,&quot;y&quot;:1.0,&quot;closed&quot;:false},{&quot;x&quot;:1,&quot;y&quot;:0.75,&quot;closed&quot;:true},{&quot;x&quot;:2,&quot;y&quot;:0.75,&quot;closed&quot;:false},{&quot;x&quot;:2,&quot;y&quot;:0.5,&quot;closed&quot;:true},{&quot;x&quot;:3,&quot;y&quot;:0.5,&quot;closed&quot;:false},{&quot;x&quot;:3,&quot;y&quot;:0.25,&quot;closed&quot;:true},{&quot;x&quot;:4,&quot;y&quot;:0.25,&quot;closed&quot;:false},{&quot;x&quot;:4,&quot;y&quot;:0,&quot;closed&quot;:true}]},{&quot;panel&quot;:&quot;nonperiodic-5&quot;,&quot;box&quot;:[135,1575,550,181],&quot;xrange&quot;:[-0.18,1.8],&quot;yrange&quot;:[-0.2,1.25],&quot;segments&quot;:[{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[-0.18,0],[0,0]]},{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[0,0],[1,1]]},{&quot;role&quot;:&quot;signal&quot;,&quot;points&quot;:[[1,0],[1.75,0]]}],&quot;endpoints&quot;:[{&quot;x&quot;:0,&quot;y&quot;:0,&quot;closed&quot;:true},{&quot;x&quot;:1,&quot;y&quot;:1,&quot;closed&quot;:false},{&quot;x&quot;:1,&quot;y&quot;:0,&quot;closed&quot;:true}]}]}</metadata></svg>

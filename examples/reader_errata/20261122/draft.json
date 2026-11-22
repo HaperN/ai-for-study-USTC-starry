@@ -1,0 +1,96 @@
+{
+  "schema_version": "NativeDisplayErrataDraftV1",
+  "engine": "codex-native-agent",
+  "author": "/root",
+  "changes": [
+    {
+      "unit_id": "CH06-S01",
+      "group": "annotations",
+      "owner_id": "NOTE-MPOLE-WRONG-ORDER",
+      "json_pointer": "/annotations/4/markdown",
+      "anchor": "reader-769046bb82fb098a18a3",
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-01",
+      "before": "(6.2) 中的 $m$ 必须是极点的真实阶数。若 $m$ 取小，结果会算错；取 $m=1$ 时还要求 $(z-a)f(z)$ 在 $z\\to a$ 有有限极限，否则 (6.3) 根本不适用。\n\n例：$f(z)=\\frac1{z^2}$，$z=0$ 是二级极点，$\\operatorname{Res}[f(z),0]=0$；但 $\\lim_{z\\to0}z\\cdot\\frac1{z^2}=\\lim_{z\\to0}\\frac1z$ 不存在，不能用 (6.3)。又如把 $f(z)=\\frac1{z^3(z-1)}$ 在 $z=0$ 处误当成一级极点，同样得不到正确结果。",
+      "after": "设 $a$ 为孤立奇点，取正整数 $m$，只要 $H(z)=(z-a)^m f(z)$ 能在 $a$ 解析延拓，就有\n$$\\operatorname{Res}(f,a)=\\frac{H^{(m-1)}(a)}{(m-1)!}.$$\n这是提取 $H$ 的第 $m-1$ 次 Taylor 系数，等价于提取 $f$ 的负一次 Laurent 系数。$m$ 可以大于真实极点阶数；取真实阶数通常最简。若 $m$ 小于真实极点阶数，$H$ 仍有极点，不能在 $a$ 求上述解析导数。\n例如 $f(z)=1/z^2$，用 $m=2$ 得 $H=1$、$H'(0)=0$；用 $m=3$ 得 $H=z$、$H''(0)/2=0$，两者都正确。用 $m=1$ 时 $H=1/z$ 在 $0$ 无有限极限，公式不适用。本性奇点无法由任何有限次幂消去全部负幂项。",
+      "reason": "逐项知识审核发现条件或量词表述不准确，保留源稿，仅修正显示投影；待独立数学核验。"
+    },
+    {
+      "unit_id": "CH06-S01",
+      "group": "annotations",
+      "owner_id": "NOTE-PQ-CONDITION",
+      "json_pointer": "/annotations/5/markdown",
+      "anchor": "reader-86b607e5253327842d17",
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-02",
+      "before": "(6.4) 有**三个**条件：$P(a)\\neq0$、$Q(a)=0$、$Q'(a)\\neq0$，它们合起来才说明 $a$ 是 $P/Q$ 的一级极点。\n\n$P(a)\\neq0$ 的作用最容易被忽视。极点阶数由分子、分母在 $a$ 处的零点阶数之差决定：若 $P(a)=0$，分子在 $a$ 处也带有一个零点，分子分母可以约分，$a$ 处的极点阶数会降低，甚至 $a$ 不再是奇点而是可去奇点。例如 $P(z)=z-\\mathrm i$、$Q(z)=z^2+1$：在 $a=\\mathrm i$ 处有 $P(\\mathrm i)=0$、$Q(\\mathrm i)=0$、$Q'(\\mathrm i)=2\\mathrm i\\neq0$，但\n$$\\frac{P(z)}{Q(z)}=\\frac{z-\\mathrm i}{(z-\\mathrm i)(z+\\mathrm i)}=\\frac{1}{z+\\mathrm i}$$\n在 $z=\\mathrm i$ 处解析，$\\mathrm i$ 根本不是极点，也就谈不上'一级极点的留数公式'。\n\n若 $Q$ 在 $a$ 处有高阶零点（例如 $Q(z)=(z-a)^2$），则 $Q'(a)=0$，$P/Q$ 的极点阶数大于 $1$，必须改用 (6.2)；这时 $\\frac{P(a)}{Q'(a)}$ 连有意义都谈不上。",
+      "after": "若 $P,Q$ 在 $a$ 邻域解析，$Q(a)=0$ 且 $Q'(a)\\ne0$，则\n$$\\operatorname{Res}(P/Q,a)=\\frac{P(a)}{Q'(a)}.$$\n确实，$Q(z)=(z-a)q(z)$，其中 $q(a)=Q'(a)\\ne0$，$P/q$ 解析；其常数项除以 $z-a$ 正好给出留数。额外的 $P(a)\\ne0$ 保证 $a$ 是真正一阶极点。若 $P(a)=0$，$a$ 可去，但同一恒等式仍给留数 $0$。\n例如 $(z-\\mathrm i)/(z^2+1)=1/(z+\\mathrm i)$（$z\\ne\\mathrm i$），在 $\\mathrm i$ 可去，留数 $0=P(\\mathrm i)/Q'(\\mathrm i)$。若 $Q'(a)=0$，不能使用这个分母简单零点公式；此时需比较分子分母的零点阶数，商可能是高阶极点、一阶极点或可去点，不能仅凭分母有重零点断言商为高阶极点。",
+      "reason": "逐项知识审核发现条件或量词表述不准确，保留源稿，仅修正显示投影；待独立数学核验。"
+    },
+    {
+      "unit_id": "CH07-S02",
+      "group": "annotations",
+      "owner_id": "CAUCHY-TYPE-CONTINUITY-ONLY",
+      "json_pointer": "/annotations/0/markdown",
+      "anchor": "reader-e769241e68ee7c485ac2",
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-03",
+      "before": "证明只依赖两个事实：一是 $z_0\\notin C$ 使 $d=\\operatorname{dist}(z_0,C)>0$，从而在 $C$ 上 $|\\zeta-z|\\geqslant d/2$；二是 $f$ 在 $C$ 上有界，$M<+\\infty$。曲线 $C$ 有界闭且有限长，连续函数在它上面必定有界，所以 $M$ 存在。若放弃连续而只要求 $f$ 在每点有限，$M$ 可能不存在，估计失效。反过来说，$f$ 是否解析完全没有进入证明：不需要加强到“解析”，也不能去掉“连续”这一条。",
+      "after": "固定 $z_0\\notin C$，紧曲线使 $d=\\operatorname{dist}(z_0,C)>0$，在 $z_0$ 的足够小邻域内有 $|\\zeta-z|\\ge d/2$。若 $f$ 在有限长曲线 $C$ 上连续，它便有界且可积；这足以控制积分核及其导数，得到离开曲线的解析性，不要求密度 $f$ 本身解析。\n连续是一组方便的充分条件，并非必要条件。若 $f$ 对弧长可积，即 $\\int_C|f|\\,\\mathrm ds<\\infty$，同样可用 $|f|$ 与正距离给出可积控制，交换积分与求导。只要求每点有限则不能保证可积或存在统一控制，不能无条件删去假设；但不能由此推断“不连续就一定不能定义柯西型积分”。",
+      "reason": "逐项知识审核发现条件或量词表述不准确，保留源稿，仅修正显示投影；待独立数学核验。"
+    },
+    {
+      "unit_id": "CH07-S02",
+      "group": "annotations",
+      "owner_id": "PITFALL-RECUR",
+      "json_pointer": "/annotations/3/markdown",
+      "anchor": "reader-e25558c75a3481ebdd65",
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-04",
+      "before": "关系 $\\Gamma(z+1)=z\\Gamma(z)$ 的适用范围是 $\\operatorname{Re}z>0$；而 $\\Gamma(z)=\\Gamma(z+1)/z$ 在 $\\operatorname{Re}z>-1$（除 $z=0$）内给出的是 $\\Gamma$ 的一步解析开拓。不要把后者当作 $\\operatorname{Re}z>0$ 内的同一句恒等式来用，也不要代入 $z=0$ 去算 $\\Gamma(0)$：那里分子为 $\\Gamma(1)=1$、分母为 $0$，$z=0$ 是一级极点，不是函数取值点。",
+      "after": "积分定义首先在 $\\operatorname{Re}z>0$ 推出 $\\Gamma(z+1)=z\\Gamma(z)$。利用\n$$\\Gamma(z)=\\frac{\\Gamma(z+1)}z$$\n可把函数开拓到 $\\operatorname{Re}z>-1$ 且 $z\\ne0$，再反复开拓到更左侧。开拓后的递推关系在两边有限的点仍成立，也可在全平面理解为亚纯函数恒等式；它并不限于原来的右半平面。\n不能把 $z=0$ 当作 $\\Gamma$ 的普通取值点：$\\Gamma(z+1)\\to\\Gamma(1)=1$，所以 $\\Gamma(z)\\sim1/z$，$0$ 是一阶极点。亚纯恒等式中的 $z\\Gamma(z)$ 在 $0$ 有可去延拓值 $1$，这与 $\\Gamma(0)$ 不存在有限值并不矛盾。",
+      "reason": "逐项知识审核发现条件或量词表述不准确，保留源稿，仅修正显示投影；待独立数学核验。"
+    },
+    {
+      "unit_id": "CH09-S02-SS06",
+      "group": "annotations",
+      "owner_id": "CH09-S02-SS06-PITFALL-BOUNDED",
+      "json_pointer": "/annotations/0/markdown",
+      "anchor": "reader-8e279b2f9de92622f1ad",
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-05",
+      "before": "若 $f(0)\\ne0$，则 $f(t)/t$ 在 $t\\to0^+$ 附近像 $f(0)/t$ 一样发散，(9.7) 不成立。最简单的反例是 $f(t)=1$：此时 $F(p)=1/p$，但 $\\mathrm{L}[1/t]$ 不存在，$\\int_0^{+\\infty}\\frac{1}{t}\\mathrm{e}^{-pt}\\,\\mathrm{d}t$ 在 $0$ 附近发散。所以用 (9.7) 以前要检查这个条件；例如 $f(t)=\\mathrm{e}^{bt}-\\mathrm{e}^{at}$ 满足它，因为 $f(0)=0$ 且 $\\frac{\\mathrm{e}^{bt}-\\mathrm{e}^{at}}{t}\\to b-a$。",
+      "after": "在原函数满足教材所需分段连续、指数增长等条件时，额外要求 $f(t)/t$ 在 $0^+$ 附近有界，是保证公式\n$$\\mathrm L[f(t)/t](p)=\\int_p^{+\\infty}F(s)\\,\\mathrm ds$$\n成立的一组方便充分条件（右侧沿水平射线，取绝对收敛的右半平面）。若 $f$ 在 $0$ 右连续且 $f(0)\\ne0$，则 $f(t)/t$ 类似非零常数除以 $t$，零端通常的积分发散。例如 $f(t)=1$ 时 $F(p)=1/p$，$\\mathrm L[1/t]$ 在零端发散。\n有界并非必要：$f(t)=\\sqrt t$ 时 $f(t)/t=t^{-1/2}$ 无界但局部可积，对 $\\operatorname{Re}p>0$ 仍可变换且公式成立。$f(0)=0$ 也不能单独保证有界或可积，须检查趋零速度。对 $f(t)=e^{bt}-e^{at}$，商在零端趋于 $b-a$，满足这组充分条件。",
+      "reason": "逐项知识审核发现条件或量词表述不准确，保留源稿，仅修正显示投影；待独立数学核验。"
+    },
+    {
+      "unit_id": "CH09-S02-SS10",
+      "group": "annotations",
+      "owner_id": "NOTE-CONV-GROWTH-EPS",
+      "json_pointer": "/annotations/2/markdown",
+      "anchor": "reader-7869eaa20398350ead7b",
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-06",
+      "before": "估计得到的是 $|(f_1*f_2)(t)|\\le M_1\\mathrm{e}^{(c+\\varepsilon)t}$，其中 $\\varepsilon>0$ 可以任意小。对任意固定的 $p$ 满足 $\\operatorname{Re}p>c$，只要取 $\\varepsilon<\\operatorname{Re}p-c$，就有 $\\operatorname{Re}p>c+\\varepsilon$，于是拉氏积分绝对收敛。因此交集为 $\\operatorname{Re}p>c$，而不是只得到 $\\operatorname{Re}p>c+\\varepsilon$。",
+      "after": "由 $|(f_1*f_2)(t)|\\le M_\\varepsilon e^{(c+\\varepsilon)t}$（每个 $\\varepsilon>0$ 均有相应常数）可知拉氏积分在 $\\operatorname{Re}p>c+\\varepsilon$ 绝对收敛。给定任意满足 $\\operatorname{Re}p>c$ 的点，选择 $0<\\varepsilon<\\operatorname{Re}p-c$ 即可。因此这些可用半平面的并集是\n$$\\bigcup_{\\varepsilon>0}\\{p:\\operatorname{Re}p>c+\\varepsilon\\}=\\{p:\\operatorname{Re}p>c\\}.$$\n这里逐点选择 $\\varepsilon$，不是要求一个点对所有 $\\varepsilon$ 同时满足不等式；不能把并集写成交集。该估计也不自动给出边界 $\\operatorname{Re}p=c$ 上的收敛。",
+      "reason": "逐项知识审核发现条件或量词表述不准确，保留源稿，仅修正显示投影；待独立数学核验。"
+    },
+    {
+      "unit_id": "CH09-S03",
+      "group": "annotations",
+      "owner_id": "ANNO-REPEATED-FACTOR",
+      "json_pointer": "/annotations/1/markdown",
+      "anchor": "reader-ee3cb0de7e76e65b3aec",
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-07",
+      "before": "若 $F(s)$ 的分母含 $(s-a)^m$（$m\\ge2$），部分分式必须把 $\\dfrac{1}{s-a},\\dfrac{1}{(s-a)^2},\\dots,\\dfrac{1}{(s-a)^m}$ 各次幂全部列出。例如 $\\dfrac{s+2}{(s-1)^2}=\\dfrac{A}{s-1}+\\dfrac{B}{(s-1)^2}$，去分母得 $A(s-1)+B=s+2$，解得 $A=1,B=3$；若只写 $\\dfrac{A}{s-1}$ 一项，右边通分后分子是常数，无论如何取 $A$ 都不能等于 $s+2$，分解式必定错误。",
+      "after": "若分母含 $(s-a)^m$，完整的待定系数模板应允许 $A_1/(s-a)+\\cdots+A_m/(s-a)^m$，求得的某些系数可以为零。例如\n$$\\frac{s+2}{(s-1)^2}=\\frac A{s-1}+\\frac B{(s-1)^2}$$\n去分母得 $A(s-1)+B=s+2$，故 $A=1,B=3$。如果只写 $A/(s-1)$，通分后的分子是 $A(s-1)=As-A$，并非常数；一次项要求 $A=1$，常数项却要求 $-A=2$，不能同时满足，故该简化模板不足。是否可省某项应由系数确为零决定，不能预先假定。",
+      "reason": "逐项知识审核发现条件或量词表述不准确，保留源稿，仅修正显示投影；待独立数学核验。"
+    },
+    {
+      "unit_id": "CH03-S05",
+      "group": "annotations",
+      "owner_id": "EX-MIN-MAXMOD-CONDITION",
+      "json_pointer": "/annotations/7/markdown",
+      "anchor": "reader-e20b9be9843090cb6f09",
+      "id": "SUPPORT-KNOWLEDGE-CONDITIONS-20261122-08",
+      "before": "本节最大模原理的条件是：$g$ 在有界域内解析、在有界闭域上连续且不恒为常数。题目中的区域 $D$ 未必有界，$g=1/f$ 也未必在 $D$ 的闭包上连续，所以不能由“$|g|$ 在 $z_0$ 达到 $D$ 内最大值”直接说 $g$ 在 $D$ 内为常数。正确做法是在 $z_0$ 处取一个含于 $D$ 的小闭圆 $|z-z_0|\\leqslant r$，在这个有界闭圆上用最大模原理得到 $g$ 在圆内为常数；再利用 $D$ 连通且 $g$ 解析，把局部常数传播到整个 $D$。",
+      "after": "应区分强最大模原理与有界闭域的边界推论。强最大模原理说：在任意连通区域 $D$ 内解析的函数，若模在一个内点取得局部最大值，便在 $D$ 上为常数；它不要求 $D$ 有界。\n教材在有界闭域且函数连续到边界的版本中，可以进一步保证最大值能够取到，并由非常数性将最大值置于边界。应用到 $g=1/f$ 时，先须保证 $f$ 在 $D$ 无零点，故 $g$ 解析。如果已知 $|g|$ 在内点最大，可直接用强最大模原理；若只引用教材的有界版本，就在该点周围取含于 $D$ 的小闭圆，先得到局部常数，再由恒等定理推广到整个 $D$。两种论证结论一致。",
+      "reason": "逐项知识审核发现条件或量词表述不准确，保留源稿，仅修正显示投影；待独立数学核验。"
+    }
+  ],
+  "request_sha256": "8e263e3f9878be6405ce70e406ea4b4da98775d3b5e3ab16df0e52eee58dfed3"
+}

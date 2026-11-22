@@ -26,6 +26,15 @@ def validate_catalog(questions):
         for field in ('title','stem','answer','solution','topic','unit_id'):
             if not isinstance(q.get(field),str) or not q[field].strip():
                 raise ValueError(ident+': missing '+field)
+        visible=[q.get(key,'') for key in ('title','stem','answer','solution','topic','priority_reason')]
+        visible.extend(q.get('methods',[]));visible.extend(q.get('pitfalls',[]))
+        if any(isinstance(text,str) and re.search(r'[\x00-\x08\x0b\x0c\x0e-\x1f]',text) for text in visible):
+            raise ValueError(ident+': control character in published mathematics')
+        for text in visible:
+            if not isinstance(text,str):continue
+            math_spans=re.findall(r'(?s)(?<!\\)\${1,2}.*?(?<!\\)\${1,2}|\\\(.*?\\\)|\\\[.*?\\\]',text)
+            if any(re.search(r'\t(?:heta|au|imes|ext(?:bf|it)?|anh?|ilde)\b|\r(?:ho|ight|angle|ceil|floor)\b',span) for span in math_spans):
+                raise ValueError(ident+': escaped TeX command became a control character')
         if q.get('priority') not in PRIORITIES or not q.get('priority_reason'):
             raise ValueError(ident+': priority requires a supported evidence reason')
         if type(q.get('difficulty')) is not int or not 1 <= q['difficulty'] <= 5:
