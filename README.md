@@ -1,5 +1,7 @@
 # starry 星空
 
+**公开学习资料入口：[任何人可查看和下载](https://github.com/HaperN/ai-for-study-USTC-starry-downloads)。本仓库保存核心源码，保持私有；对外分享请使用公开资料入口。**
+
 **把教材和课堂，整理成可以阅读、观看、练习和讨论的学习材料。**
 
 starry 是一个面向课程学习的 AI 辅助项目。它把教材讲解、原文对照、交互图像、有声动画、习题和笔记放在同一个学习环境里，并提供教学视频解析与内容制作工作台。
@@ -11,12 +13,12 @@ starry 是一个面向课程学习的 AI 辅助项目。它把教材讲解、原
 
 ## 直接开始学习
 
-1. [下载复变函数完整阅读包](https://github.com/HaperN/ai-for-study-USTC-starry/releases/download/v0.2.0-preview.1/starry-complex-analysis-20261122.zip)。
+1. [下载复变函数完整阅读包](https://github.com/HaperN/ai-for-study-USTC-starry-downloads/releases/download/v0.2.0-preview.1/starry-complex-analysis-20261122.zip)。
 2. 完整解压，保留文件夹内部结构。
 3. 双击 **点这里开始阅读.html**，进入教材与练习。
 4. 需要查功能和操作时，阅读包内 `先读我.txt` 或 [同学使用指南](docs/student-guide.md)。
 
-[单独下载全部试卷与解析](https://github.com/HaperN/ai-for-study-USTC-starry/releases/download/v0.2.0-preview.1/starry-exam-papers-20261122.zip)。首页提供“教材解析”“日常巩固”“押题”三个入口；动画在 HTML 中播放，PDF 为静态打印版。
+[单独下载全部试卷与解析](https://github.com/HaperN/ai-for-study-USTC-starry-downloads/releases/download/v0.2.0-preview.1/starry-exam-papers-20261122.zip)。首页提供“教材解析”“日常巩固”“押题”三个入口；动画在 HTML 中播放，PDF 为静态打印版。
 
 阅读包包含本地页面、公式字体、图片、动画、配音和 PDF。已有材料可离线阅读。私人笔记保存在当前浏览器中，换电脑前请先导出备份。**共享评论需要维护者启动服务，双击离线 HTML 不会连接公共讨论。**
 
@@ -81,7 +83,7 @@ python3.12 -m venv .venv
 | `docs/` | 使用指南、模块说明、版本限制与验证范围 |
 | `THIRD_PARTY_NOTICES/` | 第三方库及字体的许可声明 |
 
-完整复变函数成品在 [Releases](https://github.com/HaperN/ai-for-study-USTC-starry/releases) 下载。开发期间的数据库、调用记录、私人批注和历史工作区不属于公开仓库。回归测试保留已匿名化的语义样例。
+完整复变函数成品在 [公开资料 Releases](https://github.com/HaperN/ai-for-study-USTC-starry-downloads/releases) 下载。开发期间的数据库、调用记录、私人批注和历史工作区不属于公开仓库。回归测试保留已匿名化的语义样例。
 
 ## 当前边界
 
