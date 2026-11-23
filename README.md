@@ -1,6 +1,6 @@
 # starry 星空
 
-**公开学习资料入口：[任何人可查看和下载](https://github.com/HaperN/ai-for-study-USTC-starry-downloads)。本仓库保存核心源码，保持私有；对外分享请使用公开资料入口。**
+**源码与学习资料现均公开。可在本仓库直接查阅源码，或从[学习资料入口](https://github.com/HaperN/ai-for-study-USTC-starry-downloads)下载成品。各项目现有许可证继续适用。**
 
 **把教材和课堂，整理成可以阅读、观看、练习和讨论的学习材料。**
 
